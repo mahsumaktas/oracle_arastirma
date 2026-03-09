@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Oracle Gece Araştırma v2 — tüm raporlar">
+<title>Oracle Araştırma Raporları</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#ffffff;--fg:#111111;--link:#0066cc;
+  --border:#dee2e6;--accent:#2563eb;--card:#f8f9fa;
+}
+@media(prefers-color-scheme:dark){
+  :root{--bg:#0d1117;--fg:#e6edf3;--link:#58a6ff;--border:#30363d;--accent:#58a6ff;--card:#161b22}
+}
+body{background:var(--bg);color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.6}
+.wrap{max-width:720px;margin:0 auto;padding:0 16px 60px}
+header{background:var(--accent);color:#fff;padding:20px 16px;border-radius:0 0 8px 8px;margin-bottom:32px}
+header h1{font-size:clamp(1.2rem,4vw,1.6rem);font-weight:700}
+header p{font-size:.9rem;opacity:.85;margin-top:6px}
+h2{font-size:1.1rem;margin:0 0 16px;border-bottom:2px solid var(--border);padding-bottom:8px}
+.report-list{list-style:none}
+.report-list li{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:8px;margin-bottom:10px;
+}
+.report-list a{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 18px;text-decoration:none;color:var(--fg);
+}
+.report-list a:hover{border-color:var(--accent)}
+.report-list .date{font-weight:600;font-size:1rem;color:var(--link)}
+.report-list .arrow{opacity:.4;font-size:1.2rem}
+.empty{padding:40px 0;text-align:center;opacity:.5}
+footer{margin-top:32px;font-size:.8rem;opacity:.5;text-align:center}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>🔭 Oracle Gece Araştırma</h1>
+    <p>Nightly Research v2 &mdash; Her gece yeni gelişmeler</p>
+  </div>
+</header>
+<div class="wrap">
+  <h2>📋 Raporlar</h2>
+  <ul class="report-list"><li class="report-item"><a href="reports/2026-03-09.html"><span class="date">2026-03-09</span><span class="arrow">→</span></a></li></ul>
+  <footer>Oracle 🦉 &middot; Gece Araştırma v2 &middot; 2026-03-09 00:37 UTC</footer>
+</div>
+</body>
+</html>
