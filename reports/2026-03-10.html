@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Yenilik Onceligi">
+<title>Oracle Araştırma — 2026-03-10</title>
+<style>
+/* ── Reset & base ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#ffffff;--fg:#111111;--link:#0066cc;--link-hover:#004499;
+  --border:#dee2e6;--code-bg:#f4f4f4;--blockquote-bg:#f8f9fa;
+  --table-head:#f0f0f0;--table-stripe:#fafafa;
+  --accent:#2563eb;--warn:#f59e0b;--ok:#16a34a;--danger:#dc2626;
+  --font-sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --font-mono:"SFMono-Regular",Menlo,Monaco,Consolas,"Liberation Mono",monospace;
+  --radius:8px;
+}
+@media(prefers-color-scheme:dark){
+  :root{
+    --bg:#0d1117;--fg:#e6edf3;--link:#58a6ff;--link-hover:#79b8ff;
+    --border:#30363d;--code-bg:#161b22;--blockquote-bg:#161b22;
+    --table-head:#161b22;--table-stripe:#161b22;
+    --accent:#58a6ff;
+  }
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--fg);
+  font-family:var(--font-sans);font-size:16px;line-height:1.7;
+  -webkit-text-size-adjust:100%;
+}
+
+/* ── Layout ── */
+.page-wrap{max-width:860px;margin:0 auto;padding:0 16px 80px}
+header{
+  background:var(--accent);color:#fff;
+  padding:18px 16px 14px;
+  border-radius:0 0 var(--radius) var(--radius);
+  margin-bottom:28px;
+}
+header h1{font-size:clamp(1.1rem,4vw,1.5rem);font-weight:700;line-height:1.3}
+header .meta{font-size:.85rem;opacity:.85;margin-top:6px}
+header .meta a{color:#cfe2ff;text-decoration:none}
+header .meta a:hover{text-decoration:underline}
+
+nav.breadcrumb{font-size:.85rem;margin-bottom:20px;color:var(--link)}
+nav.breadcrumb a{color:var(--link);text-decoration:none}
+nav.breadcrumb a:hover{text-decoration:underline}
+nav.breadcrumb span{color:var(--fg);opacity:.6;margin:0 6px}
+
+/* ── Markdown content ── */
+#content h1{font-size:clamp(1.3rem,5vw,1.8rem);margin:32px 0 12px;line-height:1.3}
+#content h2{font-size:clamp(1.1rem,4vw,1.4rem);margin:28px 0 10px;border-bottom:2px solid var(--border);padding-bottom:6px}
+#content h3{font-size:clamp(1rem,3.5vw,1.2rem);margin:22px 0 8px}
+#content p{margin:10px 0}
+#content a{color:var(--link);word-break:break-word}
+#content a:hover{color:var(--link-hover)}
+#content strong{font-weight:700}
+#content em{font-style:italic}
+#content hr{border:none;border-top:2px solid var(--border);margin:28px 0}
+
+/* ── Lists ── */
+#content ul,#content ol{margin:10px 0 10px 1.4em}
+#content li{margin:4px 0}
+
+/* ── Blockquotes ── */
+#content blockquote{
+  background:var(--blockquote-bg);
+  border-left:4px solid var(--accent);
+  margin:14px 0;padding:10px 16px;
+  border-radius:0 var(--radius) var(--radius) 0;
+}
+#content blockquote p{margin:4px 0}
+
+/* ── Code ── */
+#content code{
+  background:var(--code-bg);color:var(--fg);
+  border-radius:4px;padding:2px 6px;
+  font-family:var(--font-mono);font-size:.88em;
+  word-break:break-all;
+}
+#content pre{
+  background:var(--code-bg);border-radius:var(--radius);
+  padding:14px 16px;overflow-x:auto;margin:14px 0;
+}
+#content pre code{
+  background:none;padding:0;border-radius:0;
+  font-size:.85em;word-break:normal;
+}
+
+/* ── Tables — responsive wrap ── */
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0}
+#content table{
+  border-collapse:collapse;width:100%;min-width:340px;
+  font-size:.9em;
+}
+#content th{
+  background:var(--table-head);
+  text-align:left;padding:8px 12px;
+  border:1px solid var(--border);font-weight:600;
+}
+#content td{
+  padding:7px 12px;border:1px solid var(--border);
+  vertical-align:top;word-break:break-word;
+}
+#content tr:nth-child(even) td{background:var(--table-stripe)}
+
+/* ── Emoji badges in text ── */
+.badge{
+  display:inline-block;padding:1px 7px;border-radius:99px;
+  font-size:.78rem;font-weight:600;line-height:1.6;
+}
+
+/* ── Back to top ── */
+#back-top{
+  position:fixed;bottom:20px;right:16px;
+  background:var(--accent);color:#fff;
+  border:none;border-radius:50%;width:44px;height:44px;
+  font-size:1.3rem;cursor:pointer;
+  box-shadow:0 2px 8px rgba(0,0,0,.3);
+  display:flex;align-items:center;justify-content:center;
+  text-decoration:none;
+}
+#back-top:hover{opacity:.85}
+
+/* ── Loading state ── */
+#loading{text-align:center;padding:60px 0;color:var(--fg);opacity:.5;font-size:1.1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="page-wrap">
+    <h1>🔬 🔬 Gece Arastirma — 2026-03-10 (Sali 01:26 IST)</h1>
+    <div class="meta">
+      Oracle Gece Araştırma &middot; 2026-03-10 &middot;
+      <a href="https://mahsumaktas.github.io/oracle_arastirma/index.html">← Tüm Raporlar</a>
+    </div>
+  </div>
+</header>
+
+<div class="page-wrap">
+  <nav class="breadcrumb">
+    <a href="https://mahsumaktas.github.io/oracle_arastirma/index.html">Oracle Araştırma</a>
+    <span>/</span>
+    2026-03-10
+  </nav>
+
+  <div id="loading">Rapor yükleniyor…</div>
+  <div id="content" style="display:none"></div>
+</div>
+
+<a href="#" id="back-top" title="Yukarı" aria-label="Yukarı git">↑</a>
+
+<!-- marked.js — lightweight CDN markdown parser (no server needed) -->
+<script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
+<script>
+(function(){
+  // ── Raw markdown (HTML-escaped by publisher, decoded here) ──
+  var RAW = "# \ud83d\udd2c Gece Arastirma \u2014 2026-03-10 (Sali 01:26 IST)\n\n> **Yenilik Onceligi** \u00b7 9/9 kategori \u00b7 28+ kaynak aktif \u00b7 Dedupe: 5 madde elendi (GPT-5.4 release, Claude App Store #1, Gemini 3 Deep Think, OpenAI $110B funding, Cursor valuation \u2014 hepsi onceki raporlarda yer aldi)\n\n---\n\n## \ud83d\udd25 Top 7 \u2014 Sadece GERCEKTEN YENI (Son 72 Saat Delta)\n\n| # | Madde | Kategori | Kaynak | Onem |\n|---|-------|----------|--------|------|\n| 1 | **Anthropic Pentagon'u Dava Etti** \u2014 2 federal dava acti. \"Supply chain risk\" etiketi anayasaya aykiri, misilleme iddiasi. Otonom silah ve kitlesel gozetime red \u2192 Pentagon Anthropic'i \"ulusal guvenlik riski\" ilan etti. Yuz milyonlarca dolar kayip riski. [\ud83d\udd17 cnbc.com](https://www.cnbc.com/2026/03/09/anthropic-trump-claude-ai-supply-chain-risk.html) | KAT-1 | CNBC/WaPo/NPR | \ud83d\udd34 |\n| 2 | **Karpathy autoresearch \u2014 Tek GPU Otonom ML Deney Agenti** \u2014 630 satir Python, 5 dk'lik deney donguleri, gece boyunca ~100 deney. 8.7K GitHub star, Shopify CEO'su %19 val iyilestirme raporladi. [\ud83d\udd17 github.com/karpathy/autoresearch](https://github.com/karpathy/autoresearch) | KAT-4/KAT-9 | GitHub/MarkTechPost | \ud83d\udd34 |\n| 3 | **OpenAI Codex Security \u2014 Guvenlik Agenti Research Preview** \u2014 1.2M commit taradi, 792 kritik + 10,561 yuksek ciddiyet bulgu. False positive %50+ dustu. Enterprise/Business/Edu'ya acildi, ilk ay ucretsiz. [\ud83d\udd17 openai.com](https://openai.com/index/codex-security-now-in-research-preview/) | KAT-1/KAT-9 | Bloomberg/OpenAI | \ud83d\udd34 |\n| 4 | **ChatGPT for Excel Beta + Finansal Veri** \u2014 Excel eklentisi GPT-5.4 ile, FactSet/Bloomberg/S&P Global/Dow Jones entegrasyonu. IB benchmark: %43.7 \u2192 %87.3. [\ud83d\udd17 openai.com](https://openai.com/index/chatgpt-for-excel/) | KAT-7/KAT-1 | VentureBeat/OpenAI | \ud83d\udd34 |\n| 5 | **Microsoft Phi-4-reasoning-vision-15B** \u2014 15B param, open-weight, multimodal reasoning. `<think>/<nothink>` toggle ile akilli derin dusunme. 200B token egitim, SigLIP-2 vision encoder. Matematik/bilim/GUI anlama. [\ud83d\udd17 huggingface.co](https://huggingface.co/microsoft/Phi-4-reasoning-vision-15B) | KAT-3/KAT-1 | Microsoft Research | \ud83d\udfe1 |\n| 6 | **ChatGPT Skills Beta \u2014 Enterprise Workflow Otomasyonu** \u2014 Tekrarlanabilir is akislarini \"skill\" olarak tanimla, workspace'te paylas, otomatik calistir. Admin RBAC kontrolleri. [\ud83d\udd17 help.openai.com](https://help.openai.com/en/articles/10128477-chatgpt-enterprise-edu-release-notes) | KAT-1/KAT-2 | OpenAI | \ud83d\udfe1 |\n| 7 | **Google Intrinsic'i Absorbe Etti \u2014 \"Robotik icin Android\"** \u2014 Alphabet'in 5 yillik moonshot robotik subsidiary'si Google'a katildi. DeepMind + Intrinsic + Google Cloud = dikey entegre uretim AI stack'i. Pichai Android benzetmesi yapti. [\ud83d\udd17 techcrunch.com](https://techcrunch.com/2026/02/25/alphabet-owned-robotics-software-company-intrinsic-joins-google/) | KAT-8 | TechCrunch/CNBC | \ud83d\udfe1 |\n\n**Dedupe notu:** Elenen maddeler: GPT-5.4 release (7-8-9 Mart), Claude App Store #1 (3 Mart), Gemini 3 Deep Think (12 Subat), OpenAI $110B funding (27 Subat), Cursor $29.3B valuation (7 Mart). Hepsi onceki raporlarda yer aldi.\n\n---\n\n## \ud83e\udd16 KAT-1 \u00b7 AI Laboratuvarlari & Model Haberleri\n\n- **Anthropic Pentagon'u Dava Etti (9 Mart)** \u2014 Dario Amodei'nin \"otonom silah ve kitlesel gozetimde Claude kullanilmasin\" kirmizi cizgisi \u2192 Pentagon \"supply chain risk\" etiketi \u2192 Anthropic 2 federal dava (Kaliforniya + D.C.). Bu etiket normalde yabanci dusman ulkelere verilir. [\ud83d\udd17 cnbc.com](https://www.cnbc.com/2026/03/09/anthropic-trump-claude-ai-supply-chain-risk.html) | [\ud83d\udd17 washingtonpost.com](https://www.washingtonpost.com/technology/2026/03/09/anthropic-lawsuit-pentagon/)\n\n- **OpenAI Codex Security (6 Mart)** \u2014 Aardvark'in evrimi. Application security agent olarak research preview'da. 1.2M commit, 792 kritik bulgu, FP %50+ azalma. Enterprise/Business/Edu ilk ay ucretsiz. [\ud83d\udd17 openai.com](https://openai.com/index/codex-security-now-in-research-preview/) | [\ud83d\udd17 thehackernews.com](https://thehackernews.com/2026/03/openai-codex-security-scanned-12.html)\n\n- **ChatGPT Skills Beta** \u2014 Enterprise/Business/Edu icin workflow'lari \"skill\" olarak paketleme. Admin RBAC, otomatik tetikleme, workspace paylasimi. [\ud83d\udd17 help.openai.com](https://help.openai.com/en/articles/10128477-chatgpt-enterprise-edu-release-notes)\n\n- **Claude Code Guncellemeleri** \u2014 VS Code'da spark icon (session listesi), 10 yeni dil icin Voice STT (Turkce dahil!), numerik keypad support. [\ud83d\udd17 releasebot.io](https://releasebot.io/updates/anthropic/claude-code)\n\n- **DeepSeek V4 Hala Bekleniyor** \u2014 1T param MoE, ~32B aktif, native multimodal, 1M context. Huawei Ascend + Cambricon optimize (Nvidia/AMD haric). Henuz resmi lansman yok. [\ud83d\udd17 technode.com](https://technode.com/2026/03/02/deepseek-plans-v4-multimodal-model-release-this-week-sources-say/)\n\n---\n\n## \ud83d\udd78\ufe0f KAT-2 \u00b7 Agent & Framework\n\n- **ISEAI Cloud Service (Mart 2026)** \u2014 AI Storm, OpenClaw agent'larini bulutta calistirmak icin ISEAI platformunu baslatti. Lokal kurulum gerektirmeden agent deploy. [\ud83d\udd17 itbusinesstoday.com](https://itbusinesstoday.com/tech/ai/ai-storm-launches-iseai-for-cloud-openclaw-ai-agents/)\n\n- **MCP Roadmap Guncellendi (5 Mart)** \u2014 Enterprise scaling: stateless operation, yatay olcekleme, session migration. SEP-1302 Working Groups, SEP-2085 governance. MCP Apps canli: tool'lar interaktif UI dondurme destegi. [\ud83d\udd17 modelcontextprotocol.io](https://modelcontextprotocol.io/development/roadmap)\n\n- **Microsoft Agent Framework** \u2014 AutoGen + Semantic Kernel birlesti. 1.0 GA Q1 2026 hedefi. AutoGen maintenance mode'da, yeni ozellik gelmeyecek. [\ud83d\udd17 github.com/microsoft/agent-framework](https://github.com/microsoft/agent-framework/releases)\n\n- **ChatGPT Skills = Agent Workflow** \u2014 OpenAI'nin Skills beta'si aslinda bir agent framework: trigger kosullari, adim dizisi, cikti formati tanimli workflow'lar. GPTs'in evrimi. [\ud83d\udd17 openai.com](https://openai.com/index/introducing-gpt-5-4/)\n\n---\n\n## \ud83d\udcc4 KAT-3 \u00b7 Makaleler & Arastirma\n\n| arXiv/Kaynak | Baslik | Neden Onemli | Kaynak |\n|---|---|---|---|\n| Microsoft Research | **Phi-4-reasoning-vision-15B** | 15B param open-weight multimodal, `<think>/<nothink>` toggle. 200B token ile frontier yakin performans. Matematik/bilim/GUI. | [\ud83d\udd17 huggingface.co](https://huggingface.co/microsoft/Phi-4-reasoning-vision-15B) |\n| arXiv (Mart 2026) | **Speculative Speculative Decoding (SSD)** | LLM inference'da draft+verify paralellestirme. Optimize spec-decode uzerine 2x, standart autoregressive uzerine 5x hizlanma. | [\ud83d\udd17 arxiv.org/list/cs.AI](https://arxiv.org/list/cs.AI/current) |\n| 30 Uzman Kolaborasyonu | **AI-Hardware Co-Design 10 Yillik Yol Haritasi** | 1000x egitim/inference verimlilik iyilestirme hedefli hardware-software beraber tasarim vizyonu. | [\ud83d\udd17 arxiv.org](https://arxiv.org/list/cs.AI/current) |\n| arXiv | **SWE-CI Benchmark** | AI agent'larin uzun vadeli codebase bakim yetenegini olcen evrim bazli paradigma. 18 model test edildi. | [\ud83d\udd17 arxiv.org](https://arxiv.org/list/cs.AI/current) |\n\n**Oracle icin cikarim:** SSD (Speculative Speculative Decoding) tekni\u011fi oracle-bridge.sh'deki inference latency'yi azaltma potansiyeli tasiyor \u2014 ozellikle quick preset'te. SWE-CI benchmark'i trajectory-pool'daki code maintenance gorevlerinin degerlendirilmesi icin referans olabilir.\n\n---\n\n## \ud83e\udde0 KAT-4 \u00b7 Dusunce Liderleri\n\n| Kisi | Gorus Ozeti | Tarih | Kaynak |\n|---|---|---|---|\n| **Karpathy** | autoresearch acik kaynaga acildi \u2014 \"tek GPU, tek dosya, tek metrik\" ile otonom ML deneyi. 630 satir, bagimlilik yok, gece 100 deney. | 7-8 Mart | [\ud83d\udd17 github.com/karpathy/autoresearch](https://github.com/karpathy/autoresearch) |\n| **Sam Altman** | \"Superintelligence birka\u00e7 y\u0131l i\u00e7inde\" \u2014 India AI Impact Summit'te tekrarladi. | Mart 2026 | [\ud83d\udd17 medianama.com](https://www.medianama.com/2026/02/223-superintelligence-within-years-sam-altman-meta-ai-scientist-disagrees/) |\n| **Yann LeCun** | \"LLM'ler asla insan seviyesine ulasamaz, tamamen farkli mimari lazim. AI insan zekasinin amplifikatoru olacak.\" India AI Impact Summit. | Subat-Mart 2026 | [\ud83d\udd17 businesstoday.in](https://www.businesstoday.in/technology/news/story/india-ai-impact-summit-2026-yann-lecun-calls-agi-overhyped-ai-should-amplify-human-intelligence-516980-2026-02-19) |\n| **Simon Willison** | \"Clean room implementation ile acik kaynagi yeniden lisanslayabilir mi coding agent'lar?\" \u2014 hukuki/etik analiz. | 5 Mart | [\ud83d\udd17 simonwillison.net](https://simonwillison.net/) |\n\n---\n\n## \ud83d\udd34 KAT-5 \u00b7 Reddit Viral\n\n| Subreddit | Baslik | Upvote | Kaynak |\n|---|---|---|---|\n| r/LocalLLaMA | DeepSeek V4 beklentisi ve Huawei Ascend optimizasyonu tartismasi | Yuksek | [\ud83d\udd17 reddit.com/r/LocalLLaMA](https://reddit.com/r/LocalLLaMA) |\n| r/MachineLearning | Anthropic vs Pentagon \u2014 AI guvenlik sinirlari tartismasi | Yuksek | [\ud83d\udd17 reddit.com/r/MachineLearning](https://reddit.com/r/MachineLearning) |\n| r/LocalLLaMA | Karpathy autoresearch tek GPU uzerinde otonom deney deneyimleri | Yuksek | [\ud83d\udd17 gummysearch.com](https://gummysearch.com/r/LocalLLaMA/) |\n\n**Not:** Reddit'te spesifik upvote sayilarina dogrudan erisilemiyor, ancak topluluk buyuklugu (266K+ r/LocalLLaMA) ve tartisma yogunlugu yuksek.\n\n---\n\n## \ud83d\udc26 KAT-6 \u00b7 Twitter/X Viral\n\n| Hesap | Tweet Ozeti | Etki | Tarih |\n|---|---|---|---|\n| **@kaborealin (Karpathy)** | autoresearch repo paylasimi \u2014 \"tek GPU'da gece boyunca 100 ML deneyi\" | 8.7K star, genis yayilim | 7-8 Mart |\n| **@AnthropicAI** | Pentagon davasi aciklamasi \u2014 AI guvenlik sinirlari savunusu | Tum buyuk medya kapsaminda | 9 Mart |\n| **@Google** | Gemini 3 Deep Think guncelleme paylasimlari (devam) | \u2014 | Subat-Mart |\n| **Genel trend** | \"Grok, Is This True?\" meme'i viral \u2014 AI'ya asiri guven alayi | X platformunda genis | Mart 2026 |\n\n---\n\n## \ud83c\udf10 KAT-7 \u00b7 Platform & Ekosistem\n\n- **ChatGPT for Excel Beta (5 Mart)** \u2014 GPT-5.4 destekli Excel eklentisi. FactSet, Dow Jones Factiva, LSEG, Daloopa, S&P Global veri entegrasyonlari. IB benchmark: %43.7 \u2192 %87.3. ABD/Kanada/Avustralya'da kullanima acildi. Google Sheets versiyonu yakin. [\ud83d\udd17 openai.com](https://openai.com/index/chatgpt-for-excel/)\n\n- **VS Code v1.111 (Mart 2026)** \u2014 Subat'taki v1.110 agent plugin, browser tool, session memory, context compaction ozellikleri uzerine insa ediyor. Detayli notlar henuz tam yayinlanmadi. [\ud83d\udd17 code.visualstudio.com](https://code.visualstudio.com/updates/v1_108)\n\n- **Claude Code Turkce Voice STT** \u2014 10 yeni dil eklendi (toplam 20), Turkce dahil. Numerik keypad support, VS Code spark icon session yonetimi. [\ud83d\udd17 releasebot.io](https://releasebot.io/updates/anthropic/claude-code)\n\n---\n\n## \ud83e\uddbe KAT-8 \u00b7 Robotik & Edge AI\n\n- **Google Intrinsic Absorpsiyonu** \u2014 Alphabet'in 5 yillik moonshot robotik sirketini Google'a katt\u0131. DeepMind AI modelleri + Intrinsic uretim yazilimi + Google Cloud = dikey entegre \"Android for Robotics\" platformu. [\ud83d\udd17 techcrunch.com](https://techcrunch.com/2026/02/25/alphabet-owned-robotics-software-company-intrinsic-joins-google/)\n\n- **NVIDIA TensorRT Edge-LLM** \u2014 Otomotiv/robotik icin C++ inference framework. EAGLE-3 speculative decoding, NVFP4 quantization. Bosch, ThunderSoft, MediaTek CES 2026'da demo gosterdi. [\ud83d\udd17 developer.nvidia.com](https://developer.nvidia.com/blog/accelerating-llm-and-vlm-inference-for-automotive-and-robotics-with-nvidia-tensorrt-edge-llm)\n\n- **On-Device LLM Trendi** \u2014 Sub-billion modeller pratik gorevlerde yeterli hale geldi: Gemma 3 (270M), SmolLM2 (135M), Phi-4 mini (3.8B). Draft model ile 2.8x inference hizlanma kanitlandi. [\ud83d\udd17 edge-ai-vision.com](https://www.edge-ai-vision.com/2026/01/on-device-llms-in-2026-what-changed-what-matters-whats-next/)\n\n- **Honor Humanoid Robot (MWC 2026)** \u2014 Ilk akilli telefon markasi \u2192 humanoid robot gecisi. 4 m/s kosma (Atlas'tan %14 hizli), $10B 5 yillik AI yatirimi. [\ud83d\udd17 technode.com](https://technode.com/2026/02/24/honor-reportedly-to-launch-first-humanoid-robot-at-mwc-2026/)\n\n---\n\n## \u2b50 KAT-9 \u00b7 OSS & Urun Sinyalleri\n\n### HN One Cikanlar\n| Puan | Baslik | Kaynak |\n|---|---|---|\n| 107 | Ask HN: What Are You Working On? (Mart 2026) | [\ud83d\udd17 news.ycombinator.com](https://news.ycombinator.com/item?id=47303111) |\n| 98 | Artificial-life: 300 satir kod ile hesaplamali yasam | [\ud83d\udd17 news.ycombinator.com](https://news.ycombinator.com/front) |\n| 96 | Neural Boids \u2014 sinir agi tabanli suru simulasyonu | [\ud83d\udd17 news.ycombinator.com](https://news.ycombinator.com/front) |\n| 91 | Beagle \u2014 AST tree depolayan kaynak kod yonetim sistemi | [\ud83d\udd17 news.ycombinator.com](https://news.ycombinator.com/front) |\n\n### GitHub Trending\n| Repo | Stars | Alan |\n|---|---|---|\n| **karpathy/autoresearch** | 8.7K | Otonom ML deney agenti |\n| **msitarzewski/agency-agents** | 10.7K | Multi-agent orchestration |\n| **paperclipai/paperclip** | 9.5K | Acik kaynak orchestration |\n| **m1k1o/neko** | 18.7K | Self-hosted sanal browser (Docker) |\n\n### Product Hunt AI\n- **GHOSTYPE** \u2014 AI ses arayuzu, stilinizi ogreniyor\n- **Unblocked** \u2014 Agent'lara baglamsal kod uretimi icin context saglama\n- **AgentCenter** \u2014 OpenClaw agent'lari icin Mission Control UI\n- **Wispr Flow** \u2014 Mac dikte uygulamasi, 100+ dil, otomatik duzenleme\n\n---\n\n## \ud83c\uddf9\ud83c\uddf7 Turk Tech Sahnesi\n\n- **Claude Code Turkce Voice STT** \u2014 Anthropic, Claude Code'a 10 yeni dil ekledi ve **Turkce** bunlardan biri. Sesle komut verme artik Turkce destekliyor. [\ud83d\udd17 releasebot.io](https://releasebot.io/updates/anthropic/claude-code)\n\n- **Teknoloji Sektoru Hiper-Hizli YZ Donemine Giriyor** \u2014 EY Turkiye raporu: Agentic AI, platform interoperability ve fiziksel AI/robotik yeni rekabet avantajlarinin merkezinde. [\ud83d\udd17 ticaretgazetesi.com](https://ticaretgazetesi.com.tr/2026/03/07/teknoloji-sektoru-2026da-hiper-hizli-bir-yapay-zeka-donemine-giriyor/)\n\n- **TRAI YZ Girisim Haritasi: 457 Girisim** \u2014 Ocak 2026'da 40 yeni girisim eklenerek 457'ye ulasti. [\ud83d\udd17 turkiye.ai](https://turkiye.ai/)\n\n---\n\n## \ud83e\udde0 Oracle Self-Improvement Sinyalleri\n\n| # | Bulgu | Kaynak | Uygulama Alani | Efor |\n|---|-------|--------|----------------|------|\n| 1 | Karpathy autoresearch yaklasimi \u2014 sabit sureli deney donguleri + tek metrik optimizasyonu | KAT-4 [\ud83d\udd17](https://github.com/karpathy/autoresearch) | oracle-predict.sh ve trajectory-pool icin \"micro-experiment\" modu | Orta |\n| 2 | Phi-4 `<think>/<nothink>` toggle \u2014 ne zaman derin dusunme gerektigini model kendi karar veriyor | KAT-3 [\ud83d\udd17](https://huggingface.co/microsoft/Phi-4-reasoning-vision-15B) | oracle-bridge.sh preset seciminde \"adaptive reasoning\" flag'i | Kucuk |\n| 3 | SSD (Speculative Speculative Decoding) \u2014 draft/verify paralellestirme ile 2-5x hizlanma | KAT-3 [\ud83d\udd17](https://arxiv.org/list/cs.AI/current) | Edge inference senaryolarinda oracle latency azaltma | Buyuk |\n| 4 | MCP Apps: tool'lar interaktif UI dondurebiliyor | KAT-2 [\ud83d\udd17](https://modelcontextprotocol.io/development/roadmap) | Oracle agents extension'a UI tool capability ekleme | Orta |\n| 5 | Codex Security'nin sandbox-validated finding yaklasimi | KAT-1 [\ud83d\udd17](https://openai.com/index/codex-security-now-in-research-preview/) | oracle-sandbox.sh L3 canary katmanina guvenlik scan entegrasyonu | Kucuk |\n\n---\n\n## \ud83d\udc26 CikCik Paketi (@muxamos sesi)\n\n### Tweetler (4 adet)\n\n**Tweet 1 (Konu: Anthropic vs Pentagon):**\n> Anthropic otonom silah ve toplu gozetime hayir dedi, Pentagon de \"o zaman ulusal guvenlik riskisin\" dedi. Dusunsenize: etik sinir koyan sirket cezalandiriliyor. Bu dava AI tarihinin donemecidir.\n\n**Tweet 2 (Konu: Karpathy autoresearch):**\n> Karpathy 630 satir kodla gecede 100 ML deneyi yapan otonom agent yazmis. Shopify CEO'su adapte edip %19 iyilestirme almis. Tek GPU, sifir bagimlilik. Basitlik = guc.\n\n**Tweet 3 (Konu: ChatGPT Excel):**\n> OpenAI artik Excel'in icinde. FactSet, Bloomberg, S&P verileriyle. Yatirim bankaciligi benchmark'unda %43 \u2192 %87. Excel bilen herkes artik bir analist. Hesap tablosu devri bitiyor.\n\n**Tweet 4 (Konu: Phi-4 think/nothink):**\n> Microsoft'un yeni 15B modeli ne zaman dusunmesi gerektigini kendisi karar veriyor. `<think>` acik \u2192 derin analiz. `<nothink>` \u2192 hizli cevap. Insan gibi: her soruya ayni eforla yaklasmazsin.\n\n### Reply Firsatlari (2)\n\n**@kaborealin altina (autoresearch):**\n> 5 dk deney donguleri fikrini kendi agent altyapimiza uyarladik, gece boyunca trajectory-pool optimize eden \"micro-lab\" modu cikabilir. Cok guzel bir soyutlama.\n\n**@AnthropicAI altina (Pentagon davasi):**\n> Turkiye'de de AI guvenlik sinirlari tartisiliyor ama Anthropic seviyesinde etik cizgi koyan sirket yok. Bu dava tum AI sektorune emsal olacak.\n\n### Gunun Hook'u\n\n> Pentagon'un \"tehdit\" ilan ettigi Anthropic, App Store'da 1 numara. Kullanicilar karar verdi: guvenlik sinirlari koyan sirket = guvenilir sirket.\n\n---\n\n## \ud83d\udcca Kaynak & Durum Ozeti\n\n| Kategori | Kaynak | Durum | Madde |\n|----------|--------|-------|-------|\n| KAT-1 | CNBC, WaPo, Bloomberg, OpenAI, Releasebot | \u2705 | 5 |\n| KAT-2 | MCP.io, GitHub, ITBusinessToday | \u2705 | 4 |\n| KAT-3 | arXiv, HuggingFace, Microsoft Research | \u2705 | 4 |\n| KAT-4 | GitHub, MarkTechPost, simonwillison.net | \u2705 | 4 |\n| KAT-5 | Reddit (dolayli \u2014 upvote verisi sinirli) | \u26a0\ufe0f | 3 |\n| KAT-6 | X/Twitter (dolayli erisim) | \u26a0\ufe0f | 4 |\n| KAT-7 | OpenAI, VS Code, Releasebot | \u2705 | 3 |\n| KAT-8 | TechCrunch, NVIDIA, TechNode | \u2705 | 4 |\n| KAT-9 | HN, GitHub Trending, Product Hunt | \u2705 | 8+ |\n\n**Toplam dedupe elenen:** 5 madde (GPT-5.4, Claude #1, Gemini Deep Think, $110B, Cursor) | **Yeni madde:** 7 Top + 27 detay | **Sonraki temizlik:** 2026-03-13 01:26 IST\n\n---\n\n*Rapor: Gece Arastirma v2 \u00b7 2026-03-10 01:26 IST \u00b7 Oracle \ud83e\udd89*\n";
+
+  // ── marked config ──
+  marked.setOptions({
+    gfm:true,
+    breaks:false,
+    mangle:false,
+    headerIds:false
+  });
+
+  // ── Wrap tables for horizontal scroll ──
+  var renderer = new marked.Renderer();
+  renderer.table = function(header, body){
+    return '<div class="table-wrap"><table><thead>' + header + '</thead><tbody>' + body + '</tbody></table></div>';
+  };
+
+  var html = marked.parse(RAW, {renderer:renderer});
+  var content = document.getElementById('content');
+  var loading = document.getElementById('loading');
+  content.innerHTML = html;
+  content.style.display = '';
+  loading.style.display = 'none';
+
+  // ── Open external links in new tab ──
+  var links = content.querySelectorAll('a[href]');
+  for(var i=0;i<links.length;i++){
+    var href = links[i].getAttribute('href');
+    if(href && (href.startsWith('http://') || href.startsWith('https://'))){
+      links[i].setAttribute('target','_blank');
+      links[i].setAttribute('rel','noopener noreferrer');
+    }
+  }
+})();
+</script>
+</body>
+</html>
