@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Oracle Gece Araştırma — 2026-03-13">
+<title>Oracle Araştırma — 2026-03-13</title>
+<style>
+/* ── Reset & base ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#ffffff;--fg:#111111;--link:#0066cc;--link-hover:#004499;
+  --border:#dee2e6;--code-bg:#f4f4f4;--blockquote-bg:#f8f9fa;
+  --table-head:#f0f0f0;--table-stripe:#fafafa;
+  --accent:#2563eb;--warn:#f59e0b;--ok:#16a34a;--danger:#dc2626;
+  --font-sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --font-mono:"SFMono-Regular",Menlo,Monaco,Consolas,"Liberation Mono",monospace;
+  --radius:8px;
+}
+@media(prefers-color-scheme:dark){
+  :root{
+    --bg:#0d1117;--fg:#e6edf3;--link:#58a6ff;--link-hover:#79b8ff;
+    --border:#30363d;--code-bg:#161b22;--blockquote-bg:#161b22;
+    --table-head:#161b22;--table-stripe:#161b22;
+    --accent:#58a6ff;
+  }
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--fg);
+  font-family:var(--font-sans);font-size:16px;line-height:1.7;
+  -webkit-text-size-adjust:100%;
+}
+
+/* ── Layout ── */
+.page-wrap{max-width:860px;margin:0 auto;padding:0 16px 80px}
+header{
+  background:var(--accent);color:#fff;
+  padding:18px 16px 14px;
+  border-radius:0 0 var(--radius) var(--radius);
+  margin-bottom:28px;
+}
+header h1{font-size:clamp(1.1rem,4vw,1.5rem);font-weight:700;line-height:1.3}
+header .meta{font-size:.85rem;opacity:.85;margin-top:6px}
+header .meta a{color:#cfe2ff;text-decoration:none}
+header .meta a:hover{text-decoration:underline}
+
+nav.breadcrumb{font-size:.85rem;margin-bottom:20px;color:var(--link)}
+nav.breadcrumb a{color:var(--link);text-decoration:none}
+nav.breadcrumb a:hover{text-decoration:underline}
+nav.breadcrumb span{color:var(--fg);opacity:.6;margin:0 6px}
+
+/* ── Markdown content ── */
+#content h1{font-size:clamp(1.3rem,5vw,1.8rem);margin:32px 0 12px;line-height:1.3}
+#content h2{font-size:clamp(1.1rem,4vw,1.4rem);margin:28px 0 10px;border-bottom:2px solid var(--border);padding-bottom:6px}
+#content h3{font-size:clamp(1rem,3.5vw,1.2rem);margin:22px 0 8px}
+#content p{margin:10px 0}
+#content a{color:var(--link);word-break:break-word}
+#content a:hover{color:var(--link-hover)}
+#content strong{font-weight:700}
+#content em{font-style:italic}
+#content hr{border:none;border-top:2px solid var(--border);margin:28px 0}
+
+/* ── Lists ── */
+#content ul,#content ol{margin:10px 0 10px 1.4em}
+#content li{margin:4px 0}
+
+/* ── Blockquotes ── */
+#content blockquote{
+  background:var(--blockquote-bg);
+  border-left:4px solid var(--accent);
+  margin:14px 0;padding:10px 16px;
+  border-radius:0 var(--radius) var(--radius) 0;
+}
+#content blockquote p{margin:4px 0}
+
+/* ── Code ── */
+#content code{
+  background:var(--code-bg);color:var(--fg);
+  border-radius:4px;padding:2px 6px;
+  font-family:var(--font-mono);font-size:.88em;
+  word-break:break-all;
+}
+#content pre{
+  background:var(--code-bg);border-radius:var(--radius);
+  padding:14px 16px;overflow-x:auto;margin:14px 0;
+}
+#content pre code{
+  background:none;padding:0;border-radius:0;
+  font-size:.85em;word-break:normal;
+}
+
+/* ── Tables — responsive wrap ── */
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0}
+#content table{
+  border-collapse:collapse;width:100%;min-width:340px;
+  font-size:.9em;
+}
+#content th{
+  background:var(--table-head);
+  text-align:left;padding:8px 12px;
+  border:1px solid var(--border);font-weight:600;
+}
+#content td{
+  padding:7px 12px;border:1px solid var(--border);
+  vertical-align:top;word-break:break-word;
+}
+#content tr:nth-child(even) td{background:var(--table-stripe)}
+
+/* ── Emoji badges in text ── */
+.badge{
+  display:inline-block;padding:1px 7px;border-radius:99px;
+  font-size:.78rem;font-weight:600;line-height:1.6;
+}
+
+/* ── Back to top ── */
+#back-top{
+  position:fixed;bottom:20px;right:16px;
+  background:var(--accent);color:#fff;
+  border:none;border-radius:50%;width:44px;height:44px;
+  font-size:1.3rem;cursor:pointer;
+  box-shadow:0 2px 8px rgba(0,0,0,.3);
+  display:flex;align-items:center;justify-content:center;
+  text-decoration:none;
+}
+#back-top:hover{opacity:.85}
+
+/* ── Loading state ── */
+#loading{text-align:center;padding:60px 0;color:var(--fg);opacity:.5;font-size:1.1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="page-wrap">
+    <h1>🔬 🔬 Gece Araştırma Raporu — 13 Mart 2026</h1>
+    <div class="meta">
+      Oracle Gece Araştırma &middot; 2026-03-13 &middot;
+      <a href="https://mahsumaktas.github.io/oracle_arastirma/index.html">← Tüm Raporlar</a>
+    </div>
+  </div>
+</header>
+
+<div class="page-wrap">
+  <nav class="breadcrumb">
+    <a href="https://mahsumaktas.github.io/oracle_arastirma/index.html">Oracle Araştırma</a>
+    <span>/</span>
+    2026-03-13
+  </nav>
+
+  <div id="loading">Rapor yükleniyor…</div>
+  <div id="content" style="display:none"></div>
+</div>
+
+<a href="#" id="back-top" title="Yukarı" aria-label="Yukarı git">↑</a>
+
+<!-- marked.js — lightweight CDN markdown parser (no server needed) -->
+<script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
+<script>
+(function(){
+  // ── Raw markdown (HTML-escaped by publisher, decoded here) ──
+  var RAW = "# \ud83d\udd2c Gece Ara\u015ft\u0131rma Raporu \u2014 13 Mart 2026\n\n> Oracle Nightly Research v2 | \u00dcretim: 2026-03-13 01:00 (Europe/Istanbul) | Kaynak: Oracle Direct Research\n\n---\n\n## \ud83d\udcca Ara\u015ft\u0131rma \u00d6zeti\n\n| Metrik | De\u011fer |\n|--------|-------|\n| Toplam sinyal | 19 |\n| Kategori kapsama | 9/9 |\n| Top-7 durumu | Dolu |\n| Kaynak modu | Oracle Direct (bridge fallback) |\n| Dedupe | Aktif \u2014 25 \u00f6nceki kay\u0131t |\n\n---\n\n## \ud83c\udfc6 Top 7 Sinyal (Bu Gece)\n\n1. **Anthropic Claude \u2192 \u0130nteraktif G\u00f6rselle\u015ftirme** \u2014 Claude art\u0131k konu\u015fmada otomatik grafik/diyagram \u00fcretiyor, t\u00fcm kullan\u0131c\u0131lara beta a\u00e7\u0131ld\u0131. \u00d6nem: \u2605\u2605\u2605\u2605\u2605\n2. **Microsoft Copilot Health Lansman\u0131** \u2014 Medikal kay\u0131t + wearable + lab sonu\u00e7lar\u0131n\u0131 entegre eden sa\u011fl\u0131k AI asistan\u0131 ABD'de ba\u015flat\u0131ld\u0131. \u00d6nem: \u2605\u2605\u2605\u2605\u2605\n3. **Yann LeCun \u2014 AMI Labs $1B Seed Round** \u2014 Avrupa'n\u0131n en b\u00fcy\u00fck seed turu; \"World Models\" yakla\u015f\u0131m\u0131, LLM scaling'e alternatif. Backers: Nvidia, Bezos, Eric Schmidt. \u00d6nem: \u2605\u2605\u2605\u2605\u2605\n4. **MCP G\u00fcvenlik Krizi: 60 G\u00fcnde 30 CVE** \u2014 560 MCP sunucusunun %38'inde s\u0131f\u0131r auth. Shell injection, path traversal, SDK g\u00fcvenlik a\u00e7\u0131klar\u0131. \u00d6nem: \u2605\u2605\u2605\u2605\u2606\n5. **NVIDIA TensorRT Edge-LLM G\u00fcncellemesi** \u2014 Humanoid robotlar ve otonom ara\u00e7lar i\u00e7in MoE, Cosmos Reason 2, Qwen3-TTS/ASR edge deste\u011fi. \u00d6nem: \u2605\u2605\u2605\u2605\u2606\n6. **OpenClaw-RL (arXiv:2603.10165)** \u2014 \"Konu\u015farak herhangi bir agent e\u011fit\" \u2014 user reply, tool output, GUI state de\u011fi\u015fikliklerini RL sinyali olarak kullanan framework. \u00d6nem: \u2605\u2605\u2605\u2605\u2605\n7. **Microsoft BitNet 100B** \u2014 CPU'da \u00e7al\u0131\u015fan 1-bit 100B parametre model. HN'de trend. \u00d6nem: \u2605\u2605\u2605\u2605\u2606\n\n---\n\n## \ud83c\udfe2 KAT-1: AI Labs & Modeller\n\n### Anthropic\n- **Claude \u0130nteraktif G\u00f6rselle\u015ftirme (Beta)** \u2014 Konu\u015fmadan otomatik grafik, tablo, diyagram \u00fcretimi. T\u00fcm kullan\u0131c\u0131lara a\u00e7\u0131k. (Kaynak: Techmeme/The Verge, 12 Mart 2026)\n- **DOD Tart\u0131\u015fmas\u0131** \u2014 ABD Savunma Bakanl\u0131\u011f\u0131 CTO Emil Michael: Claude modelleri \"politika tercihi baked in\" nedeniyle DoD tedarik zincirine risk olu\u015fturabilir. Dario Amodei OpenAI'nin askeri anla\u015fma mesajla\u015fmas\u0131na itiraz etti. (Kaynak: Techmeme, 12 Mart 2026)\n\n### Microsoft\n- **Copilot Health Lansman\u0131** \u2014 Medikal kay\u0131tlar, wearable biometrik verisi, lab sonu\u00e7lar\u0131n\u0131 entegre eden ki\u015fiselle\u015ftirilmi\u015f sa\u011fl\u0131k dan\u0131\u015fman\u0131. ABD'de aktif. (Kaynak: Techmeme/WSJ, 12 Mart 2026)\n\n### Yann LeCun / AMI Labs\n- **$1.03B Seed Round** \u2014 Avrupa'n\u0131n en b\u00fcy\u00fck seed turu. $3.5B pre-money valuation. Nvidia, Bezos, Cuban, Schmidt destekli. \"World Models\" \u2014 LLM yerine fiziksel ger\u00e7ekli\u011fi anlayan sistemler. (Kaynak: Observer.com, 10 Mart 2026)\n\n---\n\n## \ud83e\udd16 KAT-2: Agent & Framework\n\n### MCP Ekosistemi\n- **30 CVE / 60 G\u00fcn** \u2014 560 MCP sunucusu tarand\u0131: %38'inde s\u0131f\u0131r authentication. CVE-2026-23744 (MCPJam Inspector): network'teki herkes arbitrary MCP server y\u00fckleyebilir. CVE-2026-23523 (Dive MCP Host): deeplink ile client-side backdoor. TypeScript SDK'da kritik a\u00e7\u0131klar. (Kaynak: dev.to, 9 Mart 2026)\n- **MCP vs A2A Protokol Sava\u015f\u0131** \u2014 MCP (Anthropic, ara\u00e7 ba\u011flant\u0131s\u0131) + A2A (Google/Linux Foundation, agent-to-agent) birlikte \"2026 AI ekosisteminin HTTP+TCP/IP'si\" olarak de\u011ferlendiriliyor. MCP: 97M+ ayl\u0131k SDK download. (Kaynak: dev.to, 6 Mart 2026)\n- **Microsoft Agent Framework (MAF) v2** \u2014 MCP Server, MCP Client, A2A, AG-UI entegrasyonu. .NET agentlar\u0131 birbirine ba\u011flayan tam protokol y\u0131\u011f\u0131n\u0131. (Kaynak: nikiforovall.blog, 7 Mart 2026)\n\n### Gumloop\n- **$50M Series B** \u2014 Benchmark liderli\u011finde. Karma\u015f\u0131k \u00e7ok ad\u0131ml\u0131 g\u00f6revler i\u00e7in g\u00fcvenilir AI agent deployment platformu. (Kaynak: Techmeme/TechCrunch, 12 Mart 2026)\n\n---\n\n## \ud83d\udcc4 KAT-3: Papers & Research\n\n- **OpenClaw-RL (arXiv:2603.10165)** \u2014 \"Train Any Agent Simply by Talking.\" User reply, tool output, GUI state de\u011fi\u015fimleri = evrensel RL sinyali. Hindsight-Guided On-Policy Distillation. Asenkron tasar\u0131m: canl\u0131 servis + PRM judge + trainer ayn\u0131 anda. Kod: github.com/Gen-Verse/OpenClaw-RL (Kaynak: arxiv.org, 12 Mart 2026)\n- **Flash-KMeans (arXiv:2603.09229)** \u2014 Song Han ekibi (MIT/Berkeley). H\u0131zl\u0131 ve bellek-verimli exact K-Means. B\u00fcy\u00fck \u00f6l\u00e7ek vekt\u00f6r i\u015flemleri i\u00e7in pratik optimizasyon. (Kaynak: arxiv.org, 12 Mart 2026)\n- **Axiom Math** \u2014 AI + Lean dili ile kod do\u011frulama. $200M / $1.6B valuation. Carnegie Mellon. Matematiksel ispat kalitesinde kod g\u00fcvenli\u011fi. (Kaynak: Techmeme/NYT, 12 Mart 2026)\n\n---\n\n## \ud83d\udcad KAT-4: D\u00fc\u015f\u00fcnce Liderleri\n\n- **Dario Amodei** \u2014 OpenAI'nin askeri anla\u015fma mesajla\u015fmas\u0131n\u0131 \"d\u00fcped\u00fcz yalan\" olarak nitelendirdi. (Kaynak: HN Buzzing)\n- **Yann LeCun** \u2014 \"LLM scaling nonsense.\" AMI Labs'da fizik anlayan sistemler in\u015fa ediyor. M\u00fchendislik sim\u00fclasyonu hedefi: u\u00e7ak motoru gibi karma\u015f\u0131k sistemleri anlayan AI.\n- **Amazon Engineering Krizi** \u2014 AI kaynakl\u0131 outage'lar sonras\u0131 k\u0131demli m\u00fchendislerin AI destekli de\u011fi\u015fiklikleri onaylamas\u0131 zorunlu hale getirildi. (Kaynak: HN, 12 Mart 2026)\n\n---\n\n## \ud83d\udce3 KAT-5: Reddit Viral\n\n- **\"AI Agent McKinsey'i Hackledi\"** \u2014 HN'de trend. Otomatik pentest agent'\u0131n kurumsal dan\u0131\u015fmanl\u0131k sistemlerini tehlikeye atmas\u0131.\n- **\"Claude Code production database'i Terraform ile sildi\"** \u2014 Ger\u00e7ek vaka raporu. Y\u00fcksek etkile\u015fim.\n- **\"Do\u011frulama Borcu: AI \u00dcretimi Kodun Gizli Maliyeti\"** \u2014 AI kod kalitesi tart\u0131\u015fmas\u0131.\n\n---\n\n## \ud83d\udc26 KAT-6: Twitter/X Viral\n\n- **GPT-5.4 HN'de** \u2014 Yeni model duyurusu tart\u0131\u015fmas\u0131.\n- **Atlassian 1.600 ki\u015fi i\u015ften \u00e7\u0131kar\u0131yor** \u2014 AI pivot nedeniyle.\n- **\"DOGE \u00e7al\u0131\u015fan\u0131 Sosyal G\u00fcvenlik verisini thumb drive'a koydu\"** \u2014 Whistleblower iddias\u0131. Viral.\n- **\"Meta Moltbook'u sat\u0131n ald\u0131\"** \u2014 Sosyal a\u011f al\u0131m\u0131.\n- **xAI, Cursor'\u0131n \u00fcst d\u00fczey liderlerini i\u015fe ald\u0131** \u2014 Musk: \"Bu y\u0131l\u0131n ortas\u0131na kadar rakiplerle ayn\u0131 seviyede olaca\u011f\u0131z.\"\n\n---\n\n## \ud83c\udf10 KAT-7: Platform & Ekosistem\n\n- **Lovable $400M ARR** \u2014 Ocak'ta $300M, \u015fimdi $400M. AI coding startup ivmesi s\u00fcr\u00fcyor.\n- **Cursor $2B ARR** \u2014 \u015eubat verisi. AI kod edit\u00f6r\u00fc zirve rekorlar\u0131n\u0131 k\u0131r\u0131yor.\n- **xAI Cursor'dan lider transfer** \u2014 Andrew Milich ve Jason Ginsberg xAI'ya ge\u00e7ti.\n- **Perplexity Personal Computer** \u2014 HN'de duyuruldu.\n- **DOGE'un Cloudflare'e Rusya trafi\u011fi %60 d\u00fc\u015ft\u00fc** \u2014 Geopolitik internet veri sinyali.\n\n---\n\n## \ud83e\uddbe KAT-8: Robotics & Edge AI\n\n- **NVIDIA TensorRT Edge-LLM** \u2014 MoE (Qwen3) + Cosmos Reason 2 + Nemotron 2 Nano edge optimizasyonu. DRIVE AGX Thor + Jetson Thor hedef platformlar\u0131. Alpamayo: end-to-end otonom ara\u00e7 VLA modeli. (Kaynak: developer.nvidia.com, 12 Mart 2026)\n- **Honor Humanoid Robot (MWC 2026)** \u2014 Smartphone \u015firketinin embodied AI at\u0131l\u0131m\u0131. \"Robot Phone\" konsepti: 4-DOF gimbal, AI nesne takibi. (Kaynak: roboticsandautomationnews.com, 8 Mart 2026)\n- **TuringEra Edge AI SoC** \u2014 24 TOPS single-precision, 192 TOPS INT. HBM2e 32GB. Humanoid robot + edge LLM hedefleri. (Kaynak: finanznachrichten.de, 7 Mart 2026)\n- **Nvidia PersonaPlex 7B** \u2014 Apple Silicon'da tam dubleks speech-to-speech. Swift native. HN'de trending.\n\n---\n\n## \ud83d\udcbb KAT-9: HN / GitHub / OSS\n\n- **Microsoft BitNet 100B** \u2014 CPU'da \u00e7al\u0131\u015fan 1-bit 100B parametre model. HN hot.\n- **Show HN: Context-aware permission guard for Claude Code** \u2014 G\u00fcvenlik arac\u0131.\n- **Show HN: Open-source browser for AI agents** \u2014 Agent taray\u0131c\u0131.\n- **Show HN: Klaus \u2014 OpenClaw on a VM, batteries included** \u2014 OpenClaw da\u011f\u0131t\u0131m projesi.\n- **FreeBSD 14.4-Release** \u2014 Yeni s\u00fcr\u00fcm duyurusu.\n- **Sarvam 105B** \u2014 Hindistan'\u0131n ilk rekabet\u00e7i a\u00e7\u0131k kaynak LLM'i. HN'de ilgi.\n- **Jido 2.0** \u2014 Elixir Agent Framework. Show HN.\n- **LibreOffice Writer Markdown deste\u011fi** \u2014 Yeni \u00f6zellik.\n- **\"Agentic Reasoning'den Deterministik Script'e\"** \u2014 \u00d6nemli blog post: tekrarlayan agent g\u00f6revlerinin compile edilebilir automations'a d\u00f6n\u00fc\u015ft\u00fcr\u00fclmesi. (Kaynak: juanpabloaj.com, HN, 8 Mart 2026)\n\n---\n\n## \ud83d\uddc2\ufe0f Dedupe Notu\n\nBu rapor \u00f6nceki 25 kay\u0131tla kar\u015f\u0131la\u015ft\u0131r\u0131ld\u0131. T\u00fcm sinyaller 11-13 Mart 2026 tarih aral\u0131\u011f\u0131ndan. \u00d6nceki raporlarda g\u00f6r\u00fcnen: Claude artifacts, Gumloop funding pre-announcement, Microsoft MAF v1. Bu raporun yeni eklentileri: MCP g\u00fcvenlik krizi (CVE batch), AMI Labs $1B, TensorRT Edge-LLM g\u00fcncellemesi, OpenClaw-RL paper, Axiom Math, Honor humanoid.\n\n---\n\n*Oracle Nightly Research v2 \u2014 Direct Research Mode (oracle-bridge fallback aktif) \u2014 2026-03-13*\n";
+
+  // ── marked config ──
+  marked.setOptions({
+    gfm:true,
+    breaks:false,
+    mangle:false,
+    headerIds:false
+  });
+
+  // ── Wrap tables for horizontal scroll ──
+  var renderer = new marked.Renderer();
+  renderer.table = function(header, body){
+    return '<div class="table-wrap"><table><thead>' + header + '</thead><tbody>' + body + '</tbody></table></div>';
+  };
+
+  var html = marked.parse(RAW, {renderer:renderer});
+  var content = document.getElementById('content');
+  var loading = document.getElementById('loading');
+  content.innerHTML = html;
+  content.style.display = '';
+  loading.style.display = 'none';
+
+  // ── Open external links in new tab ──
+  var links = content.querySelectorAll('a[href]');
+  for(var i=0;i<links.length;i++){
+    var href = links[i].getAttribute('href');
+    if(href && (href.startsWith('http://') || href.startsWith('https://'))){
+      links[i].setAttribute('target','_blank');
+      links[i].setAttribute('rel','noopener noreferrer');
+    }
+  }
+})();
+</script>
+</body>
+</html>
