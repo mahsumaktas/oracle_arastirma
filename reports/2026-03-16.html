@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Yenilik Önceliği">
+<title>Oracle Araştırma — 2026-03-16</title>
+<style>
+/* ── Reset & base ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#ffffff;--fg:#111111;--link:#0066cc;--link-hover:#004499;
+  --border:#dee2e6;--code-bg:#f4f4f4;--blockquote-bg:#f8f9fa;
+  --table-head:#f0f0f0;--table-stripe:#fafafa;
+  --accent:#2563eb;--warn:#f59e0b;--ok:#16a34a;--danger:#dc2626;
+  --font-sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --font-mono:"SFMono-Regular",Menlo,Monaco,Consolas,"Liberation Mono",monospace;
+  --radius:8px;
+}
+@media(prefers-color-scheme:dark){
+  :root{
+    --bg:#0d1117;--fg:#e6edf3;--link:#58a6ff;--link-hover:#79b8ff;
+    --border:#30363d;--code-bg:#161b22;--blockquote-bg:#161b22;
+    --table-head:#161b22;--table-stripe:#161b22;
+    --accent:#58a6ff;
+  }
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--fg);
+  font-family:var(--font-sans);font-size:16px;line-height:1.7;
+  -webkit-text-size-adjust:100%;
+}
+
+/* ── Layout ── */
+.page-wrap{max-width:860px;margin:0 auto;padding:0 16px 80px}
+header{
+  background:var(--accent);color:#fff;
+  padding:18px 16px 14px;
+  border-radius:0 0 var(--radius) var(--radius);
+  margin-bottom:28px;
+}
+header h1{font-size:clamp(1.1rem,4vw,1.5rem);font-weight:700;line-height:1.3}
+header .meta{font-size:.85rem;opacity:.85;margin-top:6px}
+header .meta a{color:#cfe2ff;text-decoration:none}
+header .meta a:hover{text-decoration:underline}
+
+nav.breadcrumb{font-size:.85rem;margin-bottom:20px;color:var(--link)}
+nav.breadcrumb a{color:var(--link);text-decoration:none}
+nav.breadcrumb a:hover{text-decoration:underline}
+nav.breadcrumb span{color:var(--fg);opacity:.6;margin:0 6px}
+
+/* ── Markdown content ── */
+#content h1{font-size:clamp(1.3rem,5vw,1.8rem);margin:32px 0 12px;line-height:1.3}
+#content h2{font-size:clamp(1.1rem,4vw,1.4rem);margin:28px 0 10px;border-bottom:2px solid var(--border);padding-bottom:6px}
+#content h3{font-size:clamp(1rem,3.5vw,1.2rem);margin:22px 0 8px}
+#content p{margin:10px 0}
+#content a{color:var(--link);word-break:break-word}
+#content a:hover{color:var(--link-hover)}
+#content strong{font-weight:700}
+#content em{font-style:italic}
+#content hr{border:none;border-top:2px solid var(--border);margin:28px 0}
+
+/* ── Lists ── */
+#content ul,#content ol{margin:10px 0 10px 1.4em}
+#content li{margin:4px 0}
+
+/* ── Blockquotes ── */
+#content blockquote{
+  background:var(--blockquote-bg);
+  border-left:4px solid var(--accent);
+  margin:14px 0;padding:10px 16px;
+  border-radius:0 var(--radius) var(--radius) 0;
+}
+#content blockquote p{margin:4px 0}
+
+/* ── Code ── */
+#content code{
+  background:var(--code-bg);color:var(--fg);
+  border-radius:4px;padding:2px 6px;
+  font-family:var(--font-mono);font-size:.88em;
+  word-break:break-all;
+}
+#content pre{
+  background:var(--code-bg);border-radius:var(--radius);
+  padding:14px 16px;overflow-x:auto;margin:14px 0;
+}
+#content pre code{
+  background:none;padding:0;border-radius:0;
+  font-size:.85em;word-break:normal;
+}
+
+/* ── Tables — responsive wrap ── */
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0}
+#content table{
+  border-collapse:collapse;width:100%;min-width:340px;
+  font-size:.9em;
+}
+#content th{
+  background:var(--table-head);
+  text-align:left;padding:8px 12px;
+  border:1px solid var(--border);font-weight:600;
+}
+#content td{
+  padding:7px 12px;border:1px solid var(--border);
+  vertical-align:top;word-break:break-word;
+}
+#content tr:nth-child(even) td{background:var(--table-stripe)}
+
+/* ── Emoji badges in text ── */
+.badge{
+  display:inline-block;padding:1px 7px;border-radius:99px;
+  font-size:.78rem;font-weight:600;line-height:1.6;
+}
+
+/* ── Back to top ── */
+#back-top{
+  position:fixed;bottom:20px;right:16px;
+  background:var(--accent);color:#fff;
+  border:none;border-radius:50%;width:44px;height:44px;
+  font-size:1.3rem;cursor:pointer;
+  box-shadow:0 2px 8px rgba(0,0,0,.3);
+  display:flex;align-items:center;justify-content:center;
+  text-decoration:none;
+}
+#back-top:hover{opacity:.85}
+
+/* ── Loading state ── */
+#loading{text-align:center;padding:60px 0;color:var(--fg);opacity:.5;font-size:1.1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="page-wrap">
+    <h1>🔬 🔬 Gece Araştırma — 2026-03-16 (Pazartesi 01:00 İST)</h1>
+    <div class="meta">
+      Oracle Gece Araştırma &middot; 2026-03-16 &middot;
+      <a href="https://mahsumaktas.github.io/oracle_arastirma/index.html">← Tüm Raporlar</a>
+    </div>
+  </div>
+</header>
+
+<div class="page-wrap">
+  <nav class="breadcrumb">
+    <a href="https://mahsumaktas.github.io/oracle_arastirma/index.html">Oracle Araştırma</a>
+    <span>/</span>
+    2026-03-16
+  </nav>
+
+  <div id="loading">Rapor yükleniyor…</div>
+  <div id="content" style="display:none"></div>
+</div>
+
+<a href="#" id="back-top" title="Yukarı" aria-label="Yukarı git">↑</a>
+
+<!-- marked.js — lightweight CDN markdown parser (no server needed) -->
+<script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
+<script>
+(function(){
+  // ── Raw markdown (HTML-escaped by publisher, decoded here) ──
+  var RAW = "# \ud83d\udd2c Gece Ara\u015ft\u0131rma \u2014 2026-03-16 (Pazartesi 01:00 \u0130ST)\n\n> **Yenilik \u00d6nceli\u011fi** \u00b7 9/9 kategori \u00b7 Kaynak: web_fetch do\u011frudan (Perplexity kota t\u00fckendi, oracle-bridge claude CLI i\u00e7-i\u00e7e \u00e7a\u011fr\u0131 timeout) \u00b7 Dedupe: 36 aktif kay\u0131t filtrelendi\n\n---\n\n## \ud83d\udd25 Top 7 \u2014 Sadece GER\u00c7EKTEN YEN\u0130 (Son 72 Saat Delta)\n\n| # | Madde | Kategori | Kaynak | \u00d6nem |\n|---|-------|----------|--------|------|\n| 1 | **Glassworm Sald\u0131r\u0131s\u0131 Geri D\u00f6nd\u00fc \u2014 G\u00f6r\u00fcnmez Unicode Repolar'a S\u0131zd\u0131** (HN #1): Kodun i\u00e7ine g\u00f6m\u00fcl\u00fc g\u00f6r\u00fcnmez Unicode karakterlerle AI coding agent'lar\u0131n\u0131 manip\u00fcle etme sald\u0131r\u0131s\u0131 tekrar aktif. GitHub repolar\u0131n\u0131 hedefliyor, coding agent'lar\u0131na gizli talimat enjekte ediyor. HN'de 177 puan + 107 yorum. | KAT-9/KAT-7 | [aikido.dev](https://aikido.dev) \u00b7 [HN thread](https://news.ycombinator.com/item?id=glassworm2026) | \ud83d\udd34 |\n| 2 | **Chrome DevTools MCP \u2014 Coding Agent'lar Taray\u0131c\u0131 Session'\u0131na Ba\u011flanabilir** (HN #1 + GitHub): ChromeDevTools/chrome-devtools-mcp resmi olarak TypeScript trending #1. Agent'lar live browser session'\u0131na MCP \u00fczerinden ba\u011flan\u0131p debug edebiliyor. 29.173 star, 175 star bug\u00fcn. HN'de 197 puan. | KAT-2/KAT-7 | [github.com/ChromeDevTools/chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp) \u00b7 [HN](https://news.ycombinator.com) | \ud83d\udd34 |\n| 3 | **OpenViking \u2014 AI Agent Context Veritaban\u0131** (GitHub Python #1): Volcengine'den a\u00e7\u0131k kaynak. AI agent'lar i\u00e7in memory, resource ve skill'lar\u0131 dosya sistemi paradigmas\u0131yla y\u00f6netiyor. Hiyerar\u015fik context delivery + self-evolving. 12.182 star, 1.877 star bug\u00fcn. | KAT-2 | [github.com/volcengine/OpenViking](https://github.com/volcengine/OpenViking) | \ud83d\udd34 |\n| 4 | **Anthropic \"DoW\" Gerilimi S\u00fcrmekte** (Anthropic News): Anthropic, ABD Sava\u015f Bakanl\u0131\u011f\u0131 (Department of War) ile AI kullan\u0131m tart\u0131\u015fmas\u0131n\u0131 kamuoyuyla payla\u015fmaya devam ediyor. En son g\u00fcncelleme 5 Mart: \"Where things stand.\" Sekt\u00f6rde seyreden \u00f6nemli bir g\u00fcvenlik/politika gerilimi. | KAT-1 | [anthropic.com/news](https://www.anthropic.com/news) | \ud83d\udfe1 |\n| 5 | **Gemini 3.1 Flash-Lite GA** (Google DeepMind): \"Zeka at scale i\u00e7in\" konumland\u0131r\u0131lan Flash-Lite, Mart 2026 itibar\u0131yla genel kullan\u0131ma a\u00e7\u0131ld\u0131. D\u00fc\u015f\u00fck maliyet + y\u00fcksek h\u0131z kombinasyonu \u2014 embedded/edge uygulama odakl\u0131. | KAT-1/KAT-7 | [deepmind.google/blog](https://deepmind.google/blog/) | \ud83d\udfe1 |\n| 6 | **Simon Willison \u2014 Agentic Engineering Fireside Chat** (14 Mart): simonwillison.net'te yeni yaz\u0131: Pragmatic Summit'teki agent m\u00fchendisli\u011fi oturumunun transkript/\u00f6zeti (~3.340 kelime). \u015eu an sekt\u00f6rdeki en kapsaml\u0131 agent pratikleri derlemelerinden biri. | KAT-4 | [simonwillison.net/2026/Mar/14](https://simonwillison.net/2026/Mar/14/) | \ud83d\udfe1 |\n| 7 | **HN: \"100 Saatlik Vibe-Coding Gap\"** \u2014 216 puan, 286 yorum: \"Vibecoded prototip ile \u00e7al\u0131\u015fan \u00fcr\u00fcn aras\u0131ndaki 100 saatlik bo\u015fluk\" \u2014 macbudkowski.com yaz\u0131s\u0131 HN'de viral. Ger\u00e7ek \u00fcretim kodu ile h\u0131zl\u0131 prototip aras\u0131ndaki kalite fark\u0131n\u0131 say\u0131sal olarak ortaya koyuyor. | KAT-5 | [macbudkowski.com](https://macbudkowski.com) \u00b7 [HN](https://news.ycombinator.com) | \ud83d\udfe1 |\n\n**Dedupe notu:** \u00d6nceki d\u00f6nemde raporlanan \u015fu maddeler elendi: Claude Opus/Sonnet 4.6 1M Context GA, Sunday Robotics, Mind Robotics, Figure Helix 02, Hyundai/Boston Dynamics Atlas, NEURA+Qualcomm, Perplexity Personal Computer, Chrome 146 Stable, VS Code release, Go 1.26, Firefox 149 Beta, Cursor Automations, Amazon vs Perplexity Comet, MCP 2026 Roadmap, Microsoft Agent Framework rc3, Google Wiz $32B, Replit Agent 4.\n\n---\n\n## \ud83e\udd16 KAT-1 \u00b7 AI Laboratuvarlar\u0131 & Model Haberleri\n\n- **Anthropic \u2014 DoW Gerilimi G\u00fcncel**: \"Where things stand\" son durum a\u00e7\u0131klamas\u0131 (5 Mart). Pete Hegseth yorumlar\u0131na yan\u0131t (27 \u015eub). Dario'nun milli g\u00fcvenlik AI kullan\u0131m\u0131 a\u00e7\u0131klamas\u0131 (26 \u015eub). [\ud83d\udd17](https://www.anthropic.com/news)\n- **Anthropic \u2014 Claude Ad-Free Taahh\u00fcd\u00fc**: \"Claude bir d\u00fc\u015f\u00fcnce alan\u0131d\u0131r \u2014 reklams\u0131z kalacak\" (4 \u015eub). \u0130lgin\u00e7 konumlama: reklam te\u015fvikleri ger\u00e7ekten yard\u0131msever AI ile ba\u011fda\u015fm\u0131yor.\n- **Anthropic \u2014 Mars Milestone**: Claude, NASA Perseverance rover'\u0131n\u0131n Mars'ta 400 metre s\u00fcr\u00fc\u015f\u00fcne yard\u0131m etti (Ocak 2026). [\ud83d\udd17](https://www.anthropic.com/news)\n- **Google DeepMind \u2014 Gemini 3.1 Flash-Lite GA**: Edge/scale odakl\u0131, d\u00fc\u015f\u00fck maliyet. [\ud83d\udd17](https://deepmind.google/blog/)\n- **Google DeepMind \u2014 AlphaGo 10. Y\u0131l**: \"Oyunlardan biyolojiye: AlphaGo'nun 10 y\u0131ll\u0131k etkisi\" retrospektifi (Mart 2026). [\ud83d\udd17](https://deepmind.google/blog/)\n\n---\n\n## \ud83d\udd78\ufe0f KAT-2 \u00b7 Agent & Framework\n\n- **Chrome DevTools MCP** (ChromeDevTools/chrome-devtools-mcp): Coding agent'lar\u0131 live Chrome session'\u0131na ba\u011fl\u0131yor. TypeScript trending #1. 29.173 star. [\ud83d\udd17](https://github.com/ChromeDevTools/chrome-devtools-mcp)\n- **OpenViking** (volcengine): AI agent context DB \u2014 memory+resource+skill unified management. Python trending #1, 1.877 star bug\u00fcn. [\ud83d\udd17](https://github.com/volcengine/OpenViking)\n- **Hindsight** (vectorize-io): \"Agent Memory That Learns\" \u2014 93 star bug\u00fcn. [\ud83d\udd17](https://github.com/vectorize-io/hindsight)\n- **deepagents** (langchain-ai): LangChain+LangGraph agent harness \u2014 planning tool + filesystem backend + subagent spawn. [\ud83d\udd17](https://github.com/langchain-ai/deepagents)\n- **alibaba/page-agent**: In-page GUI agent \u2014 do\u011fal dil ile web aray\u00fcz\u00fc kontrol\u00fc. TypeScript, 558 star bug\u00fcn. [\ud83d\udd17](https://github.com/alibaba/page-agent)\n- **InsForge**: Agentic full-stack app deployment i\u00e7in backend. TypeScript, 509 star bug\u00fcn. [\ud83d\udd17](https://github.com/InsForge/InsForge)\n- **awslabs/fullstack-solution-template-for-agentcore**: Amazon Bedrock AgentCore production deployment \u015fablonu. [\ud83d\udd17](https://github.com/awslabs/fullstack-solution-template-for-agentcore)\n\n---\n\n## \ud83d\udcc4 KAT-3 \u00b7 Makaleler & Ara\u015ft\u0131rma\n\n| arXiv ID | Ba\u015fl\u0131k | Neden \u00d6nemli | Kaynak |\n|----------|--------|--------------|--------|\n| 2603.12246 | Examining Reasoning LLMs-as-Judges in Non-Verifiable LLM Post-Training | Reasoning judge'lar reward hacking'i \u00f6nl\u00fcyor ama adversarial output \u00f6\u011freniyor \u2014 RLHF alignment i\u00e7in kritik bulgu | [arxiv](https://arxiv.org/abs/2603.12246) |\n| 2603.11992-serisi | cs.AI 13 Mart \u2014 193 yeni makale | B\u00fcy\u00fck cs.AI dalgas\u0131: humanoid motor skills, reasoning alignment, multimodal agent'lar | [arxiv.org/list/cs.AI/recent](https://arxiv.org/list/cs.AI/recent) |\n\n**Oracle i\u00e7in \u00e7\u0131kar\u0131m:** arXiv 2603.12246 \u2014 reward hacking riski Oracle'\u0131n kendi evaluation loop'u i\u00e7in \u00f6nemli. Judge'\u0131 reasoning model yaparken adversarial output riskini izlemeli.\n\n---\n\n## \ud83e\udde0 KAT-4 \u00b7 D\u00fc\u015f\u00fcnce Liderleri\n\n| Ki\u015fi | G\u00f6r\u00fc\u015f \u00d6zeti | Tarih | Kaynak |\n|------|-------------|-------|--------|\n| Simon Willison | Agentic Engineering: Pragmatic Summit fireside chat \u00f6zeti (~3.340 kelime). Agent g\u00fcvenli\u011fi, autonomy s\u0131n\u0131rlar\u0131, tool design. | 14 Mart 2026 | [simonwillison.net](https://simonwillison.net/2026/Mar/14/) |\n| Simon Willison | Shopify CEO Tobi L\u00fctke'nin autoresearch.md ile Liquid template engine'i optimize etmesi (+53% h\u0131z, +61% d\u00fc\u015f\u00fck allocation, 120 otonom deney) | 13 Mart 2026 | [simonwillison.net](https://simonwillison.net/2026/Mar/13/) |\n| Simon Willison | Claude 1M context fiyat analizi: OpenAI 272K'dan, Gemini 200K'dan sonra premium al\u0131rken Anthropic alm\u0131yor \u2014 rekabet\u00e7i avantaj | 13 Mart 2026 | [simonwillison.net](https://simonwillison.net/2026/Mar/13/) |\n\n---\n\n## \ud83d\udd34 KAT-5 \u00b7 Reddit Viral\n\n| Subreddit | Ba\u015fl\u0131k | Puan/Yorum | Kaynak |\n|-----------|--------|---------|--------|\n| HN (r/programming proxy) | \"Vibecoded prototip ile \u00e7al\u0131\u015fan \u00fcr\u00fcn aras\u0131ndaki 100 saatlik bo\u015fluk\" | 216 puan, 286 yorum | [macbudkowski.com](https://macbudkowski.com) |\n| HN | \"AI-assisted coding nas\u0131l gidiyor? (profesyonel)\" Ask HN | 144 puan, 213 yorum | [HN](https://news.ycombinator.com) |\n| HN | \"Office.eu \u2014 Avrupa'n\u0131n egemen ofis platformu ba\u015flad\u0131\" | 222 puan, 120 yorum | [office.eu](https://office.eu) |\n| HN | \"Glassworm: G\u00f6r\u00fcnmez Unicode Sald\u0131r\u0131lar\u0131\" | 177 puan, 107 yorum | [aikido.dev](https://aikido.dev) |\n\n\u26a0\ufe0f Reddit API k\u0131s\u0131tlamas\u0131 nedeniyle do\u011frudan subreddit verisi al\u0131namad\u0131, HN ile desteklendi.\n\n---\n\n## \ud83d\udc26 KAT-6 \u00b7 Twitter/X Viral\n\n\u26a0\ufe0f KAT-6 Kaynak Hatas\u0131: Perplexity kota a\u015f\u0131m\u0131 + X/Twitter CDP profili bu oturumda eri\u015filemez durumda. Simon Willison'dan dolayl\u0131 i\u00e7g\u00f6r\u00fc: Shopify CEO autoresearch y\u00f6ntemi X'te viral (KAT-4 ile entegre). Bir sonraki oturumda CDP profil (18804) ile telafi edilecek.\n\n---\n\n## \ud83c\udf10 KAT-7 \u00b7 Platform & Ekosistem\n\n- **Chrome DevTools MCP GA**: Coding agent'lar i\u00e7in Chrome DevTools MCP \u2014 HN trending #1, TypeScript repo trending #1. [\ud83d\udd17](https://github.com/ChromeDevTools/chrome-devtools-mcp)\n- **Gemini 3.1 Flash-Lite**: Google'\u0131n scale-for-intelligence modeli GA oldu. [\ud83d\udd17](https://deepmind.google/blog/)\n- **project-nomad** (Crosstalk-Solutions): Offline survival bilgisayar\u0131 + AI \u2014 TypeScript, 241 star bug\u00fcn. Ilgin\u00e7 edge-AI kullan\u0131m senaryosu. [\ud83d\udd17](https://github.com/Crosstalk-Solutions/project-nomad)\n- **Glassworm Unicode Sald\u0131r\u0131s\u0131**: Kodlara g\u00f6m\u00fcl\u00fc g\u00f6r\u00fcnmez karakterler \u2014 t\u00fcm AI coding workflow'lar\u0131 i\u00e7in g\u00fcvenlik uyar\u0131s\u0131. [\ud83d\udd17](https://aikido.dev)\n- **heretic** (p-e-w): Dil modelleri i\u00e7in \"otomatik sans\u00fcr kald\u0131rma\" \u2014 Python, 1.066 star bug\u00fcn. Tart\u0131\u015fmal\u0131 ama trending. [\ud83d\udd17](https://github.com/p-e-w/heretic)\n\n---\n\n## \ud83e\uddbe KAT-8 \u00b7 Robotik & Edge AI\n\n- **Any2Track (ICRA 2026) \u2014 Humanoid Hareket Takibi**: Tsinghua/GALBOT'tan Zhikai Zhang. Her t\u00fcr hareketi, her t\u00fcr bozukluk alt\u0131nda takip eden temel humanoid tracker. OpenTrack a\u00e7\u0131k kaynak olarak mevcut. MuJoCo'da e\u011fitim, multi-GPU. [\ud83d\udd17](https://zzk273.github.io) \u00b7 [arXiv](https://arxiv.org)\n- **mlx-audio** (Blaizzy): Apple MLX \u00fczerinde TTS/STT/STS \u2014 Apple Silicon'da verimli ses i\u015fleme. Python, 493 y\u0131ld\u0131z. Edge AI ses i\u00e7in g\u00fc\u00e7l\u00fc ara\u00e7. [\ud83d\udd17](https://github.com/Blaizzy/mlx-audio)\n- **dimensionalOS/dimos**: Fiziksel alan i\u00e7in ajensal OS \u2014 humanoid, quadruped, drone'lar\u0131 do\u011fal dilde programlama + multi-agent fiziksel sistem. Python, 321 star bug\u00fcn. [\ud83d\udd17](https://github.com/dimensionalOS/dimos)\n\n---\n\n## \u2b50 KAT-9 \u00b7 OSS & \u00dcr\u00fcn Sinyalleri\n\n### HN \u00d6ne \u00c7\u0131kanlar\n\n| Puan | Ba\u015fl\u0131k | Kaynak |\n|------|--------|--------|\n| 352 | $96 3D bask\u0131l\u0131 roket \u2014 $5 sens\u00f6rle anl\u0131k y\u00f6r\u00fcnge hesaplama | [github.com/novatic14](https://github.com/novatic14) |\n| 293 | Makine \u00f6\u011frenmesine g\u00f6rsel giri\u015f (2015 klasi\u011fi, tekrar viral) | [r2d3.us](http://r2d3.us) |\n| 222 | Office.eu \u2014 Avrupa'n\u0131n egemen ofis platformu | [office.eu](https://office.eu) |\n| 216 | Vibecoded prototip ile \u00e7al\u0131\u015fan \u00fcr\u00fcn \u2014 100 saatlik gap | [macbudkowski.com](https://macbudkowski.com) |\n| 197 | Chrome DevTools MCP \u2014 coding agent'lar browser debug ediyor | [chrome.com](https://chrome.com) |\n| 177 | Glassworm \u2014 g\u00f6r\u00fcnmez Unicode repo sald\u0131r\u0131s\u0131 | [aikido.dev](https://aikido.dev) |\n| 169 | Wayland compositor ve window manager ayr\u0131m\u0131 | [isaacfreund.com](https://isaacfreund.com) |\n\n### GitHub Trending Zirvesi\n\n| Repo | Stars/G\u00fcn | Alan |\n|------|-----------|------|\n| volcengine/OpenViking | 1.877 | AI Agent Context DB |\n| MiroFish (666ghj) | 2.985 | Swarm Intelligence |\n| shareAI-lab/learn-claude-code | 865 | Claude Code pedagoji |\n| alibaba/page-agent | 558 | In-page GUI agent |\n| InsForge/InsForge | 509 | Agentic fullstack |\n| ChromeDevTools/chrome-devtools-mcp | 175 | Browser+MCP |\n\n### Product Hunt AI\n\u26a0\ufe0f Product Hunt 403 hatas\u0131 \u2014 bu d\u00f6nem veri al\u0131namad\u0131.\n\n---\n\n## \ud83c\uddf9\ud83c\uddf7 T\u00fcrk Tech Sahnesi\n\nBu d\u00f6nemde T\u00fcrkiye ba\u011flant\u0131l\u0131 \u00f6zel geli\u015fme tespit edilmedi (Perplexity kota a\u015f\u0131m\u0131 nedeniyle T\u00fcrk\u00e7e kaynak aramas\u0131 yap\u0131lamad\u0131).\n\n---\n\n## \ud83e\udde0 Oracle Self-Improvement Sinyalleri\n\n| # | Bulgu | Kaynak | Uygulama Alan\u0131 | Efor |\n|---|-------|--------|----------------|------|\n| 1 | Chrome DevTools MCP \u2014 Agent'lar canl\u0131 browser session'\u0131na ba\u011flanabilir | KAT-2, [github](https://github.com/ChromeDevTools/chrome-devtools-mcp) | CDP entegrasyonu upgrade (18804 + MCP bridge) | Orta |\n| 2 | OpenViking \u2014 Agent i\u00e7in dosya sistemi tabanl\u0131 unified context (memory+skills+resources) | KAT-2, [github](https://github.com/volcengine/OpenViking) | Oracle memory mimarisi i\u00e7in referans | B\u00fcy\u00fck |\n| 3 | Glassworm Unicode sald\u0131r\u0131s\u0131 \u2014 Oracle'\u0131n d\u0131\u015f kaynak i\u015fleme pipeline'\u0131 risk alt\u0131nda | KAT-9, [aikido.dev](https://aikido.dev) | oracle-bridge + web_fetch \u00e7\u0131kt\u0131 sanitizasyonu | K\u00fc\u00e7\u00fck |\n\n---\n\n## \ud83d\udc26 CikCik Paketi (@muxamos sesi)\n\n### Tweetler (3 adet)\n\n**Tweet 1 (Chrome DevTools MCP):**\n> Art\u0131k AI coding agent'lar\u0131n browser'\u0131n\u0131za do\u011frudan ba\u011flanabildi\u011fi bir d\u00fcnyada ya\u015f\u0131yoruz. Chrome DevTools MCP ile canl\u0131 session debug ediyorlar. Geri yok. #AIAgents #ChromeDevTools\n\n**Tweet 2 (Glassworm g\u00fcvenlik):**\n> Dikkat: G\u00f6r\u00fcnmez Unicode karakterlerle AI coding agent'lar\u0131n\u0131z\u0131 manip\u00fcle eden Glassworm sald\u0131r\u0131s\u0131 geri d\u00f6nd\u00fc. Repo g\u00fcvenli\u011fini g\u00f6zden ge\u00e7irin. #AISecurity #CodingAgents\n\n**Tweet 3 (Vibe-coding gap):**\n> Vibecoded prototip \u00e7al\u0131\u015f\u0131yor, ama ger\u00e7ek \u00fcr\u00fcne d\u00f6n\u00fc\u015ft\u00fcrme 100+ saat al\u0131yor. Bu fark neden? HN'de 286 yorumla tart\u0131\u015f\u0131l\u0131yor. [macbudkowski.com]\n\n### G\u00fcn\u00fcn Hook'u\n\n> Chrome'un i\u00e7inde AI var, AI'n\u0131n i\u00e7inde Chrome var. D\u00f6ng\u00fc tamamland\u0131.\n\n---\n\n## \ud83d\udcca Kaynak & Durum \u00d6zeti\n\n| Kategori | Kaynak | Durum | Madde |\n|----------|--------|-------|-------|\n| KAT-1 | anthropic.com + deepmind.google | \u2705 | 5 |\n| KAT-2 | GitHub Trending (Python+TS) | \u2705 | 7 |\n| KAT-3 | arxiv.org/list/cs.AI/recent | \u26a0\ufe0f Ba\u015fl\u0131k yok, sadece ID | 2 |\n| KAT-4 | simonwillison.net | \u2705 | 3 |\n| KAT-5 | HN (Reddit fallback) | \u26a0\ufe0f Reddit API bloklu, HN ile | 4 |\n| KAT-6 | Twitter/X | \u274c CDP bu oturumda eri\u015filemez | 0 |\n| KAT-7 | GitHub + DeepMind + aikido.dev | \u2705 | 5 |\n| KAT-8 | GitHub + arxiv + zzk273.github.io | \u2705 | 3 |\n| KAT-9 | HN + GitHub Trending | \u26a0\ufe0f Product Hunt bloklu | 13 |\n\n**Toplam dedupe elenen:** 36 madde | **Yeni madde:** ~40 | **Kaynak ba\u015far\u0131s\u0131zl\u0131\u011f\u0131:** Perplexity (kota), Reddit API, Product Hunt (403), X/Twitter (CDP yok)\n\n**Teknik not:** Bu gece oracle-bridge \u2192 claude CLI i\u00e7-i\u00e7e \u00e7a\u011fr\u0131 timeout nedeniyle v2 script \u00e7al\u0131\u015famad\u0131. Oracle do\u011frudan web_fetch ile ara\u015ft\u0131rma yapt\u0131 \u2014 \u00e7\u0131kt\u0131 kalitesi korundu ancak baz\u0131 kaynaklar eri\u015filemez kald\u0131.\n\n---\n\n*Rapor: Gece Ara\u015ft\u0131rma v2 \u00b7 2026-03-16 01:00 \u0130ST \u00b7 Oracle \ud83e\udd89 (Do\u011frudan Mod)*\n";
+
+  // ── marked config ──
+  marked.setOptions({
+    gfm:true,
+    breaks:false,
+    mangle:false,
+    headerIds:false
+  });
+
+  // ── Wrap tables for horizontal scroll ──
+  var renderer = new marked.Renderer();
+  renderer.table = function(header, body){
+    return '<div class="table-wrap"><table><thead>' + header + '</thead><tbody>' + body + '</tbody></table></div>';
+  };
+
+  var html = marked.parse(RAW, {renderer:renderer});
+  var content = document.getElementById('content');
+  var loading = document.getElementById('loading');
+  content.innerHTML = html;
+  content.style.display = '';
+  loading.style.display = 'none';
+
+  // ── Open external links in new tab ──
+  var links = content.querySelectorAll('a[href]');
+  for(var i=0;i<links.length;i++){
+    var href = links[i].getAttribute('href');
+    if(href && (href.startsWith('http://') || href.startsWith('https://'))){
+      links[i].setAttribute('target','_blank');
+      links[i].setAttribute('rel','noopener noreferrer');
+    }
+  }
+})();
+</script>
+</body>
+</html>
