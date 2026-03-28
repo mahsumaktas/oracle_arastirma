@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Yenilik Önceliği">
+<title>Oracle Araştırma — 2026-03-29</title>
+<style>
+/* ── Reset & base ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#ffffff;--fg:#111111;--link:#0066cc;--link-hover:#004499;
+  --border:#dee2e6;--code-bg:#f4f4f4;--blockquote-bg:#f8f9fa;
+  --table-head:#f0f0f0;--table-stripe:#fafafa;
+  --accent:#2563eb;--warn:#f59e0b;--ok:#16a34a;--danger:#dc2626;
+  --font-sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --font-mono:"SFMono-Regular",Menlo,Monaco,Consolas,"Liberation Mono",monospace;
+  --radius:8px;
+}
+@media(prefers-color-scheme:dark){
+  :root{
+    --bg:#0d1117;--fg:#e6edf3;--link:#58a6ff;--link-hover:#79b8ff;
+    --border:#30363d;--code-bg:#161b22;--blockquote-bg:#161b22;
+    --table-head:#161b22;--table-stripe:#161b22;
+    --accent:#58a6ff;
+  }
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--fg);
+  font-family:var(--font-sans);font-size:16px;line-height:1.7;
+  -webkit-text-size-adjust:100%;
+}
+
+/* ── Layout ── */
+.page-wrap{max-width:860px;margin:0 auto;padding:0 16px 80px}
+header{
+  background:var(--accent);color:#fff;
+  padding:18px 16px 14px;
+  border-radius:0 0 var(--radius) var(--radius);
+  margin-bottom:28px;
+}
+header h1{font-size:clamp(1.1rem,4vw,1.5rem);font-weight:700;line-height:1.3}
+header .meta{font-size:.85rem;opacity:.85;margin-top:6px}
+header .meta a{color:#cfe2ff;text-decoration:none}
+header .meta a:hover{text-decoration:underline}
+
+nav.breadcrumb{font-size:.85rem;margin-bottom:20px;color:var(--link)}
+nav.breadcrumb a{color:var(--link);text-decoration:none}
+nav.breadcrumb a:hover{text-decoration:underline}
+nav.breadcrumb span{color:var(--fg);opacity:.6;margin:0 6px}
+
+/* ── Markdown content ── */
+#content h1{font-size:clamp(1.3rem,5vw,1.8rem);margin:32px 0 12px;line-height:1.3}
+#content h2{font-size:clamp(1.1rem,4vw,1.4rem);margin:28px 0 10px;border-bottom:2px solid var(--border);padding-bottom:6px}
+#content h3{font-size:clamp(1rem,3.5vw,1.2rem);margin:22px 0 8px}
+#content p{margin:10px 0}
+#content a{color:var(--link);word-break:break-word}
+#content a:hover{color:var(--link-hover)}
+#content strong{font-weight:700}
+#content em{font-style:italic}
+#content hr{border:none;border-top:2px solid var(--border);margin:28px 0}
+
+/* ── Lists ── */
+#content ul,#content ol{margin:10px 0 10px 1.4em}
+#content li{margin:4px 0}
+
+/* ── Blockquotes ── */
+#content blockquote{
+  background:var(--blockquote-bg);
+  border-left:4px solid var(--accent);
+  margin:14px 0;padding:10px 16px;
+  border-radius:0 var(--radius) var(--radius) 0;
+}
+#content blockquote p{margin:4px 0}
+
+/* ── Code ── */
+#content code{
+  background:var(--code-bg);color:var(--fg);
+  border-radius:4px;padding:2px 6px;
+  font-family:var(--font-mono);font-size:.88em;
+  word-break:break-all;
+}
+#content pre{
+  background:var(--code-bg);border-radius:var(--radius);
+  padding:14px 16px;overflow-x:auto;margin:14px 0;
+}
+#content pre code{
+  background:none;padding:0;border-radius:0;
+  font-size:.85em;word-break:normal;
+}
+
+/* ── Tables — responsive wrap ── */
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0}
+#content table{
+  border-collapse:collapse;width:100%;min-width:340px;
+  font-size:.9em;
+}
+#content th{
+  background:var(--table-head);
+  text-align:left;padding:8px 12px;
+  border:1px solid var(--border);font-weight:600;
+}
+#content td{
+  padding:7px 12px;border:1px solid var(--border);
+  vertical-align:top;word-break:break-word;
+}
+#content tr:nth-child(even) td{background:var(--table-stripe)}
+
+/* ── Emoji badges in text ── */
+.badge{
+  display:inline-block;padding:1px 7px;border-radius:99px;
+  font-size:.78rem;font-weight:600;line-height:1.6;
+}
+
+/* ── Back to top ── */
+#back-top{
+  position:fixed;bottom:20px;right:16px;
+  background:var(--accent);color:#fff;
+  border:none;border-radius:50%;width:44px;height:44px;
+  font-size:1.3rem;cursor:pointer;
+  box-shadow:0 2px 8px rgba(0,0,0,.3);
+  display:flex;align-items:center;justify-content:center;
+  text-decoration:none;
+}
+#back-top:hover{opacity:.85}
+
+/* ── Loading state ── */
+#loading{text-align:center;padding:60px 0;color:var(--fg);opacity:.5;font-size:1.1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="page-wrap">
+    <h1>🔬 🔬 Gece Araştırma — 2026-03-29 (Pazar 01:00 İST)</h1>
+    <div class="meta">
+      Oracle Gece Araştırma &middot; 2026-03-29 &middot;
+      <a href="https://mahsumaktas.github.io/oracle_arastirma/index.html">← Tüm Raporlar</a>
+    </div>
+  </div>
+</header>
+
+<div class="page-wrap">
+  <nav class="breadcrumb">
+    <a href="https://mahsumaktas.github.io/oracle_arastirma/index.html">Oracle Araştırma</a>
+    <span>/</span>
+    2026-03-29
+  </nav>
+
+  <div id="loading">Rapor yükleniyor…</div>
+  <div id="content" style="display:none"></div>
+</div>
+
+<a href="#" id="back-top" title="Yukarı" aria-label="Yukarı git">↑</a>
+
+<!-- marked.js — lightweight CDN markdown parser (no server needed) -->
+<script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
+<script>
+(function(){
+  // ── Raw markdown (HTML-escaped by publisher, decoded here) ──
+  var RAW = "T\u00fcm ara\u015ft\u0131rma agentlar\u0131 tamamland\u0131. Raporu derliyorum.\n\n---\n\n# \ud83d\udd2c Gece Ara\u015ft\u0131rma \u2014 2026-03-29 (Pazar 01:00 \u0130ST)\n\n> **Yenilik \u00d6nceli\u011fi** \u00b7 9/9 kategori \u00b7 42+ kaynak aktif \u00b7 Dedupe: 25 madde listeden elendi\n\n\u26a0\ufe0f KAT-T\u00dcRK kaynaklar\u0131 API limiti nedeniyle k\u0131smen tamamland\u0131 (Tavily quota exceeded, SearXNG down).\n\n---\n\n## \ud83d\udd25 Top 7 \u2014 Sadece GER\u00c7EKTEN YEN\u0130 (Son 72 Saat Delta)\n\n| # | Madde | Kategori | Kaynak | \u00d6nem |\n|---|-------|----------|--------|------|\n| 1 | **Claude Mythos (Capybara Tier) S\u0131z\u0131nt\u0131yla Onayland\u0131** \u2014 \u015eifresiz CMS veritaban\u0131ndan ~3,000 yay\u0131mlanmam\u0131\u015f varl\u0131k s\u0131zd\u0131. Anthropic \"en yetenekli model\" ve \"step change in capabilities\" do\u011frulad\u0131. Siber g\u00fcvenlik savunmas\u0131 odakl\u0131 erken eri\u015fim; halk lansman\u0131 yak\u0131n de\u011fil. Siber g\u00fcvenlik hisseleri d\u00fc\u015ft\u00fc. [\ud83d\udd17 Fortune](https://fortune.com/2026/03/26/anthropic-says-testing-mythos-powerful-new-ai-model-after-data-leak-reveals-its-existence-step-change-in-capabilities/) \u00b7 [\ud83d\udd17 CoinDesk](https://www.coindesk.com/markets/2026/03/27/anthropic-s-massive-claude-mythos-leak-reveals-a-new-ai-model-that-could-be-a-cybersecurity-nightmare) | KAT-1 | Fortune, CoinDesk | \ud83d\udd34 |\n| 2 | **Anthropic Ekim 2026 IPO Hedefliyor \u2014 $60B+ Bekleniyor** \u2014 Bloomberg: Goldman Sachs, JPMorgan, Morgan Stanley ile erken g\u00f6r\u00fc\u015fmeler ba\u015flad\u0131. Son de\u011ferleme $380B (\u015eubat 2026 Series G). Ayn\u0131 zamanda Claude \u00fccretli abonelikleri 2026'da 2 kattan fazla artt\u0131; Claude Code run-rate $2.5B, toplam ARR ~$19B (YoY %1,167 art\u0131\u015f). [\ud83d\udd17 Bloomberg](https://www.bloomberg.com/news/articles/2026-03-27/claude-ai-maker-anthropic-said-to-weigh-ipo-as-soon-as-october) \u00b7 [\ud83d\udd17 TechCrunch](https://techcrunch.com/2026/03/28/anthropics-claude-popularity-with-paying-consumers-is-skyrocketing/) | KAT-1 | Bloomberg, TC | \ud83d\udd34 |\n| 3 | **\u00c7in Modelleri Liderlik Tablosunda Top 6 \u2014 Anthropic Pazar Pay\u0131 %29\u2192%13** \u2014 MiMo-V2-Pro (Xiaomi), Step 3.5 Flash, DeepSeek V3.2, MiniMax M2.7/M2.5, GLM 5 Turbo ilk 6'da. Claude Opus 4.6 yedinci. MiniMax M2.7: Claude'un %7 maliyetine %90 kalite ($0.27 vs $3.67). [\ud83d\udd17 The Register](https://www.theregister.com/2026/03/28/miss_anthropic_not_those_who/) | KAT-1/6 | The Register | \ud83d\udd34 |\n| 4 | **Cisco DefenseClaw \u2014 A\u00e7\u0131k Kaynak Agent G\u00fcvenlik Framework'u** \u2014 RSA 2026'da duyuruldu. MCP Scanner (her MCP server'\u0131 do\u011frular), Skills Scanner, AI BoM, CodeGuard. \"ClawHavoc\" supply chain sald\u0131r\u0131lar\u0131ndan sonra \u00f6zellikle OpenClaw agent'lar\u0131 hedefleniyor. NVIDIA OpenShell entegrasyonu. [\ud83d\udd17 Cisco Newsroom](https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2026/m03/cisco-reimagines-security-for-the-agentic-workforce.html) \u00b7 [\ud83d\udd17 SiliconANGLE](https://siliconangle.com/2026/03/23/cisco-debuts-new-ai-agent-security-features-open-source-defenseclaw-tool/) | KAT-2 | Cisco, SiliconANGLE | \ud83d\udfe1 |\n| 5 | **MSA: 100M Token Sparse Attention \u2014 %9 D\u00fc\u015f\u00fc\u015fle Lineer \u00d6l\u00e7ekleme** \u2014 EverMind AI'dan 16K\u2192100M token'a \u00f6l\u00e7eklenirken sadece %9 performans kayb\u0131. 2x A800 GPU ile 100M-token \u00e7\u0131karsama. HuggingFace'te 2,300 oy ile en y\u00fcksek makale. Frontier LLM ve RAG'\u0131 NIAH testlerinde ge\u00e7iyor. [\ud83d\udd17 arXiv 2603.23516](https://arxiv.org/abs/2603.23516) | KAT-3 | arXiv/HF | \ud83d\udfe1 |\n| 6 | **Unitree Robotics $610M Shanghai IPO Ba\u015fvurusu** \u2014 2025 geliri %335 artt\u0131, net k\u00e2r %674 y\u00fckseldi. Y\u0131lda 5,500 humanoid teslim etti (global lider). Humanoid'ler gelirin %51.5'i. Sekt\u00f6r\u00fcn ilk b\u00fcy\u00fck \u00f6l\u00e7ekli halka arz\u0131. [\ud83d\udd17 Bloomberg](https://www.bloomberg.com/news/articles/2026-03-20/chinese-robot-maker-unitree-seeks-610-million-in-shanghai-ipo) \u00b7 [\ud83d\udd17 CNBC](https://www.cnbc.com/2026/03/20/unitree-plans-shanghai-ipo-testing-interest-in-humanoid-robots.html) | KAT-8 | Bloomberg, CNBC | \ud83d\udfe1 |\n| 7 | **Claude Code Ekosistemi Patlamas\u0131 \u2014 superpowers 120K, oh-my-claudecode 14.5K** \u2014 obra/superpowers g\u00fcnde +2,293 star ile GitHub #1 (toplam 120K). oh-my-claudecode (+1,036/g\u00fcn), learn-claude-code (41K), claude-mem (41K). Claude Code etraf\u0131nda ciddi 3rd-party ekosistem olu\u015fuyor. [\ud83d\udd17 GitHub](https://github.com/obra/superpowers) \u00b7 [\ud83d\udd17 oh-my-claudecode](https://github.com/Yeachan-Heo/oh-my-claudecode) | KAT-9 | GitHub Trending | \ud83d\udfe1 |\n\n**Dedupe notu:** Elenen maddeler: OpenAI Sora/Spud, ARC-AGI-3, Fidji Simo, Sam Altman Foundation, TurboQuant, Copilot veri politikas\u0131, Dapr Agents, Turkcell-Google, Periodic Labs, $120B fonlama, DeepMind-Agile, Chrome 135, Gemini 3 Deep Think, Voxtral TTS, A2A v0.3, Figure F.03, Cursor Self-Hosted, CUA-Suite, T-MAP, deer-flow, last30days-skill, Karpathy/Willison/Marcus/Ng d\u00fc\u015f\u00fcnce lideri \u00f6nceki payla\u015f\u0131mlar\u0131.\n\n---\n\n## \ud83e\udd16 KAT-1 \u00b7 AI Laboratuvarlar\u0131 & Model Haberleri\n\n**Anthropic:**\n- **Claude Mythos (Capybara)**: CMS s\u0131z\u0131nt\u0131s\u0131yla onayland\u0131. \"Step change\" \u2014 Opus \u00fczeri yetenek seviyesi. Siber g\u00fcvenlik savunmas\u0131 odakl\u0131 erken eri\u015fim. [\ud83d\udd17 Fortune](https://fortune.com/2026/03/26/anthropic-says-testing-mythos-powerful-new-ai-model-after-data-leak-reveals-its-existence-step-change-in-capabilities/)\n- **IPO Ekim 2026 hedefi**: Goldman, JPMorgan, MS ile erken g\u00f6r\u00fc\u015fme. $60B+ potansiyel. [\ud83d\udd17 Bloomberg](https://www.bloomberg.com/news/articles/2026-03-27/claude-ai-maker-anthropic-said-to-weigh-ipo-as-soon-as-october)\n- **Abonelik patlamas\u0131**: 2026'da 2x+ art\u0131\u015f. Claude Code run-rate $2.5B. Toplam ARR ~$19B (%1,167 YoY). [\ud83d\udd17 TechCrunch](https://techcrunch.com/2026/03/28/anthropics-claude-popularity-with-paying-consumers-is-skyrocketing/)\n- **\"Madcap March\"**: 14+ lansman, 5 kesinti. MCP 97M ayl\u0131k kurulum. [\ud83d\udd17 The New Stack](https://thenewstack.io/anthropic-march-2026-roundup/)\n\n**OpenAI:**\n- **SoftBank $40B kredi \u2192 IPO sinyali**: JPMorgan, Goldman + 4 Japon bankas\u0131. 12 ay vadeli \u2014 2026 IPO'su beklendi\u011finin g\u00fc\u00e7l\u00fc g\u00f6stergesi. [\ud83d\udd17 TechCrunch](https://techcrunch.com/2026/03/27/why-softbanks-new-40b-loan-points-to-a-2026-openai-ipo/)\n- **ChatGPT al\u0131\u015fveri\u015f revizyonu**: Instant Checkout ba\u015far\u0131s\u0131z oldu (Walmart 3x k\u00f6t\u00fc d\u00f6n\u00fc\u015f\u00fcm). Yeni Agentic Commerce Protocol (ACP) + Walmart Sparky entegrasyonu. [\ud83d\udd17 CNBC](https://www.cnbc.com/2026/03/24/openai-revamps-shopping-experience-in-chatgpt-after-instant-checkout.html)\n- **ChatGPT Enterprise**: Google Drive birle\u015fik connector (Docs/Sheets/Slides). [\ud83d\udd17 OpenAI](https://help.openai.com/en/articles/11391654-chatgpt-business-release-notes)\n\n**xAI/Grok:**\n- **Deepfake toplu davalar**: 3 \u00e7ocuk CSAM davas\u0131 + Baltimore \u015fehri t\u00fcketici koruma davas\u0131. 9 g\u00fcnde 4.4M g\u00f6r\u00fcnt\u00fc \u00fcretildi\u011fi iddias\u0131, ~23,000 \u00e7ocuk cinsel i\u00e7eri\u011fi. California AG resmi durdurma talebi. [\ud83d\udd17 19th News](https://19thnews.org/2026/03/women-girls-lawsuit-grok-ai-deepfakes/)\n\n**Cohere:**\n- **Transcribe (2B ASR)**: HF Open ASR liderlik tablosu #1, 14 dil, Apache 2.0. $0.003/dk API. [\ud83d\udd17 TechCrunch](https://techcrunch.com/2026/03/26/cohere-launches-an-open-source-voice-model-specifically-for-transcription/)\n\n**Meta:**\n- Llama 4 Behemoth deployment devam ediyor. 700 \u00e7al\u0131\u015fan \u00e7\u0131kart\u0131ld\u0131 (Reality Labs, sat\u0131\u015f, i\u015fe al\u0131m). LlamaCon 29 Nisan'da. [\ud83d\udd17 Meta AI](https://ai.meta.com/blog/llama-4-multimodal-intelligence/)\n\n**MCP Ekosistem**: 97M ayl\u0131k SDK indirme (Kas\u0131m 2024'te ~2M \u2014 %4,750 b\u00fcy\u00fcme). [\ud83d\udd17 Digital Applied](https://www.digitalapplied.com/blog/mcp-97-million-downloads-model-context-protocol-mainstream)\n\n---\n\n## \ud83d\udd78\ufe0f KAT-2 \u00b7 Agent & Framework\n\n- **Cisco DefenseClaw** (27 Mart): A\u00e7\u0131k kaynak agent g\u00fcvenlik. MCP Scanner, Skills Scanner, AI BoM, CodeGuard. OpenClaw agent'lar\u0131n\u0131 hedefliyor. [\ud83d\udd17 Cisco](https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2026/m03/cisco-reimagines-security-for-the-agentic-workforce.html)\n- **Microsoft Agent Framework RC3**: AutoGen + Semantic Kernel birle\u015fimi. GA bu hafta/ay sonu bekleniyor. AutoGen maintenance mode'da. [\ud83d\udd17 Microsoft DevBlogs](https://devblogs.microsoft.com/foundry/microsoft-agent-framework-reaches-release-candidate/)\n- **MCP 2026 Roadmap**: Takvim bazl\u0131 de\u011fil, \u00f6ncelik alanlar\u0131na g\u00f6re: Transport evrimi, Agent ileti\u015fimi, Governance, Enterprise haz\u0131rl\u0131k. [\ud83d\udd17 MCP Blog](http://blog.modelcontextprotocol.io/posts/2026-mcp-roadmap/)\n- **Oracle AI Database 26ai**: Private Agent Factory \u2014 MCP server'lara ba\u011flanabilen no-code agent deploy. 3 haz\u0131r agent. [\ud83d\udd17 Oracle Blog](https://blogs.oracle.com/database/oracle-announces-oracle-ai-database-26ai)\n- **Alibaba Accio Work**: KOB\u0130'lere y\u00f6nelik no-code agent platform. 30 dk'da online ma\u011faza. 10M+ ayl\u0131k kullan\u0131c\u0131. [\ud83d\udd17 PR Newswire](https://www.prnewswire.com/apac/news-releases/alibaba-international-launches-accio-work-an-enterprise-ai-agent-for-global-businesses-302721781.html)\n- **Anthropic AutoDream**: Claude Code i\u00e7in otomatik bellek birle\u015ftirme. Arka planda \u00e7al\u0131\u015f\u0131yor, MEMORY.md'yi 200 sat\u0131r alt\u0131nda tutuyor. `/dream` komutu mevcut. [\ud83d\udd17 claudefa.st](https://claudefa.st/blog/guide/mechanics/auto-dream)\n- **LangChain x NVIDIA**: AI-Q Blueprint ortakl\u0131\u011f\u0131. DeepAgents 5 saatte 9.9K star. [\ud83d\udd17 LangChain Blog](https://blog.langchain.com/nvidia-enterprise/)\n\n---\n\n## \ud83d\udcc4 KAT-3 \u00b7 Makaleler & Ara\u015ft\u0131rma\n\n| arXiv ID | Ba\u015fl\u0131k | Neden \u00d6nemli | HF Oy |\n|----------|--------|--------------|-------|\n| [2603.23516](https://arxiv.org/abs/2603.23516) | MSA: Memory Sparse Attention (100M Token) | 16K\u2192100M token, %9 d\u00fc\u015f\u00fc\u015f, lineer karma\u015f\u0131kl\u0131k. 2x A800 ile \u00e7\u0131karsama | 2,300 |\n| [2603.25040](https://arxiv.org/abs/2603.25040) | Intern-S1-Pro: Trilyon \u00d6l\u00e7ekli Bilimsel Model | 100+ bilimsel g\u00f6rev, a\u00e7\u0131k kaynakta #1, proprietary'yi ge\u00e7iyor | 100 |\n| [2603.16733](https://arxiv.org/abs/2603.16733) | IQuest-Coder-V1 | 7B/14B/40B kod modeli ailesi, code-flow multi-stage training | 1,360 |\n| [2603.24755](https://arxiv.org/abs/2603.24755) | SlopCodeBench | Hi\u00e7bir agent 20 problemin hi\u00e7birini tam \u00e7\u00f6zemedi. %80 erozyon, %89.8 verbosity art\u0131\u015f\u0131 | 22 |\n| [2603.25702](https://arxiv.org/abs/2603.25702) | S2D2: Diffusion LLM 4.7x H\u0131zlanma | Training-free self-speculation dekodlama | \u2014 |\n| [2603.24472](https://arxiv.org/abs/2603.24472) | Self-Distillation Reasoning Degradation | Matematik ak\u0131l y\u00fcr\u00fctmede %40 d\u00fc\u015f\u00fc\u015f \u2014 epistemic verbalization bask\u0131lanmas\u0131 | \u2014 |\n| [2603.24844](https://arxiv.org/abs/2603.24844) | Multi-Answer RL (MIT) | Post-training collapse'\u0131 \u00f6nleyen distributional reasoning | \u2014 |\n| [2603.24747](https://arxiv.org/abs/2603.24747) | Formal Semantics: MCP vs SGD | MCP'nin SGD'ye d\u00f6n\u00fc\u015f\u00fcm\u00fc \"k\u0131smi ve kay\u0131pl\u0131\". MCP+ uzant\u0131lar\u0131 \u00f6nerisi | \u2014 |\n| [2603.24943](https://arxiv.org/abs/2603.24943) | FinMCP-Bench | 65 ger\u00e7ek finansal MCP, 613 \u00f6rnek. \u0130lk finansal MCP benchmark | \u2014 |\n| [2603.24533](https://arxiv.org/abs/2603.24533) | UI-Voyager | Ba\u015far\u0131s\u0131z denemelerden \u00f6\u011frenen GUI agent. 4B model, AndroidWorld %81 Pass@1 | \u2014 |\n| [2603.18718](https://arxiv.org/abs/2603.18718) | MemMA: Multi-Agent Memory | Forward+backward bellek d\u00f6ng\u00fcs\u00fc koordinasyonu | 7 |\n| [2603.24517](https://arxiv.org/abs/2603.24517) | AVO (NVIDIA) | Otonom kodlama ajanlar\u0131yla evrimsel arama. Blackwell'de dikkat kernel ke\u015ffi | 5 |\n\n**Oracle i\u00e7in \u00e7\u0131kar\u0131m:**\n- **MSA 100M token**: Oracle memory-lancedb'nin uzun context ihtiya\u00e7lar\u0131 i\u00e7in referans mimari.\n- **SlopCodeBench**: Agent kalite erozyonu \u00f6l\u00e7\u00fcm\u00fc \u2014 Oracle'\u0131n selfAssessment mekanizmas\u0131na SlopCodeBench metriklerini eklemek anlaml\u0131.\n- **Formal Semantics for MCP**: MCP\u2192SGD d\u00f6n\u00fc\u015f\u00fcm kayb\u0131 \u2014 Oracle'\u0131n MCP kullan\u0131m\u0131nda dikkat edilmesi gereken formel s\u0131n\u0131rlar.\n- **MemMA**: Dream-replay + memory coordination yakla\u015f\u0131m\u0131 cognitive-evolution'a referans.\n\n---\n\n## \ud83e\udde0 KAT-4 \u00b7 D\u00fc\u015f\u00fcnce Liderleri\n\n| Ki\u015fi | G\u00f6r\u00fc\u015f \u00d6zeti | Tarih | Kaynak |\n|------|-------------|-------|--------|\n| Sam Altman | Axios Slack s\u0131z\u0131nt\u0131s\u0131: \"Anthropic'i Pentagon'dan kurtarmaya \u00e7al\u0131\u015ft\u0131m ama rakibi kurtarman\u0131n garipli\u011finin fark\u0131nday\u0131m.\" Dario Amodei \"d\u00fcz yalan\" dedi, sonra \u00f6z\u00fcr diledi | 26 Mart | [\ud83d\udd17 Axios](https://www.axios.com/2026/03/26/sam-altman-openai-anthropic-pentagon) |\n| Simon Willison | \"Sat\u0131r sat\u0131r koda eskisinden \u00e7ok daha az bak\u0131yorum, ama mimariye \u00e7ok daha fazla d\u00fc\u015f\u00fcn\u00fcyorum\" \u2014 agentic coding mimari d\u00fc\u015f\u00fcnceyi zorunlu k\u0131l\u0131yor | 28 Mart | [\ud83d\udd17 simonwillison.net](https://simonwillison.net/2026/Mar/28/) |\n| Simon Willison | \"Vibe coding SwiftUI apps is fun\" \u2014 128GB M5 MacBook Pro'da yerel LLM'lerle h\u0131zl\u0131 macOS ara\u00e7 geli\u015ftirme | 27 Mart | [\ud83d\udd17 simonwillison.net](https://simonwillison.net/2026/Mar/27/datasette-showboat/) |\n| Yann LeCun | Sessiz d\u00f6nem. AMI Labs ($3.5B de\u011ferleme, $1.03B toplama) arka planda ilerliyor. V-JEPA mimarisi | \u2014 | [\ud83d\udd17 The Decoder](https://the-decoder.com/you-certainly-dont-tell-a-researcher-like-me-what-to-do-says-lecun-as-he-exits-meta-for-his-own-startup/) |\n\n---\n\n## \ud83d\udd34 KAT-5 \u00b7 Reddit Viral\n\n| Subreddit | Ba\u015fl\u0131k | Ba\u011flam | Kaynak |\n|-----------|--------|--------|--------|\n| r/singularity | Pentagon supply chain label engellendi \u2014 Hakim \"Orwellian\" dedi | 43 sayfal\u0131k karar, Birinci Anayasa De\u011fi\u015fikli\u011fi tespiti | [\ud83d\udd17 NPR](https://www.npr.org/2026/03/26/nx-s1-5762971/judge-temporarily-blocks-anthropic-ban) |\n| r/singularity | Jensen Huang \"AGI'ye ula\u015ft\u0131k\" \u2014 Lex Fridman podcast | \"1 milyar dolarl\u0131k i\u015f yaratan AI = AGI\" tan\u0131m\u0131 tart\u0131\u015fma yaratt\u0131 | [\ud83d\udd17 Yahoo Finance](https://finance.yahoo.com/news/nvidia-ceo-jensen-huang-claims-agi-has-been-achieved-can-create-billion-dollar-businesses-172225126.html) |\n| r/LocalLLaMA | \u00c7in modelleri Top 6'da \u2014 MiniMax M2.7 Claude'un %7 maliyeti | Anthropic pazar pay\u0131 %29\u2192%13 d\u00fc\u015f\u00fc\u015f\u00fc | [\ud83d\udd17 The Register](https://www.theregister.com/2026/03/28/miss_anthropic_not_those_who/) |\n| r/MachineLearning | LiteLLM supply chain sald\u0131r\u0131s\u0131 | 3.4M g\u00fcnl\u00fck indirme, ~3 saat backdoor aktif | [\ud83d\udd17 Sonatype](https://www.sonatype.com/blog/compromised-litellm-pypi-package-delivers-multi-stage-credential-stealer) |\n\n---\n\n## \ud83d\udc26 KAT-6 \u00b7 Twitter/X Viral\n\n| Hesap | Tweet \u00d6zeti | Etki | Tarih |\n|-------|-------------|------|-------|\n| @NPR, @CNN, @CNBC | Anthropic vs Pentagon mahkeme karar\u0131 \u2014 \"Orwellian\" | T\u00fcm b\u00fcy\u00fck medya + tech Twitter | 26 Mart |\n| @TheRegister | \"Cheap Chinese models overtaking Anthropic\" \u2014 Top 6 \u00c7in | Geni\u015f payla\u015f\u0131m, maliyet tart\u0131\u015fmas\u0131 | 28 Mart |\n| @axios | Altman'\u0131n \"Anthropic'i kurtarma\" dahili Slack mesajlar\u0131 | Dario'nun \"d\u00fcz yalan\" yan\u0131t\u0131 ikinci viral moment | 26 Mart |\n| @JensenHuang | AGI iddias\u0131 devam eden dalga \u2014 \"100K agent bile Nvidia'y\u0131 in\u015fa edemez\" itiraf\u0131 | Skeptik yan\u0131tlar dominant | 23-28 Mart |\n| genel | xAI/Grok CSAM davalar\u0131 \u2014 4.4M g\u00f6r\u00fcnt\u00fc, 23K \u00e7ocuk i\u00e7eri\u011fi | California AG durdurma talebi | 24-28 Mart |\n\n---\n\n## \ud83c\udf10 KAT-7 \u00b7 Platform & Ekosistem\n\n- **VS Code 1.113** (25 Mart): Nested subagent deste\u011fi (subagent'lar ba\u015fka subagent \u00e7a\u011f\u0131rabilir), configurable reasoning effort, MCP server CLI deste\u011fi. Agent-native IDE'ye d\u00f6n\u00fc\u015f\u00fcm devam ediyor. [\ud83d\udd17 VS Code](https://code.visualstudio.com/updates/v1_113)\n- **Firefox 149** (24 Mart): Split View, \u00fccretsiz dahili VPN (50 GB/ay), Tab Notes. **37 g\u00fcvenlik yamas\u0131** (memory corruption, sandbox escape, RCE). [\ud83d\udd17 Firefox](https://www.firefox.com/en-US/firefox/149.0/releasenotes/)\n- **Apple App Store Connect**: 100+ yeni metrik \u2014 monetizasyon, abonelik cohort analizi, peer group benchmarking. Lansman\u0131ndan bu yana en b\u00fcy\u00fck analytics g\u00fcncellemesi. [\ud83d\udd17 TechCrunch](https://techcrunch.com/2026/03/25/apple-overhauls-its-app-developer-platform-with-100-new-metrics-more-tools/)\n- **Apple iOS 26.4 Foundation Models**: `contextSize` property + `tokenCount(for:)` \u2014 on-device LLM context y\u00f6netimi programatik hale geldi. [\ud83d\udd17 InfoQ](https://www.infoq.com/news/2026/03/apple-foundation-models-context/)\n- **WWDC26**: 8-12 Haziran. Core ML \u2192 **Core AI** framework ge\u00e7i\u015fi bekleniyor. [\ud83d\udd17 Apple Newsroom](https://www.apple.com/newsroom/2026/03/apples-worldwide-developers-conference-returns-the-week-of-june-8/)\n- **Windsurf SWE-1.5**: Sonnet 4.5'ten 13x, Haiku 4.5'ten 6x h\u0131zl\u0131 (950 tok/s, Cerebras). Kredi sistemi kald\u0131r\u0131ld\u0131 \u2192 kota sistemi. [\ud83d\udd17 Windsurf](https://windsurf.com/blog/swe-1-5)\n- **Google AI Studio**: B\u00fcy\u00fck UI yenilemesi, Secrets Manager, Next.js deste\u011fi. Computer Use tool Gemini 3 Pro/Flash'a geldi. [\ud83d\udd17 AndroidSage](https://www.androidsage.com/2026/03/19/google-ai-studios-biggest-update-yet/)\n- **Google Ads API**: 1 Nisan'dan itibaren Customer Match de\u011fi\u015fikli\u011fi \u2014 **breaking change**. [\ud83d\udd17 Google](https://ads-developers.googleblog.com/2026/03/changes-to-customer-match-support-in.html)\n\n---\n\n## \ud83e\uddbe KAT-8 \u00b7 Robotik & Edge AI\n\n- **Unitree Robotics $610M Shanghai IPO**: 2025'te 5,500 humanoid teslim (global lider). Gelir %335, k\u00e2r %674 artt\u0131. Humanoid'ler gelirin %51.5'i. [\ud83d\udd17 Bloomberg](https://www.bloomberg.com/news/articles/2026-03-20/chinese-robot-maker-unitree-seeks-610-million-in-shanghai-ipo)\n- **Renault 350 Humanoid Robot**: Wandercraft Calvin-40 robotu, 18 ayda 350 adet Douai fabrikas\u0131na yerle\u015fecek. 40 kg kald\u0131rma, ara\u00e7 ba\u015f\u0131na \u00fcretim %30 azaltma hedefi. Avrupa'da en b\u00fcy\u00fck end\u00fcstriyel humanoid plan\u0131. [\ud83d\udd17 Robotics & Automation News](https://roboticsandautomationnews.com/2026/03/23/renault-reportedly-planning-to-deploy-350-humanoid-robots-in-manufacturing-push/100050/)\n- **Tether QVAC \u2014 Mobil 1-Bit LLM Fine-Tuning**: BitNet b1.58 i\u00e7in d\u00fcnyada ilk cross-platform LoRA framework. Samsung S25'te 1B model ~78 dk fine-tune. %77.8 daha az VRAM. [\ud83d\udd17 Tether](https://tether.io/news/tethers-qvac-launches-worlds-first-cross-platform-bitnet-lora-framework-to-enable-billion-parameter-ai-training-and-inference-on-consumer-gpus-and-smartphones/)\n- **NVIDIA TensorRT Edge-LLM**: MoE + hybrid reasoning + Nemotron deste\u011fi Jetson/DRIVE AGX platformlar\u0131nda. Otomotiv sesli dialog: Qwen3-TTS/ASR. [\ud83d\udd17 NVIDIA Developer](https://developer.nvidia.com/blog/accelerating-llm-and-vlm-inference-for-automotive-and-robotics-with-nvidia-tensorrt-edge-llm)\n- **Boston Dynamics Atlas \u00dcretim**: 56 serbestlik derecesi, 2.3m eri\u015fim, 50 kg ta\u015f\u0131ma. Hyundai $26B ABD yat\u0131r\u0131m\u0131, y\u0131lda 30K robot kapasiteli fabrika. [\ud83d\udd17 Engadget](https://www.engadget.com/big-tech/boston-dynamics-unveils-production-ready-version-of-atlas-robot-at-ces-2026-234047882.html)\n\n---\n\n## \u2b50 KAT-9 \u00b7 OSS & \u00dcr\u00fcn Sinyalleri\n\n### HN \u00d6ne \u00c7\u0131kanlar\n\n| Puan | Ba\u015fl\u0131k | Kaynak |\n|------|--------|--------|\n| 662 | Spanish legislation as a Git repo | [\ud83d\udd17 HN](https://news.ycombinator.com/item?id=47553798) |\n| 635 | Hold on to Your Hardware | [\ud83d\udd17 HN](https://news.ycombinator.com/item?id=47540833) |\n| 571 | \"Paperwork flood\": bureaucrat drowning with AI | [\ud83d\udd17 HN](https://news.ycombinator.com/item?id=47542057) |\n| 565 | **Go hard on agents, not on your filesystem** (Stanford JAI) | [\ud83d\udd17 HN](https://news.ycombinator.com/item?id=47550282) |\n| 464 | AI overly affirms users \u2014 Stanford sycophancy research | [\ud83d\udd17 HN](https://news.ycombinator.com/item?id=47554773) |\n| 441 | Judge blocks Pentagon Anthropic supply chain label | [\ud83d\udd17 HN](https://news.ycombinator.com/item?id=47537228) |\n| 401 | Iran-linked hackers breach FBI director's email | [\ud83d\udd17 HN](https://news.ycombinator.com/item?id=47543167) |\n| 385 | jsongrep \u2014 faster alternative to jq | [\ud83d\udd17 HN](https://news.ycombinator.com/item?id=47539825) |\n| 330 | Show HN: AI agent on $7/mo VPS with IRC transport | [\ud83d\udd17 HN](https://news.ycombinator.com/item?id=47536761) |\n| 286 | CERN ultra-compact AI on FPGAs for LHC | [\ud83d\udd17 HN](https://news.ycombinator.com/item?id=47552562) |\n| 277 | Cocoa-Way: macOS Wayland compositor for Linux apps | [\ud83d\udd17 HN](https://news.ycombinator.com/item?id=47553185) |\n| 266 | \"We rewrote JSONata with AI in a day, saved $500k/yr\" | [\ud83d\udd17 HN](https://news.ycombinator.com/item?id=47536712) |\n\n### GitHub Trending\n\n| Repo | Stars/G\u00fcn | Alan |\n|------|-----------|------|\n| [obra/superpowers](https://github.com/obra/superpowers) | +2,293 (120K toplam) | Claude Code agentic skills framework |\n| [hacksider/Deep-Live-Cam](https://github.com/hacksider/Deep-Live-Cam) | +1,789 (84K) | Real-time face swap / deepfake |\n| [Yeachan-Heo/oh-my-claudecode](https://github.com/Yeachan-Heo/oh-my-claudecode) | +1,036 (14.5K) | Teams-first multi-agent Claude Code orchestration |\n| [shareAI-lab/learn-claude-code](https://github.com/shareAI-lab/learn-claude-code) | +804 (41K) | \"Bash is all you need\" \u2014 nano Claude Code harness |\n| [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) | +714 (15K) | NousResearch agent framework |\n| [datalab-to/chandra](https://github.com/datalab-to/chandra) | +679 (7.5K) | OCR: complex tables, forms, handwriting |\n| [firecrawl/firecrawl](https://github.com/firecrawl/firecrawl) | +614 (99.9K) | Web Data API for AI \u2014 100K'ya dayanm\u0131\u015f |\n| [microsoft/VibeVoice](https://github.com/microsoft/VibeVoice) | +540 (25K) | A\u00e7\u0131k kaynak frontier ses AI |\n| [virattt/dexter](https://github.com/virattt/dexter) | +583 (20K) | Autonomous financial research agent |\n| [SakanaAI/AI-Scientist-v2](https://github.com/SakanaAI/AI-Scientist-v2) | +507 (3.4K) | Agentic tree search ile otomatik bilimsel ke\u015fif |\n| [thedotmack/claude-mem](https://github.com/thedotmack/claude-mem) | +391 (41.9K) | Claude Code: otomatik session capture + AI compression |\n\n### Product Hunt AI (28 Mart)\n\n| Upvote | \u00dcr\u00fcn | A\u00e7\u0131klama |\n|--------|------|----------|\n| 310 | SlapMac | Novelty \u2014 MacBook'a tokat at |\n| 274 | **Crossnode** | AI agent'lar\u0131 payment wall'a koy \u2014 agent monetization platform |\n| 189 | Aera Browser | Otomasyon i\u00e7in tasarlanm\u0131\u015f browser |\n| 166 | CrabTalk | 8MB a\u00e7\u0131k kaynak agent daemon, \"hides nothing\" |\n\n---\n\n## \ud83c\uddf9\ud83c\uddf7 T\u00fcrk Tech Sahnesi\n\n\u26a0\ufe0f API limitleri nedeniyle kapsaml\u0131 ara\u015ft\u0131rma tamamlanamad\u0131 (Tavily quota exceeded, Perplexity quota exceeded, SearXNG sunucusu down).\n\nMevcut bilgi:\n- **Daha \u00f6nce raporlanan**: Turkcell-Google $3B ortakl\u0131k, Periodic Labs $7B de\u011ferleme (dedupe kapsam\u0131nda)\n- Bu d\u00f6nemde T\u00fcrkiye ba\u011flant\u0131l\u0131 **yeni** \u00f6zel geli\u015fme do\u011frulanamad\u0131\n\n---\n\n## \ud83e\udde0 Oracle Self-Improvement Sinyalleri\n\n| # | Bulgu | Kaynak | Uygulama Alan\u0131 | Efor |\n|---|-------|--------|----------------|------|\n| 1 | **Anthropic AutoDream** \u2014 resmi Claude Code memory birle\u015ftirme. Mevcut dream-skill ile kar\u015f\u0131la\u015ft\u0131r, API/yakla\u015f\u0131m farklar\u0131n\u0131 belgele | KAT-2 [claudefa.st](https://claudefa.st/blog/guide/mechanics/auto-dream) | dream-replay, memory-lancedb | Orta |\n| 2 | **SlopCodeBench erozyon metrikleri** \u2014 coding agent kalite kayb\u0131n\u0131 \u00f6l\u00e7en benchmark. selfAssessment'a verbosity/erozyon skoru ekle | KAT-3 [arXiv 2603.24755](https://arxiv.org/abs/2603.24755) | cognitive-evolution selfAssessment | K\u00fc\u00e7\u00fck |\n| 3 | **Formal Semantics MCP vs SGD** \u2014 MCP\u2192SGD d\u00f6n\u00fc\u015f\u00fcm\u00fc \"k\u0131smi ve kay\u0131pl\u0131\". Oracle'\u0131n MCP tool tan\u0131mlar\u0131nda formel k\u0131s\u0131tlar\u0131 g\u00f6zden ge\u00e7ir | KAT-3 [arXiv 2603.24747](https://arxiv.org/abs/2603.24747) | MCP tool definitions | K\u00fc\u00e7\u00fck |\n| 4 | **Cisco DefenseClaw MCP Scanner** \u2014 MCP server'lar\u0131 otomatik do\u011frulayan a\u00e7\u0131k kaynak ara\u00e7. OpenClaw agent'lar\u0131 i\u00e7in security layer olarak de\u011ferlendir | KAT-2 [Cisco](https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2026/m03/cisco-reimagines-security-for-the-agentic-workforce.html) | openclaw g\u00fcvenlik | Orta |\n| 5 | **MemMA multi-agent memory** \u2014 forward+backward bellek d\u00f6ng\u00fcs\u00fc. Cognitive-evolution dream-replay mod\u00fcl\u00fcne probe QA + failure repair mekanizmas\u0131 eklenebilir | KAT-3 [arXiv 2603.18718](https://arxiv.org/abs/2603.18718) | cognitive-evolution dream module | B\u00fcy\u00fck |\n\n---\n\n## \ud83d\udc26 CikCik Paketi (@muxamos sesi)\n\n### Tweetler (4 adet)\n\n**Tweet 1 (Konu: \u00c7in modelleri):**\n> Liderlik tablosunun ilk 6's\u0131 \u00c7in modeli. Claude 7., GPT gerilerde. Fark ne mi? MiniMax ayn\u0131 i\u015fi Claude'un %7 maliyetine yap\u0131yor. Rekabet art\u0131k \"daha iyi\" de\u011fil \"daha ucuz ve yeterince iyi\" \u00fczerine.\n\n**Tweet 2 (Konu: Claude Mythos):**\n> Anthropic'ten CMS s\u0131z\u0131nt\u0131s\u0131yla Opus \u00fczeri bir model (Capybara tier) onayland\u0131. \u0130lk eri\u015fim siber g\u00fcvenlik savunmas\u0131na odakl\u0131. \u015eifresiz veritaban\u0131ndan s\u0131zan model duyurusu \u2014 ironi seviyesi: max.\n\n**Tweet 3 (Konu: Claude Code ekosistemi):**\n> superpowers: 120K star. oh-my-claudecode: g\u00fcnde +1,036. learn-claude-code: 41K. claude-mem: 41K. Claude Code etraf\u0131nda olu\u015fan 3rd-party ekosistem art\u0131k IDE'nin kendisinden b\u00fcy\u00fck. Platform efekti.\n\n**Tweet 4 (Konu: SlopCodeBench):**\n> Yeni benchmark: hi\u00e7bir AI coding agent 20 problemin hi\u00e7birini tam \u00e7\u00f6zemedi. Kodun %80'i zaman ge\u00e7tik\u00e7e erozyona u\u011fruyor, %89.8'i gereksiz yere uzuyor. \"AI kodumu yazs\u0131n\" diyen herkesin okumas\u0131 gereken makale.\n\n### Reply F\u0131rsatlar\u0131 (2)\n\n**@simonw alt\u0131na (mimari d\u00fc\u015f\u00fcnce):**\n> \"Sat\u0131r sat\u0131r koda de\u011fil mimariye bak\u0131yorum\" yakla\u015f\u0131m\u0131 agentic \u00e7a\u011f\u0131n zorunlu evrimi. Ama agent'lar da mimariyi anlayam\u0131yor hen\u00fcz \u2014 SlopCodeBench bunu g\u00f6steriyor. \u0130nsan mimar ihtiyac\u0131 art\u0131yor, azalm\u0131yor.\n\n**@TheRegister alt\u0131na (\u00c7in modelleri):**\n> %7 maliyet, %90 kalite. Ama ger\u00e7ek soru bu mu? Enterprise m\u00fc\u015fteriler g\u00fcvenlik, uyumluluk ve destek i\u00e7in %93 premium \u00f6d\u00fcyor. Commoditization commodity i\u015flere gelir, frontier frontier'da kal\u0131r.\n\n### G\u00fcn\u00fcn Hook'u\n\n> Anthropic'in pazar pay\u0131 bir y\u0131lda %29'dan %13'e d\u00fc\u015ft\u00fc ama Claude Code run-rate $2.5B. Hacim kayb\u0131, gelir kazanc\u0131. Premium stratejinin ya zaferi ya da son \u00e7\u0131rp\u0131n\u0131\u015f\u0131.\n\n---\n\n## \ud83d\udcca Kaynak & Durum \u00d6zeti\n\n| Kategori | Kaynak | Durum | Madde |\n|----------|--------|-------|-------|\n| KAT-1 | Fortune, Bloomberg, TechCrunch, CNBC, The New Stack | \u2705 | 10 |\n| KAT-2 | Cisco, Microsoft DevBlogs, MCP Blog, Oracle, claudefa.st | \u2705 | 7 |\n| KAT-3 | arXiv, HuggingFace Papers | \u2705 | 12 |\n| KAT-4 | Axios, simonwillison.net, The Decoder | \u2705 | 4 |\n| KAT-5 | NPR, Yahoo Finance, The Register, Sonatype | \u26a0\ufe0f Dolayl\u0131 (Reddit do\u011frudan eri\u015fim k\u0131s\u0131tl\u0131) | 4 |\n| KAT-6 | CNBC, Axios, The Register, 19th News | \u2705 | 5 |\n| KAT-7 | VS Code, Firefox, TechCrunch, InfoQ, Windsurf | \u2705 | 8 |\n| KAT-8 | Bloomberg, CNBC, Tether, NVIDIA Developer | \u2705 | 5 |\n| KAT-9 | HN, GitHub Trending, Product Hunt | \u2705 | 30+ |\n| T\u00fcrk Tech | \u2014 | \u26a0\ufe0f API limiti | 0 |\n\n**Toplam dedupe elenen:** 25 madde | **Yeni madde:** 85+ | **Sonraki temizlik:** 2026-03-30 01:00 \u0130ST\n\n---\n\n*Rapor: Gece Ara\u015ft\u0131rma v2 \u00b7 2026-03-29 01:00 \u0130ST \u00b7 Oracle \ud83e\udd89*\n";
+
+  // ── marked config ──
+  marked.setOptions({
+    gfm:true,
+    breaks:false,
+    mangle:false,
+    headerIds:false
+  });
+
+  // ── Wrap tables for horizontal scroll ──
+  var renderer = new marked.Renderer();
+  renderer.table = function(header, body){
+    return '<div class="table-wrap"><table><thead>' + header + '</thead><tbody>' + body + '</tbody></table></div>';
+  };
+
+  var html = marked.parse(RAW, {renderer:renderer});
+  var content = document.getElementById('content');
+  var loading = document.getElementById('loading');
+  content.innerHTML = html;
+  content.style.display = '';
+  loading.style.display = 'none';
+
+  // ── Open external links in new tab ──
+  var links = content.querySelectorAll('a[href]');
+  for(var i=0;i<links.length;i++){
+    var href = links[i].getAttribute('href');
+    if(href && (href.startsWith('http://') || href.startsWith('https://'))){
+      links[i].setAttribute('target','_blank');
+      links[i].setAttribute('rel','noopener noreferrer');
+    }
+  }
+})();
+</script>
+</body>
+</html>
