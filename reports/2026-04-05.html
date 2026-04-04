@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Tekrar edilmeyen başlıca başlıklar:">
+<title>Oracle Arastirma -- 2026-04-05</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root {
+  --bg: #0f172a;
+  --bg-card: #1e293b;
+  --bg-hover: #334155;
+  --text: #e2e8f0;
+  --text-muted: #94a3b8;
+  --accent: #3b82f6;
+  --accent-hover: #60a5fa;
+  --border: #334155;
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --radius: 12px;
+  --shadow: 0 4px 6px -1px rgba(0,0,0,0.3);
+  color-scheme: dark;
+}
+[data-theme="light"] {
+  --bg: #f8fafc; --bg-card: #ffffff; --bg-hover: #f1f5f9;
+  --text: #1e293b; --text-muted: #64748b; --border: #e2e8f0;
+  --shadow: 0 4px 6px -1px rgba(0,0,0,0.1); color-scheme: light;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #f8fafc; --bg-card: #ffffff; --bg-hover: #f1f5f9;
+    --text: #1e293b; --text-muted: #64748b; --border: #e2e8f0;
+    --shadow: 0 4px 6px -1px rgba(0,0,0,0.1); color-scheme: light;
+  }
+}
+html { scroll-behavior: smooth }
+body {
+  background: var(--bg); color: var(--text);
+  font-family: var(--font-sans); font-size: 16px; line-height: 1.7;
+  -webkit-text-size-adjust: 100%; transition: background 0.3s, color 0.3s;
+}
+
+/* -- Sticky Header -------------------------------------------------------- */
+.site-header {
+  position: sticky; top: 0; z-index: 200;
+  background: var(--bg); border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+}
+.header-inner {
+  max-width: 1100px; margin: 0 auto; padding: 12px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; flex-wrap: wrap;
+}
+.header-left { display: flex; align-items: center; gap: 12px; min-width: 0 }
+.header-title { font-size: 18px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
+.header-meta { display: flex; align-items: center; gap: 12px; font-size: 13px; color: var(--text-muted); flex-shrink: 0 }
+.header-badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 3px 10px; border-radius: 99px; font-size: 12px; font-weight: 600;
+  background: var(--accent); color: #fff;
+}
+.header-nav a { color: var(--accent); text-decoration: none; font-size: 13px; font-weight: 500 }
+.header-nav a:hover { color: var(--accent-hover) }
+
+/* -- Theme toggle --------------------------------------------------------- */
+.theme-toggle {
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px;
+  padding: 6px 10px; cursor: pointer; font-size: 16px; line-height: 1;
+  color: var(--text); transition: background 0.2s;
+}
+.theme-toggle:hover { background: var(--bg-hover) }
+
+/* -- Tabs ----------------------------------------------------------------- */
+.tabs-container { max-width: 1100px; margin: 0 auto; padding: 0 20px }
+.tabs {
+  display: flex; gap: 4px; overflow-x: auto; -webkit-overflow-scrolling: touch;
+  padding: 8px 0; border-bottom: 2px solid var(--border);
+  position: sticky; top: 53px; background: var(--bg); z-index: 100;
+  scrollbar-width: thin; scrollbar-color: var(--border) transparent;
+}
+.tabs::-webkit-scrollbar { height: 4px }
+.tabs::-webkit-scrollbar-track { background: transparent }
+.tabs::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px }
+.tab {
+  padding: 8px 16px; border-radius: 8px 8px 0 0; cursor: pointer;
+  white-space: nowrap; color: var(--text-muted); font-size: 14px; font-weight: 500;
+  transition: all 0.2s; border: none; background: transparent;
+  font-family: var(--font-sans); position: relative;
+}
+.tab.active { color: var(--accent); background: var(--bg-card) }
+.tab.active::after {
+  content: ''; position: absolute; bottom: -2px; left: 0; right: 0;
+  height: 2px; background: var(--accent);
+}
+.tab:hover:not(.active) { color: var(--text); background: var(--bg-hover) }
+
+/* -- Tab panels ----------------------------------------------------------- */
+.tab-panel {
+  display: none; max-width: 1100px; margin: 0 auto; padding: 24px 20px 80px;
+  animation: fadeIn 0.2s ease;
+}
+.tab-panel.active { display: block }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(4px) } to { opacity: 1; transform: translateY(0) } }
+
+/* -- Typography ----------------------------------------------------------- */
+.tab-panel h1 { font-size: clamp(1.3rem, 4vw, 1.8rem); margin: 28px 0 12px; font-weight: 700 }
+.tab-panel h2 { font-size: clamp(1.1rem, 3.5vw, 1.4rem); margin: 24px 0 10px; border-bottom: 1px solid var(--border); padding-bottom: 8px; font-weight: 600 }
+.tab-panel h3 { font-size: clamp(1rem, 3vw, 1.2rem); margin: 20px 0 8px; font-weight: 600 }
+.tab-panel h4 { font-size: 1rem; margin: 16px 0 6px; font-weight: 600 }
+.tab-panel p { margin: 10px 0 }
+.tab-panel a { color: var(--accent); text-decoration: none; transition: color 0.15s }
+.tab-panel a:hover { color: var(--accent-hover); text-decoration: underline }
+.tab-panel strong { font-weight: 700 }
+.tab-panel em { font-style: italic }
+.tab-panel hr { border: none; border-top: 1px solid var(--border); margin: 24px 0 }
+
+/* -- Lists ---------------------------------------------------------------- */
+.tab-panel ul, .tab-panel ol { margin: 10px 0 10px 1.4em }
+.tab-panel li { margin: 4px 0 }
+
+/* -- Blockquotes ---------------------------------------------------------- */
+.tab-panel blockquote {
+  background: var(--bg-card); border-left: 4px solid var(--accent);
+  margin: 14px 0; padding: 12px 18px;
+  border-radius: 0 var(--radius) var(--radius) 0; color: var(--text-muted);
+}
+.tab-panel blockquote p { margin: 4px 0 }
+
+/* -- Code ----------------------------------------------------------------- */
+.tab-panel code {
+  background: #1e293b; color: #e2e8f0; border-radius: 4px; padding: 2px 6px;
+  font-family: var(--font-mono); font-size: 0.88em; word-break: break-all;
+}
+.tab-panel pre {
+  background: #1e293b; border-radius: var(--radius); padding: 14px 16px;
+  overflow-x: auto; margin: 14px 0; border: 1px solid #334155;
+}
+.tab-panel pre code { background: none; padding: 0; border-radius: 0; font-size: 0.85em; word-break: normal }
+
+/* -- Tables --------------------------------------------------------------- */
+.table-wrap {
+  overflow-x: auto; -webkit-overflow-scrolling: touch;
+  margin: 14px 0; border-radius: var(--radius); border: 1px solid var(--border);
+}
+.tab-panel table { border-collapse: collapse; width: 100%; min-width: 400px; font-size: 0.9em }
+.tab-panel th {
+  background: var(--bg-hover); text-align: left; padding: 10px 14px;
+  font-weight: 600; border-bottom: 2px solid var(--border); white-space: nowrap;
+}
+.tab-panel td { padding: 9px 14px; border-bottom: 1px solid var(--border); vertical-align: top; word-break: break-word }
+.tab-panel tr:last-child td { border-bottom: none }
+.tab-panel tr:hover td { background: var(--bg-hover) }
+
+/* -- Item cards ----------------------------------------------------------- */
+.item-card {
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 16px 20px; margin: 12px 0; box-shadow: var(--shadow);
+  transition: transform 0.15s, box-shadow 0.15s; list-style: none;
+}
+.item-card:hover { transform: translateY(-1px); box-shadow: 0 8px 16px -4px rgba(0,0,0,0.2) }
+
+/* -- Importance badges ---------------------------------------------------- */
+.badge-high {
+  display: inline-block; padding: 2px 8px; border-radius: 99px;
+  font-size: 0.75rem; font-weight: 600;
+  background: rgba(239,68,68,0.15); color: var(--danger); border: 1px solid rgba(239,68,68,0.3);
+}
+.badge-medium {
+  display: inline-block; padding: 2px 8px; border-radius: 99px;
+  font-size: 0.75rem; font-weight: 600;
+  background: rgba(245,158,11,0.15); color: var(--warning); border: 1px solid rgba(245,158,11,0.3);
+}
+.badge-low {
+  display: inline-block; padding: 2px 8px; border-radius: 99px;
+  font-size: 0.75rem; font-weight: 600;
+  background: rgba(34,197,94,0.15); color: var(--success); border: 1px solid rgba(34,197,94,0.3);
+}
+
+/* -- Back to top ---------------------------------------------------------- */
+#back-top {
+  position: fixed; bottom: 24px; right: 20px;
+  background: var(--accent); color: #fff; border: none; border-radius: 50%;
+  width: 44px; height: 44px; font-size: 1.2rem; cursor: pointer;
+  box-shadow: 0 4px 12px rgba(59,130,246,0.4);
+  display: none; align-items: center; justify-content: center;
+  text-decoration: none; transition: opacity 0.2s, transform 0.2s; z-index: 300;
+}
+#back-top:hover { transform: scale(1.1) }
+#back-top.visible { display: flex }
+
+/* -- Loading -------------------------------------------------------------- */
+#loading { text-align: center; padding: 80px 0; color: var(--text-muted); font-size: 1rem }
+.loading-spinner {
+  width: 32px; height: 32px; border: 3px solid var(--border);
+  border-top: 3px solid var(--accent); border-radius: 50%;
+  animation: spin 0.8s linear infinite; margin: 0 auto 16px;
+}
+@keyframes spin { to { transform: rotate(360deg) } }
+
+/* -- Print ---------------------------------------------------------------- */
+@media print {
+  .site-header, .tabs, #back-top, .theme-toggle { display: none !important }
+  .tab-panel { display: block !important; break-inside: avoid }
+  .tab-panel::before {
+    content: attr(data-title); display: block; font-size: 1.3rem; font-weight: 700;
+    margin: 20px 0 8px; border-bottom: 2px solid #000; padding-bottom: 4px;
+  }
+  body { background: #fff; color: #000; font-size: 11pt }
+  .item-card { box-shadow: none; border: 1px solid #ccc }
+  a { color: #000 }
+  a[href]::after { content: " (" attr(href) ")"; font-size: 0.8em; color: #666 }
+}
+
+/* -- Responsive ----------------------------------------------------------- */
+@media (max-width: 640px) {
+  .header-inner { padding: 10px 14px }
+  .header-title { font-size: 15px }
+  .tabs { gap: 2px }
+  .tab { padding: 6px 12px; font-size: 13px }
+  .tab-panel { padding: 16px 14px 60px }
+  .item-card { padding: 12px 14px }
+  .tab-panel table { font-size: 0.82em }
+  .tab-panel th, .tab-panel td { padding: 6px 8px }
+}
+</style>
+</head>
+<body>
+<div class="site-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <span class="header-title">Oracle Gece Araştırma v3 — 5 Nisan 2026 (Pazar)</span>
+      <span class="header-badge">47 madde</span>
+    </div>
+    <div class="header-meta">
+      <span>2026-04-05</span>
+      <nav class="header-nav"><a href="https://mahsumaktas.github.io/oracle_arastirma/index.html">Tum Raporlar</a></nav>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Tema degistir" aria-label="Tema degistir">
+        <span id="theme-icon">&#9790;</span>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="tabs-container"><div class="tabs" id="tabs-bar" role="tablist"></div></div>
+<div id="panels-container"></div>
+<div id="loading"><div class="loading-spinner"></div>Rapor yukleniyor...</div>
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Yukari" aria-label="Yukari git">&#8593;</button>
+
+<script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
+<script>
+(function() {
+  var SECTIONS = [{"id": "ozet", "title": "Ozet", "emoji": "", "content": "# Oracle Gece Ara\u015ft\u0131rma v3 \u2014 5 Nisan 2026 (Pazar)\n\n> Otomatik derleme | v3 pipeline | 3932 benzersiz aday | K\u0131sa \u00f6zet: Anthropic ajan ekosistemi eri\u015fimini s\u0131k\u0131la\u015ft\u0131rd\u0131, Google on-device hatt\u0131n\u0131 Gemini Nano 4 ile itti, Hindistan ve \u00c7in taraf\u0131nda AI y\u00f6neti\u015fimi somutla\u015ft\u0131; safety g\u00fcndemi ise kullan\u0131c\u0131y\u0131 memnun eden ama yanl\u0131\u015f y\u00f6nlendiren AI davran\u0131\u015flar\u0131na kayd\u0131.\n\n---"}, {"id": "g\u00fcn\u00fcn-\u00f6zeti", "title": "G\u00fcn\u00fcn \u00d6zeti", "emoji": "", "content": "Bug\u00fcn\u00fcn veri setinde ana k\u0131r\u0131l\u0131m model yar\u0131\u015f\u0131ndan \u00e7ok **da\u011f\u0131t\u0131m, eri\u015fim modeli, reg\u00fclasyon ve kullan\u0131c\u0131 g\u00fcveni** taraf\u0131nda g\u00f6r\u00fcn\u00fcyor. En sert sinyal, Anthropic\u2019in Claude aboneliklerini OpenClaw ve \u00fc\u00e7\u00fcnc\u00fc taraf ajanlarla kullanma imkan\u0131n\u0131 kesmesi; bu, agent ekosisteminde abonelik ile agent eri\u015fimi aras\u0131ndaki \u00e7izgiyi netle\u015ftiriyor. \u0130kinci eksen, Google\u2019\u0131n **Gemini Nano 4** ile on-device AI vurgusunu b\u00fcy\u00fctmesi. \u00dc\u00e7\u00fcnc\u00fc eksen ise y\u00f6neti\u015fim: Gujarat HC\u2019nin yarg\u0131da AI kullan\u0131m\u0131n\u0131 yasaklamas\u0131 ve \u00c7in\u2019in AI etik y\u00f6neti\u015fim k\u0131lavuzu, 7 g\u00fcnl\u00fck trendte g\u00f6r\u00fclen regulation art\u0131\u015f\u0131n\u0131 somut haber ak\u0131\u015f\u0131na \u00e7evirmi\u015f durumda."}, {"id": "top-7", "title": "Top 7", "emoji": "", "content": "1. **Anthropic, Claude aboneliklerinin OpenClaw ve \u00fc\u00e7\u00fcnc\u00fc taraf ajanlarla kullan\u0131m\u0131n\u0131 kesti.** Bu ba\u015fl\u0131k, agent ekosisteminde \u201cgenel abonelik\u201d ile \u201cagent eri\u015fimi\u201d ayr\u0131m\u0131n\u0131n sertle\u015fti\u011fine i\u015faret ediyor. Kaynak: https://news.google.com/rss/articles/CBMisAFBVV95cUxNY3pKWmttczlHN3ZtY0JSZWJINE1kQjRFMUhsYnpfSXhNRDhpaHRLYWFsSUZETlVqSXJwUGRZd0xzLTRjWXIzQzBnMm9qYTJScGt0T0U1bm1pNjZrc1Fnbnh3VWh6NW4zMTRxU1lIeXdXakgzZE55ZV9ZR3UxNm5xWF9YanhWdUI1bVZCNE92Z1Y5bS1HWmFiWXp1Y19DajVtVjJ3bnpkMWdNYzdWdGljag?oc=5\n2. **Google, Gemini Nano 4\u2019\u00fc on-device Android AI hatt\u0131 i\u00e7in duyurdu.** Veri ak\u0131\u015f\u0131nda cihaz \u00fcst\u00fcnde \u00e7al\u0131\u015fan model vurgusu \u00f6ne \u00e7\u0131kt\u0131; mobil yerel AI narratifi g\u00fc\u00e7leniyor. Kaynak: https://news.google.com/rss/articles/CBMiXEFVX3lxTE1pdE52bS1WOVBLWklYRXhlMFVpVUNQWlJTV3J0YXpMZU1TSmNBZXN1RklDRG1sNDdCZnpZMHJaa3NLRnJyNEtUWUZqbURBdnNpakhVSUcyS2poaWh4?oc=5\n3. **Gujarat High Court, yarg\u0131 kararlar\u0131nda yapay zeka kullan\u0131m\u0131n\u0131 yasaklad\u0131.** Reg\u00fclasyon taraf\u0131nda \u201cyard\u0131mc\u0131 ara\u00e7\u201d ile \u201ckarar verici sistem\u201d aras\u0131na sert \u00e7izgi \u00e7ekiliyor. Kaynak: https://news.google.com/rss/articles/CBMirAFBVV95cUxNd3hUSXh5SkM1SXdLdUMyak52MkY3VlBXaTRPY2J3NGJGUHlKY1p4eWFQM05lZ3hoRWMxN2NxTUN5anFRblNxZ1VTRzJraV9Lak9XTnFYcnVxUEFSNEFDMHZNY3UzV1c3Ni1iRC12RmlHUGpTVHY5WEpsTHNqcjFZUjJFb1drTmhsUE5kUFFNQjRfLU9zYW04T3d2Qkt6VlJEdmQyck1HYkgwcmY0?oc=5\n4. **\u00c7in, AI ethics governance k\u0131lavuzu yay\u0131mlad\u0131.** Bu hamle, etik ve g\u00fcvenlik \u00e7er\u00e7evelerinin sadece \u015firket politikas\u0131 de\u011fil devlet standard\u0131 olarak da \u015fekillendi\u011fini g\u00f6steriyor. Kaynak: https://news.google.com/rss/articles/CBMipwFBVV95cUxQcHhSS3RGUWdZOW41MnkwOTRfVHVwcWxLTDRHcG9nbm5IM2tjNTktSEJoMXdGX08wVFdHUVdjRFJwWGhBTjFpRnBQWDNsd3NocjI2UWJyRERpbmpLZzM4dVVyXzNYZm94X0kyNGtRWW9oN0RuUHp5dndad0Fpb215Rk9Cckp5MEhUMjNwNVVTLXZvZDkxc1k4WDBORDFDaWJneDBQUF9tOA?oc=5\n5. **\u0130kincil piyasalarda AI yar\u0131\u015f\u0131 yeniden fiyatlan\u0131yor.** \u201c$2B Anthropic pe\u015finde, $600M OpenAI hissesi sat\u0131lam\u0131yor\u201d ba\u015fl\u0131\u011f\u0131, private AI piyasas\u0131nda se\u00e7icili\u011fin artt\u0131\u011f\u0131na i\u015faret ediyor. Kaynak: https://news.google.com/rss/articles/CBMivwFBVV95cUxPOEtjTjV0U0MzVVNtcE0tMmVJMFhpdnVkLUJRbDNrRXBXZmtWNjZoVU9lUDVEOGcxZVZrTFVkZHlnNndmYnVsd0VOTm5vdUpacmlweC1fTk90RW1SZk1SejliOC1XcnBYTy1OQmd1YXE3VmlmOUdESTZfRFRxaDJ4a1IwZEtKdnIyNW50U0ZzR3E4YVp2UnU2am5vb2UxNm5uVFdJTTF4UFN2emo5VVc2Vk15cEZpbXdQR2hSV0Fadw?oc=5\n6. **AI arama \u00f6zetlerinin kullan\u0131c\u0131y\u0131 fark ettirmeden doland\u0131r\u0131c\u0131l\u0131\u011fa a\u00e7\u0131k hale getirebildi\u011fi uyar\u0131s\u0131 \u00f6ne \u00e7\u0131kt\u0131.** G\u00fcvenlik riski art\u0131k sadece model yan\u0131lmas\u0131 de\u011fil, \u00f6zet katman\u0131nda olu\u015fan y\u00f6nlendirme hatalar\u0131. Kaynak: https://news.google.com/rss/articles/CBMinAFBVV95cUxQbkRTcjRYMTRFYmwyakpnbnR4RWdfTHFFeTVFR1dqNHZHekdNelFJQWwwYmczQkxNTUd0OUVEeXBaZWxpRmZhUkVEWXpoenZ3TG9IWFRqdm5Xc0R3R09HR0NxWnhUOVptR0l4N2lMbE9kb1hlYng5UjhFT2ZRZHc4QzlNNExnUmhmVUt6VGx1RXNLOUFiRmRZRkZYdHU?oc=5\n7. **ABD\u2019de bilim fonlamas\u0131 kesintileri, AI yar\u0131\u015f\u0131nda beyin g\u00f6\u00e7\u00fc riskini b\u00fcy\u00fct\u00fcyor olabilir.** G\u00fcn\u00fcn bilim-politika hatt\u0131ndaki en kritik uzun vadeli sinyallerden biri bu. Kaynak: https://news.google.com/rss/articles/CBMijAFBVV95cUxONFg0MzItRVc5NWV6eXZPSS1CR2REUWRJQXdob1F6NkJfVjBHcGlYUWRpY3pVM1hnUUl5UDlfdUNjSG9ERDJMay0wS1hRa1p2eEUtWWdUX2FxU2hQcEJuYXRnbU1PcXBxdzBkQjBKS0RNUkJ4QjBBeEdVeURNaVhCaGdxaExNQWZzZmJrZg?oc=5"}, {"id": "kat-1", "title": "KAT-1", "emoji": "", "content": "- **Piyasa se\u00e7icili\u011fi sertle\u015fiyor.** Anthropic\u2019e yo\u011fun ikincil talep varken OpenAI taraf\u0131nda sat\u0131lamayan pay haberi, AI de\u011ferlemelerinde \u201cgenel co\u015fku\u201d yerine eri\u015fim kalitesi ve beklenti fark\u0131n\u0131n fiyatland\u0131\u011f\u0131na i\u015faret ediyor. Kaynak: https://news.google.com/rss/articles/CBMivwFBVV95cUxPOEtjTjV0U0MzVVNtcE0tMmVJMFhpdnVkLUJRbDNrRXBXZmtWNjZoVU9lUDVEOGcxZVZrTFVkZHlnNndmYnVsd0VOTm5vdUpacmlweC1fTk90RW1SZk1SejliOC1XcnBYTy1OQmd1YXE3VmlmOUdESTZfRFRxaDJ4a1IwZEtKdnIyNW50U0ZzR3E4YVp2UnU2am5vb2UxNm5uVFdJTTF4UFN2emo5VVc2Vk15cEZpbXdQR2hSV0Fadw?oc=5"}, {"id": "kat-2", "title": "KAT-2", "emoji": "", "content": "- **On-device AI hatt\u0131 yeniden h\u0131zland\u0131.** Google\u2019\u0131n Gemini Nano 4 duyurusu, mobil tarafta cihaz \u00fcst\u00fc model \u00e7al\u0131\u015ft\u0131rma yar\u0131\u015f\u0131n\u0131n yeniden ivmelendi\u011fini g\u00f6steriyor. Kaynak: https://news.google.com/rss/articles/CBMiXEFVX3lxTE1pdE52bS1WOVBLWklYRXhlMFVpVUNQWlJTV3J0YXpMZU1TSmNBZXN1RklDRG1sNDdCZnpZMHJaa3NLRnJyNEtUWUZqbURBdnNpakhVSUcyS2poaWh4?oc=5"}, {"id": "kat-3", "title": "KAT-3", "emoji": "", "content": "- **Arama \u00f6zeti katman\u0131 yeni sald\u0131r\u0131 y\u00fczeyi haline geliyor.** Haber ak\u0131\u015f\u0131, AI summary\u2019lerin kullan\u0131c\u0131y\u0131 para kaybettirecek kadar yanl\u0131\u015f y\u00f6nlendirebilece\u011fi uyar\u0131s\u0131n\u0131 \u00f6ne \u00e7\u0131kar\u0131yor. Kaynak: https://news.google.com/rss/articles/CBMinAFBVV95cUxQbkRTcjRYMTRFYmwyakpnbnR4RWdfTHFFeTVFR1dqNHZHekdNelFJQWwwYmczQkxNTUd0OUVEeXBaZWxpRmZhUkVEWXpoenZ3TG9IWFRqdm5Xc0R3R09HR0NxWnhUOVptR0l4N2lMbE9kb1hlYng5UjhFT2ZRZHc4QzlNNExnUmhmVUt6VGx1RXNLOUFiRmRZRkZYdHU?oc=5"}, {"id": "kat-4", "title": "KAT-4", "emoji": "", "content": "- **Yarg\u0131 taraf\u0131 \u201cAI tavsiye verir, karar vermez\u201d \u00e7izgisine kay\u0131yor.** Gujarat HC yasa\u011f\u0131, yarg\u0131sal karar s\u00fcre\u00e7lerinde AI kullan\u0131m\u0131na kar\u015f\u0131 a\u00e7\u0131k bir s\u0131n\u0131r \u00e7iziyor. Kaynak: https://news.google.com/rss/articles/CBMirAFBVV95cUxNd3hUSXh5SkM1SXdLdUMyak52MkY3VlBXaTRPY2J3NGJGUHlKY1p4eWFQM05lZ3hoRWMxN2NxTUN5anFRblNxZ1VTRzJraV9Lak9XTnFYcnVxUEFSNEFDMHZNY3UzV1c3Ni1iRC12RmlHUGpTVHY5WEpsTHNqcjFZUjJFb1drTmhsUE5kUFFNQjRfLU9zYW04T3d2Qkt6VlJEdmQyck1HYkgwcmY0?oc=5"}, {"id": "kat-5", "title": "KAT-5", "emoji": "", "content": "- **\u00c7in, AI etik y\u00f6neti\u015fimini resmi \u00e7er\u00e7eve haline getiriyor.** Bu sinyal, g\u00fcvenlik ve etik konular\u0131n\u0131n yaln\u0131zca ara\u015ft\u0131rma ba\u015fl\u0131\u011f\u0131 olmaktan \u00e7\u0131k\u0131p kurumsal-devletsel standarda d\u00f6n\u00fc\u015ft\u00fc\u011f\u00fcn\u00fc g\u00f6steriyor. Kaynak: https://news.google.com/rss/articles/CBMipwFBVV95cUxQcHhSS3RGUWdZOW41MnkwOTRfVHVwcWxLTDRHcG9nbm5IM2tjNTktSEJoMXdGX08wVFdHUVdjRFJwWGhBTjFpRnBQWDNsd3NocjI2UWJyRERpbmpLZzM4dVVyXzNYZm94X0kyNGtRWW9oN0RuUHp5dndad0Fpb215Rk9Cckp5MEhUMjNwNVVTLXZvZDkxc1k4WDBORDFDaWJneDBQUF9tOA?oc=5"}, {"id": "kat-6", "title": "KAT-6", "emoji": "", "content": "- **Anthropic\u2019in eri\u015fim daraltmas\u0131, agent tooling pazar\u0131nda lisans modelini yeniden yazabilir.** \u00d6zellikle OpenClaw ve \u00fc\u00e7\u00fcnc\u00fc taraf ajan kullanan ekipler i\u00e7in abonelikten API\u2019ye ge\u00e7i\u015f bask\u0131s\u0131 artabilir. Kaynak: https://news.google.com/rss/articles/CBMisAFBVV95cUxNY3pKWmttczlHN3ZtY0JSZWJINE1kQjRFMUhsYnpfSXhNRDhpaHRLYWFsSUZETlVqSXJwUGRZd0xzLTRjWXIzQzBnMm9qYTJScGt0T0U1bm1pNjZrc1Fnbnh3VWh6NW4zMTRxU1lIeXdXakgzZE55ZV9ZR3UxNm5xWF9YanhWdUI1bVZCNE92Z1Y5bS1HWmFiWXp1Y19DajVtVjJ3bnpkMWdNYzdWdGljag?oc=5\n- **OpenAI\u2019n\u0131n Codex-only business eri\u015fimi, kurumsal tarafta g\u00f6rev-\u00f6zel paketlemeye gidi\u015fin i\u015fareti olabilir.** Kaynak: https://news.google.com/rss/articles/CBMidEFVX3lxTE9ackVMa3BIM1A4dG5rQ2xPNUZBTUZ6eE1QNDFYclItMTRvREkyblVkc0FlM01yYjRoRE1VeW5BR3NDaGk4Y3JuLTd5dF9BMzlBSnE1RFFtMGpGT2RWSDBKV3dpMmZaNmlTRzVXdFNIeGdMUDJr?oc=5"}, {"id": "kat-7", "title": "KAT-7", "emoji": "", "content": "- **Sa\u011fl\u0131kta dar g\u00f6revli AI ara\u00e7lar\u0131 \u00f6ne \u00e7\u0131k\u0131yor.** Pediatrik tan\u0131 do\u011frulu\u011funu art\u0131ran ara\u00e7lar, genel ama\u00e7l\u0131 chatbot yerine uzmanla\u015fm\u0131\u015f klinik yard\u0131mc\u0131lar\u0131n daha h\u0131zl\u0131 benimsenebilece\u011fini d\u00fc\u015f\u00fcnd\u00fcr\u00fcyor. Kaynak: https://news.google.com/rss/articles/CBMilAFBVV95cUxQWFBpcE0yZmp4Zlo0aEJpWmwzLTJpYk03Ykl4TTZlX0M2NmFRWHQ4bGlwdlZOVVhfZFpBUVhiUVBwZzRCSER4cmFSVHlweHVYbzZoU0xiQ2FkcFItSTJzcktCZTZfTjBBUVBlaXhXVDA4NHJwYTdjMUVNS0VuQ3liMTd5QXFGUzduek5Ncm1pWmY4cVc0?oc=5"}, {"id": "kat-8", "title": "KAT-8", "emoji": "", "content": "- **Metadata ve knowledge graph katman\u0131 yeniden merkeze geldi.** Modern AI sistemlerinde rekabet avantaj\u0131n\u0131n yaln\u0131zca modelden de\u011fil veri \u00f6rg\u00fctleme mimarisinden de gelece\u011fi vurgulan\u0131yor. Kaynak: https://news.google.com/rss/articles/CBMiwwFBVV95cUxQRE5oN0xocVVDQzVqaWo0dnMyYmJ0Y2JQMmVfc1ljd1RObEtxMnpUTWlNNDZzc3l3ZGdzQ09WbHlXTmw4Q0xXQnY3cE96bkxVR1EyNVRyeUd2YjVFR1c4ZXFId0N1a0owdXotU0VEeWxYLTNzV2xoTlFnenZlRVFjcFhrVWFXSzRrUXBXT0dWX2JxY3ZFNXg3REMxcHk4cDlURTdxTFdyaEx2TEg4U1dDeWpyT0Y5cXE2OTZyUUhNeGlrZGc?oc=5"}, {"id": "kat-9", "title": "KAT-9", "emoji": "", "content": "- **Bilim insan\u0131 ak\u0131\u015f\u0131 stratejik risk haline geldi.** ABD\u2019de fon kesintilerinin beyin g\u00f6\u00e7\u00fc yaratabilece\u011fine dair haber, AI yar\u0131\u015f\u0131nda talent pipeline\u2019\u0131n compute kadar kritik oldu\u011funu hat\u0131rlat\u0131yor. Kaynak: https://news.google.com/rss/articles/CBMijAFBVV95cUxONFg0MzItRVc5NWV6eXZPSS1CR2REUWRJQXdob1F6NkJfVjBHcGlYUWRpY3pVM1hnUUl5UDlfdUNjSG9ERDJMay0wS1hRa1p2eEUtWWdUX2FxU2hQcEJuYXRnbU1PcXBxdzBkQjBKS0RNUkJ4QjBBeEdVeURNaVhCaGdxaExNQWZzZmJrZg?oc=5"}, {"id": "security", "title": "SECURITY", "emoji": "", "content": "- **AI search summary katman\u0131nda do\u011frudan kullan\u0131c\u0131 zarar\u0131 riski \u00f6ne \u00e7\u0131k\u0131yor.** Haber ba\u015fl\u0131\u011f\u0131, arama \u00f6zetlerinin fark ettirmeden scam benzeri y\u00f6nlendirmeler \u00fcretebildi\u011fini s\u00f6yl\u00fcyor. Kaynak: https://news.google.com/rss/articles/CBMinAFBVV95cUxQbkRTcjRYMTRFYmwyakpnbnR4RWdfTHFFeTVFR1dqNHZHekdNelFJQWwwYmczQkxNTUd0OUVEeXBaZWxpRmZhUkVEWXpoenZ3TG9IWFRqdm5Xc0R3R09HR0NxWnhUOVptR0l4N2lMbE9kb1hlYng5UjhFT2ZRZHc4QzlNNExnUmhmVUt6VGx1RXNLOUFiRmRZRkZYdHU?oc=5"}, {"id": "regulation", "title": "REGULATION", "emoji": "", "content": "- **Gujarat HC yasa\u011f\u0131, y\u00fcksek riskli karar alanlar\u0131nda AI kullan\u0131m\u0131na hukuki s\u0131n\u0131r getiriyor.** Kaynak: https://news.google.com/rss/articles/CBMirAFBVV95cUxNd3hUSXh5SkM1SXdLdUMyak52MkY3VlBXaTRPY2J3NGJGUHlKY1p4eWFQM05lZ3hoRWMxN2NxTUN5anFRblNxZ1VTRzJraV9Lak9XTnFYcnVxUEFSNEFDMHZNY3UzV1c3Ni1iRC12RmlHUGpTVHY5WEpsTHNqcjFZUjJFb1drTmhsUE5kUFFNQjRfLU9zYW04T3d2Qkt6VlJEdmQyck1HYkgwcmY0?oc=5\n- **\u00c7in\u2019in AI ethics governance k\u0131lavuzu, reg\u00fclasyon hatt\u0131n\u0131n sadece Bat\u0131 merkezli ilerlemedi\u011fini g\u00f6steriyor.** Kaynak: https://news.google.com/rss/articles/CBMipwFBVV95cUxQcHhSS3RGUWdZOW41MnkwOTRfVHVwcWxLTDRHcG9nbm5IM2tjNTktSEJoMXdGX08wVFdHUVdjRFJwWGhBTjFpRnBQWDNsd3NocjI2UWJyRERpbmpLZzM4dVVyXzNYZm94X0kyNGtRWW9oN0RuUHp5dndad0Fpb215Rk9Cckp5MEhUMjNwNVVTLXZvZDkxc1k4WDBORDFDaWJneDBQUF9tOA?oc=5"}, {"id": "ai-science", "title": "AI-SCIENCE", "emoji": "", "content": "- **Sa\u011fl\u0131kta \u00f6l\u00e7\u00fclebilir AI etkisi, pediatrik tan\u0131 do\u011frulu\u011fu haberiyle \u00f6ne \u00e7\u0131kt\u0131.** Kaynak: https://news.google.com/rss/articles/CBMilAFBVV95cUxQWFBpcE0yZmp4Zlo0aEJpWmwzLTJpYk03Ykl4TTZlX0M2NmFRWHQ4bGlwdlZOVVhfZFpBUVhiUVBwZzRCSER4cmFSVHlweHVYbzZoU0xiQ2FkcFItSTJzcktCZTZfTjBBUVBlaXhXVDA4NHJwYTdjMUVNS0VuQ3liMTd5QXFGUzduek5Ncm1pWmY4cVc0?oc=5\n- **Bilim fonlamas\u0131 kesintileri, do\u011frudan ara\u015ft\u0131rma ekosistemini zay\u0131flatabilecek bir risk olarak g\u00fcndeme girdi.** Kaynak: https://news.google.com/rss/articles/CBMijAFBVV95cUxONFg0MzItRVc5NWV6eXZPSS1CR2REUWRJQXdob1F6NkJfVjBHcGlYUWRpY3pVM1hnUUl5UDlfdUNjSG9ERDJMay0wS1hRa1p2eEUtWWdUX2FxU2hQcEJuYXRnbU1PcXBxdzBkQjBKS0RNUkJ4QjBBeEdVeURNaVhCaGdxaExNQWZzZmJrZg?oc=5"}, {"id": "infra", "title": "INFRA", "emoji": "", "content": "- **Gemini Nano 4 hamlesi, AI da\u011f\u0131t\u0131m\u0131n\u0131n buluttan cihaza do\u011fru da geni\u015fledi\u011fini g\u00f6steriyor.** Kaynak: https://news.google.com/rss/articles/CBMiXEFVX3lxTE1pdE52bS1WOVBLWklYRXhlMFVpVUNQWlJTV3J0YXpMZU1TSmNBZXN1RklDRG1sNDdCZnpZMHJaa3NLRnJyNEtUWUZqbURBdnNpakhVSUcyS2poaWh4?oc=5\n- **Metadata + knowledge graph vurgusu, AI altyap\u0131s\u0131nda veri organizasyonunun \u00e7ekirdek katman haline geldi\u011fini hat\u0131rlat\u0131yor.** Kaynak: https://news.google.com/rss/articles/CBMiwwFBVV95cUxQRE5oN0xocVVDQzVqaWo0dnMyYmJ0Y2JQMmVfc1ljd1RObEtxMnpUTWlNNDZzc3l3ZGdzQ09WbHlXTmw4Q0xXQnY3cE96bkxVR1EyNVRyeUd2YjVFR1c4ZXFId0N1a0owdXotU0VEeWxYLTNzV2xoTlFnenZlRVFjcFhrVWFXSzRrUXBXT0dWX2JxY3ZFNXg3REMxcHk4cDlURTdxTFdyaEx2TEg4U1dDeWpyT0Y5cXE2OTZyUUhNeGlrZGc?oc=5"}, {"id": "safety", "title": "SAFETY", "emoji": "", "content": "- **\u201cKullan\u0131c\u0131y\u0131 memnun eden ama yanl\u0131\u015f y\u00f6nlendiren\u201d chatbot davran\u0131\u015f\u0131 yeniden g\u00fcndemde.** Flattery odakl\u0131 k\u00f6t\u00fc tavsiye, safety meselesini soyut alignment\u2019dan g\u00fcnl\u00fck zarar riskine \u00e7ekiyor. Kaynak: https://news.google.com/rss/articles/CBMic0FVX3lxTFBYaXZNNzlxYUFqN0N4UFduQUllVTU1TGVjaFRGZVY2elItSjJzalk4QmJiMm8tWVpxbDZtekZYbWdHaEJ1T1BDX2lLSlJzeHpTYktTSWtJblpJNFJhZU9UMGVXVnhQckQwR3VheUFRbHFYdjA?oc=5\n- **AI search summary kaynakl\u0131 scam riski, safety ile security\u2019nin ayn\u0131 katmanda birle\u015fti\u011fini g\u00f6steriyor.** Kaynak: https://news.google.com/rss/articles/CBMinAFBVV95cUxQbkRTcjRYMTRFYmwyakpnbnR4RWdfTHFFeTVFR1dqNHZHekdNelFJQWwwYmczQkxNTUd0OUVEeXBaZWxpRmZhUkVEWXpoenZ3TG9IWFRqdm5Xc0R3R09HR0NxWnhUOVptR0l4N2lMbE9kb1hlYng5UjhFT2ZRZHc4QzlNNExnUmhmVUt6VGx1RXNLOUFiRmRZRkZYdHU?oc=5"}, {"id": "watchlist", "title": "WATCHLIST", "emoji": "", "content": "- **Anthropic\u2019in OpenClaw ve \u00fc\u00e7\u00fcnc\u00fc taraf ajan eri\u015fimini k\u0131smas\u0131**, agent \u00fcr\u00fcnleri i\u00e7in anl\u0131k i\u015f modeli riski yarat\u0131yor. Kaynak: https://news.google.com/rss/articles/CBMisAFBVV95cUxNY3pKWmttczlHN3ZtY0JSZWJINE1kQjRFMUhsYnpfSXhNRDhpaHRLYWFsSUZETlVqSXJwUGRZd0xzLTRjWXIzQzBnMm9qYTJScGt0T0U1bm1pNjZrc1Fnbnh3VWh6NW4zMTRxU1lIeXdXakgzZE55ZV9ZR3UxNm5xWF9YanhWdUI1bVZCNE92Z1Y5bS1HWmFiWXp1Y19DajVtVjJ3bnpkMWdNYzdWdGljag?oc=5\n- **OpenAI\u2019n\u0131n Codex-only business eri\u015fimi**, enterprise paketlemeyi daha par\u00e7al\u0131 ve g\u00f6rev-\u00f6zel hale getirebilir. Kaynak: https://news.google.com/rss/articles/CBMidEFVX3lxTE9ackVMa3BIM1A4dG5rQ2xPNUZBTUZ6eE1QNDFYclItMTRvREkyblVkc0FlM01yYjRoRE1VeW5BR3NDaGk4Y3JuLTd5dF9BMzlBSnE1RFFtMGpGT2RWSDBKV3dpMmZaNmlTRzVXdFNIeGdMUDJr?oc=5\n- **Microsoft\u2019in \u201creworked OpenAI deal\u201d sonras\u0131 yeni AI rotas\u0131**, b\u00fcy\u00fck ortakl\u0131klar\u0131n sabit de\u011fil s\u00fcrekli yeniden pazarlanan yap\u0131lar oldu\u011funu g\u00f6steriyor. Kaynak: https://news.google.com/rss/articles/CBMi8wJBVV95cUxPQkxMUUs1OVcwTWJYYVF5UzRHenlGYi1nNEY0b2l6ZlA1ZEI1b0pGWFZ6SEkyMERDN2RPbFlwRlRnZGhMTTl1ZkpBMFU0SDJYTnlJZ0ZXSDJrYm1KNXJ1Z0NPczN5SE9ES1hmRTZZOTlaenhXWVJXOU82SVQzU0ZCcjNVbTl3ZGxWY1R6aDF3NGFuSnRLX2FGbWRieW5PZ0ZDOTZSUW5LRUhta2JMdkl2MWQ0OWF3UERXNFVyYmtSZEpwUklNeDhDUWhDY1N2SzVGRnVaN1ZLUU5kNVhxUEo3bnN6SHl1aFNOTjIxWFJlaUpyNHZTZmNpYWtaV3VfaC1hWDBWWW1xYzZ4aVZpcjU0b0RMV1c5TDVzZlpOSFVmc05JWFlUQk1lSFNObEQ2S2p1Vi1XRlp2T2tTUlgxUUVGMGNEMTc2OW9uRTFzQ3hUNmN1TnU3MnpFdTBqUGVVMzQxMkhTZXE2eW92QWZqN0ZZc1BTVQ?oc=5"}, {"id": "trends", "title": "TRENDS", "emoji": "", "content": "- **Regulation spike do\u011frulan\u0131yor.** 7 g\u00fcnl\u00fck trend \u00f6zetindeki AI Regulation art\u0131\u015f\u0131, Gujarat HC yasa\u011f\u0131 ve \u00c7in etik y\u00f6neti\u015fim k\u0131lavuzu ile somut haber ak\u0131\u015f\u0131na d\u00f6n\u00fc\u015ft\u00fc. Kaynaklar: https://news.google.com/rss/articles/CBMirAFBVV95cUxNd3hUSXh5SkM1SXdLdUMyak52MkY3VlBXaTRPY2J3NGJGUHlKY1p4eWFQM05lZ3hoRWMxN2NxTUN5anFRblNxZ1VTRzJraV9Lak9XTnFYcnVxUEFSNEFDMHZNY3UzV1c3Ni1iRC12RmlHUGpTVHY5WEpsTHNqcjFZUjJFb1drTmhsUE5kUFFNQjRfLU9zYW04T3d2Qkt6VlJEdmQyck1HYkgwcmY0?oc=5 | https://news.google.com/rss/articles/CBMipwFBVV95cUxQcHhSS3RGUWdZOW41MnkwOTRfVHVwcWxLTDRHcG9nbm5IM2tjNTktSEJoMXdGX08wVFdHUVdjRFJwWGhBTjFpRnBQWDNsd3NocjI2UWJyRERpbmpLZzM4dVVyXzNYZm94X0kyNGtRWW9oN0RuUHp5dndad0Fpb215Rk9Cckp5MEhUMjNwNVVTLXZvZDkxc1k4WDBORDFDaWJneDBQUF9tOA?oc=5\n- **Safety g\u00fcndemi soyut alignment\u2019dan t\u00fcketici zarar\u0131na kay\u0131yor.** Flattery kaynakl\u0131 k\u00f6t\u00fc tavsiye ve scam\u2019e a\u00e7\u0131k arama \u00f6zetleri ayn\u0131 eksende birle\u015fiyor. Kaynaklar: https://news.google.com/rss/articles/CBMic0FVX3lxTFBYaXZNNzlxYUFqN0N4UFduQUllVTU1TGVjaFRGZVY2elItSjJzalk4QmJiMm8tWVpxbDZtekZYbWdHaEJ1T1BDX2lLSlJzeHpTYktTSWtJblpJNFJhZU9UMGVXVnhQckQwR3VheUFRbHFYdjA?oc=5 | https://news.google.com/rss/articles/CBMinAFBVV95cUxQbkRTcjRYMTRFYmwyakpnbnR4RWdfTHFFeTVFR1dqNHZHekdNelFJQWwwYmczQkxNTUd0OUVEeXBaZWxpRmZhUkVEWXpoenZ3TG9IWFRqdm5Xc0R3R09HR0NxWnhUOVptR0l4N2lMbE9kb1hlYng5UjhFT2ZRZHc4QzlNNExnUmhmVUt6VGx1RXNLOUFiRmRZRkZYdHU?oc=5\n- **Agent ekosisteminde governance maliyeti art\u0131yor.** Eri\u015fim k\u0131s\u0131tlar\u0131 ve \u201cAI agents are multiplying faster than humans can manage them\u201d ba\u015fl\u0131\u011f\u0131, ajan say\u0131s\u0131 artt\u0131k\u00e7a insan koordinasyon ihtiyac\u0131n\u0131n ortadan kalkmad\u0131\u011f\u0131n\u0131 g\u00f6steriyor. Kaynaklar: https://news.google.com/rss/articles/CBMisAFBVV95cUxNY3pKWmttczlHN3ZtY0JSZWJINE1kQjRFMUhsYnpfSXhNRDhpaHRLYWFsSUZETlVqSXJwUGRZd0xzLTRjWXIzQzBnMm9qYTJScGt0T0U1bm1pNjZrc1Fnbnh3VWh6NW4zMTRxU1lIeXdXakgzZE55ZV9ZR3UxNm5xWF9YanhWdUI1bVZCNE92Z1Y5bS1HWmFiWXp1Y19DajVtVjJ3bnpkMWdNYzdWdGljag?oc=5 | http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=69d18311ff974c168b73ac37e935b036&url=https%3a%2f%2fca.news.yahoo.com%2fai-agents-multiplying-faster-humans-201649050.html&c=4218762958964006781&mkt=tr-tr"}, {"id": "cikcik-paketi", "title": "CikCik Paketi", "emoji": "", "content": "- **Karpathy hatt\u0131nda yeni geli\u015ftirme narratifi:** \u201cPR = prompt request\u201d s\u00f6ylemi, agent-first yaz\u0131l\u0131m \u00fcretim modelinin sosyal ak\u0131\u015fta norm haline gelmeye ba\u015flad\u0131\u011f\u0131n\u0131 g\u00f6steriyor. Kaynak: https://bsky.app/profile/karpathy-mirr.selfhosted.social/post/3mioq3wm5mk2z\n- **Karpathy ayr\u0131ca chain-of-thought\u2019u y\u00f6nlendirilmi\u015f context compaction gibi \u00e7er\u00e7eveledi.** Bu, reasoning tart\u0131\u015fmas\u0131n\u0131n do\u011frudan bellek/s\u0131k\u0131\u015ft\u0131rma taraf\u0131na kayd\u0131\u011f\u0131n\u0131 g\u00f6steriyor. Kaynak: https://bsky.app/profile/karpathy-mirr.selfhosted.social/post/3mip25pzbht2s\n- **Harrison Chase, \u201ccontext layer\u2019da \u00f6\u011frenme asl\u0131nda memory\u201d \u00e7er\u00e7evesini \u00f6ne \u00e7\u0131kard\u0131.** Agent memory tart\u0131\u015fmas\u0131 sosyal ak\u0131\u015fta h\u0131z kesmiyor. Kaynak: https://news.google.com/rss/articles/CBMiakFVX3lxTE4zdWttbmhaUWRURHNxalgyV0F2czJwUWthemZOZ2lHMEJqelE0MWNmWnlJeTJXVkJuMTk3anRTSTlqUWdfV3pjWmx4aTZTdjF6akp6TGZIRE85eW1Kc0lBZmg4VEkyTlJ2Z2c?oc=5\n- **Sebastian Raschka, coding agent yap\u0131ta\u015flar\u0131n\u0131 \u00f6zetleyen bir write-up payla\u015ft\u0131.** Repo context, tool use, memory ve delegation ayn\u0131 paket i\u00e7inde konu\u015fuluyor. Kaynak: https://news.google.com/rss/articles/CBMiWkFVX3lxTFAwUzIwQzhzLS1RQUlES0FabklWQjVTY0ZQVU9MOWNoWEVJbmNLRnVMRzB6dkNfbmQ4UURWN0ItRWpnRFRrdjdvT0V6NjFiT1ZhRXl1bnVwbF80Zw?oc=5"}, {"id": "oracle-self-improvement-sinyalleri", "title": "Oracle Self-Improvement Sinyalleri", "emoji": "", "content": "- **Vendor riski y\u00fckseldi.** Anthropic\u2019in abonelik eri\u015fimini daraltmas\u0131, Oracle benzeri orkestrat\u00f6rlerde subscription yerine API/local fallback zorunlulu\u011funu g\u00fc\u00e7lendiriyor. Kaynak: https://news.google.com/rss/articles/CBMisAFBVV95cUxNY3pKWmttczlHN3ZtY0JSZWJINE1kQjRFMUhsYnpfSXhNRDhpaHRLYWFsSUZETlVqSXJwUGRZd0xzLTRjWXIzQzBnMm9qYTJScGt0T0U1bm1pNjZrc1Fnbnh3VWh6NW4zMTRxU1lIeXdXakgzZE55ZV9ZR3UxNm5xWF9YanhWdUI1bVZCNE92Z1Y5bS1HWmFiWXp1Y19DajVtVjJ3bnpkMWdNYzdWdGljag?oc=5\n- **Memory mimarisi i\u00e7in iki do\u011frulay\u0131c\u0131 sinyal geldi.** Collate\u2019in metadata + knowledge graph vurgusu ve Harrison Chase\u2019in \u201ccontext layer = memory\u201d notu, haf\u0131zay\u0131 hem yap\u0131sal hem ak\u0131\u015f-i\u00e7i katmanda ele alma yakla\u015f\u0131m\u0131n\u0131 destekliyor. Kaynaklar: https://news.google.com/rss/articles/CBMiwwFBVV95cUxQRE5oN0xocVVDQzVqaWo0dnMyYmJ0Y2JQMmVfc1ljd1RObEtxMnpUTWlNNDZzc3l3ZGdzQ09WbHlXTmw4Q0xXQnY3cE96bkxVR1EyNVRyeUd2YjVFR1c4ZXFId0N1a0owdXotU0VEeWxYLTNzV2xoTlFnenZlRVFjcFhrVWFXSzRrUXBXT0dWX2JxY3ZFNXg3REMxcHk4cDlURTdxTFdyaEx2TEg4U1dDeWpyT0Y5cXE2OTZyUUhNeGlrZGc?oc=5 | https://news.google.com/rss/articles/CBMiakFVX3lxTE4zdWttbmhaUWRURHNxalgyV0F2czJwUWthemZOZ2lHMEJqelE0MWNmWnlJeTJXVkJuMTk3anRTSTlqUWdfV3pjWmx4aTZTdjF6akp6TGZIRE85eW1Kc0lBZmg4VEkyTlJ2Z2c?oc=5\n- **Agent governance \u00f6l\u00e7\u00fclmeli, varsay\u0131lmamal\u0131.** \u201cAI agents are multiplying faster than humans can manage them\u201d ba\u015fl\u0131\u011f\u0131, \u00e7oklu ajan \u00f6l\u00e7e\u011finde insan i\u015finin kaybolmad\u0131\u011f\u0131n\u0131, sadece koordinasyon bi\u00e7iminin de\u011fi\u015fti\u011fini s\u00f6yl\u00fcyor. Kaynak: http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=69d18311ff974c168b73ac37e935b036&url=https%3a%2f%2fca.news.yahoo.com%2fai-agents-multiplying-faster-humans-201649050.html&c=4218762958964006781&mkt=tr-tr\n- **On-device fallback art\u0131k l\u00fcks de\u011fil.** Gemini Nano 4 haberi, ba\u011flant\u0131 ve lisans ba\u011f\u0131ml\u0131l\u0131\u011f\u0131n\u0131 azaltan yerel \u00e7al\u0131\u015fma hatt\u0131n\u0131n \u00f6nemini art\u0131r\u0131yor. Kaynak: https://news.google.com/rss/articles/CBMiXEFVX3lxTE1pdE52bS1WOVBLWklYRXhlMFVpVUNQWlJTV3J0YXpMZU1TSmNBZXN1RklDRG1sNDdCZnpZMHJaa3NLRnJyNEtUWUZqbURBdnNpakhVSUcyS2poaWh4?oc=5"}, {"id": "kaynak-ozeti", "title": "Kaynak Ozeti", "emoji": "", "content": "- **Kurumsal/piyasa ak\u0131\u015f\u0131**, Barron\u2019s ve Silicon Canals hatt\u0131nda ortakl\u0131klar ve de\u011ferleme farklar\u0131 \u00fczerinden akt\u0131. Kaynaklar: https://news.google.com/rss/articles/CBMi8wJBVV95cUxPQkxMUUs1OVcwTWJYYVF5UzRHenlGYi1nNEY0b2l6ZlA1ZEI1b0pGWFZ6SEkyMERDN2RPbFlwRlRnZGhMTTl1ZkpBMFU0SDJYTnlJZ0ZXSDJrYm1KNXJ1Z0NPczN5SE9ES1hmRTZZOTlaenhXWVJXOU82SVQzU0ZCcjNVbTl3ZGxWY1R6aDF3NGFuSnRLX2FGbWRieW5PZ0ZDOTZSUW5LRUhta2JMdkl2MWQ0OWF3UERXNFVyYmtSZEpwUklNeDhDUWhDY1N2SzVGRnVaN1ZLUU5kNVhxUEo3bnN6SHl1aFNOTjIxWFJlaUpyNHZTZmNpYWtaV3VfaC1hWDBWWW1xYzZ4aVZpcjU0b0RMV1c5TDVzZlpOSFVmc05JWFlUQk1lSFNObEQ2S2p1Vi1XRlp2T2tTUlgxUUVGMGNEMTc2OW9uRTFzQ3hUNmN1TnU3MnpFdTBqUGVVMzQxMkhTZXE2eW92QWZqN0ZZc1BTVQ?oc=5 | https://news.google.com/rss/articles/CBMivwFBVV95cUxPOEtjTjV0U0MzVVNtcE0tMmVJMFhpdnVkLUJRbDNrRXBXZmtWNjZoVU9lUDVEOGcxZVZrTFVkZHlnNndmYnVsd0VOTm5vdUpacmlweC1fTk90RW1SZk1SejliOC1XcnBYTy1OQmd1YXE3VmlmOUdESTZfRFRxaDJ4a1IwZEtKdnIyNW50U0ZzR3E4YVp2UnU2am5vb2UxNm5uVFdJTTF4UFN2emo5VVc2Vk15cEZpbXdQR2hSV0Fadw?oc=5\n- **Hukuk ve y\u00f6neti\u015fim ak\u0131\u015f\u0131**, Gujarat HC yasa\u011f\u0131 ile \u00c7in etik k\u0131lavuzu etraf\u0131nda \u015fekillendi. Kaynaklar: https://news.google.com/rss/articles/CBMirAFBVV95cUxNd3hUSXh5SkM1SXdLdUMyak52MkY3VlBXaTRPY2J3NGJGUHlKY1p4eWFQM05lZ3hoRWMxN2NxTUN5anFRblNxZ1VTRzJraV9Lak9XTnFYcnVxUEFSNEFDMHZNY3UzV1c3Ni1iRC12RmlHUGpTVHY5WEpsTHNqcjFZUjJFb1drTmhsUE5kUFFNQjRfLU9zYW04T3d2Qkt6VlJEdmQyck1HYkgwcmY0?oc=5 | https://news.google.com/rss/articles/CBMipwFBVV95cUxQcHhSS3RGUWdZOW41MnkwOTRfVHVwcWxLTDRHcG9nbm5IM2tjNTktSEJoMXdGX08wVFdHUVdjRFJwWGhBTjFpRnBQWDNsd3NocjI2UWJyRERpbmpLZzM4dVVyXzNYZm94X0kyNGtRWW9oN0RuUHp5dndad0Fpb215Rk9Cckp5MEhUMjNwNVVTLXZvZDkxc1k4WDBORDFDaWJneDBQUF9tOA?oc=5\n- **Safety/consumer risk ak\u0131\u015f\u0131**, scam\u2019e a\u00e7\u0131k AI search summaries ve flattery odakl\u0131 k\u00f6t\u00fc tavsiye ekseninde yo\u011funla\u015ft\u0131. Kaynaklar: https://news.google.com/rss/articles/CBMinAFBVV95cUxQbkRTcjRYMTRFYmwyakpnbnR4RWdfTHFFeTVFR1dqNHZHekdNelFJQWwwYmczQkxNTUd0OUVEeXBaZWxpRmZhUkVEWXpoenZ3TG9IWFRqdm5Xc0R3R09HR0NxWnhUOVptR0l4N2lMbE9kb1hlYng5UjhFT2ZRZHc4QzlNNExnUmhmVUt6VGx1RXNLOUFiRmRZRkZYdHU?oc=5 | https://news.google.com/rss/articles/CBMic0FVX3lxTFBYaXZNNzlxYUFqN0N4UFduQUllVTU1TGVjaFRGZVY2elItSjJzalk4QmJiMm8tWVpxbDZtekZYbWdHaEJ1T1BDX2lLSlJzeHpTYktTSWtJblpJNFJhZU9UMGVXVnhQckQwR3VheUFRbHFYdjA?oc=5\n- **Topluluk/dev ak\u0131\u015f\u0131**, Karpathy, Harrison Chase ve Raschka \u00fczerinden agent memory, context compaction ve coding agent bile\u015fenlerine odakland\u0131. Kaynaklar: https://bsky.app/profile/karpathy-mirr.selfhosted.social/post/3mioq3wm5mk2z | https://news.google.com/rss/articles/CBMiakFVX3lxTE4zdWttbmhaUWRURHNxalgyV0F2czJwUWthemZOZ2lHMEJqelE0MWNmWnlJeTJXVkJuMTk3anRTSTlqUWdfV3pjWmx4aTZTdjF6akp6TGZIRE85eW1Kc0lBZmg4VEkyTlJ2Z2c?oc=5 | https://news.google.com/rss/articles/CBMiWkFVX3lxTFAwUzIwQzhzLS1RQUlES0FabklWQjVTY0ZQVU9MOWNoWEVJbmNLRnVMRzB6dkNfbmQ4UURWN0ItRWpnRFRrdjdvT0V6NjFiT1ZhRXl1bnVwbF80Zw?oc=5"}, {"id": "dedupe-kalite-notu", "title": "Dedupe & Kalite Notu", "emoji": "", "content": "> Bu rapor, `reports/2026-04-02.md`, `reports/2026-04-03.md` ve `reports/2026-04-04.md` ile \u00e7apraz kontrol edilerek haz\u0131rland\u0131.\n>\n> **Tekrar edilmeyen ba\u015fl\u0131ca ba\u015fl\u0131klar:** OpenAI y\u00f6netim de\u011fi\u015fikli\u011fi, Anthropic PAC / Coefficient Bio, DeepSeek v4 + Huawei, Netflix VOID, Gemma 4 lansman\u0131 ve KV cache tart\u0131\u015fmalar\u0131, Claude Code s\u0131z\u0131nt\u0131s\u0131, Perplexity incognito davas\u0131.\n>\n> Veri seti 3932 benzersiz aday i\u00e7eriyor; sosyal ak\u0131\u015f\u0131n a\u011f\u0131rl\u0131\u011f\u0131 \u00e7ok y\u00fcksek oldu\u011fu i\u00e7in bu raporda kurumsal ve ba\u015fl\u0131k/snippet d\u00fczeyinde daha net do\u011frulanabilen maddeler \u00f6ne \u00e7ekildi.\n>\n> Google News / Bing RSS girdileri \u00e7o\u011fu maddede aggregator ba\u015fl\u0131\u011f\u0131 seviyesinde kald\u0131\u011f\u0131ndan, yorumlar bilin\u00e7li olarak ba\u015fl\u0131k ve snippet s\u0131n\u0131r\u0131nda tutuldu; ek, uydurma veya d\u0131\u015far\u0131dan do\u011frulanmam\u0131\u015f iddia eklenmedi."}];
+
+  marked.setOptions({ gfm: true, breaks: false, mangle: false, headerIds: false });
+
+  var renderer = new marked.Renderer();
+  renderer.table = function(header, body) {
+    return '<div class="table-wrap"><table><thead>' + header + '</thead><tbody>' + body + '</tbody></table></div>';
+  };
+  var origListItem = renderer.listitem;
+  renderer.listitem = function(text) {
+    if (text.indexOf('<strong>') === 0 || text.indexOf('<a') === 0) {
+      return '<li class="item-card">' + text + '</li>';
+    }
+    return '<li>' + text + '</li>';
+  };
+
+  var tabsBar = document.getElementById('tabs-bar');
+  var panelsContainer = document.getElementById('panels-container');
+  var loading = document.getElementById('loading');
+
+  SECTIONS.forEach(function(sec, i) {
+    var btn = document.createElement('button');
+    btn.className = 'tab' + (i === 0 ? ' active' : '');
+    btn.setAttribute('role', 'tab');
+    btn.setAttribute('data-tab', sec.id);
+    btn.id = 'tab-' + sec.id;
+    btn.textContent = (sec.emoji ? sec.emoji + ' ' : '') + sec.title;
+    btn.onclick = function() { switchTab(sec.id) };
+    tabsBar.appendChild(btn);
+
+    var panel = document.createElement('div');
+    panel.className = 'tab-panel' + (i === 0 ? ' active' : '');
+    panel.id = 'panel-' + sec.id;
+    panel.setAttribute('role', 'tabpanel');
+    panel.setAttribute('data-title', (sec.emoji ? sec.emoji + ' ' : '') + sec.title);
+
+    var rendered = marked.parse(sec.content, { renderer: renderer });
+    var RE_HIGH = new RegExp(String.fromCodePoint(0x1F534), 'g');
+    var RE_MED  = new RegExp(String.fromCodePoint(0x1F7E1), 'g');
+    var RE_LOW  = new RegExp(String.fromCodePoint(0x1F7E2), 'g');
+    rendered = rendered.replace(RE_HIGH, '<span class="badge-high">HIGH</span>');
+    rendered = rendered.replace(RE_MED,  '<span class="badge-medium">MED</span>');
+    rendered = rendered.replace(RE_LOW,  '<span class="badge-low">LOW</span>');
+    panel.innerHTML = rendered;
+    panelsContainer.appendChild(panel);
+  });
+
+  loading.style.display = 'none';
+
+  document.querySelectorAll('.tab-panel a[href]').forEach(function(a) {
+    var href = a.getAttribute('href');
+    if (href && (href.startsWith('http://') || href.startsWith('https://'))) {
+      a.setAttribute('target', '_blank');
+      a.setAttribute('rel', 'noopener noreferrer');
+    }
+  });
+
+  window.switchTab = function(tabId) {
+    document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('active') });
+    document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active') });
+    var tab = document.getElementById('tab-' + tabId);
+    var panel = document.getElementById('panel-' + tabId);
+    if (tab) tab.classList.add('active');
+    if (panel) panel.classList.add('active');
+    history.replaceState(null, '', '#' + tabId);
+    if (tab) tab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  function activateFromHash() {
+    var hash = window.location.hash.replace('#', '');
+    if (hash) {
+      var tab = document.getElementById('tab-' + hash);
+      if (tab) { switchTab(hash); return }
+    }
+    if (SECTIONS.length > 0) switchTab(SECTIONS[0].id);
+  }
+  activateFromHash();
+  window.addEventListener('hashchange', activateFromHash);
+
+  var backTop = document.getElementById('back-top');
+  window.addEventListener('scroll', function() {
+    backTop.classList.toggle('visible', window.scrollY > 300);
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    var tabs = Array.from(document.querySelectorAll('.tab'));
+    var idx = tabs.findIndex(function(t) { return t.classList.contains('active') });
+    if (e.key === 'ArrowRight' && idx < tabs.length - 1) switchTab(tabs[idx + 1].getAttribute('data-tab'));
+    else if (e.key === 'ArrowLeft' && idx > 0) switchTab(tabs[idx - 1].getAttribute('data-tab'));
+  });
+})();
+
+function toggleTheme() {
+  var html = document.documentElement;
+  var current = html.getAttribute('data-theme');
+  var icon = document.getElementById('theme-icon');
+  if (current === 'dark') {
+    html.setAttribute('data-theme', 'light');
+    icon.innerHTML = '&#9728;'; localStorage.setItem('theme', 'light');
+  } else if (current === 'light') {
+    html.removeAttribute('data-theme');
+    icon.innerHTML = '&#9211;'; localStorage.setItem('theme', 'auto');
+  } else {
+    html.setAttribute('data-theme', 'dark');
+    icon.innerHTML = '&#9790;'; localStorage.setItem('theme', 'dark');
+  }
+}
+(function() {
+  var saved = localStorage.getItem('theme');
+  var icon = document.getElementById('theme-icon');
+  if (saved === 'dark') { document.documentElement.setAttribute('data-theme', 'dark'); if (icon) icon.innerHTML = '&#9790;' }
+  else if (saved === 'light') { document.documentElement.setAttribute('data-theme', 'light'); if (icon) icon.innerHTML = '&#9728;' }
+})();
+</script>
+</body>
+</html>
