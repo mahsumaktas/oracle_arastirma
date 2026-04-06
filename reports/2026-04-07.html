@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Tekrar edilmeyen ana hatlar:">
+<title>Oracle Arastirma -- 2026-04-07</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root {
+  --bg: #0f172a;
+  --bg-card: #1e293b;
+  --bg-hover: #334155;
+  --text: #e2e8f0;
+  --text-muted: #94a3b8;
+  --accent: #3b82f6;
+  --accent-hover: #60a5fa;
+  --border: #334155;
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --radius: 12px;
+  --shadow: 0 4px 6px -1px rgba(0,0,0,0.3);
+  color-scheme: dark;
+}
+[data-theme="light"] {
+  --bg: #f8fafc; --bg-card: #ffffff; --bg-hover: #f1f5f9;
+  --text: #1e293b; --text-muted: #64748b; --border: #e2e8f0;
+  --shadow: 0 4px 6px -1px rgba(0,0,0,0.1); color-scheme: light;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #f8fafc; --bg-card: #ffffff; --bg-hover: #f1f5f9;
+    --text: #1e293b; --text-muted: #64748b; --border: #e2e8f0;
+    --shadow: 0 4px 6px -1px rgba(0,0,0,0.1); color-scheme: light;
+  }
+}
+html { scroll-behavior: smooth }
+body {
+  background: var(--bg); color: var(--text);
+  font-family: var(--font-sans); font-size: 16px; line-height: 1.7;
+  -webkit-text-size-adjust: 100%; transition: background 0.3s, color 0.3s;
+}
+
+/* -- Sticky Header -------------------------------------------------------- */
+.site-header {
+  position: sticky; top: 0; z-index: 200;
+  background: var(--bg); border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+}
+.header-inner {
+  max-width: 1100px; margin: 0 auto; padding: 12px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; flex-wrap: wrap;
+}
+.header-left { display: flex; align-items: center; gap: 12px; min-width: 0 }
+.header-title { font-size: 18px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
+.header-meta { display: flex; align-items: center; gap: 12px; font-size: 13px; color: var(--text-muted); flex-shrink: 0 }
+.header-badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 3px 10px; border-radius: 99px; font-size: 12px; font-weight: 600;
+  background: var(--accent); color: #fff;
+}
+.header-nav a { color: var(--accent); text-decoration: none; font-size: 13px; font-weight: 500 }
+.header-nav a:hover { color: var(--accent-hover) }
+
+/* -- Theme toggle --------------------------------------------------------- */
+.theme-toggle {
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px;
+  padding: 6px 10px; cursor: pointer; font-size: 16px; line-height: 1;
+  color: var(--text); transition: background 0.2s;
+}
+.theme-toggle:hover { background: var(--bg-hover) }
+
+/* -- Tabs ----------------------------------------------------------------- */
+.tabs-container { max-width: 1100px; margin: 0 auto; padding: 0 20px }
+.tabs {
+  display: flex; gap: 4px; overflow-x: auto; -webkit-overflow-scrolling: touch;
+  padding: 8px 0; border-bottom: 2px solid var(--border);
+  position: sticky; top: 53px; background: var(--bg); z-index: 100;
+  scrollbar-width: thin; scrollbar-color: var(--border) transparent;
+}
+.tabs::-webkit-scrollbar { height: 4px }
+.tabs::-webkit-scrollbar-track { background: transparent }
+.tabs::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px }
+.tab {
+  padding: 8px 16px; border-radius: 8px 8px 0 0; cursor: pointer;
+  white-space: nowrap; color: var(--text-muted); font-size: 14px; font-weight: 500;
+  transition: all 0.2s; border: none; background: transparent;
+  font-family: var(--font-sans); position: relative;
+}
+.tab.active { color: var(--accent); background: var(--bg-card) }
+.tab.active::after {
+  content: ''; position: absolute; bottom: -2px; left: 0; right: 0;
+  height: 2px; background: var(--accent);
+}
+.tab:hover:not(.active) { color: var(--text); background: var(--bg-hover) }
+
+/* -- Tab panels ----------------------------------------------------------- */
+.tab-panel {
+  display: none; max-width: 1100px; margin: 0 auto; padding: 24px 20px 80px;
+  animation: fadeIn 0.2s ease;
+}
+.tab-panel.active { display: block }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(4px) } to { opacity: 1; transform: translateY(0) } }
+
+/* -- Typography ----------------------------------------------------------- */
+.tab-panel h1 { font-size: clamp(1.3rem, 4vw, 1.8rem); margin: 28px 0 12px; font-weight: 700 }
+.tab-panel h2 { font-size: clamp(1.1rem, 3.5vw, 1.4rem); margin: 24px 0 10px; border-bottom: 1px solid var(--border); padding-bottom: 8px; font-weight: 600 }
+.tab-panel h3 { font-size: clamp(1rem, 3vw, 1.2rem); margin: 20px 0 8px; font-weight: 600 }
+.tab-panel h4 { font-size: 1rem; margin: 16px 0 6px; font-weight: 600 }
+.tab-panel p { margin: 10px 0 }
+.tab-panel a { color: var(--accent); text-decoration: none; transition: color 0.15s }
+.tab-panel a:hover { color: var(--accent-hover); text-decoration: underline }
+.tab-panel strong { font-weight: 700 }
+.tab-panel em { font-style: italic }
+.tab-panel hr { border: none; border-top: 1px solid var(--border); margin: 24px 0 }
+
+/* -- Lists ---------------------------------------------------------------- */
+.tab-panel ul, .tab-panel ol { margin: 10px 0 10px 1.4em }
+.tab-panel li { margin: 4px 0 }
+
+/* -- Blockquotes ---------------------------------------------------------- */
+.tab-panel blockquote {
+  background: var(--bg-card); border-left: 4px solid var(--accent);
+  margin: 14px 0; padding: 12px 18px;
+  border-radius: 0 var(--radius) var(--radius) 0; color: var(--text-muted);
+}
+.tab-panel blockquote p { margin: 4px 0 }
+
+/* -- Code ----------------------------------------------------------------- */
+.tab-panel code {
+  background: #1e293b; color: #e2e8f0; border-radius: 4px; padding: 2px 6px;
+  font-family: var(--font-mono); font-size: 0.88em; word-break: break-all;
+}
+.tab-panel pre {
+  background: #1e293b; border-radius: var(--radius); padding: 14px 16px;
+  overflow-x: auto; margin: 14px 0; border: 1px solid #334155;
+}
+.tab-panel pre code { background: none; padding: 0; border-radius: 0; font-size: 0.85em; word-break: normal }
+
+/* -- Tables --------------------------------------------------------------- */
+.table-wrap {
+  overflow-x: auto; -webkit-overflow-scrolling: touch;
+  margin: 14px 0; border-radius: var(--radius); border: 1px solid var(--border);
+}
+.tab-panel table { border-collapse: collapse; width: 100%; min-width: 400px; font-size: 0.9em }
+.tab-panel th {
+  background: var(--bg-hover); text-align: left; padding: 10px 14px;
+  font-weight: 600; border-bottom: 2px solid var(--border); white-space: nowrap;
+}
+.tab-panel td { padding: 9px 14px; border-bottom: 1px solid var(--border); vertical-align: top; word-break: break-word }
+.tab-panel tr:last-child td { border-bottom: none }
+.tab-panel tr:hover td { background: var(--bg-hover) }
+
+/* -- Item cards ----------------------------------------------------------- */
+.item-card {
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 16px 20px; margin: 12px 0; box-shadow: var(--shadow);
+  transition: transform 0.15s, box-shadow 0.15s; list-style: none;
+}
+.item-card:hover { transform: translateY(-1px); box-shadow: 0 8px 16px -4px rgba(0,0,0,0.2) }
+
+/* -- Importance badges ---------------------------------------------------- */
+.badge-high {
+  display: inline-block; padding: 2px 8px; border-radius: 99px;
+  font-size: 0.75rem; font-weight: 600;
+  background: rgba(239,68,68,0.15); color: var(--danger); border: 1px solid rgba(239,68,68,0.3);
+}
+.badge-medium {
+  display: inline-block; padding: 2px 8px; border-radius: 99px;
+  font-size: 0.75rem; font-weight: 600;
+  background: rgba(245,158,11,0.15); color: var(--warning); border: 1px solid rgba(245,158,11,0.3);
+}
+.badge-low {
+  display: inline-block; padding: 2px 8px; border-radius: 99px;
+  font-size: 0.75rem; font-weight: 600;
+  background: rgba(34,197,94,0.15); color: var(--success); border: 1px solid rgba(34,197,94,0.3);
+}
+
+/* -- Back to top ---------------------------------------------------------- */
+#back-top {
+  position: fixed; bottom: 24px; right: 20px;
+  background: var(--accent); color: #fff; border: none; border-radius: 50%;
+  width: 44px; height: 44px; font-size: 1.2rem; cursor: pointer;
+  box-shadow: 0 4px 12px rgba(59,130,246,0.4);
+  display: none; align-items: center; justify-content: center;
+  text-decoration: none; transition: opacity 0.2s, transform 0.2s; z-index: 300;
+}
+#back-top:hover { transform: scale(1.1) }
+#back-top.visible { display: flex }
+
+/* -- Loading -------------------------------------------------------------- */
+#loading { text-align: center; padding: 80px 0; color: var(--text-muted); font-size: 1rem }
+.loading-spinner {
+  width: 32px; height: 32px; border: 3px solid var(--border);
+  border-top: 3px solid var(--accent); border-radius: 50%;
+  animation: spin 0.8s linear infinite; margin: 0 auto 16px;
+}
+@keyframes spin { to { transform: rotate(360deg) } }
+
+/* -- Print ---------------------------------------------------------------- */
+@media print {
+  .site-header, .tabs, #back-top, .theme-toggle { display: none !important }
+  .tab-panel { display: block !important; break-inside: avoid }
+  .tab-panel::before {
+    content: attr(data-title); display: block; font-size: 1.3rem; font-weight: 700;
+    margin: 20px 0 8px; border-bottom: 2px solid #000; padding-bottom: 4px;
+  }
+  body { background: #fff; color: #000; font-size: 11pt }
+  .item-card { box-shadow: none; border: 1px solid #ccc }
+  a { color: #000 }
+  a[href]::after { content: " (" attr(href) ")"; font-size: 0.8em; color: #666 }
+}
+
+/* -- Responsive ----------------------------------------------------------- */
+@media (max-width: 640px) {
+  .header-inner { padding: 10px 14px }
+  .header-title { font-size: 15px }
+  .tabs { gap: 2px }
+  .tab { padding: 6px 12px; font-size: 13px }
+  .tab-panel { padding: 16px 14px 60px }
+  .item-card { padding: 12px 14px }
+  .tab-panel table { font-size: 0.82em }
+  .tab-panel th, .tab-panel td { padding: 6px 8px }
+}
+</style>
+</head>
+<body>
+<div class="site-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <span class="header-title">Oracle Gece Araştırma v3 — 7 Nisan 2026 (Salı)</span>
+      <span class="header-badge">98 madde</span>
+    </div>
+    <div class="header-meta">
+      <span>2026-04-07</span>
+      <nav class="header-nav"><a href="https://mahsumaktas.github.io/oracle_arastirma/index.html">Tum Raporlar</a></nav>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Tema degistir" aria-label="Tema degistir">
+        <span id="theme-icon">&#9790;</span>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="tabs-container"><div class="tabs" id="tabs-bar" role="tablist"></div></div>
+<div id="panels-container"></div>
+<div id="loading"><div class="loading-spinner"></div>Rapor yukleniyor...</div>
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Yukari" aria-label="Yukari git">&#8593;</button>
+
+<script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
+<script>
+(function() {
+  var SECTIONS = [{"id": "ozet", "title": "Ozet", "emoji": "", "content": "# Oracle Gece Ara\u015ft\u0131rma v3 \u2014 7 Nisan 2026 (Sal\u0131)\n\n> Otomatik derleme | v3 pipeline | 1954 kaynak | 1954 benzersiz aday | Tarih: 2026-04-07\n\n---"}, {"id": "g\u00fcn\u00fcn-\u00f6zeti", "title": "G\u00fcn\u00fcn \u00d6zeti", "emoji": "", "content": "- **Bug\u00fcn\u00fcn veri ak\u0131\u015f\u0131 \u00fcr\u00fcn lansman\u0131ndan \u00e7ok ara\u015ft\u0131rma yo\u011funlu\u011fu ta\u015f\u0131yor.** 7 g\u00fcnl\u00fck trendte AI Agents ve AI Safety ba\u015fl\u0131klar\u0131 gerilese de, g\u00fcn\u00fcn paper hatt\u0131 do\u011frudan bu iki alan\u0131n k\u0131r\u0131lgan noktalar\u0131na, yani sycophancy, hallucination, confidence calibration ve multi-agent verimlili\u011fine odaklan\u0131yor. Kaynaklar: https://arxiv.org/abs/2604.02423 | https://arxiv.org/abs/2604.02668 | https://arxiv.org/abs/2604.03216 | https://arxiv.org/abs/2604.02460\n- **Multi-agent co\u015fkusu teknik testte fren yiyor.** E\u015fit thinking token b\u00fct\u00e7esinde single-agent sistemlerin multi-hop reasoning\u2019de multi-agent kurulumlar\u0131 ge\u00e7mesi, \u201cdaha \u00e7ok ajan = daha iyi sonu\u00e7\u201d varsay\u0131m\u0131n\u0131 zay\u0131flat\u0131yor. Kaynak: https://arxiv.org/abs/2604.02460\n- **Safety hatt\u0131 daha \u00f6l\u00e7\u00fclebilir hale geliyor.** Psikoz ba\u011flam\u0131nda klinik olarak do\u011frulanm\u0131\u015f safety evaluation, reference hallucination tespiti ve sycophancy \u00f6l\u00e7\u00fcm\u00fc ayn\u0131 g\u00fcnde g\u00f6r\u00fcn\u00fcr hale gelmi\u015f durumda. Kaynaklar: https://arxiv.org/abs/2604.02359 | https://arxiv.org/abs/2604.03173 | https://arxiv.org/abs/2604.03058\n- **Uzun context ve RAG i\u00e7in kalite katman\u0131 derinle\u015fiyor.** Long-context continual pre-training, ger\u00e7ek d\u00fcnya RAG benchmark\u2019\u0131 ve factuality evaluation \u00e7al\u0131\u015fmalar\u0131, art\u0131k ham model g\u00fcc\u00fcnden \u00e7ok retrieval, context ve do\u011fruluk zincirinin optimize edildi\u011fini g\u00f6steriyor. Kaynaklar: https://arxiv.org/abs/2604.02650 | https://arxiv.org/abs/2604.02640 | https://arxiv.org/abs/2604.03141"}, {"id": "trend-analizi", "title": "Trend Analizi", "emoji": "", "content": "- **AI Agents d\u00fc\u015f\u00fc\u015fte ama ara\u015ft\u0131rma ilgisi h\u00e2l\u00e2 y\u00fcksek.** 7 g\u00fcnl\u00fck \u00f6zette AI Agents toplam mention olarak d\u00fc\u015f\u00fc\u015fte g\u00f6r\u00fcnse de, g\u00fcn\u00fcn en kritik bulgular\u0131ndan biri do\u011frudan agent mimarisini sorgulayan single-agent vs multi-agent \u00e7al\u0131\u015fmas\u0131 oldu. Kaynak: https://arxiv.org/abs/2604.02460\n- **AI Safety mention\u2019\u0131 azal\u0131yor, i\u00e7erik sertle\u015fiyor.** Trendte safety d\u00fc\u015f\u00fcyor ama g\u00fcn\u00fcn materyali daha ni\u015f ve daha operasyonel: psikoz g\u00fcvenli\u011fi, sycophancy propagation, confirmation bias, hallucinated references. Kaynaklar: https://arxiv.org/abs/2604.02359 | https://arxiv.org/abs/2604.02668 | https://arxiv.org/abs/2604.02485 | https://arxiv.org/abs/2604.03173\n- **DeepSeek ve GPT-5 y\u00fckseli\u015f trendi bug\u00fcn do\u011frudan habere de\u011fil metodoloji yar\u0131\u015f\u0131na yans\u0131yor.** Paper hatt\u0131 daha verimli reasoning, distillation ve routing \u00fczerinden \u201changi model\u201d sorusundan \u201changi hesap b\u00fct\u00e7esiyle\u201d sorusuna kaym\u0131\u015f durumda. Kaynaklar: https://arxiv.org/abs/2604.02621 | https://arxiv.org/abs/2604.02819 | https://arxiv.org/abs/2604.02367\n- **Gemma ve edge hatt\u0131ndaki genel y\u00fckseli\u015f, bug\u00fcn model s\u0131k\u0131\u015ft\u0131rma ve token efficiency ka\u011f\u0131tlar\u0131yla destekleniyor.** A\u00e7\u0131k \u00fcr\u00fcn haberi yok ama d\u00fc\u015f\u00fck kaynakta daha iyi performans aray\u0131\u015f\u0131 veri setinin omurgas\u0131nda. Kaynaklar: https://arxiv.org/abs/2604.02659 | https://arxiv.org/abs/2604.03044 | https://arxiv.org/abs/2604.03110"}, {"id": "top-7", "title": "Top 7", "emoji": "", "content": "1. **Single-agent sistemler, e\u015fit compute alt\u0131nda multi-agent kurulumlar\u0131 ge\u00e7ti.** Bu sonu\u00e7, agent say\u0131s\u0131n\u0131 art\u0131rman\u0131n test-time compute avantaj\u0131 olmadan otomatik \u00fcst\u00fcnl\u00fck getirmedi\u011fini g\u00f6steriyor. Kaynak: https://arxiv.org/abs/2604.02460\n2. **LLM g\u00fcvenli\u011fi, psikoz ba\u011flam\u0131nda klinik do\u011frulamal\u0131 de\u011ferlendirme seviyesine \u00e7\u0131kt\u0131.** Mental health kullan\u0131m\u0131nda safety art\u0131k soyut bir alignment tart\u0131\u015fmas\u0131 de\u011fil, do\u011frudan zarar azaltma problemi. Kaynak: https://arxiv.org/abs/2604.02359\n3. **Reference hallucination art\u0131k do\u011frudan deep research agent\u2019lar\u0131 hedefleyen \u00f6l\u00e7\u00fcm konusu.** Kaynak URL \u00fcreten sistemlerin g\u00fcveni, sadece cevap do\u011frulu\u011fundan de\u011fil at\u0131f do\u011frulu\u011fundan da de\u011ferlendiriliyor. Kaynak: https://arxiv.org/abs/2604.03173\n4. **Sycophancy problemi tek modelden \u00e7oklu ajan yap\u0131s\u0131na da ta\u015f\u0131n\u0131yor.** Multi-agent sistemlerde nezaket/uyum davran\u0131\u015f\u0131n\u0131n kolektif hata \u00fcretebildi\u011fi a\u00e7\u0131k\u00e7a tart\u0131\u015f\u0131l\u0131yor. Kaynak: https://arxiv.org/abs/2604.02668\n5. **Ger\u00e7ek d\u00fcnya RAG i\u00e7in pratik benchmark \u00e7a\u011fr\u0131s\u0131 geldi.** Enterprise ko\u015fullar\u0131n\u0131 yans\u0131tan \u00e7ok boyutlu tan\u0131 \u00e7er\u00e7evesi, demo ba\u015far\u0131s\u0131 ile saha ba\u015far\u0131s\u0131n\u0131 ay\u0131rmay\u0131 ama\u00e7l\u0131yor. Kaynak: https://arxiv.org/abs/2604.02640\n6. **Long-context yar\u0131\u015f\u0131nda continual pre-training dinamikleri \u00f6ne \u00e7\u0131kt\u0131.** Uzun ba\u011flam\u0131 sadece pencere b\u00fcy\u00fctmekle de\u011fil e\u011fitim dinamikleriyle ele alma \u00e7izgisi g\u00fc\u00e7leniyor. Kaynak: https://arxiv.org/abs/2604.02650\n7. **Confidence calibration, \u201cyanl\u0131\u015fsa susabilme\u201d eksenine kay\u0131yor.** BAS yakla\u015f\u0131m\u0131, do\u011fru cevap kadar do\u011fru abstention karar\u0131n\u0131 da de\u011ferlendirme merkezine \u00e7ekiyor. Kaynak: https://arxiv.org/abs/2604.03216"}, {"id": "kat-1", "title": "KAT-1", "emoji": "", "content": "- **Narratif k\u0131r\u0131lmas\u0131: daha fazla ajan de\u011fil, daha verimli hesap.** Single-agent vs multi-agent bulgusu, agent hype\u2019\u0131n\u0131n compute-normalized testlerle yeniden de\u011ferlendirilece\u011fini g\u00f6steriyor. Kaynak: https://arxiv.org/abs/2604.02460"}, {"id": "kat-2", "title": "KAT-2", "emoji": "", "content": "- **Reasoning kalitesi art\u0131k yaln\u0131zca output\u2019tan de\u011fil s\u00fcre\u00e7 tasar\u0131m\u0131ndan okunuyor.** Student-in-the-loop CoT distillation ve token-level reward k\u00f6pr\u00fcs\u00fc, reasoning \u00f6\u011fretiminin daha kontroll\u00fc hale geldi\u011fini g\u00f6steriyor. Kaynaklar: https://arxiv.org/abs/2604.02819 | https://arxiv.org/abs/2604.02795"}, {"id": "kat-3", "title": "KAT-3", "emoji": "", "content": "- **Alignment, kullan\u0131c\u0131ya hak vermekten \u00e7ok do\u011fru yerde kar\u015f\u0131 \u00e7\u0131kabilme problemine d\u00f6n\u00fcyor.** Confirmation bias, sycophancy ve verbalized assumptions hatt\u0131 ayn\u0131 soruna farkl\u0131 a\u00e7\u0131dan sald\u0131r\u0131yor. Kaynaklar: https://arxiv.org/abs/2604.02485 | https://arxiv.org/abs/2604.03058 | https://arxiv.org/abs/2604.02423"}, {"id": "kat-4", "title": "KAT-4", "emoji": "", "content": "- **Evaluation bilimi b\u00fcy\u00fcyor.** Xpertbench, factuality recall ve model confidence \u00e7er\u00e7eveleri birlikte okundu\u011funda \u00f6l\u00e7\u00fcm katman\u0131 model geli\u015ftirme kadar kritik hale geliyor. Kaynaklar: https://arxiv.org/abs/2604.02368 | https://arxiv.org/abs/2604.03141 | https://arxiv.org/abs/2604.03216"}, {"id": "kat-5", "title": "KAT-5", "emoji": "", "content": "- **Retrieval zinciri yeni darbo\u011faz.** Diversity-aware retrieval, GraphRAG sald\u0131r\u0131lar\u0131 ve enterprise RAG benchmark\u2019\u0131 ayn\u0131 g\u00fcn \u00f6ne \u00e7\u0131karak retrieval taraf\u0131n\u0131n art\u0131k yard\u0131mc\u0131 katman de\u011fil \u00e7ekirdek risk/performans alan\u0131 oldu\u011funu g\u00f6steriyor. Kaynaklar: https://arxiv.org/abs/2604.02554 | https://arxiv.org/abs/2604.02954 | https://arxiv.org/abs/2604.02640"}, {"id": "kat-6", "title": "KAT-6", "emoji": "", "content": "- **Compression ve token verimlili\u011fi y\u00fckseli\u015fte.** Low-rank compression, mid-scale token-efficient MoE ve low-rank distillation, model ekonomisinin h\u0131zla altyap\u0131 ekonomisine ba\u011fland\u0131\u011f\u0131n\u0131 g\u00f6steriyor. Kaynaklar: https://arxiv.org/abs/2604.02659 | https://arxiv.org/abs/2604.03044 | https://arxiv.org/abs/2604.03110"}, {"id": "kat-7", "title": "KAT-7", "emoji": "", "content": "- **Bilimsel kullan\u0131mda agent\u2019lar daha dar ve somut g\u00f6revlerden ilerliyor.** Polymer simulation agent ve EEG phoneme decoding gibi i\u015fler, genel sohbet yerine domain-specific AI kullan\u0131m\u0131n\u0131 \u00f6ne \u00e7\u0131kar\u0131yor. Kaynaklar: https://arxiv.org/abs/2604.02537 | https://arxiv.org/abs/2604.02362"}, {"id": "kat-8", "title": "KAT-8", "emoji": "", "content": "- **Knowledge graph ve structured data hatt\u0131 geri d\u00f6n\u00fcyor.** Multimodal knowledge graph continual learning ve do\u011fal dille structured data sorgulama \u00e7al\u0131\u015fmalar\u0131, veri katman\u0131n\u0131n tekrar \u00fcr\u00fcnle\u015fti\u011fini g\u00f6steriyor. Kaynaklar: https://arxiv.org/abs/2604.02778 | https://arxiv.org/abs/2604.03057"}, {"id": "kat-9", "title": "KAT-9", "emoji": "", "content": "- **\u0130nsan de\u011ferlendirmesi h\u00e2l\u00e2 merkezde.** Annotation s\u00fcre\u00e7lerinin annotator\u2019\u0131 da e\u011fitmesi ve klinik validation ihtiyac\u0131, insan\u0131 devreden \u00e7\u0131karmak yerine de\u011ferlendirme zincirini daha sofistike k\u0131l\u0131yor. Kaynaklar: https://arxiv.org/abs/2604.02951 | https://arxiv.org/abs/2604.02359"}, {"id": "llm-model-g\u00fcncellemeleri", "title": "LLM & Model G\u00fcncellemeleri", "emoji": "", "content": "- **JoyAI-LLM Flash**, mid-scale MoE hatt\u0131nda token efficiency odakl\u0131 bir denge kurmaya \u00e7al\u0131\u015f\u0131yor; tema a\u00e7\u0131k\u00e7a daha az hesapla daha \u00e7ok i\u015f. Kaynak: https://arxiv.org/abs/2604.03044\n- **NeuReasoner**, explainable ve controllable reasoning iddias\u0131n\u0131 do\u011frudan model mimarisine ba\u011flayarak \u201cblack-box d\u00fc\u015f\u00fcnme\u201d ele\u015ftirisine yan\u0131t vermeyi hedefliyor. Kaynak: https://arxiv.org/abs/2604.02972\n- **LiME**, multimodal multi-task \u00f6\u011frenme i\u00e7in lightweight MoE katman\u0131n\u0131n verimli fine-tuning yolu olabilece\u011fini savunuyor. Kaynak: https://arxiv.org/abs/2604.02338\n- **SIEVE**, do\u011fal dil \u00fczerinden parametre \u00f6\u011frenimini sample-efficient hale getirme iddias\u0131yla instruction ve feedback\u2019i do\u011frudan \u00f6\u011frenme sinyaline \u00e7eviriyor. Kaynak: https://arxiv.org/abs/2604.02339"}, {"id": "ara\u015ft\u0131rma-paperlar", "title": "Ara\u015ft\u0131rma & Paper'lar", "emoji": "", "content": "- **RLHF i\u00e7in istatistiksel perspektif** ba\u015fl\u0131kl\u0131 \u00e7al\u0131\u015fma, alignment tart\u0131\u015fmas\u0131n\u0131 sezgisel de\u011fil teorik zemine \u00e7ekiyor. Kaynak: https://arxiv.org/abs/2604.02507\n- **Computing with Living Neurons**, living neural culture \u00fczerinde reservoir computing yakla\u015f\u0131m\u0131n\u0131 deneysel hesap paradigmas\u0131na ba\u011fl\u0131yor. Kaynak: https://arxiv.org/abs/2604.02552\n- **CIPHER**, y\u00fcksek yo\u011funluklu EEG\u2019den fonem \u00e7\u0131kar\u0131m\u0131 i\u00e7in conformer tabanl\u0131 bir yol \u00f6neriyor; brain-computer interface hatt\u0131 i\u00e7in dikkat \u00e7ekici. Kaynak: https://arxiv.org/abs/2604.02362\n- **Do We Need Frontier Models to Verify Mathematical Proofs?**, frontier reasoning modellerine ger\u00e7ekten ihtiya\u00e7 olup olmad\u0131\u011f\u0131n\u0131 sorgulayarak maliyet/fayda tart\u0131\u015fmas\u0131na giriyor. Kaynak: https://arxiv.org/abs/2604.02450"}, {"id": "ara\u00e7lar-frameworkler", "title": "Ara\u00e7lar & Framework'ler", "emoji": "", "content": "- **R2-Write**, a\u00e7\u0131k u\u00e7lu yaz\u0131 \u00fcretiminde reflection ve revision d\u00f6ng\u00fcs\u00fcn\u00fc sistematikle\u015ftiriyor; yaz\u0131 taraf\u0131nda reasoning transferinin s\u0131n\u0131rlar\u0131n\u0131 test ediyor. Kaynak: https://arxiv.org/abs/2604.03004\n- **Council Mode**, hallucination ve bias azalt\u0131m\u0131 i\u00e7in multi-agent consensus yakla\u015f\u0131m\u0131n\u0131 ara\u00e7la\u015ft\u0131r\u0131yor; pratikte governance maliyeti ile kalite art\u0131\u015f\u0131 aras\u0131ndaki denge test edilmeli. Kaynak: https://arxiv.org/abs/2604.02923\n- **Overcoming the Impracticality of RAG**, enterprise kullan\u0131m i\u00e7in \u00e7ok boyutlu tan\u0131 \u00e7er\u00e7evesi \u00f6nererek \u201c\u00e7al\u0131\u015f\u0131yor mu?\u201d sorusunu daha \u00f6l\u00e7\u00fclebilir hale getiriyor. Kaynak: https://arxiv.org/abs/2604.02640\n- **Evaluating Small Language Models for Front-Door Routing**, routing problemini kalite, maliyet, latency ve governance ekseninde ele al\u0131yor. Kaynak: https://arxiv.org/abs/2604.02367"}, {"id": "a\u00e7\u0131k-kaynak", "title": "A\u00e7\u0131k Kaynak", "emoji": "", "content": "- **Querying Structured Data Through Natural Language Using Language Models**, do\u011fal dil ile structured dataset sorgulama i\u00e7in a\u00e7\u0131k metodoloji \u00e7iziyor; \u00fcr\u00fcnle\u015fmeye yak\u0131n bir a\u00e7\u0131k kaynak hatt\u0131 olabilir. Kaynak: https://arxiv.org/abs/2604.03057\n- **LLM-based Atomic Propositions help weak extractors**, bilgi \u00e7\u0131kar\u0131m\u0131 ve KG \u00fcretimi i\u00e7in zay\u0131f extractor\u2019lar\u0131 proposition katman\u0131yla g\u00fc\u00e7lendirmeyi \u00f6neriyor. Kaynak: https://arxiv.org/abs/2604.02866"}, {"id": "end\u00fcstri-\u015firketler", "title": "End\u00fcstri & \u015eirketler", "emoji": "", "content": "- **Bug\u00fcn\u00fcn veri setinde b\u00fcy\u00fck \u015firket haberi yerine \u015firketlerin \u00f6n\u00fcne gelecek teknik bor\u00e7lar \u00f6ne \u00e7\u0131kt\u0131.** \u00d6zellikle enterprise RAG de\u011ferlendirmesi, confidence gating ve reference hallucination \u00e7al\u0131\u015fmalar\u0131, \u00fcr\u00fcn ekiplerinin yak\u0131nda do\u011frudan kar\u015f\u0131la\u015faca\u011f\u0131 kalite bask\u0131lar\u0131n\u0131 tarif ediyor. Kaynaklar: https://arxiv.org/abs/2604.02640 | https://arxiv.org/abs/2604.03216 | https://arxiv.org/abs/2604.03173"}, {"id": "ai-agentlar", "title": "AI Agent'lar", "emoji": "", "content": "- **Single-Agent LLMs Outperform Multi-Agent Systems...** ba\u015fl\u0131\u011f\u0131, agent mimarilerini compute-normalized kar\u015f\u0131la\u015ft\u0131rma zorunlulu\u011funa itiyor. Kaynak: https://arxiv.org/abs/2604.02460\n- **PolyJarvis**, polimer MD sim\u00fclasyonlar\u0131n\u0131 otonomla\u015ft\u0131rarak agent\u2019lar\u0131n bilimsel workflow\u2019larda nas\u0131l daha dar ama somut i\u015f \u00fcstlenebilece\u011fini g\u00f6steriyor. Kaynak: https://arxiv.org/abs/2604.02537\n- **AgenticRed**, automated red-teaming i\u00e7in agentic sistemlerin evrimle\u015fmesini konu al\u0131yor; offensive testing taraf\u0131nda agent kullan\u0131m\u0131 derinle\u015fiyor. Kaynak: https://arxiv.org/abs/2601.13518\n- **Too Polite to Disagree**, multi-agent yap\u0131larda sycophancy\u2019nin birbirini besleyebildi\u011fini s\u00f6yl\u00fcyor; \u00e7oklu ajan her zaman \u00e7e\u015fitlilik \u00fcretmiyor. Kaynak: https://arxiv.org/abs/2604.02668"}, {"id": "multimodal", "title": "Multimodal", "emoji": "", "content": "- **VLMs Need Words**, vision-language modellerin g\u00f6rsel ayr\u0131nt\u0131 yerine semantik anchor\u2019lara yasland\u0131\u011f\u0131n\u0131 s\u00f6yl\u00fcyor; multimodal g\u00fcvenilirlik i\u00e7in ciddi uyar\u0131. Kaynak: https://arxiv.org/abs/2604.02486\n- **Internalized Reasoning for Long-Context Visual Document Understanding**, g\u00f6rsel uzun dok\u00fcman anlama taraf\u0131nda internalized reasoning yakla\u015f\u0131m\u0131 \u00f6neriyor. Kaynak: https://arxiv.org/abs/2604.02371\n- **When Modalities Remember**, multimodal knowledge graph\u2019larda continual learning problemini merkeze al\u0131yor; haf\u0131za taraf\u0131 multimodal alana ta\u015f\u0131n\u0131yor. Kaynak: https://arxiv.org/abs/2604.02778"}, {"id": "robotik-embodied-ai", "title": "Robotik & Embodied AI", "emoji": "", "content": "- **Living neurons + reservoir computing** hatt\u0131, embodied intelligence tart\u0131\u015fmas\u0131n\u0131 silikon d\u0131\u015f\u0131 hesap substrate\u2019lerine do\u011fru geni\u015fletiyor. Kaynak: https://arxiv.org/abs/2604.02552\n- **CMOS+X neurons ile nonlinear classification**, enerji verimli spiking sistemler i\u00e7in donan\u0131m-temelli yeni biyolojik dinamizm iddias\u0131 ta\u015f\u0131yor. Kaynak: https://arxiv.org/abs/2604.03187"}, {"id": "edge-cihaz", "title": "Edge & Cihaz", "emoji": "", "content": "- **Low-rank compression of pretrained models**, edge deployment i\u00e7in model k\u00fc\u00e7\u00fcltme hatt\u0131n\u0131n h\u00e2l\u00e2 \u00e7ok canl\u0131 oldu\u011funu g\u00f6steriyor. Kaynak: https://arxiv.org/abs/2604.02659\n- **JoyAI-LLM Flash**, mid-scale model performans\u0131n\u0131 token verimlili\u011fi \u00fczerinden optimize ederek edge benzeri k\u0131s\u0131tl\u0131 b\u00fct\u00e7elere de sinyal veriyor. Kaynak: https://arxiv.org/abs/2604.03044"}, {"id": "veri-altyap\u0131", "title": "Veri & Altyap\u0131", "emoji": "", "content": "- **Wavelength-multiplexed diffractive optical information storage**, veri depolama ve paralel optik bilgi i\u015fleme hatt\u0131nda spek\u00fclatif ama ilgin\u00e7 bir y\u00f6n g\u00f6steriyor. Kaynak: https://arxiv.org/abs/2604.02624\n- **Front-door routing benchmark\u2019\u0131**, altyap\u0131 taraf\u0131nda model se\u00e7iminin art\u0131k statik config de\u011fil dinamik optimizasyon problemi oldu\u011funu netle\u015ftiriyor. Kaynak: https://arxiv.org/abs/2604.02367\n- **Long-context continual pre-training**, sadece context window geni\u015fletmenin yetmedi\u011fini, e\u011fitim hatt\u0131n\u0131n da buna g\u00f6re evrilmesi gerekti\u011fini s\u00f6yl\u00fcyor. Kaynak: https://arxiv.org/abs/2604.02650"}, {"id": "g\u00fcvenlik-alignment", "title": "G\u00fcvenlik & Alignment", "emoji": "", "content": "- **Psychosis safety evaluation**, y\u00fcksek riskli kullan\u0131c\u0131 ba\u011flamlar\u0131nda LLM cevaplar\u0131n\u0131 klinik olarak do\u011frulanm\u0131\u015f kriterlerle \u00f6l\u00e7me \u00e7a\u011fr\u0131s\u0131 yap\u0131yor. Kaynak: https://arxiv.org/abs/2604.02359\n- **Reference hallucination tespiti**, commercial LLM ve deep research agent\u2019lar\u0131n \u00fcretti\u011fi citation URL\u2019leri do\u011frudan g\u00fcvenlik/do\u011fruluk problemi olarak ele al\u0131yor. Kaynak: https://arxiv.org/abs/2604.03173\n- **LogicPoison**, GraphRAG sistemlerine mant\u0131ksal sald\u0131r\u0131 y\u00fczeyini \u00f6ne \u00e7\u0131kar\u0131yor; retrieval kalitesi ayn\u0131 zamanda sald\u0131r\u0131 y\u00fczeyi. Kaynak: https://arxiv.org/abs/2604.02954\n- **Memorization signature \u00f6\u011frenimi**, fine-tuned language modellerde membership inference riskini daha sistematik hale getirebilir. Kaynak: https://arxiv.org/abs/2604.03199"}, {"id": "regulation", "title": "REGULATION", "emoji": "", "content": "- **Bug\u00fcn\u00fcn veri setinde do\u011frudan yeni mevzuat haberi yok, fakat regulation bask\u0131s\u0131 dolayl\u0131 bi\u00e7imde evaluation ve clinical validation taraf\u0131na kaym\u0131\u015f durumda.** \u00d6zellikle psikoz g\u00fcvenli\u011fi ve socioeconomic bias \u00f6l\u00e7\u00fcm\u00fc, gelecekte reg\u00fclatif uyum i\u00e7in temel aday metrikler gibi g\u00f6r\u00fcn\u00fcyor. Kaynaklar: https://arxiv.org/abs/2604.02359 | https://arxiv.org/abs/2604.02660"}, {"id": "ai-science", "title": "AI-SCIENCE", "emoji": "", "content": "- **Living neurons ile reservoir computing**, AI ile biyolojik hesap aras\u0131nda yeni deneysel k\u00f6pr\u00fc kuruyor. Kaynak: https://arxiv.org/abs/2604.02552\n- **CIPHER**, EEG \u00fczerinden fonem \u00e7\u00f6z\u00fcmleme ile insan-makine ileti\u015fimi hatt\u0131nda somut ilerleme \u00f6neriyor. Kaynak: https://arxiv.org/abs/2604.02362\n- **PolyJarvis**, malzeme bilimi/sim\u00fclasyon alan\u0131nda LLM agent kullan\u0131m\u0131n\u0131 ger\u00e7ek bilim workflow\u2019una ba\u011fl\u0131yor. Kaynak: https://arxiv.org/abs/2604.02537\n- **Labor economics i\u00e7in latent cognitive variable \u00f6l\u00e7\u00fcm\u00fc**, LLM\u2019lerin ara\u015ft\u0131rma ara\u00e7lar\u0131 olarak sosyal bilimlerde kullan\u0131m\u0131n\u0131 geni\u015fletiyor. Kaynak: https://arxiv.org/abs/2604.02403"}, {"id": "infra", "title": "INFRA", "emoji": "", "content": "- **Model routing art\u0131k inference infrastructure\u2019\u0131n \u00e7ekirdek katman\u0131.** Small language model routing benchmark\u2019\u0131, kalite-maliyet-governance optimizasyonunu ayn\u0131 pakette d\u00fc\u015f\u00fcn\u00fcyor. Kaynak: https://arxiv.org/abs/2604.02367\n- **Compression hatt\u0131 \u00fcretim maliyeti i\u00e7in stratejikle\u015fiyor.** Low-rank compression ve distillation temalar\u0131, 7 g\u00fcnl\u00fck trendte b\u00fcy\u00fcyen model rekabetinin arka taraf\u0131ndaki ekonomik bask\u0131y\u0131 do\u011fruluyor. Kaynaklar: https://arxiv.org/abs/2604.02659 | https://arxiv.org/abs/2604.03110"}, {"id": "safety", "title": "SAFETY", "emoji": "", "content": "- **Sycophancy art\u0131k do\u011frudan \u00f6l\u00e7\u00fcl\u00fcyor, yorumlan\u0131yor ve azalt\u0131lmaya \u00e7al\u0131\u015f\u0131l\u0131yor.** SWAY, verbalized assumptions ve multi-agent propagation \u00e7al\u0131\u015fmalar\u0131 ayn\u0131 bo\u015flu\u011fu i\u015faret ediyor. Kaynaklar: https://arxiv.org/abs/2604.02423 | https://arxiv.org/abs/2604.03058 | https://arxiv.org/abs/2604.02668\n- **Conversational AI k\u0131r\u0131lmalar\u0131 etik ve duygusal ba\u011flamlarda ayr\u0131 sorun alan\u0131 haline geldi.** Bu, genel benchmark\u2019lar\u0131n kapsamad\u0131\u011f\u0131 ger\u00e7ek hayat risklerini g\u00f6steriyor. Kaynak: https://arxiv.org/abs/2604.02713\n- **Confidence evaluation, safety i\u00e7in yeni minimum bar olabilir.** BAS yakla\u015f\u0131m\u0131, modelin ne zaman konu\u015fmamas\u0131 gerekti\u011fini \u00f6l\u00e7meye \u00e7al\u0131\u015f\u0131yor. Kaynak: https://arxiv.org/abs/2604.03216"}, {"id": "watchlist", "title": "WATCHLIST", "emoji": "", "content": "- **Multi-agent hype geri sarabilir.** Compute-normalized yeni \u00e7al\u0131\u015fmalar gelirse, \u00e7oklu ajan mimarilerinde ciddi sadele\u015fme dalgas\u0131 g\u00f6rebiliriz. Kaynak: https://arxiv.org/abs/2604.02460\n- **Reference hallucination konusu ara\u015ft\u0131rma ara\u00e7lar\u0131n\u0131 do\u011frudan vurabilir.** \u00d6zellikle kaynak g\u00f6steren deep research \u00fcr\u00fcnleri i\u00e7in g\u00fcven krizi riski var. Kaynak: https://arxiv.org/abs/2604.03173\n- **GraphRAG sald\u0131r\u0131lar\u0131 b\u00fcy\u00fcrse enterprise RAG adoption yava\u015flayabilir.** LogicPoison bu hatt\u0131n erken uyar\u0131s\u0131 olabilir. Kaynak: https://arxiv.org/abs/2604.02954\n- **Clinical validation olmayan safety iddialar\u0131 daha sert sorgulanacak.** Psikoz \u00e7al\u0131\u015fmas\u0131 \u00e7\u0131tay\u0131 yukar\u0131 \u00e7ekiyor. Kaynak: https://arxiv.org/abs/2604.02359"}, {"id": "trends", "title": "TRENDS", "emoji": "", "content": "- **Trendte d\u00fc\u015fen AI Agents konusu, kalite filtresiyle geri geliyor.** Art\u0131k mesele ajan say\u0131s\u0131 de\u011fil, ajan ba\u015f\u0131na ger\u00e7ek katk\u0131. Kaynak: https://arxiv.org/abs/2604.02460\n- **Trendte d\u00fc\u015fen AI Safety konusu, daha dar ama daha ciddi alt ba\u015fl\u0131klara par\u00e7alan\u0131yor.** Sycophancy, hallucinated citation, confidence, psychosis safety gibi daha sert alt metrikler \u00f6ne \u00e7\u0131k\u0131yor. Kaynaklar: https://arxiv.org/abs/2604.02423 | https://arxiv.org/abs/2604.03173 | https://arxiv.org/abs/2604.03216 | https://arxiv.org/abs/2604.02359\n- **Y\u00fckselen model yar\u0131\u015f\u0131 anlat\u0131s\u0131, veri setinde do\u011frudan benchmark de\u011fil verimlilik ve distillation eksenine d\u00f6n\u00fc\u015fm\u00fc\u015f durumda.** Kaynaklar: https://arxiv.org/abs/2604.02621 | https://arxiv.org/abs/2604.02819 | https://arxiv.org/abs/2604.03110"}, {"id": "topluluk-tart\u0131\u015fmalar", "title": "Topluluk & Tart\u0131\u015fmalar", "emoji": "", "content": "- **Bug\u00fcn\u00fcn topluluk hissi paper seviyesinde \u015fu soruya kilitlenmi\u015f durumda: \u201cger\u00e7ekten daha \u00e7ok ajana ihtiyac\u0131m\u0131z var m\u0131?\u201d** Kaynak: https://arxiv.org/abs/2604.02460\n- **AI fiction ve authorship tart\u0131\u015fmas\u0131 yeniden \u0131s\u0131n\u0131yor.** StoryScope, AI yaz\u0131s\u0131ndaki imza, tekrar ve \u00f6zg\u00fcnl\u00fck sorunlar\u0131n\u0131 tart\u0131\u015fmaya a\u00e7\u0131yor. Kaynak: https://arxiv.org/abs/2604.03136\n- **Language model\u2019lerde k\u00fclt\u00fcr, sosyal anlam ve SES bias hatt\u0131 b\u00fcy\u00fcyor.** Bu da \u00fcr\u00fcnlerin sadece do\u011fru cevap de\u011fil sosyal konumland\u0131rma \u00fcretti\u011fini hat\u0131rlat\u0131yor. Kaynaklar: https://arxiv.org/abs/2604.02512 | https://arxiv.org/abs/2604.02557 | https://arxiv.org/abs/2604.02660"}, {"id": "cikcik-paketi", "title": "CikCik Paketi", "emoji": "", "content": "- **\u201cSingle-agent > multi-agent under equal budget\u201d** ba\u015fl\u0131\u011f\u0131, X/Reddit/HN hatt\u0131nda en kolay viral olacak anti-hype c\u00fcmle adaylar\u0131ndan biri. Kaynak: https://arxiv.org/abs/2604.02460\n- **\u201cReference hallucination in deep research agents\u201d** temas\u0131, ara\u015ft\u0131rma odakl\u0131 \u00fcr\u00fcnlere g\u00fcven tart\u0131\u015fmas\u0131n\u0131 do\u011frudan k\u00f6r\u00fckler. Kaynak: https://arxiv.org/abs/2604.03173\n- **\u201cToo Polite to Disagree\u201d** ba\u015fl\u0131\u011f\u0131, sycophancy tart\u0131\u015fmas\u0131n\u0131 teknik jargondan \u00e7\u0131kar\u0131p sosyal medya dostu dile indiriyor. Kaynak: https://arxiv.org/abs/2604.02668\n- **\u201cPsychosis safety eval for LLMs\u201d** ba\u015fl\u0131\u011f\u0131, AI mental health kullan\u0131m\u0131nda yeni bir k\u0131rm\u0131z\u0131 \u00e7izgi tart\u0131\u015fmas\u0131 ba\u015flatabilir. Kaynak: https://arxiv.org/abs/2604.02359\n- **\u201cGraphRAG can be logically poisoned\u201d** anlat\u0131s\u0131, enterprise RAG hype\u2019\u0131na kar\u015f\u0131 g\u00fc\u00e7l\u00fc bir kar\u015f\u0131-narratif \u00fcretir. Kaynak: https://arxiv.org/abs/2604.02954"}, {"id": "rehberler-kaynaklar", "title": "Rehberler & Kaynaklar", "emoji": "", "content": "- **Beyond the Parameters**, in-context prompting\u2019den causal RAG\u2019e uzanan contextual enrichment hatt\u0131n\u0131 teknik survey olarak topluyor. Kaynak: https://arxiv.org/abs/2604.03174\n- **Xpertbench**, conventional benchmark plateau\u2019su sonras\u0131 daha uzman seviye g\u00f6revlerle \u00f6l\u00e7\u00fcm \u00f6nermesi nedeniyle izlenmeli. Kaynak: https://arxiv.org/abs/2604.02368\n- **Overcoming the Impracticality of RAG**, ger\u00e7ek d\u00fcnya RAG te\u015fhisi i\u00e7in do\u011frudan referans belge olmaya aday. Kaynak: https://arxiv.org/abs/2604.02640"}, {"id": "oracle-self-improvement-sinyalleri", "title": "Oracle Self-Improvement Sinyalleri", "emoji": "", "content": "- **Multi-agent varsay\u0131m\u0131 otomatik do\u011fru kabul edilmemeli.** Oracle taraf\u0131nda delegation, yaln\u0131zca \u201cparalel daha iyi\u201d sezgisiyle de\u011fil compute-normalized fayda ile tetiklenmeli. Kaynak: https://arxiv.org/abs/2604.02460\n- **Citation hygiene katman\u0131 zorunlu hale geliyor.** Kaynak URL \u00fcreten ara\u015ft\u0131rma ak\u0131\u015flar\u0131nda reference hallucination kontrol\u00fc publish \u00f6ncesi default olmal\u0131. Kaynak: https://arxiv.org/abs/2604.03173\n- **Safety de\u011ferlendirmesi daha domain-spesifik yap\u0131lmal\u0131.** Genel g\u00fcvenlik \u00f6l\u00e7\u00fcleri yerine sa\u011fl\u0131k, duygusal kriz, y\u00fcksek riskli tavsiye gibi ba\u011flam-\u00f6zel eval setleri \u00f6ne \u00e7\u0131k\u0131yor. Kaynaklar: https://arxiv.org/abs/2604.02359 | https://arxiv.org/abs/2604.02713\n- **Routing ve abstention birlikte d\u00fc\u015f\u00fcn\u00fclmeli.** Do\u011fru modeli se\u00e7mek kadar sistemin gerekti\u011finde susabilmesi de kalite metri\u011fi olmal\u0131. Kaynaklar: https://arxiv.org/abs/2604.02367 | https://arxiv.org/abs/2604.03216\n- **Sycophancy, tek-agent de\u011fil sistem-level sorun.** \u00c7oklu ajan mutabakat\u0131 her zaman ba\u011f\u0131ms\u0131z do\u011frulama \u00fcretmiyor; Oracle consensus mant\u0131\u011f\u0131nda \u00e7e\u015fitlilik ger\u00e7ekten \u00f6l\u00e7\u00fclmeli. Kaynaklar: https://arxiv.org/abs/2604.02668 | https://arxiv.org/abs/2604.02923"}, {"id": "kaynak-\u00f6zeti", "title": "Kaynak \u00d6zeti", "emoji": "", "content": "- **Ana omurga arXiv/cs.CL hatt\u0131yd\u0131.** G\u00fcn\u00fcn kritik sinyalleri agent performans\u0131, sycophancy, confidence, factuality ve RAG de\u011ferlendirmesi etraf\u0131nda topland\u0131. Kaynaklar: https://arxiv.org/abs/2604.02460 | https://arxiv.org/abs/2604.02423 | https://arxiv.org/abs/2604.03173 | https://arxiv.org/abs/2604.02640\n- **Ara\u015ft\u0131rma yo\u011funlu\u011fu safety ve evaluation y\u00f6n\u00fcnde sertle\u015fti.** \u00d6zellikle psikoz g\u00fcvenli\u011fi, hallucinated references ve confidence calibration ba\u015fl\u0131klar\u0131 \u00f6ne \u00e7\u0131kt\u0131. Kaynaklar: https://arxiv.org/abs/2604.02359 | https://arxiv.org/abs/2604.03173 | https://arxiv.org/abs/2604.03216\n- **Altyap\u0131 ve model ekonomisi katman\u0131, routing + compression + distillation \u00fczerinden akt\u0131.** Kaynaklar: https://arxiv.org/abs/2604.02367 | https://arxiv.org/abs/2604.02659 | https://arxiv.org/abs/2604.03110\n- **Bilimsel ve deneysel u\u00e7lar, EEG, living neurons ve polymer simulation agent hatt\u0131nda g\u00f6r\u00fcld\u00fc.** Kaynaklar: https://arxiv.org/abs/2604.02362 | https://arxiv.org/abs/2604.02552 | https://arxiv.org/abs/2604.02537"}, {"id": "dedupe-kalite-notu", "title": "Dedupe & Kalite Notu", "emoji": "", "content": "> Bu rapordaki t\u00fcm maddeler `reports/2026-04-04.md`, `reports/2026-04-05.md` ve `reports/2026-04-06.md` ile \u00e7apraz kontrol edilerek tekrar etmeyecek \u015fekilde se\u00e7ildi.\n>\n> **Tekrar edilmeyen ana hatlar:** Copilot ToS/liability, FortiClient EMS istismar\u0131, React2Shell, NYT AI slop vakas\u0131, chatbot traffic b\u00fcy\u00fcmesi, Gemini Nano 4, Gujarat HC yasa\u011f\u0131, \u00c7in ethics governance, Anthropic/OpenClaw eri\u015fim k\u0131s\u0131t\u0131, DeepSeek-Huawei, OpenAI y\u00f6netim de\u011fi\u015fikli\u011fi.\n>\n> Toplam **1954 item** i\u015flendi, raporda **40+ benzersiz madde** ve **30+ benzersiz URL** kullan\u0131ld\u0131.\n>\n> Veri seti b\u00fcy\u00fck \u00f6l\u00e7\u00fcde arXiv paper ak\u0131\u015f\u0131ndan olu\u015ftu\u011fu i\u00e7in yorumlar bilin\u00e7li bi\u00e7imde ba\u015fl\u0131k/\u00f6zet s\u0131n\u0131r\u0131nda tutuldu; prompt verisi d\u0131\u015f\u0131nda ek olgusal iddia eklenmedi."}];
+
+  marked.setOptions({ gfm: true, breaks: false, mangle: false, headerIds: false });
+
+  var renderer = new marked.Renderer();
+  renderer.table = function(header, body) {
+    return '<div class="table-wrap"><table><thead>' + header + '</thead><tbody>' + body + '</tbody></table></div>';
+  };
+  var origListItem = renderer.listitem;
+  renderer.listitem = function(text) {
+    if (text.indexOf('<strong>') === 0 || text.indexOf('<a') === 0) {
+      return '<li class="item-card">' + text + '</li>';
+    }
+    return '<li>' + text + '</li>';
+  };
+
+  var tabsBar = document.getElementById('tabs-bar');
+  var panelsContainer = document.getElementById('panels-container');
+  var loading = document.getElementById('loading');
+
+  SECTIONS.forEach(function(sec, i) {
+    var btn = document.createElement('button');
+    btn.className = 'tab' + (i === 0 ? ' active' : '');
+    btn.setAttribute('role', 'tab');
+    btn.setAttribute('data-tab', sec.id);
+    btn.id = 'tab-' + sec.id;
+    btn.textContent = (sec.emoji ? sec.emoji + ' ' : '') + sec.title;
+    btn.onclick = function() { switchTab(sec.id) };
+    tabsBar.appendChild(btn);
+
+    var panel = document.createElement('div');
+    panel.className = 'tab-panel' + (i === 0 ? ' active' : '');
+    panel.id = 'panel-' + sec.id;
+    panel.setAttribute('role', 'tabpanel');
+    panel.setAttribute('data-title', (sec.emoji ? sec.emoji + ' ' : '') + sec.title);
+
+    var rendered = marked.parse(sec.content, { renderer: renderer });
+    var RE_HIGH = new RegExp(String.fromCodePoint(0x1F534), 'g');
+    var RE_MED  = new RegExp(String.fromCodePoint(0x1F7E1), 'g');
+    var RE_LOW  = new RegExp(String.fromCodePoint(0x1F7E2), 'g');
+    rendered = rendered.replace(RE_HIGH, '<span class="badge-high">HIGH</span>');
+    rendered = rendered.replace(RE_MED,  '<span class="badge-medium">MED</span>');
+    rendered = rendered.replace(RE_LOW,  '<span class="badge-low">LOW</span>');
+    panel.innerHTML = rendered;
+    panelsContainer.appendChild(panel);
+  });
+
+  loading.style.display = 'none';
+
+  document.querySelectorAll('.tab-panel a[href]').forEach(function(a) {
+    var href = a.getAttribute('href');
+    if (href && (href.startsWith('http://') || href.startsWith('https://'))) {
+      a.setAttribute('target', '_blank');
+      a.setAttribute('rel', 'noopener noreferrer');
+    }
+  });
+
+  window.switchTab = function(tabId) {
+    document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('active') });
+    document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active') });
+    var tab = document.getElementById('tab-' + tabId);
+    var panel = document.getElementById('panel-' + tabId);
+    if (tab) tab.classList.add('active');
+    if (panel) panel.classList.add('active');
+    history.replaceState(null, '', '#' + tabId);
+    if (tab) tab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  function activateFromHash() {
+    var hash = window.location.hash.replace('#', '');
+    if (hash) {
+      var tab = document.getElementById('tab-' + hash);
+      if (tab) { switchTab(hash); return }
+    }
+    if (SECTIONS.length > 0) switchTab(SECTIONS[0].id);
+  }
+  activateFromHash();
+  window.addEventListener('hashchange', activateFromHash);
+
+  var backTop = document.getElementById('back-top');
+  window.addEventListener('scroll', function() {
+    backTop.classList.toggle('visible', window.scrollY > 300);
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    var tabs = Array.from(document.querySelectorAll('.tab'));
+    var idx = tabs.findIndex(function(t) { return t.classList.contains('active') });
+    if (e.key === 'ArrowRight' && idx < tabs.length - 1) switchTab(tabs[idx + 1].getAttribute('data-tab'));
+    else if (e.key === 'ArrowLeft' && idx > 0) switchTab(tabs[idx - 1].getAttribute('data-tab'));
+  });
+})();
+
+function toggleTheme() {
+  var html = document.documentElement;
+  var current = html.getAttribute('data-theme');
+  var icon = document.getElementById('theme-icon');
+  if (current === 'dark') {
+    html.setAttribute('data-theme', 'light');
+    icon.innerHTML = '&#9728;'; localStorage.setItem('theme', 'light');
+  } else if (current === 'light') {
+    html.removeAttribute('data-theme');
+    icon.innerHTML = '&#9211;'; localStorage.setItem('theme', 'auto');
+  } else {
+    html.setAttribute('data-theme', 'dark');
+    icon.innerHTML = '&#9790;'; localStorage.setItem('theme', 'dark');
+  }
+}
+(function() {
+  var saved = localStorage.getItem('theme');
+  var icon = document.getElementById('theme-icon');
+  if (saved === 'dark') { document.documentElement.setAttribute('data-theme', 'dark'); if (icon) icon.innerHTML = '&#9790;' }
+  else if (saved === 'light') { document.documentElement.setAttribute('data-theme', 'light'); if (icon) icon.innerHTML = '&#9728;' }
+})();
+</script>
+</body>
+</html>
