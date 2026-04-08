@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Oracle Gece Arastirma -- 2026-04-09">
+<title>Oracle Arastirma -- 2026-04-09</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root {
+  --bg: #0f172a;
+  --bg-card: #1e293b;
+  --bg-hover: #334155;
+  --text: #e2e8f0;
+  --text-muted: #94a3b8;
+  --accent: #3b82f6;
+  --accent-hover: #60a5fa;
+  --border: #334155;
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --radius: 12px;
+  --shadow: 0 4px 6px -1px rgba(0,0,0,0.3);
+  color-scheme: dark;
+}
+[data-theme="light"] {
+  --bg: #f8fafc; --bg-card: #ffffff; --bg-hover: #f1f5f9;
+  --text: #1e293b; --text-muted: #64748b; --border: #e2e8f0;
+  --shadow: 0 4px 6px -1px rgba(0,0,0,0.1); color-scheme: light;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #f8fafc; --bg-card: #ffffff; --bg-hover: #f1f5f9;
+    --text: #1e293b; --text-muted: #64748b; --border: #e2e8f0;
+    --shadow: 0 4px 6px -1px rgba(0,0,0,0.1); color-scheme: light;
+  }
+}
+html { scroll-behavior: smooth }
+body {
+  background: var(--bg); color: var(--text);
+  font-family: var(--font-sans); font-size: 16px; line-height: 1.7;
+  -webkit-text-size-adjust: 100%; transition: background 0.3s, color 0.3s;
+}
+
+/* -- Sticky Header -------------------------------------------------------- */
+.site-header {
+  position: sticky; top: 0; z-index: 200;
+  background: var(--bg); border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+}
+.header-inner {
+  max-width: 1100px; margin: 0 auto; padding: 12px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; flex-wrap: wrap;
+}
+.header-left { display: flex; align-items: center; gap: 12px; min-width: 0 }
+.header-title { font-size: 18px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
+.header-meta { display: flex; align-items: center; gap: 12px; font-size: 13px; color: var(--text-muted); flex-shrink: 0 }
+.header-badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 3px 10px; border-radius: 99px; font-size: 12px; font-weight: 600;
+  background: var(--accent); color: #fff;
+}
+.header-nav a { color: var(--accent); text-decoration: none; font-size: 13px; font-weight: 500 }
+.header-nav a:hover { color: var(--accent-hover) }
+
+/* -- Theme toggle --------------------------------------------------------- */
+.theme-toggle {
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px;
+  padding: 6px 10px; cursor: pointer; font-size: 16px; line-height: 1;
+  color: var(--text); transition: background 0.2s;
+}
+.theme-toggle:hover { background: var(--bg-hover) }
+
+/* -- Tabs ----------------------------------------------------------------- */
+.tabs-container { max-width: 1100px; margin: 0 auto; padding: 0 20px }
+.tabs {
+  display: flex; gap: 4px; overflow-x: auto; -webkit-overflow-scrolling: touch;
+  padding: 8px 0; border-bottom: 2px solid var(--border);
+  position: sticky; top: 53px; background: var(--bg); z-index: 100;
+  scrollbar-width: thin; scrollbar-color: var(--border) transparent;
+}
+.tabs::-webkit-scrollbar { height: 4px }
+.tabs::-webkit-scrollbar-track { background: transparent }
+.tabs::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px }
+.tab {
+  padding: 8px 16px; border-radius: 8px 8px 0 0; cursor: pointer;
+  white-space: nowrap; color: var(--text-muted); font-size: 14px; font-weight: 500;
+  transition: all 0.2s; border: none; background: transparent;
+  font-family: var(--font-sans); position: relative;
+}
+.tab.active { color: var(--accent); background: var(--bg-card) }
+.tab.active::after {
+  content: ''; position: absolute; bottom: -2px; left: 0; right: 0;
+  height: 2px; background: var(--accent);
+}
+.tab:hover:not(.active) { color: var(--text); background: var(--bg-hover) }
+
+/* -- Tab panels ----------------------------------------------------------- */
+.tab-panel {
+  display: none; max-width: 1100px; margin: 0 auto; padding: 24px 20px 80px;
+  animation: fadeIn 0.2s ease;
+}
+.tab-panel.active { display: block }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(4px) } to { opacity: 1; transform: translateY(0) } }
+
+/* -- Typography ----------------------------------------------------------- */
+.tab-panel h1 { font-size: clamp(1.3rem, 4vw, 1.8rem); margin: 28px 0 12px; font-weight: 700 }
+.tab-panel h2 { font-size: clamp(1.1rem, 3.5vw, 1.4rem); margin: 24px 0 10px; border-bottom: 1px solid var(--border); padding-bottom: 8px; font-weight: 600 }
+.tab-panel h3 { font-size: clamp(1rem, 3vw, 1.2rem); margin: 20px 0 8px; font-weight: 600 }
+.tab-panel h4 { font-size: 1rem; margin: 16px 0 6px; font-weight: 600 }
+.tab-panel p { margin: 10px 0 }
+.tab-panel a { color: var(--accent); text-decoration: none; transition: color 0.15s }
+.tab-panel a:hover { color: var(--accent-hover); text-decoration: underline }
+.tab-panel strong { font-weight: 700 }
+.tab-panel em { font-style: italic }
+.tab-panel hr { border: none; border-top: 1px solid var(--border); margin: 24px 0 }
+
+/* -- Lists ---------------------------------------------------------------- */
+.tab-panel ul, .tab-panel ol { margin: 10px 0 10px 1.4em }
+.tab-panel li { margin: 4px 0 }
+
+/* -- Blockquotes ---------------------------------------------------------- */
+.tab-panel blockquote {
+  background: var(--bg-card); border-left: 4px solid var(--accent);
+  margin: 14px 0; padding: 12px 18px;
+  border-radius: 0 var(--radius) var(--radius) 0; color: var(--text-muted);
+}
+.tab-panel blockquote p { margin: 4px 0 }
+
+/* -- Code ----------------------------------------------------------------- */
+.tab-panel code {
+  background: #1e293b; color: #e2e8f0; border-radius: 4px; padding: 2px 6px;
+  font-family: var(--font-mono); font-size: 0.88em; word-break: break-all;
+}
+.tab-panel pre {
+  background: #1e293b; border-radius: var(--radius); padding: 14px 16px;
+  overflow-x: auto; margin: 14px 0; border: 1px solid #334155;
+}
+.tab-panel pre code { background: none; padding: 0; border-radius: 0; font-size: 0.85em; word-break: normal }
+
+/* -- Tables --------------------------------------------------------------- */
+.table-wrap {
+  overflow-x: auto; -webkit-overflow-scrolling: touch;
+  margin: 14px 0; border-radius: var(--radius); border: 1px solid var(--border);
+}
+.tab-panel table { border-collapse: collapse; width: 100%; min-width: 400px; font-size: 0.9em }
+.tab-panel th {
+  background: var(--bg-hover); text-align: left; padding: 10px 14px;
+  font-weight: 600; border-bottom: 2px solid var(--border); white-space: nowrap;
+}
+.tab-panel td { padding: 9px 14px; border-bottom: 1px solid var(--border); vertical-align: top; word-break: break-word }
+.tab-panel tr:last-child td { border-bottom: none }
+.tab-panel tr:hover td { background: var(--bg-hover) }
+
+/* -- Item cards ----------------------------------------------------------- */
+.item-card {
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 16px 20px; margin: 12px 0; box-shadow: var(--shadow);
+  transition: transform 0.15s, box-shadow 0.15s; list-style: none;
+}
+.item-card:hover { transform: translateY(-1px); box-shadow: 0 8px 16px -4px rgba(0,0,0,0.2) }
+
+/* -- Importance badges ---------------------------------------------------- */
+.badge-high {
+  display: inline-block; padding: 2px 8px; border-radius: 99px;
+  font-size: 0.75rem; font-weight: 600;
+  background: rgba(239,68,68,0.15); color: var(--danger); border: 1px solid rgba(239,68,68,0.3);
+}
+.badge-medium {
+  display: inline-block; padding: 2px 8px; border-radius: 99px;
+  font-size: 0.75rem; font-weight: 600;
+  background: rgba(245,158,11,0.15); color: var(--warning); border: 1px solid rgba(245,158,11,0.3);
+}
+.badge-low {
+  display: inline-block; padding: 2px 8px; border-radius: 99px;
+  font-size: 0.75rem; font-weight: 600;
+  background: rgba(34,197,94,0.15); color: var(--success); border: 1px solid rgba(34,197,94,0.3);
+}
+
+/* -- Back to top ---------------------------------------------------------- */
+#back-top {
+  position: fixed; bottom: 24px; right: 20px;
+  background: var(--accent); color: #fff; border: none; border-radius: 50%;
+  width: 44px; height: 44px; font-size: 1.2rem; cursor: pointer;
+  box-shadow: 0 4px 12px rgba(59,130,246,0.4);
+  display: none; align-items: center; justify-content: center;
+  text-decoration: none; transition: opacity 0.2s, transform 0.2s; z-index: 300;
+}
+#back-top:hover { transform: scale(1.1) }
+#back-top.visible { display: flex }
+
+/* -- Loading -------------------------------------------------------------- */
+#loading { text-align: center; padding: 80px 0; color: var(--text-muted); font-size: 1rem }
+.loading-spinner {
+  width: 32px; height: 32px; border: 3px solid var(--border);
+  border-top: 3px solid var(--accent); border-radius: 50%;
+  animation: spin 0.8s linear infinite; margin: 0 auto 16px;
+}
+@keyframes spin { to { transform: rotate(360deg) } }
+
+/* -- Print ---------------------------------------------------------------- */
+@media print {
+  .site-header, .tabs, #back-top, .theme-toggle { display: none !important }
+  .tab-panel { display: block !important; break-inside: avoid }
+  .tab-panel::before {
+    content: attr(data-title); display: block; font-size: 1.3rem; font-weight: 700;
+    margin: 20px 0 8px; border-bottom: 2px solid #000; padding-bottom: 4px;
+  }
+  body { background: #fff; color: #000; font-size: 11pt }
+  .item-card { box-shadow: none; border: 1px solid #ccc }
+  a { color: #000 }
+  a[href]::after { content: " (" attr(href) ")"; font-size: 0.8em; color: #666 }
+}
+
+/* -- Responsive ----------------------------------------------------------- */
+@media (max-width: 640px) {
+  .header-inner { padding: 10px 14px }
+  .header-title { font-size: 15px }
+  .tabs { gap: 2px }
+  .tab { padding: 6px 12px; font-size: 13px }
+  .tab-panel { padding: 16px 14px 60px }
+  .item-card { padding: 12px 14px }
+  .tab-panel table { font-size: 0.82em }
+  .tab-panel th, .tab-panel td { padding: 6px 8px }
+}
+</style>
+</head>
+<body>
+<div class="site-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <span class="header-title">Oracle Gece Arastirma — 2026-04-09</span>
+      <span class="header-badge">67 madde</span>
+    </div>
+    <div class="header-meta">
+      <span>2026-04-09</span>
+      <nav class="header-nav"><a href="https://mahsumaktas.github.io/oracle_arastirma/index.html">Tum Raporlar</a></nav>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Tema degistir" aria-label="Tema degistir">
+        <span id="theme-icon">&#9790;</span>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="tabs-container"><div class="tabs" id="tabs-bar" role="tablist"></div></div>
+<div id="panels-container"></div>
+<div id="loading"><div class="loading-spinner"></div>Rapor yukleniyor...</div>
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Yukari" aria-label="Yukari git">&#8593;</button>
+
+<script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
+<script>
+(function() {
+  var SECTIONS = [{"id": "ozet", "title": "Ozet", "emoji": "", "content": "# Oracle Gece Arastirma \u2014 2026-04-09\n\n> Otomatik derleme | v3 pipeline | 5 kaynak akisi | 2380 benzersiz item | Tarih: 2026-04-09 00:30 TRT"}, {"id": "gunun-ozeti", "title": "Gunun Ozeti", "emoji": "", "content": "Bugunun ana ekseni, agent ekosisteminin \u201cdaha fazla otonomi\u201d yerine \u201cdaha kontrollu ogrenme, guvenlik ve is akisina yerlestirme\u201d fazina gecmesi oldu. IBM\u2019in ALTK-Evolve cikisi, agent\u2019larin is basinda evrilen beceri kazanimi tarafini one cikarirken; OpenAI\u2019nin cocuk istismari odakli yeni safety blueprint\u2019i ve Flowise tarafindaki aktif RCE istismari, agent guvenliginin artik teorik degil operasyonel borc oldugunu gosteriyor. Kaynaklar: https://huggingface.co/blog/ibm-research/altk-evolve | https://techcrunch.com/2026/04/08/openai-releases-a-new-safety-blueprint-to-address-the-rise-in-child-sexual-exploitation/ | https://news.google.com/rss/articles/CBMiggFBVV95cUxOMmV2elZDZ1d0eWFXU2prMHQweUZ4b2tPbEk1cWtFY0ktWHgxcXZ0XzlGdUc4em50UVBDMmtyaC1QMF80UjNjTVpjSVpLckFvUG9xUDloVkFOLWNPcDN5OTA2YkZRVmF1YzlXVG5mdzc5dTR2LUVxRkdKNy1WeWhaV3p3?oc=5\n\nPlatform tarafinda entegrasyon yarisi hizlandi, ama bu kez \u201cchat icinde mini app\u201d, \u201coffline-first cihaz AI\u201d ve \u201centerprise dokumana ucuncu taraf agent\u201d katmanlari daha belirgin. Tubi\u2019nin ChatGPT icindeki native app hamlesi, Google\u2019in offline dikte uygulamasi ve Atlassian\u2019in Confluence icine visual AI + third-party agents eklemesi, AI\u2019nin bagimsiz urun olmaktan cok mevcut yuzeylere dagilan servis oldugunu teyit ediyor. Kaynaklar: https://techcrunch.com/2026/04/08/tubi-is-the-first-streamer-to-launch-a-native-app-within-chatgpt/ | https://techcrunch.com/2026/04/07/google-quietly-releases-an-offline-first-ai-dictation-app-on-ios/ | https://techcrunch.com/2026/04/08/atlassian-confluence-visual-ai-tools-agents/\n\nArastirma cephesinde ise bellek, unlearning, calibration, speculative decoding ve multimodal guvenilirlik ayni anda yukseldi. Bu kombinasyon, frontier yarisi kadar \u201cne zaman unutur, ne kadar hizlanir, ne zaman emin olmamali ve multimodal olarak ne kadar guvenilir kalir\u201d sorularinin merkeze tasindigini gosteriyor. Kaynaklar: https://arxiv.org/abs/2604.05074 | https://arxiv.org/abs/2604.05669 | https://arxiv.org/abs/2604.05397 | https://arxiv.org/abs/2604.05417 | https://arxiv.org/abs/2604.05522"}, {"id": "top-7", "title": "Top 7", "emoji": "", "content": "1. **ALTK-Evolve, agent\u2019lar icin \u201con-the-job learning\u201d hattini one cekti.** Agent becerilerinin statik prompt degil, gorev sirasinda evrilen bir varlik olarak ele alinmasi bugunun en net sistem sinyaliydi. Kaynak: https://huggingface.co/blog/ibm-research/altk-evolve  \n2. **OpenAI, child safety icin yeni blueprint yayinladi.** Safety konusu genel alignment soyutlugundan cikib daha spesifik zarar siniflarina indi. Kaynak: https://techcrunch.com/2026/04/08/openai-releases-a-new-safety-blueprint-to-address-the-rise-in-child-sexual-exploitation/  \n3. **Flowise AI Agent Builder tarafinda aktif CVSS 10.0 RCE istismari raporlandi.** Agent builder ekosistemindeki supply-chain ve panel guvenligi acigi artik acil operasyonel risk. Kaynak: https://news.google.com/rss/articles/CBMiggFBVV95cUxOMmV2elZDZ1d0eWFXU2prMHQweUZ4b2tPbEk1cWtFY0ktWHgxcXZ0XzlGdUc4em50UVBDMmtyaC1QMF80UjNjTVpjSVpLckFvUG9xUDloVkFOLWNPcDN5OTA2YkZRVmF1YzlXVG5mdzc5dTR2LUVxRkdKNy1WeWhaV3p3?oc=5  \n4. **Safetensors, PyTorch Foundation altina giriyor.** Guvenli model agirlik formatinin kurumsal standarda donusmesi infra ve supply-chain acisindan onemli. Kaynak: https://huggingface.co/blog/safetensors-joins-pytorch-foundation  \n5. **Amazon Nova etrafinda fine-tuning, embedding, audio ve cost governance blog seli geldi.** AWS tarafi modelden cok \u201cisletilebilir AI stack\u201d satmaya basladi. Kaynaklar: https://aws.amazon.com/blogs/machine-learning/customize-amazon-nova-models-with-amazon-bedrock-fine-tuning/ | https://aws.amazon.com/blogs/machine-learning/building-intelligent-audio-search-with-amazon-nova-embeddings-a-deep-dive-into-semantic-audio-understanding/ | https://aws.amazon.com/blogs/machine-learning/manage-ai-costs-with-amazon-bedrock-projects/  \n6. **Tubi, ChatGPT icinde native app baslatti.** Chat interface artik sadece sohbet degil, dagitim kanali olmaya basliyor. Kaynak: https://techcrunch.com/2026/04/08/tubi-is-the-first-streamer-to-launch-a-native-app-within-chatgpt/  \n7. **ArXiv akisi memory, unlearning, multimodal alignment ve GUI-agent verification etrafinda yogunlasti.** Bu, model capability\u2019den deployment correctness\u2019e kayisin devam ettigini gosteriyor. Kaynaklar: https://arxiv.org/abs/2604.05074 | https://arxiv.org/abs/2604.05669 | https://arxiv.org/abs/2604.05477 | https://arxiv.org/abs/2604.05522"}, {"id": "trend-analizi", "title": "Trend Analizi", "emoji": "", "content": "7 gun trend ozetine gore **AI Agents (985)**, **AI Safety (120)**, **Anthropic (489)** ve **Apple (60)** yukseliste; **AI Regulation (9)** ise spike modunda. Bugunun veri akisinda bu trendler net sekilde teyit edildi: agent tarafinda ALTK-Evolve, Poke, Astropad Workbench ve Confluence agents; safety tarafinda OpenAI blueprint, Flowise RCE ve yeni academic guardrail calismalari one cikti. Kaynaklar: https://huggingface.co/blog/ibm-research/altk-evolve | https://techcrunch.com/2026/04/08/poke-makes-ai-agents-as-easy-as-sending-a-text/ | https://techcrunch.com/2026/04/08/astropads-workbench-reimagines-remote-desktop-for-ai-agents-not-it-support/ | https://arxiv.org/abs/2604.05179\n\nDususte gorunen **Perplexity, ElevenLabs ve Sora** benzeri basliklar bugunku akisda neredeyse hic merkezi rol oynamadi. Yerine \u201cagent deployment\u201d, \u201centerprise workflow\u201d, \u201coffline edge AI\u201d ve \u201cunlearning/calibration\u201d gibi daha altyapi ve kalite odakli temalar gecti. Kaynaklar: https://techcrunch.com/2026/04/08/atlassian-confluence-visual-ai-tools-agents/ | https://techcrunch.com/2026/04/07/google-quietly-releases-an-offline-first-ai-dictation-app-on-ios/ | https://arxiv.org/abs/2604.05397\n\nRegulasyon spike\u2019i dogrudan buyuk yasa haberiyle degil, compliance ve governance sinyalleriyle desteklendi. Efficient machine unlearning, differential privacy composition ve AI\u2019nin isgucu etkisine dair analizler birlikte okundugunda, \u201cregulation\u201d bugun yasa metni degil teknik uyum maliyeti olarak belirginlesti. Kaynaklar: https://arxiv.org/abs/2604.05669 | https://arxiv.org/abs/2206.04236 | https://news.google.com/rss/articles/CBMijgFBVV95cUxPbXBPcng3eFVxMml0TEN1ZDFpcXduQ19KRHY0TWZMdk54NWR1RG93aUhibktPUTAyQlZERkdaNFIzblVGLTR5blI0eTM1Tng1U2xzaFpRZFhSWFZEdm1ON08tUjM2MTRJOWMtWHF1UGQ0cm1MSFpRdXF2YXpubFdwRzlTWjlJNTJiMVRNLXd30gGTAUFVX3lxTE1ZRktjblU5aVA0bEM3bkpDSVY4RW83VFRCNHMyMWgySE5iak1QVnNHb1dFWlpBYzZjM3lDbDFzWVdFV1FFRWtKV3dyY3R4T2Y2eUROeUxHd3YyajRjdTVtZlhEYVJzOG80MjRzSjRYSi1oclJ2dGxxWjJkY2VPUVlBb0NWMlpQOE9STWMwZFphNEI5VQ?oc=5"}, {"id": "kat-1", "title": "KAT-1", "emoji": "", "content": "- **ALTK-Evolve**, agent\u2019larin canli gorev sirasinda beceri kazanmasina odaklanan bir ogrenme cercevesi olarak bugunun agent eksenini tanimladi. Kaynak: https://huggingface.co/blog/ibm-research/altk-evolve  \n- **Poke**, AI agent kullaniminin metin gonderir gibi basitlestirilmesi uzerinden consumer-grade agent UX yarisi baslatti. Kaynak: https://techcrunch.com/2026/04/08/poke-makes-ai-agents-as-easy-as-sending-a-text/"}, {"id": "kat-2", "title": "KAT-2", "emoji": "", "content": "- **Atlassian Confluence**, visual AI tools ve third-party agents ekleyerek kurumsal bilgi tabanini pasif wiki\u2019den aktif agent workspace\u2019e ceviriyor. Kaynak: https://techcrunch.com/2026/04/08/atlassian-confluence-visual-ai-tools-agents/  \n- **Astropad Workbench**, remote desktop\u2019i IT support yerine AI agents icin yeniden tasarlayarak \u201ccomputer-use infra\u201d katmaninin ayri bir urune donustugunu gosterdi. Kaynak: https://techcrunch.com/2026/04/08/astropads-workbench-reimagines-remote-desktop-for-ai-agents-not-it-support/"}, {"id": "kat-3", "title": "KAT-3", "emoji": "", "content": "- **Amazon Bedrock fine-tuning for Nova**, model ozellestirmeyi AWS native boru hattina gomerek managed customization yarisi verdigini acikladi. Kaynak: https://aws.amazon.com/blogs/machine-learning/customize-amazon-nova-models-with-amazon-bedrock-fine-tuning/  \n- **Amazon Bedrock Projects**, AI maliyetlerinin ekip ve proje bazli yonetimini one cikariyor; bu, LLM harcamasinin FinOps problemi haline geldigini gosteriyor. Kaynak: https://aws.amazon.com/blogs/machine-learning/manage-ai-costs-with-amazon-bedrock-projects/"}, {"id": "kat-4", "title": "KAT-4", "emoji": "", "content": "- **Google\u2019in offline-first AI dictation app\u2019i**, cihaz ustunde, baglanti gerektirmeyen AI yardimcisinin yeniden ciddi bir urun kategorisi oldugunu gosterdi. Kaynak: https://techcrunch.com/2026/04/07/google-quietly-releases-an-offline-first-ai-dictation-app-on-ios/  \n- **LiteRT-LM**, Google AI Edge tarafinda edge LLM deployment ilgisinin toplulukta yukselmeye devam ettigini dogruladi. Kaynak: https://github.com/google-ai-edge/LiteRT-LM"}, {"id": "kat-5", "title": "KAT-5", "emoji": "", "content": "- **Tubi\u2019nin ChatGPT icinde native app cikarmasi**, chat arayuzunun yeni app-store benzeri dagitim kanali olabilecegini gosteren en somut orneklerden biri oldu. Kaynak: https://techcrunch.com/2026/04/08/tubi-is-the-first-streamer-to-launch-a-native-app-within-chatgpt/  \n- **Google AI Edge Gallery**, edge showcase mantigiyla cihaz ustu demo ve deployment orneklerini topluluk icin vitrinin merkezine cekiyor. Kaynak: https://github.com/google-ai-edge/gallery"}, {"id": "kat-6", "title": "KAT-6", "emoji": "", "content": "- **Safetensors\u2019in PyTorch Foundation altina girmesi**, model dosya formati ve guvenli serialization icin fiili standardin kurumsallasmasi anlamina geliyor. Kaynak: https://huggingface.co/blog/safetensors-joins-pytorch-foundation  \n- **Pipevals**, LLM uygulamalari icin evaluation pipeline\u2019larinin ayri bir urun sinifina donustugunu gosteriyor. Kaynak: https://www.pipevals.com"}, {"id": "kat-7", "title": "KAT-7", "emoji": "", "content": "- **NVIDIA National Robotics Week duyurusu**, physical AI, robotik arastirma ve embodied stack\u2019in yeniden ivmelendigini teyit etti. Kaynak: https://blogs.nvidia.com/blog/national-robotics-week-2026/  \n- **NVIDIA/personaplex**, embodied veya persona-driven simulation altyapisina olan topluluk ilgisini yansitan acik kaynaklardan biri olarak one cikti. Kaynak: https://github.com/NVIDIA/personaplex"}, {"id": "kat-8", "title": "KAT-8", "emoji": "", "content": "- **AWS healthcare HITL workflows**, agentic otomasyonda insan-onayi halkasinin regule sektorlerde standartlasacagini gosterdi. Kaynak: https://aws.amazon.com/blogs/machine-learning/human-in-the-loop-constructs-for-agentic-workflows-in-healthcare-and-life-sciences/  \n- **Clinical trial recruitment + LLMs** calismasi, klinik operasyonlarda dil modeli kullanimini dogrudan ROI ve throughput problemine bagladi. Kaynak: https://arxiv.org/abs/2604.05190"}, {"id": "kat-9", "title": "KAT-9", "emoji": "", "content": "- **FrontierFinance**, gercek dunya finans gorevleri icin long-horizon computer-use benchmark onermesiyle agent benchmark\u2019larini daha operasyonel zemine cekti. Kaynak: https://arxiv.org/abs/2604.05912  \n- **FinReporting**, farkli yargi alanlarindaki finansal aciklamalar icin lokalize agentic raporlama is akisi sunarak compliance automation hattini guclendirdi. Kaynak: https://arxiv.org/abs/2604.05966"}, {"id": "security", "title": "SECURITY", "emoji": "", "content": "- **OpenAI\u2019nin yeni safety blueprint\u2019i**, child sexual exploitation riskine odaklanarak safety roadmap\u2019ini daha spesifik zarar modellerine indirdi. Kaynak: https://techcrunch.com/2026/04/08/openai-releases-a-new-safety-blueprint-to-address-the-rise-in-child-sexual-exploitation/  \n- **Flowise AI Agent Builder altinda aktif CVSS 10.0 RCE istismari**, dusuk bariyerli agent araclarinin saldiri yuzeyini sert sekilde hatirlatti. Kaynak: https://news.google.com/rss/articles/CBMiggFBVV95cUxOMmV2elZDZ1d0eWFXU2prMHQweUZ4b2tPbEk1cWtFY0ktWHgxcXZ0XzlGdUc4em50UVBDMmtyaC1QMF80UjNjTVpjSVpLckFvUG9xUDloVkFOLWNPcDN5OTA2YkZRVmF1YzlXVG5mdzc5dTR2LUVxRkdKNy1WeWhaV3p3?oc=5  \n- **Gradient-Controlled Decoding**, jailbreak ve prompt-injection\u2019a karsi decoding seviyesinde guardrail oneriyor. Kaynak: https://arxiv.org/abs/2604.05179  \n- **Stop Fixating on Prompts**, red-teaming\u2019de prompt yerine reasoning hijacking ve constraint tightening\u2019e odaklanilmasi gerektigini savunuyor. Kaynak: https://arxiv.org/abs/2604.05549"}, {"id": "regulation", "title": "REGULATION", "emoji": "", "content": "- **Efficient machine unlearning with minimax optimality**, veri silme ve uyum zorunluluklarini teknik verimlilik problemi olarak ele aliyor. Kaynak: https://arxiv.org/abs/2604.05669  \n- **Edgeworth Accountant**, differential privacy composition icin daha analitik bir cerceve sunarak privacy compliance tarafini guclendiriyor. Kaynak: https://arxiv.org/abs/2206.04236  \n- **Brookings\u2019in AI ve isin gelecegi analizi**, AI saturation senaryosunu emek piyasasi ve verimlilik ekseninde tartisiyor. Kaynak: https://www.brookings.edu/articles/artificial-intelligence-saturation-and-the-future-of-work/"}, {"id": "ai-science", "title": "AI-SCIENCE", "emoji": "", "content": "- **AutoSOTA**, SOTA model kesfi icin uctan uca otomatik arastirma sistemi oneriyor; bu, bilimsel deneme-dogrulama surecinin kendisinin agent\u2019lastigini gosteriyor. Kaynak: https://arxiv.org/abs/2604.05550  \n- **EpiBench**, multimodal agent\u2019lar icin cok turlu arastirma workflow benchmark\u2019i sunuyor. Kaynak: https://arxiv.org/abs/2604.05557  \n- **PhageBench**, LLM\u2019lerin ham bakteriyofaj genomlarini anlayip anlayamadigini test ederek bio-LLM sinirlarini zorluyor. Kaynak: https://arxiv.org/abs/2604.05775"}, {"id": "infra", "title": "INFRA", "emoji": "", "content": "- **MegaTrain**, 100B+ parametreli modellerin tek GPU uzerinde full precision egitimini hedefleyerek egitim maliyeti anlatisina meydan okuyor. Kaynak: https://arxiv.org/abs/2604.05091  \n- **Cactus**, constrained acceptance speculative sampling ile autoregressive decoding\u2019i hizlandirmayi oneriyor. Kaynak: https://arxiv.org/abs/2604.04987  \n- **Multi-Drafter Speculative Decoding with Alignment Feedback**, hiz kazancini alignment geri bildirimiyle birlestiriyor. Kaynak: https://arxiv.org/abs/2604.05417  \n- **Attention Editing**, attention donusumu ile KV cache ve inference bandwidth darbohazina saldiriyor. Kaynak: https://arxiv.org/abs/2604.05688"}, {"id": "safety", "title": "SAFETY", "emoji": "", "content": "- **Confidence Should Be Calibrated More Than One Turn Deep**, multi-turn ortamlarda guven skoru kalibrasyonunun yetersiz oldugunu gosteriyor. Kaynak: https://arxiv.org/abs/2604.05397  \n- **What Models Know, How Well They Know It**, modelin \u201cbilmiyorum\u201d deme kapasitesini knowledge-weighted fine-tuning ile artirmayi hedefliyor. Kaynak: https://arxiv.org/abs/2604.05779  \n- **Measuring What Matters!!**, mental health conversation\u2019larda terapotik prensip uyumunu olcmeye odaklaniyor. Kaynak: https://arxiv.org/abs/2604.05795  \n- **DIA-HARM**, zararli icerik tespitinde lehce bazli adaletsizligi one cikariyor. Kaynak: https://arxiv.org/abs/2604.05318"}, {"id": "watchlist", "title": "WATCHLIST", "emoji": "", "content": "- **Meta\u2019nin yeni AI modeli ve superintelligence team anlatisi**, buyuk oyuncularin ikinci dalga model resetine gittigini gosterebilir; izlemeye deger. Kaynaklar: https://news.google.com/rss/articles/CBMiuAFBVV95cUxNM25rWXBKX2traWptOXQtUjRQcUtmZkNrME8zR2RLS2V0djhxdU5kMVRmS2t2YmM2anhhVzcwS1F6cDJyTWZrYl9RRW01QjJ4SWJxQnVSRUpJNldVd1RaNnNDcE9LWnI3bUw3ZllIUmN0cG1FNUp0LUJvU0RnQUpESUs0NjN1Y1B5b2x2ZjlFTDM3ek5uaXZ6ZERqaXkybV82V2VkcjZwQ0VPaW5BalI2aURNTFZMdDN20gG-AUFVX3lxTE9RR0xuc3VtZFluTjJObG0zYWZEZDVZektxRzZoMGtjQzJIYWNqLVlULVUyNEZ1QUN5N0RucVdzYnBHZjM2UzY3WUFoNm9wa29xQmpnbFlfT3lOMm9DN0k2RlhCZ2NPdXJGNlhmTTNxakl4bXF3cEUwM005OGJpTkF3WXItb0xTeDUxRDdYYkw4emtpMXkxV3pRUlU0THRhcFM3bUZCWEF6Q0JncXl6bjR0Y3VOZEZSb1dOZzZoVkE?oc=5 | https://news.google.com/rss/articles/CBMigAFBVV95cUxNYWxqVDA3TGExLXlBb0lucmFvM1E4czh3ejNxVFBTMGR5Mk1kZV9hYTBsSEhFR05tYlVCZHM4dUw1Ukp1TndLa3pRNGN6LUs4WVdmY0hMOXctcE9GTHVmUklQSE5oN21XWmtRZTdIQ3ZZbjM0V3dfSnVsX2I5b1RtdA?oc=5  \n- **AWS\u2019nin OpenAI + Anthropic cift yatirimi**, bulut saglayicilarin model savasinda \u201cagnostic ama derin entegrasyonlu\u201d pozisyon alacagini gosterebilir. Kaynak: https://techcrunch.com/2026/04/08/aws-boss-explains-why-investing-billions-in-both-anthropic-and-openai-is-an-ok-conflict/  \n- **Offline AI UX**, Google dikte uygulamasi ve edge repo ilgisi nedeniyle kisa vadede cihaz ustu yeni urun dalgasi uretebilir. Kaynaklar: https://techcrunch.com/2026/04/07/google-quietly-releases-an-offline-first-ai-dictation-app-on-ios/ | https://github.com/google-ai-edge/gallery"}, {"id": "trends", "title": "TRENDS", "emoji": "", "content": "- **Agent UX basitlesiyor, ama alt katmanda governance karmasiklasiyor.** Poke ve Workbench gibi urunler basit yuz sunarken, HITL, safety blueprint ve RCE olaylari kontrol ihtiyacini buyutuyor. Kaynaklar: https://techcrunch.com/2026/04/08/poke-makes-ai-agents-as-easy-as-sending-a-text/ | https://aws.amazon.com/blogs/machine-learning/human-in-the-loop-constructs-for-agentic-workflows-in-healthcare-and-life-sciences/ | https://news.google.com/rss/articles/CBMiggFBVV95cUxOMmV2elZDZ1d0eWFXU2prMHQweUZ4b2tPbEk1cWtFY0ktWHgxcXZ0XzlGdUc4em50UVBDMmtyaC1QMF80UjNjTVpjSVpLckFvUG9xUDloVkFOLWNPcDN5OTA2YkZRVmF1YzlXVG5mdzc5dTR2LUVxRkdKNy1WeWhaV3p3?oc=5  \n- **Memory, unlearning ve knowledge drift bir ana eksene donusuyor.** Bu, agent\u2019larin sadece bilgi toplamasinin degil, neyi ne zaman unutacaginin kritiklestigini gosteriyor. Kaynaklar: https://arxiv.org/abs/2604.05074 | https://arxiv.org/abs/2604.05096 | https://arxiv.org/abs/2604.05669  \n- **Multimodal guvenilirlik hizla engineering disiplinine kayiyor.** Coreference, reward modeling, visual pun ve medical VLM alignment calismalari \u201cgordu mu, anladi mi?\u201d sorusunu sertlestiriyor. Kaynaklar: https://arxiv.org/abs/2604.05522 | https://arxiv.org/abs/2604.05445 | https://arxiv.org/abs/2604.05930 | https://arxiv.org/abs/2604.05738"}, {"id": "cikcik-paketi", "title": "CikCik Paketi", "emoji": "", "content": "- **Simon Willison**, preview modelin gercek security weakness bulduguna dair \u201cbu kez somut kanit var\u201d vurgusu yapti; guvenlik odakli frontier model algisini guclendiriyor. Kaynak: https://bsky.app/profile/simonwillison.net/post/3miwzedsfjc24  \n- **Simon Willison**, son haftalari \u201csecurity work we are not going to tell you about\u201d diye ozetleyerek kapali guvenlik arastirmasi trendine dikkat cekti. Kaynak: https://bsky.app/profile/simonwillison.net/post/3miws4aa3js2y  \n- **Mastodon akisi**, 178 AI modelinin yazim \u201cfingerprint\u201d analizine dair calismayi paylasarak provenance ve model tespiti basliginin toplulukta yankilandigini gosterdi. Kaynaklar: https://mastodon.social/@BeginnersInAi/116371058707125978 | https://mastodon.social/@Techino/116370869891233623  \n- **Infosec/Mastodon akisi**, GPT-5-codex release note sinyallerini \u201cagentic coding\u201d ekseninde yorumladi; coding-agent yarisi sosyal akisda da sicak. Kaynak: https://infosec.exchange/@solomonneas/116369451327675044  \n- **Craig Brown paylasimi**, OpenClaw\u2019in tek kisilik shipping gucu carpani olarak konusulmasi agent-orchestration araclarina olan ilgiyi gosteriyor. Kaynak: https://mastodon.social/@craigbrownphd/116367311259827662"}, {"id": "oracle-self-improvement-sinyalleri", "title": "Oracle Self-Improvement Sinyalleri", "emoji": "", "content": "- **Pipeline bugun agent + safety + infra overlap\u2019ini iyi yakaliyor, fakat Google News URL\u2019leri ikincil kaynaklara kapali.** Bir sonraki iterasyonda canonical URL cozumleme katmani eklenmeli. Kaynak: https://news.google.com/rss/articles/CBMiuAFBVV95cUxNM25rWXBKX2traWptOXQtUjRQcUtmZkNrME8zR2RLS2V0djhxdU5kMVRmS2t2YmM2anhhVzcwS1F6cDJyTWZrYl9RRW01QjJ4SWJxQnVSRUpJNldVd1RaNnNDcE9LWnI3bUw3ZllIUmN0cG1FNUp0LUJvU0RnQUpESUs0NjN1Y1B5b2x2ZjlFTDM3ek5uaXZ6ZERqaXkybV82V2VkcjZwQ0VPaW5BalI2aURNTFZMdDN20gG-AUFVX3lxTE9RR0xuc3VtZFluTjJObG0zYWZEZDVZektxRzZoMGtjQzJIYWNqLVlULVUyNEZ1QUN5N0RucVdzYnBHZjM2UzY3WUFoNm9wa29xQmpnbFlfT3lOMm9DN0k2RlhCZ2NPdXJGNlhmTTNxakl4bXF3cEUwM005OGJpTkF3WXItb0xTeDUxRDdYYkw4emtpMXkxV3pRUlU0THRhcFM3bUZCWEF6Q0JncXl6bjR0Y3VOZEZSb1dOZzZoVkE?oc=5  \n- **Academic akis cok guclu, ancak kategori siniflama CAT-04\u2019e asiri yigiliyor.** V3 pipeline, paper\u2019lari memory/safety/infra/multimodal diye ikinci bir semantic pass ile yeniden etiketlemeli. Kaynaklar: https://arxiv.org/abs/2604.05074 | https://arxiv.org/abs/2604.05522 | https://arxiv.org/abs/2604.05669  \n- **Social stream g\u00fcr\u00fcltulu ama erken sinyal degerli.** Simon Willison ve infosec odakli hesaplar daha yuksek agirlikla puanlanabilir. Kaynaklar: https://bsky.app/profile/simonwillison.net/post/3miwzedsfjc24 | https://infosec.exchange/@solomonneas/116369451327675044  \n- **Consumer app sinyalleri ile enterprise infra sinyalleri ayni raporda daha net ayrilmali.** Tubi/Google dictation gibi dagitim hikayeleri ile Bedrock/Safetensors gibi altyapi hikayeleri farkli skor mantigi isteyebilir. Kaynaklar: https://techcrunch.com/2026/04/08/tubi-is-the-first-streamer-to-launch-a-native-app-within-chatgpt/ | https://huggingface.co/blog/safetensors-joins-pytorch-foundation | https://aws.amazon.com/blogs/machine-learning/manage-ai-costs-with-amazon-bedrock-projects/"}, {"id": "kaynak-ozeti", "title": "Kaynak Ozeti", "emoji": "", "content": "- **RSS / blog akisinda** Hugging Face, AWS, NVIDIA ve TechCrunch bugunun ana sinyal tasiyicilari oldu. Kaynaklar: https://huggingface.co/blog/ibm-research/altk-evolve | https://huggingface.co/blog/safetensors-joins-pytorch-foundation | https://aws.amazon.com/blogs/machine-learning/customize-amazon-nova-models-with-amazon-bedrock-fine-tuning/ | https://blogs.nvidia.com/blog/national-robotics-week-2026/ | https://techcrunch.com/2026/04/08/atlassian-confluence-visual-ai-tools-agents/  \n- **Academic akis**, memory, calibration, unlearning, agent benchmarking ve multimodal reliability etrafinda yogunlasti. Kaynaklar: https://arxiv.org/abs/2604.05074 | https://arxiv.org/abs/2604.05397 | https://arxiv.org/abs/2604.05669 | https://arxiv.org/abs/2604.05557 | https://arxiv.org/abs/2604.05522  \n- **Community akis**, GitHub trending ve Lobsters uzerinden edge AI, memory systems ve eval pipeline\u2019larini one cikardi. Kaynaklar: https://github.com/google-ai-edge/gallery | https://github.com/google-ai-edge/LiteRT-LM | https://tombedor.dev/approaches-to-agent-memory/ | https://www.pipevals.com"}, {"id": "dedupe-kalite-notu", "title": "Dedupe & Kalite Notu", "emoji": "", "content": "> Bu rapordaki tum maddeler onceki 3 gun raporlarindaki ana haber eksenleriyle karsilastirilarak secildi; 6-8 Nisan\u2019da islenen Anthropic Glasswing, Mythos Preview, Cloudflare PQ, Dependabot agent remediation ve benzeri basliklar tekrar edilmedi.  \n> Toplam 2380 item islendi, raporda secili olarak 40+ benzersiz item/sinyal kullanildi.  \n> Kalite notu: Academic akis guclu, ancak kategori dagilimi CAT-04\u2019e asiri yigildigi icin semantic reclassification ihtiyaci var; Google News kaynaklari ise canonical URL cozumleme olmadan ikincil kalite siniri olusturuyor."}];
+
+  marked.setOptions({ gfm: true, breaks: false, mangle: false, headerIds: false });
+
+  var renderer = new marked.Renderer();
+  renderer.table = function(header, body) {
+    return '<div class="table-wrap"><table><thead>' + header + '</thead><tbody>' + body + '</tbody></table></div>';
+  };
+  var origListItem = renderer.listitem;
+  renderer.listitem = function(text) {
+    if (text.indexOf('<strong>') === 0 || text.indexOf('<a') === 0) {
+      return '<li class="item-card">' + text + '</li>';
+    }
+    return '<li>' + text + '</li>';
+  };
+
+  var tabsBar = document.getElementById('tabs-bar');
+  var panelsContainer = document.getElementById('panels-container');
+  var loading = document.getElementById('loading');
+
+  SECTIONS.forEach(function(sec, i) {
+    var btn = document.createElement('button');
+    btn.className = 'tab' + (i === 0 ? ' active' : '');
+    btn.setAttribute('role', 'tab');
+    btn.setAttribute('data-tab', sec.id);
+    btn.id = 'tab-' + sec.id;
+    btn.textContent = (sec.emoji ? sec.emoji + ' ' : '') + sec.title;
+    btn.onclick = function() { switchTab(sec.id) };
+    tabsBar.appendChild(btn);
+
+    var panel = document.createElement('div');
+    panel.className = 'tab-panel' + (i === 0 ? ' active' : '');
+    panel.id = 'panel-' + sec.id;
+    panel.setAttribute('role', 'tabpanel');
+    panel.setAttribute('data-title', (sec.emoji ? sec.emoji + ' ' : '') + sec.title);
+
+    var rendered = marked.parse(sec.content, { renderer: renderer });
+    var RE_HIGH = new RegExp(String.fromCodePoint(0x1F534), 'g');
+    var RE_MED  = new RegExp(String.fromCodePoint(0x1F7E1), 'g');
+    var RE_LOW  = new RegExp(String.fromCodePoint(0x1F7E2), 'g');
+    rendered = rendered.replace(RE_HIGH, '<span class="badge-high">HIGH</span>');
+    rendered = rendered.replace(RE_MED,  '<span class="badge-medium">MED</span>');
+    rendered = rendered.replace(RE_LOW,  '<span class="badge-low">LOW</span>');
+    panel.innerHTML = rendered;
+    panelsContainer.appendChild(panel);
+  });
+
+  loading.style.display = 'none';
+
+  document.querySelectorAll('.tab-panel a[href]').forEach(function(a) {
+    var href = a.getAttribute('href');
+    if (href && (href.startsWith('http://') || href.startsWith('https://'))) {
+      a.setAttribute('target', '_blank');
+      a.setAttribute('rel', 'noopener noreferrer');
+    }
+  });
+
+  window.switchTab = function(tabId) {
+    document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('active') });
+    document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active') });
+    var tab = document.getElementById('tab-' + tabId);
+    var panel = document.getElementById('panel-' + tabId);
+    if (tab) tab.classList.add('active');
+    if (panel) panel.classList.add('active');
+    history.replaceState(null, '', '#' + tabId);
+    if (tab) tab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  function activateFromHash() {
+    var hash = window.location.hash.replace('#', '');
+    if (hash) {
+      var tab = document.getElementById('tab-' + hash);
+      if (tab) { switchTab(hash); return }
+    }
+    if (SECTIONS.length > 0) switchTab(SECTIONS[0].id);
+  }
+  activateFromHash();
+  window.addEventListener('hashchange', activateFromHash);
+
+  var backTop = document.getElementById('back-top');
+  window.addEventListener('scroll', function() {
+    backTop.classList.toggle('visible', window.scrollY > 300);
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    var tabs = Array.from(document.querySelectorAll('.tab'));
+    var idx = tabs.findIndex(function(t) { return t.classList.contains('active') });
+    if (e.key === 'ArrowRight' && idx < tabs.length - 1) switchTab(tabs[idx + 1].getAttribute('data-tab'));
+    else if (e.key === 'ArrowLeft' && idx > 0) switchTab(tabs[idx - 1].getAttribute('data-tab'));
+  });
+})();
+
+function toggleTheme() {
+  var html = document.documentElement;
+  var current = html.getAttribute('data-theme');
+  var icon = document.getElementById('theme-icon');
+  if (current === 'dark') {
+    html.setAttribute('data-theme', 'light');
+    icon.innerHTML = '&#9728;'; localStorage.setItem('theme', 'light');
+  } else if (current === 'light') {
+    html.removeAttribute('data-theme');
+    icon.innerHTML = '&#9211;'; localStorage.setItem('theme', 'auto');
+  } else {
+    html.setAttribute('data-theme', 'dark');
+    icon.innerHTML = '&#9790;'; localStorage.setItem('theme', 'dark');
+  }
+}
+(function() {
+  var saved = localStorage.getItem('theme');
+  var icon = document.getElementById('theme-icon');
+  if (saved === 'dark') { document.documentElement.setAttribute('data-theme', 'dark'); if (icon) icon.innerHTML = '&#9790;' }
+  else if (saved === 'light') { document.documentElement.setAttribute('data-theme', 'light'); if (icon) icon.innerHTML = '&#9728;' }
+})();
+</script>
+</body>
+</html>
