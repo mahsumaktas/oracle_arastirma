@@ -57,9 +57,9 @@ LANGS = {
         "raw_archive_title": "Ham markdown arşivi",
         "raw_archive_subtitle": "İstersen markdown kaynağını da indirebilirsin.",
         "raw_source": "Kaynak markdown",
-        "generated_with": "Şablon tabanlı çok dilli yayın akışı",
-        "footer_note": "Oracle gece araştırma arşivi, Türkçe asıl içerik korunarak üretilir.",
-        "report_intro": "Türkçe kaynak korunur, alternatif diller otomatik olarak üretilir.",
+        "generated_with": "LLM authored çok dilli yayın akışı",
+        "footer_note": "Oracle gece araştırma arşivi, Türkçe asıl içerik korunur. EN/ES authored varyantlar varsa kullanılır, yoksa fallback çeviri devreye girer.",
+        "report_intro": "Türkçe kaynak korunur. EN/ES authored markdown varsa doğrudan kullanılır, yoksa acil durumda fallback çeviri uygulanır.",
         "summary_label": "Öne çıkan not",
         "toc_label": "İçindekiler",
         "prev_report": "Önceki rapor",
@@ -102,9 +102,9 @@ LANGS = {
         "raw_archive_title": "Raw markdown archive",
         "raw_archive_subtitle": "Download the original markdown when needed.",
         "raw_source": "Source markdown",
-        "generated_with": "Template-driven multilingual publishing flow",
-        "footer_note": "Oracle Night Research keeps Turkish as the source of truth and ships translated mirrors.",
-        "report_intro": "The Turkish source stays intact, with generated language variants alongside it.",
+        "generated_with": "LLM-authored multilingual publishing flow",
+        "footer_note": "Oracle Night Research keeps Turkish as the source of truth. Authored EN/ES variants are preferred, with translation used only as fallback.",
+        "report_intro": "The Turkish source stays intact. Authored EN/ES markdown is used when present, and translation is only the fallback path.",
         "summary_label": "Highlight",
         "toc_label": "Contents",
         "prev_report": "Previous report",
@@ -147,9 +147,9 @@ LANGS = {
         "raw_archive_title": "Archivo de markdown original",
         "raw_archive_subtitle": "También puedes descargar el markdown fuente.",
         "raw_source": "Markdown fuente",
-        "generated_with": "Flujo de publicación multilingüe basado en plantillas",
-        "footer_note": "Oracle Night Research mantiene el turco como fuente original y publica espejos traducidos.",
-        "report_intro": "La fuente turca se conserva y las variantes de idioma se generan a su lado.",
+        "generated_with": "Flujo multilingüe con versiones authoradas por LLM",
+        "footer_note": "Oracle Night Research mantiene el turco como fuente original. Las versiones authoradas EN/ES se priorizan y la traducción queda como fallback.",
+        "report_intro": "La fuente turca se conserva. Si existe markdown authorado en EN/ES se usa directamente; si no, entra la traducción de emergencia.",
         "summary_label": "Destacado",
         "toc_label": "Contenido",
         "prev_report": "Informe anterior",
@@ -994,6 +994,7 @@ class Report:
     date: str
     raw_markdown: str
     raw_path: str
+    is_authored: bool
     title: str
     intro: str
     summary: str
@@ -1160,6 +1161,7 @@ def parse_report(date: str, markdown: str, raw_path: str) -> Report:
             date=date,
             raw_markdown=markdown,
             raw_path=raw_path,
+            is_authored=True,
             title=fallback_title,
             intro="",
             summary=fallback_summary,
@@ -1208,6 +1210,7 @@ def parse_report(date: str, markdown: str, raw_path: str) -> Report:
         date=date,
         raw_markdown=markdown,
         raw_path=raw_path,
+        is_authored=True,
         title=title,
         intro=intro,
         summary=summary,
@@ -1277,6 +1280,7 @@ def translate_report(report: Report, target_lang: str, cache: Dict[str, str]) ->
         date=report.date,
         raw_markdown=translated_markdown,
         raw_path=report.raw_path,
+        is_authored=False,
         title=translated_title,
         intro=translated_intro,
         summary=build_summary(translated_intro, translated_sections),
@@ -1379,7 +1383,7 @@ def render_index_page(lang: str, reports_by_lang: Dict[str, List[Report]], gener
     current_rel = lang_path(lang)
     report_cards = []
     for report in reports:
-        raw_href = relative_href(current_rel, f"raw/{report.date}.md")
+        raw_href = relative_href(current_rel, report.raw_path)
         report_href = relative_href(current_rel, report_rel_path(lang, report.date))
         search_text = f"{report.date} {report.title} {report.summary}"
         report_cards.append(
@@ -1507,7 +1511,7 @@ def render_report_page(lang: str, report: Report, reports_by_lang: Dict[str, Lis
     current_rel = report_rel_path(lang, report.date)
     asset_prefix = "../" if lang == "tr" else "../../"
     home_href = relative_href(current_rel, lang_path(lang))
-    raw_href = relative_href(current_rel, f"raw/{report.date}.md")
+    raw_href = relative_href(current_rel, report.raw_path)
     lang_paths = {code: relative_href(current_rel, report_rel_path(code, report.date)) for code in LANGS}
     summary_html = html.escape(report.summary)
     section_links = "".join(
@@ -1686,7 +1690,7 @@ def render_raw_index(lang: str, reports_by_lang: Dict[str, List[Report]], genera
     lang_paths = {code: relative_href(current_rel, raw_index_rel_path(code)) for code in LANGS}
     raw_cards = []
     for report in reports:
-        raw_href = relative_href(current_rel, f"raw/{report.date}.md")
+        raw_href = relative_href(current_rel, report.raw_path)
         rendered_href = relative_href(current_rel, report_rel_path(lang, report.date))
         raw_cards.append(
             f"""
@@ -1812,7 +1816,13 @@ def generate_sitemap(reports: List[Report]) -> str:
 """
 
 
-def load_reports() -> List[Report]:
+def authored_raw_path(lang: str, date: str) -> Path:
+    if lang == "tr":
+        return RAW_DIR / f"{date}.md"
+    return RAW_DIR / lang / f"{date}.md"
+
+
+def load_source_reports() -> List[Report]:
     reports = []
     for path in sorted(RAW_DIR.glob("*.md"), reverse=True):
         markdown = path.read_text(encoding="utf-8")
@@ -1822,10 +1832,41 @@ def load_reports() -> List[Report]:
     return reports
 
 
+def load_reports_by_language(cache: Dict[str, str]) -> Dict[str, List[Report]]:
+    source_reports = load_source_reports()
+    reports_by_lang: Dict[str, List[Report]] = {"tr": source_reports}
+
+    for lang in ["en", "es"]:
+        localized_reports: List[Report] = []
+        total = len(source_reports)
+        for index, report in enumerate(source_reports, start=1):
+            authored_path = authored_raw_path(lang, report.date)
+            if authored_path.exists():
+                markdown = authored_path.read_text(encoding="utf-8")
+                localized = parse_report(report.date, markdown, f"raw/{lang}/{authored_path.name}")
+                localized_reports.append(localized)
+                continue
+
+            print(f"[{lang}] fallback translating {index}/{total}: {report.date}", flush=True)
+            localized_reports.append(translate_report(report, lang, cache))
+            save_cache(cache)
+
+        reports_by_lang[lang] = localized_reports
+
+    return reports_by_lang
+
+
 def refresh_output_dirs() -> None:
     for path in [ASSETS_DIR, EN_DIR, ES_DIR, REPORTS_DIR, ROOT / "raw"]:
         path.mkdir(parents=True, exist_ok=True)
-    for locale_dir in [EN_DIR / "reports", ES_DIR / "reports", EN_DIR / "raw", ES_DIR / "raw"]:
+    for locale_dir in [
+        EN_DIR / "reports",
+        ES_DIR / "reports",
+        EN_DIR / "raw",
+        ES_DIR / "raw",
+        RAW_DIR / "en",
+        RAW_DIR / "es",
+    ]:
         locale_dir.mkdir(parents=True, exist_ok=True)
 
 
@@ -1834,18 +1875,20 @@ def update_readme() -> None:
         """
         # 🔭 Oracle Gece Araştırma
 
-        Çok dilli GitHub Pages arşivi. Türkçe raporlar kaynak kabul edilir, İngilizce ve İspanyolca sürümler build sırasında üretilir.
+        Çok dilli GitHub Pages arşivi. Türkçe raporlar kaynak kabul edilir. İngilizce ve İspanyolca authored markdown varsa doğrudan kullanılır, yoksa sadece fallback olarak çeviri üretilir.
 
         ## Yapı
 
         ```
         oracle_arastirma/
         ├── assets/               # Ortak CSS ve JS
-        ├── data/                 # Çeviri cache'i
+        ├── data/                 # Sadece fallback çeviri cache'i
         ├── reports/              # Türkçe rapor URL'leri korunur
         ├── en/reports/           # İngilizce alternatif URL'ler
         ├── es/reports/           # İspanyolca alternatif URL'ler
         ├── raw/                  # Türkçe kaynak markdown
+        ├── raw/en/               # Authored English markdown (varsa)
+        ├── raw/es/               # Authored Spanish markdown (varsa)
         ├── scripts/build_site.py # Tüm statik site üretimi
         └── api/latest.json       # Son rapor bilgisi
         ```
@@ -1858,15 +1901,16 @@ def update_readme() -> None:
 
         Script şunları yapar:
         - `raw/*.md` dosyalarını okuyup Türkçe rapor sayfalarını yeniden üretir
-        - İngilizce ve İspanyolca alternatif sayfaları oluşturur
+        - `raw/en/*.md` ve `raw/es/*.md` varsa authored alternatifleri kullanır
+        - eksik dil artifact'lerinde yalnızca fallback çeviri üretir
         - ana indeks, raw arşiv indeksleri, RSS, sitemap ve latest API çıktısını günceller
-        - Google Translate web endpoint üzerinden eksik çevirileri alır ve `data/translation-cache.json` içinde cache'ler
+        - fallback çevirileri `data/translation-cache.json` içinde cache'ler
 
         ## Notlar
 
         - Mevcut Türkçe URL'ler korunur: `/index.html` ve `/reports/YYYY-MM-DD.html`
         - Alternatif diller temiz URL'lerle yayınlanır: `/en/...` ve `/es/...`
-        - `raw/` dizini korunur, ayrıca daha okunabilir arşiv sayfaları eklenir
+        - `raw/` dizini korunur, authored EN/ES markdown varsa `raw/en/` ve `raw/es/` altında tutulur
         """
     ).strip() + "\n"
     write_text(ROOT / "README.md", content)
@@ -1875,17 +1919,8 @@ def update_readme() -> None:
 def main() -> None:
     refresh_output_dirs()
     cache = load_cache()
-    source_reports = load_reports()
-
-    reports_by_lang: Dict[str, List[Report]] = {"tr": source_reports}
-    for lang in ["en", "es"]:
-        translated_reports: List[Report] = []
-        total = len(source_reports)
-        for index, report in enumerate(source_reports, start=1):
-            print(f"[{lang}] translating {index}/{total}: {report.date}", flush=True)
-            translated_reports.append(translate_report(report, lang, cache))
-            save_cache(cache)
-        reports_by_lang[lang] = translated_reports
+    reports_by_lang = load_reports_by_language(cache)
+    source_reports = reports_by_lang["tr"]
 
     generated_dt = datetime.now(timezone.utc)
     generated_at_label = generated_dt.strftime("%Y-%m-%d %H:%M UTC")
