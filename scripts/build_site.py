@@ -26,6 +26,51 @@ ES_DIR = ROOT / "es"
 SITE_URL = "https://mahsumaktas.github.io/oracle_arastirma"
 SITE_NAME = "Oracle Night Research"
 CACHE_PATH = DATA_DIR / "translation-cache.json"
+RAW_BRIEFINGS_DIR = RAW_DIR / "briefings"
+
+COLLECTION_LABELS = {
+    "briefings": {
+        "tr": {
+            "archive_title": "Tüm briefingler",
+            "archive_subtitle": "Sabah, öğlen ve akşam briefing akışı artık v3 çok dilli yayın katmanına bağlı.",
+            "report_badge": "Briefing",
+            "raw_archive_title": "Ham briefing arşivi",
+            "raw_archive_subtitle": "Kaynak briefing markdown dosyalarını indir veya render edilmiş sürümü aç.",
+            "feed_description": "Oracle günlük briefing arşivi",
+            "latest_api_title": "Oracle Briefings",
+            "meta_description": "Oracle briefing arşivi, çok dilli erişim.",
+            "report_meta_description": "Oracle briefing",
+            "raw_meta_description": "Ham briefing arşivi",
+            "report_intro": "Türkçe briefing korunur. EN/ES authored markdown varsa doğrudan kullanılır, yoksa fallback çeviri devreye girer.",
+        },
+        "en": {
+            "archive_title": "All briefings",
+            "archive_subtitle": "Morning, midday, and evening briefings now flow through the same multilingual v3 publishing layer.",
+            "report_badge": "Briefing",
+            "raw_archive_title": "Raw briefing archive",
+            "raw_archive_subtitle": "Download source briefing markdown or open the rendered version.",
+            "feed_description": "Oracle daily briefing archive",
+            "latest_api_title": "Oracle Briefings",
+            "meta_description": "Oracle briefing archive with multilingual access.",
+            "report_meta_description": "Oracle briefing",
+            "raw_meta_description": "Raw briefing archive",
+            "report_intro": "The Turkish briefing stays intact. Authored EN/ES markdown is preferred and translation is only fallback.",
+        },
+        "es": {
+            "archive_title": "Todos los briefings",
+            "archive_subtitle": "Los briefings de mañana, mediodía y noche ahora usan la misma capa multilingüe v3.",
+            "report_badge": "Briefing",
+            "raw_archive_title": "Archivo raw de briefings",
+            "raw_archive_subtitle": "Descarga el markdown fuente del briefing o abre la versión renderizada.",
+            "feed_description": "Archivo diario de briefings de Oracle",
+            "latest_api_title": "Oracle Briefings",
+            "meta_description": "Archivo de briefings de Oracle con acceso multilingüe.",
+            "report_meta_description": "Briefing de Oracle",
+            "raw_meta_description": "Archivo raw de briefings",
+            "report_intro": "El briefing turco se conserva. Si existe markdown EN/ES authorado se usa primero; si no, entra el fallback.",
+        },
+    }
+}
 
 LANGS = {
     "tr": {
@@ -1309,6 +1354,37 @@ def raw_index_rel_path(lang: str) -> str:
     return "raw/index.html" if lang == "tr" else f"{lang}/raw/index.html"
 
 
+def collection_index_rel_path(lang: str, collection: str) -> str:
+    return f"{collection}/index.html" if lang == "tr" else f"{lang}/{collection}/index.html"
+
+
+def collection_item_rel_path(lang: str, collection: str, slug: str) -> str:
+    return f"{collection}/{slug}.html" if lang == "tr" else f"{lang}/{collection}/{slug}.html"
+
+
+def collection_raw_index_rel_path(lang: str, collection: str) -> str:
+    return f"{collection}/raw/index.html" if lang == "tr" else f"{lang}/{collection}/raw/index.html"
+
+
+def collection_source_root(collection: str) -> Path:
+    if collection == "briefings":
+        return RAW_BRIEFINGS_DIR
+    return RAW_DIR
+
+
+def collection_authored_path(collection: str, lang: str, slug: str) -> Path:
+    root = collection_source_root(collection)
+    if lang == "tr":
+        return root / f"{slug}.md"
+    return root / lang / f"{slug}.md"
+
+
+def collection_labels(lang: str, collection: str) -> Dict[str, str]:
+    labels = dict(LANGS[lang])
+    labels.update(COLLECTION_LABELS.get(collection, {}).get(lang, {}))
+    return labels
+
+
 def absolute_url(relative: str) -> str:
     return f"{SITE_URL}/{relative}"
 
@@ -1816,6 +1892,352 @@ def generate_sitemap(reports: List[Report]) -> str:
 """
 
 
+def load_collection_by_language(cache: Dict[str, str], collection: str) -> Dict[str, List[Report]]:
+    root = collection_source_root(collection)
+    if not root.exists():
+        return {"tr": [], "en": [], "es": []}
+
+    source_reports = []
+    for path in sorted(root.glob("*.md"), reverse=True):
+        markdown = path.read_text(encoding="utf-8")
+        source_reports.append(parse_report(path.stem, markdown, str(path.relative_to(ROOT)).replace("\\", "/")))
+
+    reports_by_lang: Dict[str, List[Report]] = {"tr": source_reports}
+    if not source_reports:
+        reports_by_lang["en"] = []
+        reports_by_lang["es"] = []
+        return reports_by_lang
+
+    for lang in ["en", "es"]:
+        localized_reports: List[Report] = []
+        total = len(source_reports)
+        for index, report in enumerate(source_reports, start=1):
+            authored_path = collection_authored_path(collection, lang, report.date)
+            if authored_path.exists():
+                markdown = authored_path.read_text(encoding="utf-8")
+                localized_reports.append(parse_report(report.date, markdown, str(authored_path.relative_to(ROOT)).replace("\\", "/")))
+                continue
+
+            print(f"[{collection}:{lang}] fallback translating {index}/{total}: {report.date}", flush=True)
+            localized_reports.append(translate_report(report, lang, cache))
+            save_cache(cache)
+        reports_by_lang[lang] = localized_reports
+
+    return reports_by_lang
+
+
+def render_collection_index_page(lang: str, collection: str, reports_by_lang: Dict[str, List[Report]], generated_at: str) -> str:
+    labels = collection_labels(lang, collection)
+    reports = reports_by_lang[lang]
+    current_rel = collection_index_rel_path(lang, collection)
+    raw_archive_href = relative_href(current_rel, collection_raw_index_rel_path(lang, collection))
+    lang_paths = {code: relative_href(current_rel, collection_index_rel_path(code, collection)) for code in LANGS}
+    asset_prefix = "../" if lang == "tr" else "../../"
+    alternate_paths = {code: collection_index_rel_path(code, collection) for code in LANGS}
+
+    latest = reports[0] if reports else None
+    report_cards = []
+    for report in reports:
+        raw_href = relative_href(current_rel, report.raw_path)
+        report_href = relative_href(current_rel, collection_item_rel_path(lang, collection, report.date))
+        search_text = f"{report.date} {report.title} {report.summary}"
+        report_cards.append(
+            f"""
+<article class=\"report-card\" data-report-card data-search=\"{html.escape(search_text)}\">
+  <div class=\"report-card-top\">
+    <div>
+      <div class=\"report-date\"><strong>{html.escape(report.date)}</strong><span>· {len(report.sections)} {html.escape(labels['sections_count'])}</span></div>
+      <h3>{html.escape(report.title)}</h3>
+    </div>
+    <span class=\"badge\">{html.escape(labels['report_badge'])}</span>
+  </div>
+  <p class=\"report-summary\">{html.escape(report.summary)}</p>
+  <div class=\"report-meta\">
+    <span>{report.word_count} {html.escape(labels['word_count_label'])}</span>
+    <span>{len(report.sections)} {html.escape(labels['sections_count'])}</span>
+  </div>
+  <div class=\"report-actions-row\">
+    <a class=\"button\" href=\"{html.escape(report_href)}\">{html.escape(labels['view_report'])}</a>
+    <a class=\"ghost-button\" href=\"{html.escape(raw_href)}\">{html.escape(labels['view_raw'])}</a>
+  </div>
+</article>
+""".strip()
+        )
+
+    latest_panel = ""
+    if latest:
+        latest_panel = f"""
+        <div class=\"panel\">
+          <div class=\"panel-title\"><div><h3>{html.escape(labels['latest_report'])}</h3><p>{html.escape(latest.summary)}</p></div></div>
+          <div class=\"side-list\">
+            <a class=\"side-link\" href=\"{relative_href(current_rel, collection_item_rel_path(lang, collection, latest.date))}\">
+              <strong>{html.escape(latest.title)}</strong>
+              <small>{html.escape(latest.date)} · {len(latest.sections)} sections</small>
+            </a>
+          </div>
+        </div>
+        """.strip()
+
+    page = f"""
+<!doctype html>
+<html lang=\"{lang}\">
+<head>
+  {base_head(lang, labels['archive_title'], labels['meta_description'], collection_index_rel_path(lang, collection), alternate_paths, asset_prefix)}
+</head>
+<body>
+  {render_header(lang, labels['site_tagline'], lang_paths, relative_href(current_rel, collection_index_rel_path(lang, collection)))}
+  <main class=\"shell\">
+    <section class=\"hero\">
+      <div class=\"hero-card\">
+        <div class=\"hero-layout\">
+          <div>
+            <span class=\"hero-kicker\">{html.escape(labels['generated_with'])}</span>
+            <h1>{html.escape(labels['archive_title'])}</h1>
+            <p>{html.escape(labels['archive_subtitle'])}</p>
+            <div class=\"hero-actions\">
+              <span class=\"hero-pill\"><strong>{len(reports)}</strong> {html.escape(labels['archive_title']).lower()}</span>
+              <span class=\"hero-pill\"><strong>{len(LANGS)}</strong> {html.escape(labels['languages']).lower()}</span>
+            </div>
+          </div>
+          <div class=\"stats-grid\">
+            <div class=\"stat-card\">
+              <span class=\"stat-label\">{html.escape(labels['total_reports'])}</span>
+              <span class=\"stat-value\">{len(reports)}</span>
+              <div class=\"stat-detail\">{html.escape(labels['report_intro'])}</div>
+            </div>
+            <div class=\"stat-card\">
+              <span class=\"stat-label\">{html.escape(labels['date_range'])}</span>
+              <span class=\"stat-value\">{html.escape(reports[-1].date if reports else '--')} → {html.escape(reports[0].date if reports else '--')}</span>
+              <div class=\"stat-detail\">{html.escape(generated_at)}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class=\"content-grid\">
+      <div class=\"stack\">
+        <div class=\"panel\">
+          <div class=\"panel-title\">
+            <div>
+              <h2>{html.escape(labels['archive_title'])}</h2>
+              <p>{html.escape(labels['search_label'])}</p>
+            </div>
+          </div>
+          <label class=\"search-box\">
+            <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><circle cx=\"11\" cy=\"11\" r=\"7\"></circle><path d=\"M20 20l-3.5-3.5\"></path></svg>
+            <input type=\"search\" placeholder=\"{html.escape(labels['search_placeholder'])}\" data-report-search>
+          </label>
+        </div>
+        <div class=\"report-list\">{' '.join(report_cards)}</div>
+        <div class=\"empty-state\" data-search-empty>{html.escape(labels['search_empty'])}</div>
+      </div>
+      <aside class=\"stack\">
+        {latest_panel}
+        <div class=\"panel\">
+          <div class=\"panel-title\"><div><h3>{html.escape(labels['raw_archive_title'])}</h3><p>{html.escape(labels['raw_archive_subtitle'])}</p></div></div>
+          <a class=\"side-link\" href=\"{html.escape(raw_archive_href)}\">
+            <strong>{html.escape(labels['browse_raw'])}</strong>
+            <small>{html.escape(labels['open_original'])}</small>
+          </a>
+        </div>
+      </aside>
+    </section>
+  </main>
+  <footer class=\"shell footer\">
+    <div class=\"footer-card\">
+      <p>{html.escape(labels['footer_note'])}</p>
+      <p>{html.escape(generated_at)}</p>
+    </div>
+  </footer>
+  <button class=\"back-to-top\" type=\"button\" data-back-top aria-label=\"Back to top\">↑</button>
+</body>
+</html>
+""".strip()
+    return page + "\n"
+
+
+def render_collection_entry_page(lang: str, collection: str, report: Report, reports_by_lang: Dict[str, List[Report]], generated_at: str) -> str:
+    labels = collection_labels(lang, collection)
+    report_list = reports_by_lang[lang]
+    index_lookup = {item.date: idx for idx, item in enumerate(report_list)}
+    idx = index_lookup[report.date]
+    prev_report = report_list[idx + 1] if idx + 1 < len(report_list) else None
+    next_report = report_list[idx - 1] if idx - 1 >= 0 else None
+
+    current_rel = collection_item_rel_path(lang, collection, report.date)
+    asset_prefix = "../" if lang == "tr" else "../../"
+    home_href = relative_href(current_rel, collection_index_rel_path(lang, collection))
+    raw_href = relative_href(current_rel, report.raw_path)
+    lang_paths = {code: relative_href(current_rel, collection_item_rel_path(code, collection, report.date)) for code in LANGS}
+    section_links = "".join(
+        f'<a class="section-link" href="#{section.id}" data-section-link>{html.escape(section.title)}</a>'
+        for section in report.sections
+    )
+    payload = {
+        "sectionLabel": labels["section_nav"],
+        "sections": [{"id": s.id, "title": s.title, "content": s.content} for s in report.sections],
+    }
+    alternate_paths = {code: collection_item_rel_path(code, collection, report.date) for code in LANGS}
+
+    page = f"""
+<!doctype html>
+<html lang=\"{lang}\">
+<head>
+  {base_head(lang, report.title, f"{labels['report_meta_description']} {report.date}", collection_item_rel_path(lang, collection, report.date), alternate_paths, asset_prefix)}
+</head>
+<body>
+  {render_header(lang, report.date, lang_paths, home_href)}
+  <main class=\"shell\">
+    <section class=\"hero\">
+      <div class=\"hero-card\">
+        <div class=\"hero-layout\">
+          <div>
+            <div class=\"breadcrumbs\"><a href=\"{home_href}\">{html.escape(labels['back_to_archive'])}</a><span>•</span><span>{html.escape(report.date)}</span></div>
+            <span class=\"hero-kicker\">{html.escape(labels['report_badge'])}</span>
+            <h1>{html.escape(report.title)}</h1>
+            <p>{html.escape(report.summary)}</p>
+            <div class=\"hero-actions\">
+              <span class=\"hero-pill\"><strong>{len(report.sections)}</strong> {html.escape(labels['sections_count'])}</span>
+              <span class=\"hero-pill\"><strong>{report.word_count}</strong> {html.escape(labels['word_count_label'])}</span>
+            </div>
+          </div>
+          <div class=\"stats-grid\">
+            <div class=\"stat-card\">
+              <span class=\"stat-label\">{html.escape(labels['summary_label'])}</span>
+              <div class=\"stat-detail\">{html.escape(report.summary)}</div>
+            </div>
+            <div class=\"stat-card\">
+              <span class=\"stat-label\">{html.escape(labels['report_actions'])}</span>
+              <div class=\"report-actions-row\" style=\"margin-top:12px\">
+                <a class=\"button\" href=\"{raw_href}\">{html.escape(labels['view_raw'])}</a>
+                <a class=\"ghost-button\" href=\"{home_href}\">{html.escape(labels['archive_title'])}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class=\"report-layout\">
+      <aside class=\"sticky-column stack\">
+        <div class=\"panel\">
+          <div class=\"panel-title\"><div><h3>{html.escape(labels['toc_label'])}</h3><p>{html.escape(labels['report_intro'])}</p></div></div>
+          <nav class=\"report-nav\">{section_links}</nav>
+        </div>
+        <div class=\"panel\">
+          <div class=\"panel-title\"><div><h3>{html.escape(labels['report_actions'])}</h3></div></div>
+          <div class=\"report-tools\">
+            <a class=\"ghost-button\" href=\"{raw_href}\">{html.escape(labels['raw_source'])}</a>
+            <a class=\"ghost-button\" href=\"{lang_paths['tr']}\">{html.escape(labels['open_original'])}</a>
+            {f'<a class="ghost-button" href="{relative_href(current_rel, collection_item_rel_path(lang, collection, prev_report.date))}">{html.escape(labels["prev_report"])}' + '</a>' if prev_report else ''}
+            {f'<a class="ghost-button" href="{relative_href(current_rel, collection_item_rel_path(lang, collection, next_report.date))}">{html.escape(labels["next_report"])}' + '</a>' if next_report else ''}
+          </div>
+        </div>
+      </aside>
+      <div class=\"report-main\">
+        <section class=\"report-summary-card rendered-markdown\">
+          <div class=\"section-head\">
+            <div>
+              <div class=\"section-kicker\">{html.escape(labels['report_overview'])}</div>
+              <h2>{html.escape(labels['report_overview'])}</h2>
+            </div>
+          </div>
+          {markdown_to_html(clean_intro(report.intro))}
+        </section>
+        <div data-report-sections></div>
+      </div>
+    </section>
+  </main>
+  <footer class=\"shell footer\">
+    <div class=\"footer-card\">
+      <p>{html.escape(labels['footer_note'])}</p>
+      <p>{html.escape(generated_at)}</p>
+    </div>
+  </footer>
+  <script id=\"report-data\" type=\"application/json\">{html.escape(json.dumps(payload, ensure_ascii=False))}</script>
+  <script src=\"https://cdn.jsdelivr.net/npm/marked@9.1.6/marked.min.js\"></script>
+  <button class=\"back-to-top\" type=\"button\" data-back-top aria-label=\"Back to top\">↑</button>
+</body>
+</html>
+""".strip()
+    return page + "\n"
+
+
+def render_collection_raw_index(lang: str, collection: str, reports_by_lang: Dict[str, List[Report]], generated_at: str) -> str:
+    labels = collection_labels(lang, collection)
+    reports = reports_by_lang[lang]
+    current_rel = collection_raw_index_rel_path(lang, collection)
+    asset_prefix = "../" if lang == "tr" else "../../"
+    lang_paths = {code: relative_href(current_rel, collection_raw_index_rel_path(code, collection)) for code in LANGS}
+    raw_cards = []
+    for report in reports:
+        raw_href = relative_href(current_rel, report.raw_path)
+        rendered_href = relative_href(current_rel, collection_item_rel_path(lang, collection, report.date))
+        raw_cards.append(
+            f"""
+<div class=\"raw-card\">
+  <div>
+    <div class=\"raw-card-title\">{html.escape(report.date)}</div>
+    <small>{html.escape(report.title)}</small>
+  </div>
+  <div class=\"report-actions-row\">
+    <a class=\"ghost-button\" href=\"{html.escape(raw_href)}\">{html.escape(labels['view_raw'])}</a>
+    <a class=\"button\" href=\"{html.escape(rendered_href)}\">{html.escape(labels['view_rendered'])}</a>
+  </div>
+</div>
+""".strip()
+        )
+    alternate_paths = {code: collection_raw_index_rel_path(code, collection) for code in LANGS}
+    page = f"""
+<!doctype html>
+<html lang=\"{lang}\">
+<head>
+  {base_head(lang, labels['raw_archive_title'], labels['raw_meta_description'], collection_raw_index_rel_path(lang, collection), alternate_paths, asset_prefix)}
+</head>
+<body>
+  {render_header(lang, labels['raw_archive_subtitle'], lang_paths, relative_href(current_rel, collection_raw_index_rel_path(lang, collection)))}
+  <main class=\"shell\">
+    <section class=\"hero\">
+      <div class=\"hero-card\">
+        <span class=\"hero-kicker\">{html.escape(labels['raw_source'])}</span>
+        <h1>{html.escape(labels['raw_archive_title'])}</h1>
+        <p>{html.escape(labels['raw_archive_subtitle'])}</p>
+        <div class=\"hero-actions\">
+          <a class=\"button\" href=\"{relative_href(current_rel, collection_index_rel_path(lang, collection))}\">{html.escape(labels['archive_title'])}</a>
+        </div>
+      </div>
+    </section>
+    <section class=\"raw-grid\">{' '.join(raw_cards)}</section>
+  </main>
+  <footer class=\"shell footer\">
+    <div class=\"footer-card\">
+      <p>{html.escape(labels['footer_note'])}</p>
+      <p>{html.escape(generated_at)}</p>
+    </div>
+  </footer>
+  <button class=\"back-to-top\" type=\"button\" data-back-top aria-label=\"Back to top\">↑</button>
+</body>
+</html>
+""".strip()
+    return page + "\n"
+
+
+def generate_briefings_sitemap(briefings: List[Report]) -> List[str]:
+    urls = [
+        absolute_url("briefings/index.html"),
+        absolute_url("en/briefings/index.html"),
+        absolute_url("es/briefings/index.html"),
+        absolute_url("briefings/raw/index.html"),
+        absolute_url("en/briefings/raw/index.html"),
+        absolute_url("es/briefings/raw/index.html"),
+    ]
+    for report in briefings:
+        for code in LANGS:
+            urls.append(absolute_url(collection_item_rel_path(code, "briefings", report.date)))
+    return urls
+
+
 def authored_raw_path(lang: str, date: str) -> Path:
     if lang == "tr":
         return RAW_DIR / f"{date}.md"
@@ -1861,11 +2283,20 @@ def refresh_output_dirs() -> None:
         path.mkdir(parents=True, exist_ok=True)
     for locale_dir in [
         EN_DIR / "reports",
+        EN_DIR / "briefings",
         ES_DIR / "reports",
+        ES_DIR / "briefings",
         EN_DIR / "raw",
         ES_DIR / "raw",
+        EN_DIR / "briefings" / "raw",
+        ES_DIR / "briefings" / "raw",
         RAW_DIR / "en",
         RAW_DIR / "es",
+        RAW_BRIEFINGS_DIR,
+        RAW_BRIEFINGS_DIR / "en",
+        RAW_BRIEFINGS_DIR / "es",
+        ROOT / "briefings",
+        ROOT / "briefings" / "raw",
     ]:
         locale_dir.mkdir(parents=True, exist_ok=True)
 
@@ -1875,7 +2306,7 @@ def update_readme() -> None:
         """
         # 🔭 Oracle Gece Araştırma
 
-        Çok dilli GitHub Pages arşivi. Türkçe raporlar kaynak kabul edilir. İngilizce ve İspanyolca authored markdown varsa doğrudan kullanılır, yoksa sadece fallback olarak çeviri üretilir.
+        Çok dilli GitHub Pages arşivi. Gece raporları ve gündüz briefing'leri aynı v3 yayın mimarisini kullanır. Türkçe kaynak kabul edilir. İngilizce ve İspanyolca authored markdown varsa doğrudan kullanılır, yoksa sadece fallback olarak çeviri üretilir.
 
         ## Yapı
 
@@ -1884,9 +2315,13 @@ def update_readme() -> None:
         ├── assets/               # Ortak CSS ve JS
         ├── data/                 # Sadece fallback çeviri cache'i
         ├── reports/              # Türkçe rapor URL'leri korunur
+        ├── briefings/            # Türkçe briefing arşivi
         ├── en/reports/           # İngilizce alternatif URL'ler
+        ├── en/briefings/         # İngilizce briefing URL'leri
         ├── es/reports/           # İspanyolca alternatif URL'ler
+        ├── es/briefings/         # İspanyolca briefing URL'leri
         ├── raw/                  # Türkçe kaynak markdown
+        ├── raw/briefings/        # Türkçe briefing markdown
         ├── raw/en/               # Authored English markdown (varsa)
         ├── raw/es/               # Authored Spanish markdown (varsa)
         ├── scripts/build_site.py # Tüm statik site üretimi
@@ -1901,7 +2336,9 @@ def update_readme() -> None:
 
         Script şunları yapar:
         - `raw/*.md` dosyalarını okuyup Türkçe rapor sayfalarını yeniden üretir
+        - `raw/briefings/*.md` dosyalarını okuyup briefing arşivini üretir
         - `raw/en/*.md` ve `raw/es/*.md` varsa authored alternatifleri kullanır
+        - `raw/briefings/en/*.md` ve `raw/briefings/es/*.md` varsa authored briefing varyantlarını kullanır
         - eksik dil artifact'lerinde yalnızca fallback çeviri üretir
         - ana indeks, raw arşiv indeksleri, RSS, sitemap ve latest API çıktısını günceller
         - fallback çevirileri `data/translation-cache.json` içinde cache'ler
@@ -1910,6 +2347,7 @@ def update_readme() -> None:
 
         - Mevcut Türkçe URL'ler korunur: `/index.html` ve `/reports/YYYY-MM-DD.html`
         - Alternatif diller temiz URL'lerle yayınlanır: `/en/...` ve `/es/...`
+        - Briefing arşivi ayrı tutulur: `/briefings/...`
         - `raw/` dizini korunur, authored EN/ES markdown varsa `raw/en/` ve `raw/es/` altında tutulur
         """
     ).strip() + "\n"
@@ -1920,7 +2358,9 @@ def main() -> None:
     refresh_output_dirs()
     cache = load_cache()
     reports_by_lang = load_reports_by_language(cache)
+    briefings_by_lang = load_collection_by_language(cache, "briefings")
     source_reports = reports_by_lang["tr"]
+    source_briefings = briefings_by_lang["tr"]
 
     generated_dt = datetime.now(timezone.utc)
     generated_at_label = generated_dt.strftime("%Y-%m-%d %H:%M UTC")
@@ -1933,15 +2373,30 @@ def main() -> None:
     write_text(ROOT / "raw" / "index.html", render_raw_index("tr", reports_by_lang, generated_at_label))
     write_text(EN_DIR / "raw" / "index.html", render_raw_index("en", reports_by_lang, generated_at_label))
     write_text(ES_DIR / "raw" / "index.html", render_raw_index("es", reports_by_lang, generated_at_label))
+    write_text(ROOT / "briefings" / "index.html", render_collection_index_page("tr", "briefings", briefings_by_lang, generated_at_label))
+    write_text(EN_DIR / "briefings" / "index.html", render_collection_index_page("en", "briefings", briefings_by_lang, generated_at_label))
+    write_text(ES_DIR / "briefings" / "index.html", render_collection_index_page("es", "briefings", briefings_by_lang, generated_at_label))
+    write_text(ROOT / "briefings" / "raw" / "index.html", render_collection_raw_index("tr", "briefings", briefings_by_lang, generated_at_label))
+    write_text(EN_DIR / "briefings" / "raw" / "index.html", render_collection_raw_index("en", "briefings", briefings_by_lang, generated_at_label))
+    write_text(ES_DIR / "briefings" / "raw" / "index.html", render_collection_raw_index("es", "briefings", briefings_by_lang, generated_at_label))
 
     for lang, reports in reports_by_lang.items():
         base_dir = ROOT if lang == "tr" else ROOT / lang
         for report in reports:
             write_text(base_dir / "reports" / f"{report.date}.html", render_report_page(lang, report, reports_by_lang, generated_at_label))
+    for lang, reports in briefings_by_lang.items():
+        base_dir = ROOT if lang == "tr" else ROOT / lang
+        for report in reports:
+            write_text(base_dir / "briefings" / f"{report.date}.html", render_collection_entry_page(lang, "briefings", report, briefings_by_lang, generated_at_label))
 
     write_text(ROOT / "feed.xml", generate_feed(source_reports, generated_dt))
     write_text(ROOT / "api" / "latest.json", generate_latest_json(source_reports, generated_dt))
-    write_text(ROOT / "sitemap.xml", generate_sitemap(source_reports))
+    sitemap = generate_sitemap(source_reports)
+    if source_briefings:
+        briefing_urls = generate_briefings_sitemap(source_briefings)
+        extra_body = "\n".join(f"  <url><loc>{url}</loc></url>" for url in briefing_urls)
+        sitemap = sitemap.replace("</urlset>", extra_body + "\n</urlset>")
+    write_text(ROOT / "sitemap.xml", sitemap)
     update_readme()
 
 
