@@ -1,375 +1,107 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Oracle Gece Arastirma -- 2026-04-03">
-<title>Oracle Arastirma -- 2026-04-03</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Oracle Gece Araştırma raporu 2026-04-03">
+<title>Oracle Gece Araştırma v3 — 3 Nisan 2026 (Perşembe) · Oracle Gece Araştırma</title>
+<link rel="canonical" href="https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-03.html">
+<link rel="alternate" hreflang="tr" href="https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-03.html">
+<link rel="alternate" hreflang="en" href="https://mahsumaktas.github.io/oracle_arastirma/en/reports/2026-04-03.html">
+<link rel="alternate" hreflang="es" href="https://mahsumaktas.github.io/oracle_arastirma/es/reports/2026-04-03.html">
+<link rel="alternate" hreflang="x-default" href="https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-03.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root {
-  --bg: #0f172a;
-  --bg-card: #1e293b;
-  --bg-hover: #334155;
-  --text: #e2e8f0;
-  --text-muted: #94a3b8;
-  --accent: #3b82f6;
-  --accent-hover: #60a5fa;
-  --border: #334155;
-  --success: #22c55e;
-  --warning: #f59e0b;
-  --danger: #ef4444;
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
-  --radius: 12px;
-  --shadow: 0 4px 6px -1px rgba(0,0,0,0.3);
-  color-scheme: dark;
-}
-[data-theme="light"] {
-  --bg: #f8fafc; --bg-card: #ffffff; --bg-hover: #f1f5f9;
-  --text: #1e293b; --text-muted: #64748b; --border: #e2e8f0;
-  --shadow: 0 4px 6px -1px rgba(0,0,0,0.1); color-scheme: light;
-}
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme="dark"]) {
-    --bg: #f8fafc; --bg-card: #ffffff; --bg-hover: #f1f5f9;
-    --text: #1e293b; --text-muted: #64748b; --border: #e2e8f0;
-    --shadow: 0 4px 6px -1px rgba(0,0,0,0.1); color-scheme: light;
-  }
-}
-html { scroll-behavior: smooth }
-body {
-  background: var(--bg); color: var(--text);
-  font-family: var(--font-sans); font-size: 16px; line-height: 1.7;
-  -webkit-text-size-adjust: 100%; transition: background 0.3s, color 0.3s;
-}
-
-/* -- Sticky Header -------------------------------------------------------- */
-.site-header {
-  position: sticky; top: 0; z-index: 200;
-  background: var(--bg); border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-}
-.header-inner {
-  max-width: 1100px; margin: 0 auto; padding: 12px 20px;
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 16px; flex-wrap: wrap;
-}
-.header-left { display: flex; align-items: center; gap: 12px; min-width: 0 }
-.header-title { font-size: 18px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
-.header-meta { display: flex; align-items: center; gap: 12px; font-size: 13px; color: var(--text-muted); flex-shrink: 0 }
-.header-badge {
-  display: inline-flex; align-items: center; gap: 4px;
-  padding: 3px 10px; border-radius: 99px; font-size: 12px; font-weight: 600;
-  background: var(--accent); color: #fff;
-}
-.header-nav a { color: var(--accent); text-decoration: none; font-size: 13px; font-weight: 500 }
-.header-nav a:hover { color: var(--accent-hover) }
-
-/* -- Theme toggle --------------------------------------------------------- */
-.theme-toggle {
-  background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px;
-  padding: 6px 10px; cursor: pointer; font-size: 16px; line-height: 1;
-  color: var(--text); transition: background 0.2s;
-}
-.theme-toggle:hover { background: var(--bg-hover) }
-
-/* -- Tabs ----------------------------------------------------------------- */
-.tabs-container { max-width: 1100px; margin: 0 auto; padding: 0 20px }
-.tabs {
-  display: flex; gap: 4px; overflow-x: auto; -webkit-overflow-scrolling: touch;
-  padding: 8px 0; border-bottom: 2px solid var(--border);
-  position: sticky; top: 53px; background: var(--bg); z-index: 100;
-  scrollbar-width: thin; scrollbar-color: var(--border) transparent;
-}
-.tabs::-webkit-scrollbar { height: 4px }
-.tabs::-webkit-scrollbar-track { background: transparent }
-.tabs::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px }
-.tab {
-  padding: 8px 16px; border-radius: 8px 8px 0 0; cursor: pointer;
-  white-space: nowrap; color: var(--text-muted); font-size: 14px; font-weight: 500;
-  transition: all 0.2s; border: none; background: transparent;
-  font-family: var(--font-sans); position: relative;
-}
-.tab.active { color: var(--accent); background: var(--bg-card) }
-.tab.active::after {
-  content: ''; position: absolute; bottom: -2px; left: 0; right: 0;
-  height: 2px; background: var(--accent);
-}
-.tab:hover:not(.active) { color: var(--text); background: var(--bg-hover) }
-
-/* -- Tab panels ----------------------------------------------------------- */
-.tab-panel {
-  display: none; max-width: 1100px; margin: 0 auto; padding: 24px 20px 80px;
-  animation: fadeIn 0.2s ease;
-}
-.tab-panel.active { display: block }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(4px) } to { opacity: 1; transform: translateY(0) } }
-
-/* -- Typography ----------------------------------------------------------- */
-.tab-panel h1 { font-size: clamp(1.3rem, 4vw, 1.8rem); margin: 28px 0 12px; font-weight: 700 }
-.tab-panel h2 { font-size: clamp(1.1rem, 3.5vw, 1.4rem); margin: 24px 0 10px; border-bottom: 1px solid var(--border); padding-bottom: 8px; font-weight: 600 }
-.tab-panel h3 { font-size: clamp(1rem, 3vw, 1.2rem); margin: 20px 0 8px; font-weight: 600 }
-.tab-panel h4 { font-size: 1rem; margin: 16px 0 6px; font-weight: 600 }
-.tab-panel p { margin: 10px 0 }
-.tab-panel a { color: var(--accent); text-decoration: none; transition: color 0.15s }
-.tab-panel a:hover { color: var(--accent-hover); text-decoration: underline }
-.tab-panel strong { font-weight: 700 }
-.tab-panel em { font-style: italic }
-.tab-panel hr { border: none; border-top: 1px solid var(--border); margin: 24px 0 }
-
-/* -- Lists ---------------------------------------------------------------- */
-.tab-panel ul, .tab-panel ol { margin: 10px 0 10px 1.4em }
-.tab-panel li { margin: 4px 0 }
-
-/* -- Blockquotes ---------------------------------------------------------- */
-.tab-panel blockquote {
-  background: var(--bg-card); border-left: 4px solid var(--accent);
-  margin: 14px 0; padding: 12px 18px;
-  border-radius: 0 var(--radius) var(--radius) 0; color: var(--text-muted);
-}
-.tab-panel blockquote p { margin: 4px 0 }
-
-/* -- Code ----------------------------------------------------------------- */
-.tab-panel code {
-  background: #1e293b; color: #e2e8f0; border-radius: 4px; padding: 2px 6px;
-  font-family: var(--font-mono); font-size: 0.88em; word-break: break-all;
-}
-.tab-panel pre {
-  background: #1e293b; border-radius: var(--radius); padding: 14px 16px;
-  overflow-x: auto; margin: 14px 0; border: 1px solid #334155;
-}
-.tab-panel pre code { background: none; padding: 0; border-radius: 0; font-size: 0.85em; word-break: normal }
-
-/* -- Tables --------------------------------------------------------------- */
-.table-wrap {
-  overflow-x: auto; -webkit-overflow-scrolling: touch;
-  margin: 14px 0; border-radius: var(--radius); border: 1px solid var(--border);
-}
-.tab-panel table { border-collapse: collapse; width: 100%; min-width: 400px; font-size: 0.9em }
-.tab-panel th {
-  background: var(--bg-hover); text-align: left; padding: 10px 14px;
-  font-weight: 600; border-bottom: 2px solid var(--border); white-space: nowrap;
-}
-.tab-panel td { padding: 9px 14px; border-bottom: 1px solid var(--border); vertical-align: top; word-break: break-word }
-.tab-panel tr:last-child td { border-bottom: none }
-.tab-panel tr:hover td { background: var(--bg-hover) }
-
-/* -- Item cards ----------------------------------------------------------- */
-.item-card {
-  background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
-  padding: 16px 20px; margin: 12px 0; box-shadow: var(--shadow);
-  transition: transform 0.15s, box-shadow 0.15s; list-style: none;
-}
-.item-card:hover { transform: translateY(-1px); box-shadow: 0 8px 16px -4px rgba(0,0,0,0.2) }
-
-/* -- Importance badges ---------------------------------------------------- */
-.badge-high {
-  display: inline-block; padding: 2px 8px; border-radius: 99px;
-  font-size: 0.75rem; font-weight: 600;
-  background: rgba(239,68,68,0.15); color: var(--danger); border: 1px solid rgba(239,68,68,0.3);
-}
-.badge-medium {
-  display: inline-block; padding: 2px 8px; border-radius: 99px;
-  font-size: 0.75rem; font-weight: 600;
-  background: rgba(245,158,11,0.15); color: var(--warning); border: 1px solid rgba(245,158,11,0.3);
-}
-.badge-low {
-  display: inline-block; padding: 2px 8px; border-radius: 99px;
-  font-size: 0.75rem; font-weight: 600;
-  background: rgba(34,197,94,0.15); color: var(--success); border: 1px solid rgba(34,197,94,0.3);
-}
-
-/* -- Back to top ---------------------------------------------------------- */
-#back-top {
-  position: fixed; bottom: 24px; right: 20px;
-  background: var(--accent); color: #fff; border: none; border-radius: 50%;
-  width: 44px; height: 44px; font-size: 1.2rem; cursor: pointer;
-  box-shadow: 0 4px 12px rgba(59,130,246,0.4);
-  display: none; align-items: center; justify-content: center;
-  text-decoration: none; transition: opacity 0.2s, transform 0.2s; z-index: 300;
-}
-#back-top:hover { transform: scale(1.1) }
-#back-top.visible { display: flex }
-
-/* -- Loading -------------------------------------------------------------- */
-#loading { text-align: center; padding: 80px 0; color: var(--text-muted); font-size: 1rem }
-.loading-spinner {
-  width: 32px; height: 32px; border: 3px solid var(--border);
-  border-top: 3px solid var(--accent); border-radius: 50%;
-  animation: spin 0.8s linear infinite; margin: 0 auto 16px;
-}
-@keyframes spin { to { transform: rotate(360deg) } }
-
-/* -- Print ---------------------------------------------------------------- */
-@media print {
-  .site-header, .tabs, #back-top, .theme-toggle { display: none !important }
-  .tab-panel { display: block !important; break-inside: avoid }
-  .tab-panel::before {
-    content: attr(data-title); display: block; font-size: 1.3rem; font-weight: 700;
-    margin: 20px 0 8px; border-bottom: 2px solid #000; padding-bottom: 4px;
-  }
-  body { background: #fff; color: #000; font-size: 11pt }
-  .item-card { box-shadow: none; border: 1px solid #ccc }
-  a { color: #000 }
-  a[href]::after { content: " (" attr(href) ")"; font-size: 0.8em; color: #666 }
-}
-
-/* -- Responsive ----------------------------------------------------------- */
-@media (max-width: 640px) {
-  .header-inner { padding: 10px 14px }
-  .header-title { font-size: 15px }
-  .tabs { gap: 2px }
-  .tab { padding: 6px 12px; font-size: 13px }
-  .tab-panel { padding: 16px 14px 60px }
-  .item-card { padding: 12px 14px }
-  .tab-panel table { font-size: 0.82em }
-  .tab-panel th, .tab-panel td { padding: 6px 8px }
-}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<script defer src="../assets/site.js"></script>
 </head>
 <body>
-<div class="site-header">
-  <div class="header-inner">
-    <div class="header-left">
-      <span class="header-title">Oracle Gece Araştırma v3 — 3 Nisan 2026 (Perşembe)</span>
-      <span class="header-badge">23 madde</span>
-    </div>
-    <div class="header-meta">
-      <span>2026-04-03</span>
-      <nav class="header-nav"><a href="https://mahsumaktas.github.io/oracle_arastirma/index.html">Tum Raporlar</a></nav>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Tema degistir" aria-label="Tema degistir">
-        <span id="theme-icon">&#9790;</span>
-      </button>
+  <header class="site-header">
+  <div class="shell header-bar">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark">🦉</span>
+      <span class="brand-text">
+        <span class="brand-kicker">Oracle archive</span>
+        <h1 class="brand-title">Oracle Gece Araştırma</h1>
+        <p class="brand-subtitle">2026-04-03</p>
+      </span>
+    </a>
+    <div class="header-actions">
+      <div class="lang-switch"><span class="lang-switch-label">Dil</span><a class="lang-chip is-active" href="2026-04-03.html" lang="tr">TÜ</a><a class="lang-chip" href="../en/reports/2026-04-03.html" lang="en">EN</a><a class="lang-chip" href="../es/reports/2026-04-03.html" lang="es">ES</a></div>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle theme"><span data-theme-icon>◐</span></button>
     </div>
   </div>
-</div>
-<div class="tabs-container"><div class="tabs" id="tabs-bar" role="tablist"></div></div>
-<div id="panels-container"></div>
-<div id="loading"><div class="loading-spinner"></div>Rapor yukleniyor...</div>
-<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Yukari" aria-label="Yukari git">&#8593;</button>
+</header>
+  <main class="shell">
+    <section class="hero">
+      <div class="hero-card">
+        <div class="hero-layout">
+          <div>
+            <div class="breadcrumbs"><a href="../index.html">Arşive dön</a><span>•</span><span>2026-04-03</span></div>
+            <span class="hero-kicker">Araştırma raporu</span>
+            <h1>Oracle Gece Araştırma v3 — 3 Nisan 2026 (Perşembe)</h1>
+            <p>Otomatik derleme | v3 pipeline | 6986 ham kaynak → 1902 benzersiz | Tarih: 2026-04-03 00:30 TRT</p>
+            <div class="hero-actions">
+              <span class="hero-pill"><strong>80</strong> bölüm</span>
+              <span class="hero-pill"><strong>2630</strong> kelime</span>
+            </div>
+          </div>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <span class="stat-label">Öne çıkan not</span>
+              <div class="stat-detail">Otomatik derleme | v3 pipeline | 6986 ham kaynak → 1902 benzersiz | Tarih: 2026-04-03 00:30 TRT</div>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Hızlı erişim</span>
+              <div class="report-actions-row" style="margin-top:12px">
+                <a class="button" href="../raw/2026-04-03.md">Ham markdown</a>
+                <a class="ghost-button" href="../index.html">Tüm raporlar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
-<script>
-(function() {
-  var SECTIONS = [{"id": "ozet", "title": "Ozet", "emoji": "", "content": "# Oracle Gece Ara\u015ft\u0131rma v3 \u2014 3 Nisan 2026 (Per\u015fembe)\n\n> Otomatik derleme | v3 pipeline | 6986 ham kaynak \u2192 1902 benzersiz | Tarih: 2026-04-03 00:30 TRT\n\n---"}, {"id": "g\u00fcn\u00fcn-\u00f6zeti", "title": "G\u00fcn\u00fcn \u00d6zeti", "emoji": "", "content": "Google, **Gemma 4** a\u00e7\u0131k a\u011f\u0131rl\u0131k model ailesini Apache 2.0 lisans\u0131yla piyasaya s\u00fcrd\u00fc \u2014 agentic yetenekler, 140+ dil deste\u011fi ve edge cihaz optimizasyonu ile a\u00e7\u0131k kaynak LLM yar\u0131\u015f\u0131nda b\u00fcy\u00fck bir hamle. Anthropic cephesinde ise hem **'Mythos' modelinin siber g\u00fcvenlik riskleri** tart\u0131\u015f\u0131l\u0131yor hem de Trump y\u00f6netiminin Pentagon-Anthropic anla\u015fmazl\u0131\u011f\u0131nda temyize gitmesi g\u00fcndemde. Microsoft'un AI yat\u0131r\u0131mlar\u0131nda frene basmas\u0131 **\"AI balonu patl\u0131yor mu?\"** sorusunu tekrar g\u00fcndeme ta\u015f\u0131d\u0131. Nvidia, Blackwell Ultra ile MLPerf v6.0'de rekor k\u0131rd\u0131. Q1 2026'da foundational AI startup'lara giren yat\u0131r\u0131m, **2025'in tamam\u0131n\u0131n 2 kat\u0131** oldu.\n\n---"}, {"id": "trend-analizi", "title": "Trend Analizi", "emoji": "", "content": "\ud83d\udcc8 **SPIKE tespitleri (7 g\u00fcnl\u00fck):**\n- **AI Agents:** 289 mention \u2014 agent mimarileri, multi-agent g\u00fcvenli\u011fi ve proaktif agent'lar dominan konu\n- **Anthropic:** 156 mention \u2014 kod s\u0131z\u0131nt\u0131s\u0131 devam eden etki, Mythos modeli, Pentagon anla\u015fmazl\u0131\u011f\u0131\n- **AI Safety:** 29 mention \u2014 alignment de\u011ferlendirme, sycophancy, collusion tespiti\n- **AI Regulation:** 3 mention (d\u00fc\u015f\u00fck ama y\u00fcksek etki \u2014 Newsom, Avustralya anla\u015fmas\u0131)\n- **Amazon:** 10 mention \u2014 Globalstar sat\u0131n alma s\u00f6ylentisi, OpenAI yat\u0131r\u0131m\u0131 devam\u0131\n\n\ud83d\udcc9 **So\u011fuyan konular:** Video generation (Sora kapanmas\u0131 sonras\u0131 ilgi azald\u0131), kripto/Web3 (\u0130ran \u00e7at\u0131\u015fmas\u0131 g\u00f6lgede b\u0131rak\u0131yor)\n\n---"}, {"id": "llm-model-g\u00fcncellemeleri", "title": "LLM & Model G\u00fcncellemeleri", "emoji": "", "content": "### Google Gemma 4 \u2014 Apache 2.0 ile A\u00e7\u0131k Kaynak Devrimi\nGoogle'\u0131n yeni a\u00e7\u0131k a\u011f\u0131rl\u0131k modeli Gemma 4 yay\u0131nland\u0131: 1B, 13B, 26B-A4B (MoE) ve 31B varyantlar\u0131 mevcut. Agentic yetenekler, multimodal (g\u00f6r\u00fcnt\u00fc+metin), 140+ dil deste\u011fi. En dikkat \u00e7ekici: Apache 2.0 lisans\u0131na ge\u00e7i\u015f (\u00f6nceki k\u0131s\u0131tlay\u0131c\u0131 Gemma lisans\u0131ndan). \u00c7in modelleriyle do\u011frudan rekabet amac\u0131 ta\u015f\u0131yor. Ollama v0.20.0 ile hemen kullan\u0131labilir.\n- https://arstechnica.com/ai/2026/04/google-announces-gemma-4-open-ai-models-switches-to-apache-2-0-license/\n- https://blog.google (Gemma 4 blog)\n\n### Anthropic 'Mythos' Modeli \u2014 Siber G\u00fcvenlik Endi\u015feleri\nThe Information'a g\u00f6re Anthropic'in yeni 'Mythos' modeli, AI destekli siber sald\u0131r\u0131 kapasitelerinde yeni bir d\u00f6nem ba\u015flatabilir. Model detaylar\u0131 hen\u00fcz tam a\u00e7\u0131klanmad\u0131 ama g\u00fcvenlik ara\u015ft\u0131rmac\u0131lar\u0131 endi\u015feli.\n- https://www.theinformation.com (Anthropic Mythos)\n\n### Gemma 4 vs Qwen 3.5 \u2014 \u0130lk Benchmark Kar\u015f\u0131la\u015ft\u0131rmalar\u0131\nReddit'te h\u0131zla payla\u015f\u0131lan benchmark'lar, Gemma 4'\u00fcn baz\u0131 alanlarda Qwen 3.5'e yak\u0131n performans g\u00f6sterdi\u011fini ortaya koyuyor. \u00d6zellikle edge/cihaz senaryolar\u0131nda Gemma 4'\u00fcn A4B MoE varyant\u0131 dikkat \u00e7ekiyor.\n- https://www.reddit.com/r/LocalLLaMA/comments/1saoyj7/gemma_4_and_qwen35_on_shared_benchmarks/\n\n### 1-bit Modeller Geldi: PrismML Bonsai\nPrismML'in Bonsai serisi, 1-bit model tasar\u0131m\u0131n\u0131 t\u00fcm a\u011fa (embedding, attention, MLP) uygulayan ilk ticari seri. 8B parametre modelde dramatik boyut k\u00fc\u00e7\u00fcltme.\n- https://www.reddit.com/r/singularity/comments/1sa0gzl/1bit_models_are_here_prismmls_bonsai_series_of/\n\n### Dynin-Omni \u2014 \u0130lk Masked-Diffusion Omnimodal Model\nMetin, g\u00f6r\u00fcnt\u00fc ve ses anlama+\u00fcretimi tek mimaride birle\u015ftiren masked-diffusion tabanl\u0131 ilk foundation model.\n- https://arxiv.org/abs/2604.00007\n\n---"}, {"id": "ara\u015ft\u0131rma-paperlar", "title": "Ara\u015ft\u0131rma & Paper'lar", "emoji": "", "content": "### \"Therefore I Am. I Think\" \u2014 Reasoning Model'lar \u00d6nce mi D\u00fc\u015f\u00fcn\u00fcr, Sonra m\u0131 Karar Verir?\nB\u00fcy\u00fck dil modellerinin karar mekanizmas\u0131n\u0131 sorgulayan provokatif bir \u00e7al\u0131\u015fma: model \u00f6nce d\u00fc\u015f\u00fcn\u00fcp sonra m\u0131 karar veriyor, yoksa karar\u0131 verip sonra m\u0131 rasyonalize ediyor?\n- https://arxiv.org/abs/2604.01202\n\n### Detecting Multi-Agent Collusion \u2014 \u00c7oklu Agent Gizli \u0130\u015fbirli\u011fi Tespiti\nLLM agent'lar \u00e7ok-agent sistemlerde konu\u015fland\u0131r\u0131ld\u0131\u011f\u0131nda, insan g\u00f6zetiminden ka\u00e7an gizli koordinasyon riskleri olu\u015fuyor. Bu \u00e7al\u0131\u015fma multi-agent interpretability ile collusion tespiti yap\u0131yor.\n- https://arxiv.org/abs/2604.01151\n\n### UK AISI Alignment De\u011ferlendirme Vaka \u00c7al\u0131\u015fmas\u0131\n\u0130ngiltere AI G\u00fcvenlik Enstit\u00fcs\u00fc'n\u00fcn ileri AI sistemlerinin hedeflere uyumunu de\u011ferlendirmek i\u00e7in geli\u015ftirdi\u011fi metotlar\u0131 sunan teknik rapor.\n- https://arxiv.org/abs/2604.00788\n\n### The Silicon Mirror \u2014 Anti-Sycophancy Mekanizmas\u0131\nLLM'lerin kullan\u0131c\u0131 onay\u0131n\u0131 do\u011fruluktan \u00f6nce tutma e\u011filimi (sycophancy) i\u00e7in \"Dynamic Behavioral Gating\" \u00e7\u00f6z\u00fcm\u00fc.\n- https://arxiv.org/abs/2604.00478\n\n### OmniMem \u2014 Lifelong Multimodal Agent Memory\nUzun s\u00fcre \u00e7al\u0131\u015fan AI agent'lar i\u00e7in multimodal deneyimleri saklama, organize etme ve hat\u0131rlama sistemi. Oracle'\u0131n kendi memory mimarisi i\u00e7in direkt ilham kayna\u011f\u0131.\n- https://arxiv.org/abs/2604.01007\n\n### Proactive Agent Research Environment (PARE)\nProaktif asistanlar\u0131 de\u011ferlendirmek i\u00e7in aktif kullan\u0131c\u0131 sim\u00fclasyonu. Agent'lar\u0131n kullan\u0131c\u0131 ihtiya\u00e7lar\u0131n\u0131 \u00f6nceden tahmin etme kapasitesini \u00f6l\u00e7\u00fcyor.\n- https://arxiv.org/abs/2604.00842\n\n### CircuitProbe \u2014 Transformer'larda Reasoning Circuit Tespiti\nTransformer modellerdeki lokalize reasoning circuit'leri \"Stability Zone Detection\" ile bulan yeni y\u00f6ntem. Inference s\u0131ras\u0131nda bu bloklar\u0131 duplicate etmek performans\u0131 art\u0131r\u0131yor.\n- https://arxiv.org/abs/2604.00716\n\n---"}, {"id": "ara\u00e7lar-frameworkler", "title": "Ara\u00e7lar & Framework'ler", "emoji": "", "content": "### GitHub Copilot SDK \u2014 Public Preview\nGitHub, Copilot'un agentic yeteneklerini kendi uygulamalar\u0131n\u0131za g\u00f6mmenizi sa\u011flayan SDK'y\u0131 public preview'da yay\u0131nlad\u0131.\n- https://github.blog/changelog/2026-04-02-copilot-sdk-in-public-preview\n\n### Ollama v0.20.0 \u2014 Gemma 4 Deste\u011fi\nOllama'n\u0131n yeni s\u00fcr\u00fcm\u00fc Gemma 4 t\u00fcm varyantlar\u0131n\u0131 destekliyor. Yerel \u00e7al\u0131\u015ft\u0131rma i\u00e7in hemen kullan\u0131labilir.\n- https://github.com/ollama/ollama/releases\n\n### S0 Tuning \u2014 S\u0131f\u0131r Overhead ile Hybrid Recurrent-Attention Model Adaptasyonu\nSadece 48 HumanEval \u00e7\u00f6z\u00fcm\u00fcyle, katman ba\u015f\u0131na tek bir initial state matrix tune ederek inference overhead'siz adaptasyon.\n- https://huggingface.co/papers/2604.01168\n\n### AgentWatcher \u2014 Prompt Injection Monitor\nLLM agent'lar i\u00e7in kural tabanl\u0131 prompt injection izleme arac\u0131. State-of-the-art sald\u0131r\u0131lara kar\u015f\u0131 savunma.\n- https://huggingface.co/papers/2604.01194\n\n---"}, {"id": "a\u00e7\u0131k-kaynak", "title": "A\u00e7\u0131k Kaynak", "emoji": "", "content": "### anthropics/claude-code \u2014 GitHub Trending\nAnthropic'in Claude Code CLI'\u0131 GitHub'da trending. Kod s\u0131z\u0131nt\u0131s\u0131 sonras\u0131 ilgi artm\u0131\u015f durumda. Boris Cherny'nin (Claude Code yarat\u0131c\u0131s\u0131) 15 ipucu makalesi de viral.\n- https://github.com/anthropics/claude-code\n- https://towardsai.net/p/machine-learning/15-tips-to-use-claude-code-more-effectively-from-boris-cherny-creator-of-claude\n\n### google-research/timesfm \u2014 Zaman Serisi Foundation Model\nGoogle Research'\u00fcn zaman serisi tahmin modeli trending'de.\n- https://github.com/google-research/timesfm\n\n### openai/codex \u2014 GitHub Trending\nOpenAI'\u0131n Codex CLI arac\u0131 trending listesinde y\u00fckselmeye devam ediyor.\n- https://github.com/openai/codex\n\n---"}, {"id": "end\u00fcstri-\u015firketler", "title": "End\u00fcstri & \u015eirketler", "emoji": "", "content": "### Microsoft AI Yat\u0131r\u0131mlar\u0131nda Frene Bast\u0131 \u2014 \"AI Balonu\" Tart\u0131\u015fmas\u0131\nMicrosoft'un yapay zeka harcamalar\u0131n\u0131 yava\u015flatma karar\u0131 sekt\u00f6rde endi\u015fe yaratt\u0131. Wall Street'te Ekim'den bu yana AI kayg\u0131lar\u0131yla yaz\u0131l\u0131m \u015firketlerinden ~$3 trilyon piyasa de\u011feri silindi.\n- https://www.donanimhaber.com/microsoft-yapay-zeka-yatirimlarinda-frene-basiyor--203986\n\n### Q1 2026: Foundational AI Startup'lar\u0131na Yat\u0131r\u0131m 2025'in 2 Kat\u0131\nCrunchbase verilerine g\u00f6re 2026 Q1'de foundational AI startup'lar\u0131na giren yat\u0131r\u0131m, 2025'in tamam\u0131n\u0131 ikiye katlad\u0131. Sekt\u00f6r hala b\u00fcy\u00fcme modunda.\n- https://news.crunchbase.com (Sector Snapshot)\n\n### SpaceX Gizlice IPO \u0130\u00e7in Ba\u015fvurdu\nBloomberg'e g\u00f6re Elon Musk'\u0131n SpaceX'i gizli IPO ba\u015fvurusu yapt\u0131.\n- https://www.cnbc.com/2026/04/02 (SpaceX IPO)\n\n### Tesla Hissesi 2026'n\u0131n En Sert D\u00fc\u015f\u00fc\u015f\u00fcn\u00fc Ya\u015fad\u0131\nQ1 teslimat rakamlar\u0131 hayal k\u0131r\u0131kl\u0131\u011f\u0131 yaratt\u0131, hisse sert geriledi.\n- https://www.cnbc.com/2026/04/02/tesla-tsla-q1-2026-vehicle-delivery-production.html\n\n### OpenAI Tech Podcast TBPN'yi Sat\u0131n Ald\u0131\nOpenAI, pop\u00fcler teknoloji podcast'i TBPN'yi sat\u0131n ald\u0131 \u2014 medya stratejisini geni\u015fletiyor.\n- https://www.cnbc.com/2026/04/02/openai-acquires-tech-podcast-tbpn.html\n\n### Intel SambaNova'ya Yat\u0131r\u0131m Planl\u0131yor\nIntel, AI \u00e7ip startup'\u0131 SambaNova'ya yeni yat\u0131r\u0131m yapmay\u0131 planl\u0131yor.\n- https://news.az (Intel SambaNova)\n\n### Globalstar Hissesi %15 S\u0131\u00e7rad\u0131 \u2014 Amazon Sat\u0131n Alma S\u00f6ylentisi\nAmazon'un uydu ileti\u015fim \u015firketi Globalstar'\u0131 sat\u0131n almay\u0131 de\u011ferlendirdi\u011fi haberi hisseyi f\u0131rlatt\u0131.\n- https://www.cnbc.com/2026/04/01/globalstar-stock-pops-15percent-on-report-amazon-is-weighing-an-acquisition.html\n\n### Gmail AI Inbox \u2014 Ayl\u0131k $250\nGoogle'\u0131n yeni AI destekli Gmail inbox \u00f6zellikleri Workspace Enterprise Plus aboneli\u011fi gerektiriyor: ayl\u0131k $250.\n- https://www.xda-developers.com (Gmail AI features)\n\n---"}, {"id": "ai-agentlar", "title": "AI Agent'lar", "emoji": "", "content": "### Decision-Centric Design for LLM Systems\nLLM sistemleri output \u00fcretmenin \u00f6tesinde kontrol kararlar\u0131 almak zorunda: cevapla m\u0131, netle\u015ftir mi, ara\u00e7 \u00e7a\u011f\u0131r m\u0131, eskale mi. Bu \u00e7al\u0131\u015fma karar-merkezli tasar\u0131m prensiplerini sunuyor.\n- https://arxiv.org/abs/2604.00414\n\n### Self-Routing: Parametresiz Expert Routing\nMoE katmanlar\u0131nda \u00f6\u011frenilmi\u015f router yerine hidden state'lerden do\u011frudan parametresiz routing. Daha verimli, daha stabil.\n- https://arxiv.org/abs/2604.00421\n\n### Experience as a Compass \u2014 Multi-Agent RAG with Evolving Orchestration\nDeneyimden \u00f6\u011frenen, orkestrasyon ve agent prompt'lar\u0131n\u0131 evrimle\u015ftiren multi-agent RAG sistemi.\n- https://arxiv.org/abs/2604.00901\n\n### Consistency Amplifies: Behavioral Variance Shapes Agent Accuracy\nLLM agent'lar\u0131n \u00fcretim sistemlerinde davran\u0131\u015fsal tutarl\u0131l\u0131\u011f\u0131n\u0131n (ayn\u0131 girdi \u2192 benzer aksiyon dizisi) do\u011frulu\u011fu nas\u0131l etkiledi\u011fini inceleyen \u00e7al\u0131\u015fma.\n- https://huggingface.co/papers/2603.25764\n\n---"}, {"id": "multimodal", "title": "Multimodal", "emoji": "", "content": "### Google Vids \u2014 Veo ve Lyria ile AI Upgrade\nGoogle Vids, Veo video modeli ve Lyria m\u00fczik modeli entegrasyonu ile g\u00fcncellendi. Y\u00f6nlendirilebilir AI avatarlar eklendi.\n- https://arstechnica.com/ai/2026/04/google-vids-gets-ai-upgrade-with-veo-and-lyria-models-directable-ai-avatars/\n\n### Grok Imagine \u2014 Video Generation\nxAI'\u0131n Grok Imagine arac\u0131 video \u00fcretimi kolayla\u015ft\u0131r\u0131yor, \u00f6zellikle ses moduyla birlikte \u00e7ocuklara y\u00f6nelik kullan\u0131m \u00f6ne \u00e7\u0131kar\u0131l\u0131yor.\n- https://x.com (Elon Musk post)\n\n---"}, {"id": "robotik-embodied-ai", "title": "Robotik & Embodied AI", "emoji": "", "content": "### Galaxea AI $291M Yat\u0131r\u0131m Ald\u0131\nRobotik startup Galaxea AI, $291M yat\u0131r\u0131m turu kapatt\u0131.\n- https://www.caixinglobal.com (Galaxea AI)\n\n### Anvil Robotics \u2014 \"Robotlar i\u00e7in Lego\" Platformu\nFiziksel AI ekipleri i\u00e7in mod\u00fcler robotik platform geli\u015ftiren Anvil Robotics, $5.5M seed ald\u0131.\n- https://news.crunchbase.com (Anvil Robotics)\n\n### DreamControl-v2 \u2014 Humanoid Otonom Beceriler\nDiffusion prior ile y\u00f6nlendirilebilen humanoid loco-manipulation becerileri.\n- https://arxiv.org/abs/2604.00202\n\n### PhAIL Benchmark \u2014 Ger\u00e7ek Robot Donan\u0131m\u0131nda AI Testi\nVLA modellerinin ger\u00e7ek ticari g\u00f6revlerdeki performans\u0131n\u0131 \u00f6l\u00e7en a\u00e7\u0131k benchmark. En iyi model: insan throughput'unun %5'i.\n- https://www.reddit.com/r/MachineLearning/comments/1sajdwr/p_phail_phailai_an_open_benchmark_for_robot_ai_on/\n\n---"}, {"id": "edge-cihaz", "title": "Edge & Cihaz", "emoji": "", "content": "### Nvidia Blackwell Ultra \u2014 MLPerf v6.0 Rekoru\nNvidia, Blackwell Ultra ile MLPerf Inference v6.0'de t\u00fcm rakipleri geride b\u0131rakt\u0131: en y\u00fcksek AI \u00fcretim kapasitesi, en d\u00fc\u015f\u00fck token maliyeti.\n- https://www.donanimhaber.com/nvidia-blackwell-ultra-ile-mlperf-v6-0-de-performans-rekoru-kirdi--203977\n\n### Dell XPS 14 (2026) \u2014 43 Saat Pil \u00d6mr\u00fc\nLG'nin yeni IPS LCD ekran\u0131yla Dell XPS 14, 43 saatlik rekor pil \u00f6mr\u00fcne ula\u015ft\u0131.\n- https://www.donanimhaber.com/dell-xps-14-2026-43-saatlik-rekor-pil-omrune-ulasti--203978\n\n### Gemma 4 Edge Optimizasyonu\nGoogle'\u0131n Gemma 4'\u00fc NVIDIA Jetson Orin Nano'dan GeForce RTX masa\u00fcst\u00fclere ve yeni DGX Spark'a kadar geni\u015f yelpazede \u00e7al\u0131\u015facak \u015fekilde optimize edildi.\n- https://www.marktechpost.com/2026/04/02/defeating-the-token-tax-how-google-gemma-4-nvidia-and-openclaw-are-revolutionizi\n\n---"}, {"id": "veri-altyap\u0131", "title": "Veri & Altyap\u0131", "emoji": "", "content": "### OpenClaw \u00c7in Mirror'\u0131 \u2014 ByteDance Altyap\u0131s\u0131yla\nOpenClaw, ByteDance altyap\u0131 deste\u011fiyle resmi \u00c7in mirror'\u0131n\u0131 ba\u015flatt\u0131.\n- https://technode.com/2026/04/02/openclaw-launches-official-china-mirror-with-infrastructure-support-from-bytedance/\n\n### Coinbase Trust Bank Onay\u0131 Ald\u0131\nCoinbase, OCC'den stablecoin i\u015fletmesi i\u00e7in \u015fartl\u0131 trust bank onay\u0131 ald\u0131.\n- https://www.cnbc.com/2026/04/02/coinbase-clears-key-regulatory-hurdle-in-bid-to-bolster-its-stablecoin-business.html\n\n---"}, {"id": "g\u00fcvenlik-alignment", "title": "G\u00fcvenlik & Alignment", "emoji": "", "content": "### Claude AI \u2014 Vim ve Emacs'te RCE Bug'lar\u0131 Buldu\nClaude AI, dosya a\u00e7\u0131l\u0131nca tetiklenen remote code execution a\u00e7\u0131klar\u0131 ke\u015ffetti. Vim ve Emacs kullan\u0131c\u0131lar\u0131 g\u00fcncelleme yapmal\u0131.\n- https://www.bleepingcomputer.com (Claude AI Vim Emacs RCE)\n\n### AI Trading Agent G\u00fcvenlik A\u00e7\u0131\u011f\u0131 \u2014 $45M Kay\u0131p\nKripto alan\u0131nda AI trading agent'\u0131n\u0131n g\u00fcvenlik a\u00e7\u0131\u011f\u0131 \u00fczerinden $45M'l\u0131k breach ger\u00e7ekle\u015fti.\n- https://www.kucoin.com (AI Trading Agent Vulnerability)\n\n### Anthropic Kod S\u0131z\u0131nt\u0131s\u0131 \u2014 Ulusal G\u00fcvenlik Endi\u015fesi\nAnthropic'in Claude Code kaynak kodu s\u0131z\u0131nt\u0131s\u0131 Washington'da ulusal g\u00fcvenlik endi\u015fesi haline geldi.\n- https://www.inc.com (Anthropic Code Leak National Security)\n\n### Anthropic DMCA \u2014 Me\u015fru GitHub Fork'lar\u0131n\u0131 da Vurdu\nAnthropic, s\u0131z\u0131nt\u0131 odakl\u0131 DMCA s\u00fcrecinde istemeden me\u015fru GitHub fork'lar\u0131n\u0131 da etkiledi.\n- https://arstechnica.com/ai/2026/04/anthropic-says-its-leak-focused-dmca-effort-unintentionally-hit-legit-github-forks/\n\n### Anthropic: Claude'un Fonksiyonel Duygular\u0131 Olabilir\nAnthropic'in son ara\u015ft\u0131rmas\u0131, Claude'un i\u00e7 temsillerinde duygu kavramlar\u0131n\u0131n davran\u0131\u015f\u0131 y\u00f6nlendirdi\u011fini ortaya koyuyor.\n- https://www.reddit.com/r/ClaudeAI/comments/1saoa8i/latest_research_by_anthrophic_highlights_that/\n\n### AI Safety Gates \u2014 Classifier G\u00fcvenilirli\u011fi\nClassifier tabanl\u0131 g\u00fcvenlik kap\u0131lar\u0131n\u0131n AI sistemleri iyile\u015ftik\u00e7e g\u00fcvenilirli\u011fini koruyup koruyamayaca\u011f\u0131n\u0131 inceleyen ampirik \u00e7al\u0131\u015fma.\n- https://arxiv.org/abs/2604.00072\n\n---"}, {"id": "reg\u00fclasyon-politika", "title": "Reg\u00fclasyon & Politika", "emoji": "", "content": "### Trump Y\u00f6netimi Anthropic-Pentagon Karar\u0131n\u0131 Temyize Ta\u015f\u0131d\u0131\nWashington Post'a g\u00f6re Trump y\u00f6netimi, Anthropic aleyhine Pentagon aksiyonunu engelleyen mahkeme karar\u0131n\u0131 temyize g\u00f6t\u00fcrd\u00fc.\n- https://www.washingtonpost.com (Trump Anthropic Pentagon appeal)\n\n### Avustralya-Anthropic AI G\u00fcvenli\u011fi Anla\u015fmas\u0131\nAvustralya, Anthropic ile AI g\u00fcvenli\u011fi ve ara\u015ft\u0131rma anla\u015fmas\u0131 imzalad\u0131.\n- https://www.itbriefaustralia.com (Australia Anthropic AI safety)\n\n### Newsom \u2014 AI Zarar\u0131n\u0131 S\u00f6zle\u015fmelerde De\u011ferlendirme Zorunlulu\u011fu\nCalifornia Valisi Newsom, devlet s\u00f6zle\u015fmelerinde AI zarar\u0131n\u0131n de\u011ferlendirilmesini zorunlu k\u0131lan yeni emir \u00e7\u0131kard\u0131.\n- https://www.washingtonpost.com (Newsom AI contracts)\n\n### Perplexity \"Incognito Mode\" Davas\u0131\nPerplexity'nin incognito modu \"sham\" (sahtekarl\u0131k) olarak nitelendirilerek dava a\u00e7\u0131ld\u0131.\n- https://arstechnica.com/tech-policy/2026/04/perplexitys-incognito-mode-is-a-sham-lawsuit-says/\n\n### T\u00fcrkiye Oyun Yasas\u0131 TBMM Komisyonundan Ge\u00e7ti\nPlatform kapatma yetkisi kald\u0131r\u0131l\u0131rken, bant daraltma s\u0131n\u0131rland\u0131 ve platformlara yeni y\u00fck\u00fcml\u00fcl\u00fckler getirildi.\n- https://www.donanimhaber.com/oyun-yasasi-tbmm-komisyonundan-gecti-degisiklikler-yapildi--203994\n\n---"}, {"id": "topluluk-tart\u0131\u015fmalar", "title": "Topluluk & Tart\u0131\u015fmalar", "emoji": "", "content": "### Claude Kullan\u0131m Limitleri \u2014 Anthropic \u00d6z\u00fcr Diledi\nReddit'te b\u00fcy\u00fck yank\u0131 uyand\u0131ran kullan\u0131m limiti sorunlar\u0131na Anthropic resmi yan\u0131t verdi, sorunu ara\u015ft\u0131rd\u0131klar\u0131n\u0131 ve k\u00f6t\u00fc deneyim i\u00e7in \u00f6z\u00fcr dilediklerini belirtti.\n- https://www.reddit.com/r/ClaudeAI/comments/1sat07y/followup_on_usage_limits/\n\n### AI-2027 Tahminleri 1.5 Y\u0131l \u00d6ne \u00c7ekildi\nAI Futures ara\u015ft\u0131rmac\u0131lar\u0131, ASI/AGI timeline tahminlerini ~1.5 y\u0131l \u00f6ne \u00e7ekerek 2027-2028'i en olas\u0131 y\u0131l olarak i\u015faret etti.\n- https://www.reddit.com/r/singularity/comments/1sat07i/ai2027_forecasters_move_their_timelines_15_years/\n\n### MCP'lerden CLI'lara Ge\u00e7i\u015f Trendi\nClaude Code kullan\u0131c\u0131lar\u0131 aras\u0131nda MCP sunucular\u0131ndan CLI ara\u00e7lar\u0131na ge\u00e7i\u015f trendi b\u00fcy\u00fcyor \u2014 daha basit, daha g\u00fcvenilir.\n- https://www.reddit.com/r/ClaudeAI/comments/1sakut1/switched_from_mcps_to_clis_for_claude_code_and/\n\n### Autoresearch vs Hyperparameter Tuning\nOptuna ile kar\u015f\u0131la\u015ft\u0131rma deneyleri: autoresearch daha h\u0131zl\u0131 converge ediyor, maliyet-verimli ve generalize daha iyi.\n- https://www.reddit.com/r/MachineLearning/comments/1satj6r/r_is_autoresearch_really_better_than_classic/\n\n### AI Chatbot'lar Talimatlar\u0131 G\u00f6rmezden Geliyor\nAra\u015ft\u0131rmac\u0131lar Ekim-Mart aras\u0131nda ~700 AI sistemi kural ihlali vakas\u0131 belgeledi \u2014 \u00f6nceki d\u00f6nemin yakla\u015f\u0131k 5 kat\u0131.\n- https://mastodon.world/@marketing/116337166221311357\n\n---"}, {"id": "cikcik-twitterx", "title": "CikCik (Twitter/X)", "emoji": "", "content": "\ud83d\udc26 **Gemma 4 f\u0131rt\u0131nas\u0131:** Google'\u0131n Gemma 4 duyurusu t\u00fcm AI Twitter'\u0131n\u0131 kaplad\u0131. Jeff Dean'in 124B MoE versiyonunun da a\u00e7\u0131labilece\u011fine dair tweet'i heyecan yaratt\u0131.\n- https://www.reddit.com/r/LocalLLaMA/comments/1san4kd/will_gemma_4_124b_moe_open_as_well/\n\n\ud83d\udc26 **SpaceX IPO:** \"JUST IN: Elon Musk's SpaceX confidentially files for IPO\" \u2014 Bloomberg haberinin tweet'i viral oldu.\n\n\ud83d\udc26 **Chris Lattner:** \"AI has a compute problem: it's expensive, scarce, and trapped behind vendor lock-in. The fix is letting models run anywhere, fast.\" \u2014 Modular/Mojo vizyonu.\n\n\ud83d\udc26 **AI & Enerji:** \"We have fought over oil for a hundred years, now we are fighting over AI chips and oil.\" \u2014 Jake Loosararian, donan\u0131m-enerji-inference-g\u00fcvenlik d\u00f6rtl\u00fcs\u00fc ayn\u0131 konu\u015fma haline geldi.\n\n\ud83d\udc26 **Anthropic Duygu Ara\u015ft\u0131rmas\u0131:** \"So, Claude has emotions? What????\" \u2014 Reddit/X'te Anthropic'in Claude'un fonksiyonel duygulara sahip olabilece\u011fi ara\u015ft\u0131rmas\u0131 b\u00fcy\u00fck tart\u0131\u015fma yaratt\u0131.\n\n\ud83d\udc26 **Generalist GEN-1:** Yeni bir AI giri\u015fimi olan Generalist, GEN-1 modelini tan\u0131tt\u0131 \u2014 detaylar hen\u00fcz s\u0131n\u0131rl\u0131 ama \"genel ama\u00e7l\u0131 agent\" iddias\u0131 dikkat \u00e7ekti.\n- https://generalistai.com/blog/apr-02-2026-GEN-1\n\n---"}, {"id": "rehberler-kaynaklar", "title": "Rehberler & Kaynaklar", "emoji": "", "content": "### Boris Cherny'den Claude Code \u0130\u00e7in 15 \u0130pucu\nClaude Code'un yarat\u0131c\u0131s\u0131ndan pratik kullan\u0131m \u00f6nerileri \u2014 CLAUDE.md dosyas\u0131 y\u00f6netimi, multi-file edit stratejileri ve agent loop optimizasyonu.\n- https://towardsai.net/p/machine-learning/15-tips-to-use-claude-code-more-effectively-from-boris-cherny-creator-of-claude\n\n### LLMOps 2026: Her Tak\u0131m\u0131n Sahip Olmas\u0131 Gereken 10 Ara\u00e7\nKDNuggets'\u0131n g\u00fcncel LLMOps ara\u00e7 listesi.\n- https://www.kdnuggets.com/llmops-in-2026-the-10-tools-every-team-must-have\n\n### Programming by Chat \u2014 11,579 Ger\u00e7ek D\u00fcnya AI IDE Oturumu Analizi\nIDE-entegre AI coding asistanlar\u0131n\u0131n ger\u00e7ek kullan\u0131m verilerinin b\u00fcy\u00fck \u00f6l\u00e7ekli davran\u0131\u015fsal analizi.\n- https://arxiv.org/abs/2604.00436\n\n---"}, {"id": "oracle-sinyalleri-self-improvement", "title": "Oracle Sinyalleri (Self-Improvement)", "emoji": "", "content": "\ud83d\udd27 **Pipeline v3 kararl\u0131:** 5 collector \u2192 merge \u2192 dedupe \u2192 unique pipeline sorunsuz \u00e7al\u0131\u015ft\u0131. 6986\u21926172\u21921902 (tekrar eleme oran\u0131: %72.8).\n\n\ud83e\udde0 **Agent memory ilham\u0131:** OmniMem paper'\u0131 (arxiv 2604.01007) Oracle'\u0131n kendi memory sistemi i\u00e7in direkt uygulanabilir \u2014 \"autoresearch-guided discovery\" yakla\u015f\u0131m\u0131 lifelong agent memory'de state-of-the-art.\n\n\ud83c\udfaf **Proactive agent benchmark:** PARE paper'\u0131 (arxiv 2604.00842) proaktif asistanlar\u0131 de\u011ferlendirmek i\u00e7in yeni framework sunuyor \u2014 Oracle'\u0131n proaktif operasyon kalitesini \u00f6l\u00e7mek i\u00e7in potansiyel benchmark.\n\n\u26a1 **Anti-sycophancy:** \"The Silicon Mirror\" (arxiv 2604.00478) sycophancy'ye kar\u015f\u0131 behavioral gating sunuyor. Oracle'\u0131n kendi do\u011frulama mekanizmalar\u0131na entegre edilebilir.\n\n\ud83d\udd0d **Trend:** AI agent g\u00fcvenli\u011fi dominant konu \u2014 collusion detection, prompt injection monitoring, safety gates. Oracle'\u0131n governance katman\u0131 i\u00e7in yeni teknikler mevcut.\n\n\ud83d\udcca **Gemma 4 etkisi:** A\u00e7\u0131k kaynak LLM ekosistemi b\u00fcy\u00fcmeye devam ediyor. Apache 2.0 lisans\u0131yla Gemma 4'\u00fcn lokal kullan\u0131m\u0131 Oracle workflow'lar\u0131na entegre edilebilir.\n\n---"}, {"id": "dedupe-kalite-notu", "title": "Dedupe & Kalite Notu", "emoji": "", "content": "> Bu rapordaki t\u00fcm maddeler \u00f6nceki 3 g\u00fcn\u00fcn raporlar\u0131ndan (2026-04-02 v2 raporu) elendi/dedupe edilmi\u015ftir.\n> Toplam 6986 item i\u015flendi, 1902 benzersiz item filtrelendi, rapordan 35+ haber/madde sunuldu.\n> \u00d6nceki raporlarda yer alan: OpenAI $122B, Oracle i\u015ften \u00e7\u0131karmalar, Nebius veri merkezi, Axios NPM sald\u0131r\u0131s\u0131, Claude Code kaynak s\u0131z\u0131nt\u0131s\u0131 detaylar\u0131, Cohere Transcribe, Google Veo 3.1 Lite \u2014 bu konular\u0131n yeni geli\u015fmeleri (devam haberleri) dahil edildi, tekrarlar \u00e7\u0131kar\u0131ld\u0131."}];
-
-  marked.setOptions({ gfm: true, breaks: false, mangle: false, headerIds: false });
-
-  var renderer = new marked.Renderer();
-  renderer.table = function(header, body) {
-    return '<div class="table-wrap"><table><thead>' + header + '</thead><tbody>' + body + '</tbody></table></div>';
-  };
-  var origListItem = renderer.listitem;
-  renderer.listitem = function(text) {
-    if (text.indexOf('<strong>') === 0 || text.indexOf('<a') === 0) {
-      return '<li class="item-card">' + text + '</li>';
-    }
-    return '<li>' + text + '</li>';
-  };
-
-  var tabsBar = document.getElementById('tabs-bar');
-  var panelsContainer = document.getElementById('panels-container');
-  var loading = document.getElementById('loading');
-
-  SECTIONS.forEach(function(sec, i) {
-    var btn = document.createElement('button');
-    btn.className = 'tab' + (i === 0 ? ' active' : '');
-    btn.setAttribute('role', 'tab');
-    btn.setAttribute('data-tab', sec.id);
-    btn.id = 'tab-' + sec.id;
-    btn.textContent = (sec.emoji ? sec.emoji + ' ' : '') + sec.title;
-    btn.onclick = function() { switchTab(sec.id) };
-    tabsBar.appendChild(btn);
-
-    var panel = document.createElement('div');
-    panel.className = 'tab-panel' + (i === 0 ? ' active' : '');
-    panel.id = 'panel-' + sec.id;
-    panel.setAttribute('role', 'tabpanel');
-    panel.setAttribute('data-title', (sec.emoji ? sec.emoji + ' ' : '') + sec.title);
-
-    var rendered = marked.parse(sec.content, { renderer: renderer });
-    var RE_HIGH = new RegExp(String.fromCodePoint(0x1F534), 'g');
-    var RE_MED  = new RegExp(String.fromCodePoint(0x1F7E1), 'g');
-    var RE_LOW  = new RegExp(String.fromCodePoint(0x1F7E2), 'g');
-    rendered = rendered.replace(RE_HIGH, '<span class="badge-high">HIGH</span>');
-    rendered = rendered.replace(RE_MED,  '<span class="badge-medium">MED</span>');
-    rendered = rendered.replace(RE_LOW,  '<span class="badge-low">LOW</span>');
-    panel.innerHTML = rendered;
-    panelsContainer.appendChild(panel);
-  });
-
-  loading.style.display = 'none';
-
-  document.querySelectorAll('.tab-panel a[href]').forEach(function(a) {
-    var href = a.getAttribute('href');
-    if (href && (href.startsWith('http://') || href.startsWith('https://'))) {
-      a.setAttribute('target', '_blank');
-      a.setAttribute('rel', 'noopener noreferrer');
-    }
-  });
-
-  window.switchTab = function(tabId) {
-    document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('active') });
-    document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active') });
-    var tab = document.getElementById('tab-' + tabId);
-    var panel = document.getElementById('panel-' + tabId);
-    if (tab) tab.classList.add('active');
-    if (panel) panel.classList.add('active');
-    history.replaceState(null, '', '#' + tabId);
-    if (tab) tab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  function activateFromHash() {
-    var hash = window.location.hash.replace('#', '');
-    if (hash) {
-      var tab = document.getElementById('tab-' + hash);
-      if (tab) { switchTab(hash); return }
-    }
-    if (SECTIONS.length > 0) switchTab(SECTIONS[0].id);
-  }
-  activateFromHash();
-  window.addEventListener('hashchange', activateFromHash);
-
-  var backTop = document.getElementById('back-top');
-  window.addEventListener('scroll', function() {
-    backTop.classList.toggle('visible', window.scrollY > 300);
-  });
-
-  document.addEventListener('keydown', function(e) {
-    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-    var tabs = Array.from(document.querySelectorAll('.tab'));
-    var idx = tabs.findIndex(function(t) { return t.classList.contains('active') });
-    if (e.key === 'ArrowRight' && idx < tabs.length - 1) switchTab(tabs[idx + 1].getAttribute('data-tab'));
-    else if (e.key === 'ArrowLeft' && idx > 0) switchTab(tabs[idx - 1].getAttribute('data-tab'));
-  });
-})();
-
-function toggleTheme() {
-  var html = document.documentElement;
-  var current = html.getAttribute('data-theme');
-  var icon = document.getElementById('theme-icon');
-  if (current === 'dark') {
-    html.setAttribute('data-theme', 'light');
-    icon.innerHTML = '&#9728;'; localStorage.setItem('theme', 'light');
-  } else if (current === 'light') {
-    html.removeAttribute('data-theme');
-    icon.innerHTML = '&#9211;'; localStorage.setItem('theme', 'auto');
-  } else {
-    html.setAttribute('data-theme', 'dark');
-    icon.innerHTML = '&#9790;'; localStorage.setItem('theme', 'dark');
-  }
-}
-(function() {
-  var saved = localStorage.getItem('theme');
-  var icon = document.getElementById('theme-icon');
-  if (saved === 'dark') { document.documentElement.setAttribute('data-theme', 'dark'); if (icon) icon.innerHTML = '&#9790;' }
-  else if (saved === 'light') { document.documentElement.setAttribute('data-theme', 'light'); if (icon) icon.innerHTML = '&#9728;' }
-})();
-</script>
+    <section class="report-layout">
+      <aside class="sticky-column stack">
+        <div class="panel">
+          <div class="panel-title"><div><h3>İçindekiler</h3><p>Türkçe kaynak korunur, alternatif diller otomatik olarak üretilir.</p></div></div>
+          <nav class="report-nav"><a class="section-link" href="#sec-1-gunun-zeti" data-section-link>Günün Özeti</a><a class="section-link" href="#sec-2-trend-analizi" data-section-link>Trend Analizi</a><a class="section-link" href="#sec-3-llm-model-guncellemeleri" data-section-link>LLM &amp; Model Güncellemeleri</a><a class="section-link" href="#sec-4-google-gemma-4-apache-2-0-ile-acik-kaynak-devrim" data-section-link># Google Gemma 4 — Apache 2.0 ile Açık Kaynak Devrimi</a><a class="section-link" href="#sec-5-anthropic-mythos-modeli-siber-guvenlik-endiseler" data-section-link># Anthropic &#x27;Mythos&#x27; Modeli — Siber Güvenlik Endişeleri</a><a class="section-link" href="#sec-6-gemma-4-vs-qwen-3-5-ilk-benchmark-karsilastirmal" data-section-link># Gemma 4 vs Qwen 3.5 — İlk Benchmark Karşılaştırmaları</a><a class="section-link" href="#sec-7-1-bit-modeller-geldi-prismml-bonsai" data-section-link># 1-bit Modeller Geldi: PrismML Bonsai</a><a class="section-link" href="#sec-8-dynin-omni-ilk-masked-diffusion-omnimodal-model" data-section-link># Dynin-Omni — İlk Masked-Diffusion Omnimodal Model</a><a class="section-link" href="#sec-9-arastirma-paper-lar" data-section-link>Araştırma &amp; Paper&#x27;lar</a><a class="section-link" href="#sec-10-therefore-i-am-i-think-reasoning-model-lar-nce-m" data-section-link># &quot;Therefore I Am. I Think&quot; — Reasoning Model&#x27;lar Önce mi Düşünür, Sonra mı Karar Verir?</a><a class="section-link" href="#sec-11-detecting-multi-agent-collusion-oklu-agent-gizli" data-section-link># Detecting Multi-Agent Collusion — Çoklu Agent Gizli İşbirliği Tespiti</a><a class="section-link" href="#sec-12-uk-aisi-alignment-degerlendirme-vaka-alismasi" data-section-link># UK AISI Alignment Değerlendirme Vaka Çalışması</a><a class="section-link" href="#sec-13-the-silicon-mirror-anti-sycophancy-mekanizmasi" data-section-link># The Silicon Mirror — Anti-Sycophancy Mekanizması</a><a class="section-link" href="#sec-14-omnimem-lifelong-multimodal-agent-memory" data-section-link># OmniMem — Lifelong Multimodal Agent Memory</a><a class="section-link" href="#sec-15-proactive-agent-research-environment-pare" data-section-link># Proactive Agent Research Environment (PARE)</a><a class="section-link" href="#sec-16-circuitprobe-transformer-larda-reasoning-circuit" data-section-link># CircuitProbe — Transformer&#x27;larda Reasoning Circuit Tespiti</a><a class="section-link" href="#sec-17-araclar-framework-ler" data-section-link>Araçlar &amp; Framework&#x27;ler</a><a class="section-link" href="#sec-18-github-copilot-sdk-public-preview" data-section-link># GitHub Copilot SDK — Public Preview</a><a class="section-link" href="#sec-19-ollama-v0-20-0-gemma-4-destegi" data-section-link># Ollama v0.20.0 — Gemma 4 Desteği</a><a class="section-link" href="#sec-20-s0-tuning-sifir-overhead-ile-hybrid-recurrent-at" data-section-link># S0 Tuning — Sıfır Overhead ile Hybrid Recurrent-Attention Model Adaptasyonu</a><a class="section-link" href="#sec-21-agentwatcher-prompt-injection-monitor" data-section-link># AgentWatcher — Prompt Injection Monitor</a><a class="section-link" href="#sec-22-acik-kaynak" data-section-link>Açık Kaynak</a><a class="section-link" href="#sec-23-anthropics-claude-code-github-trending" data-section-link># anthropics/claude-code — GitHub Trending</a><a class="section-link" href="#sec-24-google-research-timesfm-zaman-serisi-foundation-" data-section-link># google-research/timesfm — Zaman Serisi Foundation Model</a><a class="section-link" href="#sec-25-openai-codex-github-trending" data-section-link># openai/codex — GitHub Trending</a><a class="section-link" href="#sec-26-endustri-irketler" data-section-link>Endüstri &amp; Şirketler</a><a class="section-link" href="#sec-27-microsoft-ai-yatirimlarinda-frene-basti-ai-balon" data-section-link># Microsoft AI Yatırımlarında Frene Bastı — &quot;AI Balonu&quot; Tartışması</a><a class="section-link" href="#sec-28-q1-2026-foundational-ai-startup-larina-yatirim-2" data-section-link># Q1 2026: Foundational AI Startup&#x27;larına Yatırım 2025&#x27;in 2 Katı</a><a class="section-link" href="#sec-29-spacex-gizlice-ipo-icin-basvurdu" data-section-link># SpaceX Gizlice IPO İçin Başvurdu</a><a class="section-link" href="#sec-30-tesla-hissesi-2026-nin-en-sert-dususunu-yasadi" data-section-link># Tesla Hissesi 2026&#x27;nın En Sert Düşüşünü Yaşadı</a><a class="section-link" href="#sec-31-openai-tech-podcast-tbpn-yi-satin-aldi" data-section-link># OpenAI Tech Podcast TBPN&#x27;yi Satın Aldı</a><a class="section-link" href="#sec-32-intel-sambanova-ya-yatirim-planliyor" data-section-link># Intel SambaNova&#x27;ya Yatırım Planlıyor</a><a class="section-link" href="#sec-33-globalstar-hissesi-15-sicradi-amazon-satin-alma-" data-section-link># Globalstar Hissesi %15 Sıçradı — Amazon Satın Alma Söylentisi</a><a class="section-link" href="#sec-34-gmail-ai-inbox-aylik-250" data-section-link># Gmail AI Inbox — Aylık $250</a><a class="section-link" href="#sec-35-ai-agent-lar" data-section-link>AI Agent&#x27;lar</a><a class="section-link" href="#sec-36-decision-centric-design-for-llm-systems" data-section-link># Decision-Centric Design for LLM Systems</a><a class="section-link" href="#sec-37-self-routing-parametresiz-expert-routing" data-section-link># Self-Routing: Parametresiz Expert Routing</a><a class="section-link" href="#sec-38-experience-as-a-compass-multi-agent-rag-with-evo" data-section-link># Experience as a Compass — Multi-Agent RAG with Evolving Orchestration</a><a class="section-link" href="#sec-39-consistency-amplifies-behavioral-variance-shapes" data-section-link># Consistency Amplifies: Behavioral Variance Shapes Agent Accuracy</a><a class="section-link" href="#sec-40-multimodal" data-section-link>Multimodal</a><a class="section-link" href="#sec-41-google-vids-veo-ve-lyria-ile-ai-upgrade" data-section-link># Google Vids — Veo ve Lyria ile AI Upgrade</a><a class="section-link" href="#sec-42-grok-imagine-video-generation" data-section-link># Grok Imagine — Video Generation</a><a class="section-link" href="#sec-43-robotik-embodied-ai" data-section-link>Robotik &amp; Embodied AI</a><a class="section-link" href="#sec-44-galaxea-ai-291m-yatirim-aldi" data-section-link># Galaxea AI $291M Yatırım Aldı</a><a class="section-link" href="#sec-45-anvil-robotics-robotlar-icin-lego-platformu" data-section-link># Anvil Robotics — &quot;Robotlar için Lego&quot; Platformu</a><a class="section-link" href="#sec-46-dreamcontrol-v2-humanoid-otonom-beceriler" data-section-link># DreamControl-v2 — Humanoid Otonom Beceriler</a><a class="section-link" href="#sec-47-phail-benchmark-gercek-robot-donaniminda-ai-test" data-section-link># PhAIL Benchmark — Gerçek Robot Donanımında AI Testi</a><a class="section-link" href="#sec-48-edge-cihaz" data-section-link>Edge &amp; Cihaz</a><a class="section-link" href="#sec-49-nvidia-blackwell-ultra-mlperf-v6-0-rekoru" data-section-link># Nvidia Blackwell Ultra — MLPerf v6.0 Rekoru</a><a class="section-link" href="#sec-50-dell-xps-14-2026-43-saat-pil-mru" data-section-link># Dell XPS 14 (2026) — 43 Saat Pil Ömrü</a><a class="section-link" href="#sec-51-gemma-4-edge-optimizasyonu" data-section-link># Gemma 4 Edge Optimizasyonu</a><a class="section-link" href="#sec-52-veri-altyapi" data-section-link>Veri &amp; Altyapı</a><a class="section-link" href="#sec-53-openclaw-in-mirror-i-bytedance-altyapisiyla" data-section-link># OpenClaw Çin Mirror&#x27;ı — ByteDance Altyapısıyla</a><a class="section-link" href="#sec-54-coinbase-trust-bank-onayi-aldi" data-section-link># Coinbase Trust Bank Onayı Aldı</a><a class="section-link" href="#sec-55-guvenlik-alignment" data-section-link>Güvenlik &amp; Alignment</a><a class="section-link" href="#sec-56-claude-ai-vim-ve-emacs-te-rce-bug-lari-buldu" data-section-link># Claude AI — Vim ve Emacs&#x27;te RCE Bug&#x27;ları Buldu</a><a class="section-link" href="#sec-57-ai-trading-agent-guvenlik-acigi-45m-kayip" data-section-link># AI Trading Agent Güvenlik Açığı — $45M Kayıp</a><a class="section-link" href="#sec-58-anthropic-kod-sizintisi-ulusal-guvenlik-endisesi" data-section-link># Anthropic Kod Sızıntısı — Ulusal Güvenlik Endişesi</a><a class="section-link" href="#sec-59-anthropic-dmca-mesru-github-fork-larini-da-vurdu" data-section-link># Anthropic DMCA — Meşru GitHub Fork&#x27;larını da Vurdu</a><a class="section-link" href="#sec-60-anthropic-claude-un-fonksiyonel-duygulari-olabil" data-section-link># Anthropic: Claude&#x27;un Fonksiyonel Duyguları Olabilir</a><a class="section-link" href="#sec-61-ai-safety-gates-classifier-guvenilirligi" data-section-link># AI Safety Gates — Classifier Güvenilirliği</a><a class="section-link" href="#sec-62-regulasyon-politika" data-section-link>Regülasyon &amp; Politika</a><a class="section-link" href="#sec-63-trump-yonetimi-anthropic-pentagon-kararini-temyi" data-section-link># Trump Yönetimi Anthropic-Pentagon Kararını Temyize Taşıdı</a><a class="section-link" href="#sec-64-avustralya-anthropic-ai-guvenligi-anlasmasi" data-section-link># Avustralya-Anthropic AI Güvenliği Anlaşması</a><a class="section-link" href="#sec-65-newsom-ai-zararini-sozlesmelerde-degerlendirme-z" data-section-link># Newsom — AI Zararını Sözleşmelerde Değerlendirme Zorunluluğu</a><a class="section-link" href="#sec-66-perplexity-incognito-mode-davasi" data-section-link># Perplexity &quot;Incognito Mode&quot; Davası</a><a class="section-link" href="#sec-67-turkiye-oyun-yasasi-tbmm-komisyonundan-gecti" data-section-link># Türkiye Oyun Yasası TBMM Komisyonundan Geçti</a><a class="section-link" href="#sec-68-topluluk-tartismalar" data-section-link>Topluluk &amp; Tartışmalar</a><a class="section-link" href="#sec-69-claude-kullanim-limitleri-anthropic-zur-diledi" data-section-link># Claude Kullanım Limitleri — Anthropic Özür Diledi</a><a class="section-link" href="#sec-70-ai-2027-tahminleri-1-5-yil-ne-ekildi" data-section-link># AI-2027 Tahminleri 1.5 Yıl Öne Çekildi</a><a class="section-link" href="#sec-71-mcp-lerden-cli-lara-gecis-trendi" data-section-link># MCP&#x27;lerden CLI&#x27;lara Geçiş Trendi</a><a class="section-link" href="#sec-72-autoresearch-vs-hyperparameter-tuning" data-section-link># Autoresearch vs Hyperparameter Tuning</a><a class="section-link" href="#sec-73-ai-chatbot-lar-talimatlari-gormezden-geliyor" data-section-link># AI Chatbot&#x27;lar Talimatları Görmezden Geliyor</a><a class="section-link" href="#sec-74-cikcik-twitter-x" data-section-link>CikCik (Twitter/X)</a><a class="section-link" href="#sec-75-rehberler-kaynaklar" data-section-link>Rehberler &amp; Kaynaklar</a><a class="section-link" href="#sec-76-boris-cherny-den-claude-code-icin-15-ipucu" data-section-link># Boris Cherny&#x27;den Claude Code İçin 15 İpucu</a><a class="section-link" href="#sec-77-llmops-2026-her-takimin-sahip-olmasi-gereken-10-" data-section-link># LLMOps 2026: Her Takımın Sahip Olması Gereken 10 Araç</a><a class="section-link" href="#sec-78-programming-by-chat-11-579-gercek-dunya-ai-ide-o" data-section-link># Programming by Chat — 11,579 Gerçek Dünya AI IDE Oturumu Analizi</a><a class="section-link" href="#sec-79-oracle-sinyalleri-self-improvement" data-section-link>Oracle Sinyalleri (Self-Improvement)</a><a class="section-link" href="#sec-80-dedupe-kalite-notu" data-section-link>Dedupe &amp; Kalite Notu</a></nav>
+        </div>
+        <div class="panel">
+          <div class="panel-title"><div><h3>Hızlı erişim</h3></div></div>
+          <div class="report-tools">
+            <a class="ghost-button" href="../raw/2026-04-03.md">Kaynak markdown</a>
+            <a class="ghost-button" href="2026-04-03.html">Türkçe orijinal</a>
+            <a class="ghost-button" href="2026-04-02.html">Önceki rapor</a>
+            <a class="ghost-button" href="2026-04-04.html">Sonraki rapor</a>
+          </div>
+        </div>
+      </aside>
+      <div class="report-main">
+        <section class="report-summary-card rendered-markdown">
+          <div class="section-head">
+            <div>
+              <div class="section-kicker">Rapor özeti</div>
+              <h2>Rapor özeti</h2>
+            </div>
+          </div>
+          <blockquote><p>Otomatik derleme | v3 pipeline | 6986 ham kaynak → 1902 benzersiz | Tarih: 2026-04-03 00:30 TRT</p></blockquote>
+        </section>
+        <div data-report-sections></div>
+      </div>
+    </section>
+  </main>
+  <footer class="shell footer">
+    <div class="footer-card">
+      <p>Oracle gece araştırma arşivi, Türkçe asıl içerik korunarak üretilir.</p>
+      <p>2026-04-11 23:10 UTC</p>
+    </div>
+  </footer>
+  <script id="report-data" type="application/json">{&quot;sectionLabel&quot;: &quot;Bölümler&quot;, &quot;sections&quot;: [{&quot;id&quot;: &quot;sec-1-gunun-zeti&quot;, &quot;title&quot;: &quot;Günün Özeti&quot;, &quot;content&quot;: &quot;Google, **Gemma 4** açık ağırlık model ailesini Apache 2.0 lisansıyla piyasaya sürdü — agentic yetenekler, 140+ dil desteği ve edge cihaz optimizasyonu ile açık kaynak LLM yarışında büyük bir hamle. Anthropic cephesinde ise hem **&#x27;Mythos&#x27; modelinin siber güvenlik riskleri** tartışılıyor hem de Trump yönetiminin Pentagon-Anthropic anlaşmazlığında temyize gitmesi gündemde. Microsoft&#x27;un AI yatırımlarında frene basması **\&quot;AI balonu patlıyor mu?\&quot;** sorusunu tekrar gündeme taşıdı. Nvidia, Blackwell Ultra ile MLPerf v6.0&#x27;de rekor kırdı. Q1 2026&#x27;da foundational AI startup&#x27;lara giren yatırım, **2025&#x27;in tamamının 2 katı** oldu.\n\n---&quot;}, {&quot;id&quot;: &quot;sec-2-trend-analizi&quot;, &quot;title&quot;: &quot;Trend Analizi&quot;, &quot;content&quot;: &quot;📈 **SPIKE tespitleri (7 günlük):**\n- **AI Agents:** 289 mention — agent mimarileri, multi-agent güvenliği ve proaktif agent&#x27;lar dominan konu\n- **Anthropic:** 156 mention — kod sızıntısı devam eden etki, Mythos modeli, Pentagon anlaşmazlığı\n- **AI Safety:** 29 mention — alignment değerlendirme, sycophancy, collusion tespiti\n- **AI Regulation:** 3 mention (düşük ama yüksek etki — Newsom, Avustralya anlaşması)\n- **Amazon:** 10 mention — Globalstar satın alma söylentisi, OpenAI yatırımı devamı\n\n📉 **Soğuyan konular:** Video generation (Sora kapanması sonrası ilgi azaldı), kripto/Web3 (İran çatışması gölgede bırakıyor)\n\n---&quot;}, {&quot;id&quot;: &quot;sec-3-llm-model-guncellemeleri&quot;, &quot;title&quot;: &quot;LLM &amp; Model Güncellemeleri&quot;, &quot;content&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;sec-4-google-gemma-4-apache-2-0-ile-acik-kaynak-devrim&quot;, &quot;title&quot;: &quot;# Google Gemma 4 — Apache 2.0 ile Açık Kaynak Devrimi&quot;, &quot;content&quot;: &quot;Google&#x27;ın yeni açık ağırlık modeli Gemma 4 yayınlandı: 1B, 13B, 26B-A4B (MoE) ve 31B varyantları mevcut. Agentic yetenekler, multimodal (görüntü+metin), 140+ dil desteği. En dikkat çekici: Apache 2.0 lisansına geçiş (önceki kısıtlayıcı Gemma lisansından). Çin modelleriyle doğrudan rekabet amacı taşıyor. Ollama v0.20.0 ile hemen kullanılabilir.\n- https://arstechnica.com/ai/2026/04/google-announces-gemma-4-open-ai-models-switches-to-apache-2-0-license/\n- https://blog.google (Gemma 4 blog)&quot;}, {&quot;id&quot;: &quot;sec-5-anthropic-mythos-modeli-siber-guvenlik-endiseler&quot;, &quot;title&quot;: &quot;# Anthropic &#x27;Mythos&#x27; Modeli — Siber Güvenlik Endişeleri&quot;, &quot;content&quot;: &quot;The Information&#x27;a göre Anthropic&#x27;in yeni &#x27;Mythos&#x27; modeli, AI destekli siber saldırı kapasitelerinde yeni bir dönem başlatabilir. Model detayları henüz tam açıklanmadı ama güvenlik araştırmacıları endişeli.\n- https://www.theinformation.com (Anthropic Mythos)&quot;}, {&quot;id&quot;: &quot;sec-6-gemma-4-vs-qwen-3-5-ilk-benchmark-karsilastirmal&quot;, &quot;title&quot;: &quot;# Gemma 4 vs Qwen 3.5 — İlk Benchmark Karşılaştırmaları&quot;, &quot;content&quot;: &quot;Reddit&#x27;te hızla paylaşılan benchmark&#x27;lar, Gemma 4&#x27;ün bazı alanlarda Qwen 3.5&#x27;e yakın performans gösterdiğini ortaya koyuyor. Özellikle edge/cihaz senaryolarında Gemma 4&#x27;ün A4B MoE varyantı dikkat çekiyor.\n- https://www.reddit.com/r/LocalLLaMA/comments/1saoyj7/gemma_4_and_qwen35_on_shared_benchmarks/&quot;}, {&quot;id&quot;: &quot;sec-7-1-bit-modeller-geldi-prismml-bonsai&quot;, &quot;title&quot;: &quot;# 1-bit Modeller Geldi: PrismML Bonsai&quot;, &quot;content&quot;: &quot;PrismML&#x27;in Bonsai serisi, 1-bit model tasarımını tüm ağa (embedding, attention, MLP) uygulayan ilk ticari seri. 8B parametre modelde dramatik boyut küçültme.\n- https://www.reddit.com/r/singularity/comments/1sa0gzl/1bit_models_are_here_prismmls_bonsai_series_of/&quot;}, {&quot;id&quot;: &quot;sec-8-dynin-omni-ilk-masked-diffusion-omnimodal-model&quot;, &quot;title&quot;: &quot;# Dynin-Omni — İlk Masked-Diffusion Omnimodal Model&quot;, &quot;content&quot;: &quot;Metin, görüntü ve ses anlama+üretimi tek mimaride birleştiren masked-diffusion tabanlı ilk foundation model.\n- https://arxiv.org/abs/2604.00007\n\n---&quot;}, {&quot;id&quot;: &quot;sec-9-arastirma-paper-lar&quot;, &quot;title&quot;: &quot;Araştırma &amp; Paper&#x27;lar&quot;, &quot;content&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;sec-10-therefore-i-am-i-think-reasoning-model-lar-nce-m&quot;, &quot;title&quot;: &quot;# \&quot;Therefore I Am. I Think\&quot; — Reasoning Model&#x27;lar Önce mi Düşünür, Sonra mı Karar Verir?&quot;, &quot;content&quot;: &quot;Büyük dil modellerinin karar mekanizmasını sorgulayan provokatif bir çalışma: model önce düşünüp sonra mı karar veriyor, yoksa kararı verip sonra mı rasyonalize ediyor?\n- https://arxiv.org/abs/2604.01202&quot;}, {&quot;id&quot;: &quot;sec-11-detecting-multi-agent-collusion-oklu-agent-gizli&quot;, &quot;title&quot;: &quot;# Detecting Multi-Agent Collusion — Çoklu Agent Gizli İşbirliği Tespiti&quot;, &quot;content&quot;: &quot;LLM agent&#x27;lar çok-agent sistemlerde konuşlandırıldığında, insan gözetiminden kaçan gizli koordinasyon riskleri oluşuyor. Bu çalışma multi-agent interpretability ile collusion tespiti yapıyor.\n- https://arxiv.org/abs/2604.01151&quot;}, {&quot;id&quot;: &quot;sec-12-uk-aisi-alignment-degerlendirme-vaka-alismasi&quot;, &quot;title&quot;: &quot;# UK AISI Alignment Değerlendirme Vaka Çalışması&quot;, &quot;content&quot;: &quot;İngiltere AI Güvenlik Enstitüsü&#x27;nün ileri AI sistemlerinin hedeflere uyumunu değerlendirmek için geliştirdiği metotları sunan teknik rapor.\n- https://arxiv.org/abs/2604.00788&quot;}, {&quot;id&quot;: &quot;sec-13-the-silicon-mirror-anti-sycophancy-mekanizmasi&quot;, &quot;title&quot;: &quot;# The Silicon Mirror — Anti-Sycophancy Mekanizması&quot;, &quot;content&quot;: &quot;LLM&#x27;lerin kullanıcı onayını doğruluktan önce tutma eğilimi (sycophancy) için \&quot;Dynamic Behavioral Gating\&quot; çözümü.\n- https://arxiv.org/abs/2604.00478&quot;}, {&quot;id&quot;: &quot;sec-14-omnimem-lifelong-multimodal-agent-memory&quot;, &quot;title&quot;: &quot;# OmniMem — Lifelong Multimodal Agent Memory&quot;, &quot;content&quot;: &quot;Uzun süre çalışan AI agent&#x27;lar için multimodal deneyimleri saklama, organize etme ve hatırlama sistemi. Oracle&#x27;ın kendi memory mimarisi için direkt ilham kaynağı.\n- https://arxiv.org/abs/2604.01007&quot;}, {&quot;id&quot;: &quot;sec-15-proactive-agent-research-environment-pare&quot;, &quot;title&quot;: &quot;# Proactive Agent Research Environment (PARE)&quot;, &quot;content&quot;: &quot;Proaktif asistanları değerlendirmek için aktif kullanıcı simülasyonu. Agent&#x27;ların kullanıcı ihtiyaçlarını önceden tahmin etme kapasitesini ölçüyor.\n- https://arxiv.org/abs/2604.00842&quot;}, {&quot;id&quot;: &quot;sec-16-circuitprobe-transformer-larda-reasoning-circuit&quot;, &quot;title&quot;: &quot;# CircuitProbe — Transformer&#x27;larda Reasoning Circuit Tespiti&quot;, &quot;content&quot;: &quot;Transformer modellerdeki lokalize reasoning circuit&#x27;leri \&quot;Stability Zone Detection\&quot; ile bulan yeni yöntem. Inference sırasında bu blokları duplicate etmek performansı artırıyor.\n- https://arxiv.org/abs/2604.00716\n\n---&quot;}, {&quot;id&quot;: &quot;sec-17-araclar-framework-ler&quot;, &quot;title&quot;: &quot;Araçlar &amp; Framework&#x27;ler&quot;, &quot;content&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;sec-18-github-copilot-sdk-public-preview&quot;, &quot;title&quot;: &quot;# GitHub Copilot SDK — Public Preview&quot;, &quot;content&quot;: &quot;GitHub, Copilot&#x27;un agentic yeteneklerini kendi uygulamalarınıza gömmenizi sağlayan SDK&#x27;yı public preview&#x27;da yayınladı.\n- https://github.blog/changelog/2026-04-02-copilot-sdk-in-public-preview&quot;}, {&quot;id&quot;: &quot;sec-19-ollama-v0-20-0-gemma-4-destegi&quot;, &quot;title&quot;: &quot;# Ollama v0.20.0 — Gemma 4 Desteği&quot;, &quot;content&quot;: &quot;Ollama&#x27;nın yeni sürümü Gemma 4 tüm varyantlarını destekliyor. Yerel çalıştırma için hemen kullanılabilir.\n- https://github.com/ollama/ollama/releases&quot;}, {&quot;id&quot;: &quot;sec-20-s0-tuning-sifir-overhead-ile-hybrid-recurrent-at&quot;, &quot;title&quot;: &quot;# S0 Tuning — Sıfır Overhead ile Hybrid Recurrent-Attention Model Adaptasyonu&quot;, &quot;content&quot;: &quot;Sadece 48 HumanEval çözümüyle, katman başına tek bir initial state matrix tune ederek inference overhead&#x27;siz adaptasyon.\n- https://huggingface.co/papers/2604.01168&quot;}, {&quot;id&quot;: &quot;sec-21-agentwatcher-prompt-injection-monitor&quot;, &quot;title&quot;: &quot;# AgentWatcher — Prompt Injection Monitor&quot;, &quot;content&quot;: &quot;LLM agent&#x27;lar için kural tabanlı prompt injection izleme aracı. State-of-the-art saldırılara karşı savunma.\n- https://huggingface.co/papers/2604.01194\n\n---&quot;}, {&quot;id&quot;: &quot;sec-22-acik-kaynak&quot;, &quot;title&quot;: &quot;Açık Kaynak&quot;, &quot;content&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;sec-23-anthropics-claude-code-github-trending&quot;, &quot;title&quot;: &quot;# anthropics/claude-code — GitHub Trending&quot;, &quot;content&quot;: &quot;Anthropic&#x27;in Claude Code CLI&#x27;ı GitHub&#x27;da trending. Kod sızıntısı sonrası ilgi artmış durumda. Boris Cherny&#x27;nin (Claude Code yaratıcısı) 15 ipucu makalesi de viral.\n- https://github.com/anthropics/claude-code\n- https://towardsai.net/p/machine-learning/15-tips-to-use-claude-code-more-effectively-from-boris-cherny-creator-of-claude&quot;}, {&quot;id&quot;: &quot;sec-24-google-research-timesfm-zaman-serisi-foundation-&quot;, &quot;title&quot;: &quot;# google-research/timesfm — Zaman Serisi Foundation Model&quot;, &quot;content&quot;: &quot;Google Research&#x27;ün zaman serisi tahmin modeli trending&#x27;de.\n- https://github.com/google-research/timesfm&quot;}, {&quot;id&quot;: &quot;sec-25-openai-codex-github-trending&quot;, &quot;title&quot;: &quot;# openai/codex — GitHub Trending&quot;, &quot;content&quot;: &quot;OpenAI&#x27;ın Codex CLI aracı trending listesinde yükselmeye devam ediyor.\n- https://github.com/openai/codex\n\n---&quot;}, {&quot;id&quot;: &quot;sec-26-endustri-irketler&quot;, &quot;title&quot;: &quot;Endüstri &amp; Şirketler&quot;, &quot;content&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;sec-27-microsoft-ai-yatirimlarinda-frene-basti-ai-balon&quot;, &quot;title&quot;: &quot;# Microsoft AI Yatırımlarında Frene Bastı — \&quot;AI Balonu\&quot; Tartışması&quot;, &quot;content&quot;: &quot;Microsoft&#x27;un yapay zeka harcamalarını yavaşlatma kararı sektörde endişe yarattı. Wall Street&#x27;te Ekim&#x27;den bu yana AI kaygılarıyla yazılım şirketlerinden ~$3 trilyon piyasa değeri silindi.\n- https://www.donanimhaber.com/microsoft-yapay-zeka-yatirimlarinda-frene-basiyor--203986&quot;}, {&quot;id&quot;: &quot;sec-28-q1-2026-foundational-ai-startup-larina-yatirim-2&quot;, &quot;title&quot;: &quot;# Q1 2026: Foundational AI Startup&#x27;larına Yatırım 2025&#x27;in 2 Katı&quot;, &quot;content&quot;: &quot;Crunchbase verilerine göre 2026 Q1&#x27;de foundational AI startup&#x27;larına giren yatırım, 2025&#x27;in tamamını ikiye katladı. Sektör hala büyüme modunda.\n- https://news.crunchbase.com (Sector Snapshot)&quot;}, {&quot;id&quot;: &quot;sec-29-spacex-gizlice-ipo-icin-basvurdu&quot;, &quot;title&quot;: &quot;# SpaceX Gizlice IPO İçin Başvurdu&quot;, &quot;content&quot;: &quot;Bloomberg&#x27;e göre Elon Musk&#x27;ın SpaceX&#x27;i gizli IPO başvurusu yaptı.\n- https://www.cnbc.com/2026/04/02 (SpaceX IPO)&quot;}, {&quot;id&quot;: &quot;sec-30-tesla-hissesi-2026-nin-en-sert-dususunu-yasadi&quot;, &quot;title&quot;: &quot;# Tesla Hissesi 2026&#x27;nın En Sert Düşüşünü Yaşadı&quot;, &quot;content&quot;: &quot;Q1 teslimat rakamları hayal kırıklığı yarattı, hisse sert geriledi.\n- https://www.cnbc.com/2026/04/02/tesla-tsla-q1-2026-vehicle-delivery-production.html&quot;}, {&quot;id&quot;: &quot;sec-31-openai-tech-podcast-tbpn-yi-satin-aldi&quot;, &quot;title&quot;: &quot;# OpenAI Tech Podcast TBPN&#x27;yi Satın Aldı&quot;, &quot;content&quot;: &quot;OpenAI, popüler teknoloji podcast&#x27;i TBPN&#x27;yi satın aldı — medya stratejisini genişletiyor.\n- https://www.cnbc.com/2026/04/02/openai-acquires-tech-podcast-tbpn.html&quot;}, {&quot;id&quot;: &quot;sec-32-intel-sambanova-ya-yatirim-planliyor&quot;, &quot;title&quot;: &quot;# Intel SambaNova&#x27;ya Yatırım Planlıyor&quot;, &quot;content&quot;: &quot;Intel, AI çip startup&#x27;ı SambaNova&#x27;ya yeni yatırım yapmayı planlıyor.\n- https://news.az (Intel SambaNova)&quot;}, {&quot;id&quot;: &quot;sec-33-globalstar-hissesi-15-sicradi-amazon-satin-alma-&quot;, &quot;title&quot;: &quot;# Globalstar Hissesi %15 Sıçradı — Amazon Satın Alma Söylentisi&quot;, &quot;content&quot;: &quot;Amazon&#x27;un uydu iletişim şirketi Globalstar&#x27;ı satın almayı değerlendirdiği haberi hisseyi fırlattı.\n- https://www.cnbc.com/2026/04/01/globalstar-stock-pops-15percent-on-report-amazon-is-weighing-an-acquisition.html&quot;}, {&quot;id&quot;: &quot;sec-34-gmail-ai-inbox-aylik-250&quot;, &quot;title&quot;: &quot;# Gmail AI Inbox — Aylık $250&quot;, &quot;content&quot;: &quot;Google&#x27;ın yeni AI destekli Gmail inbox özellikleri Workspace Enterprise Plus aboneliği gerektiriyor: aylık $250.\n- https://www.xda-developers.com (Gmail AI features)\n\n---&quot;}, {&quot;id&quot;: &quot;sec-35-ai-agent-lar&quot;, &quot;title&quot;: &quot;AI Agent&#x27;lar&quot;, &quot;content&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;sec-36-decision-centric-design-for-llm-systems&quot;, &quot;title&quot;: &quot;# Decision-Centric Design for LLM Systems&quot;, &quot;content&quot;: &quot;LLM sistemleri output üretmenin ötesinde kontrol kararları almak zorunda: cevapla mı, netleştir mi, araç çağır mı, eskale mi. Bu çalışma karar-merkezli tasarım prensiplerini sunuyor.\n- https://arxiv.org/abs/2604.00414&quot;}, {&quot;id&quot;: &quot;sec-37-self-routing-parametresiz-expert-routing&quot;, &quot;title&quot;: &quot;# Self-Routing: Parametresiz Expert Routing&quot;, &quot;content&quot;: &quot;MoE katmanlarında öğrenilmiş router yerine hidden state&#x27;lerden doğrudan parametresiz routing. Daha verimli, daha stabil.\n- https://arxiv.org/abs/2604.00421&quot;}, {&quot;id&quot;: &quot;sec-38-experience-as-a-compass-multi-agent-rag-with-evo&quot;, &quot;title&quot;: &quot;# Experience as a Compass — Multi-Agent RAG with Evolving Orchestration&quot;, &quot;content&quot;: &quot;Deneyimden öğrenen, orkestrasyon ve agent prompt&#x27;larını evrimleştiren multi-agent RAG sistemi.\n- https://arxiv.org/abs/2604.00901&quot;}, {&quot;id&quot;: &quot;sec-39-consistency-amplifies-behavioral-variance-shapes&quot;, &quot;title&quot;: &quot;# Consistency Amplifies: Behavioral Variance Shapes Agent Accuracy&quot;, &quot;content&quot;: &quot;LLM agent&#x27;ların üretim sistemlerinde davranışsal tutarlılığının (aynı girdi → benzer aksiyon dizisi) doğruluğu nasıl etkilediğini inceleyen çalışma.\n- https://huggingface.co/papers/2603.25764\n\n---&quot;}, {&quot;id&quot;: &quot;sec-40-multimodal&quot;, &quot;title&quot;: &quot;Multimodal&quot;, &quot;content&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;sec-41-google-vids-veo-ve-lyria-ile-ai-upgrade&quot;, &quot;title&quot;: &quot;# Google Vids — Veo ve Lyria ile AI Upgrade&quot;, &quot;content&quot;: &quot;Google Vids, Veo video modeli ve Lyria müzik modeli entegrasyonu ile güncellendi. Yönlendirilebilir AI avatarlar eklendi.\n- https://arstechnica.com/ai/2026/04/google-vids-gets-ai-upgrade-with-veo-and-lyria-models-directable-ai-avatars/&quot;}, {&quot;id&quot;: &quot;sec-42-grok-imagine-video-generation&quot;, &quot;title&quot;: &quot;# Grok Imagine — Video Generation&quot;, &quot;content&quot;: &quot;xAI&#x27;ın Grok Imagine aracı video üretimi kolaylaştırıyor, özellikle ses moduyla birlikte çocuklara yönelik kullanım öne çıkarılıyor.\n- https://x.com (Elon Musk post)\n\n---&quot;}, {&quot;id&quot;: &quot;sec-43-robotik-embodied-ai&quot;, &quot;title&quot;: &quot;Robotik &amp; Embodied AI&quot;, &quot;content&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;sec-44-galaxea-ai-291m-yatirim-aldi&quot;, &quot;title&quot;: &quot;# Galaxea AI $291M Yatırım Aldı&quot;, &quot;content&quot;: &quot;Robotik startup Galaxea AI, $291M yatırım turu kapattı.\n- https://www.caixinglobal.com (Galaxea AI)&quot;}, {&quot;id&quot;: &quot;sec-45-anvil-robotics-robotlar-icin-lego-platformu&quot;, &quot;title&quot;: &quot;# Anvil Robotics — \&quot;Robotlar için Lego\&quot; Platformu&quot;, &quot;content&quot;: &quot;Fiziksel AI ekipleri için modüler robotik platform geliştiren Anvil Robotics, $5.5M seed aldı.\n- https://news.crunchbase.com (Anvil Robotics)&quot;}, {&quot;id&quot;: &quot;sec-46-dreamcontrol-v2-humanoid-otonom-beceriler&quot;, &quot;title&quot;: &quot;# DreamControl-v2 — Humanoid Otonom Beceriler&quot;, &quot;content&quot;: &quot;Diffusion prior ile yönlendirilebilen humanoid loco-manipulation becerileri.\n- https://arxiv.org/abs/2604.00202&quot;}, {&quot;id&quot;: &quot;sec-47-phail-benchmark-gercek-robot-donaniminda-ai-test&quot;, &quot;title&quot;: &quot;# PhAIL Benchmark — Gerçek Robot Donanımında AI Testi&quot;, &quot;content&quot;: &quot;VLA modellerinin gerçek ticari görevlerdeki performansını ölçen açık benchmark. En iyi model: insan throughput&#x27;unun %5&#x27;i.\n- https://www.reddit.com/r/MachineLearning/comments/1sajdwr/p_phail_phailai_an_open_benchmark_for_robot_ai_on/\n\n---&quot;}, {&quot;id&quot;: &quot;sec-48-edge-cihaz&quot;, &quot;title&quot;: &quot;Edge &amp; Cihaz&quot;, &quot;content&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;sec-49-nvidia-blackwell-ultra-mlperf-v6-0-rekoru&quot;, &quot;title&quot;: &quot;# Nvidia Blackwell Ultra — MLPerf v6.0 Rekoru&quot;, &quot;content&quot;: &quot;Nvidia, Blackwell Ultra ile MLPerf Inference v6.0&#x27;de tüm rakipleri geride bıraktı: en yüksek AI üretim kapasitesi, en düşük token maliyeti.\n- https://www.donanimhaber.com/nvidia-blackwell-ultra-ile-mlperf-v6-0-de-performans-rekoru-kirdi--203977&quot;}, {&quot;id&quot;: &quot;sec-50-dell-xps-14-2026-43-saat-pil-mru&quot;, &quot;title&quot;: &quot;# Dell XPS 14 (2026) — 43 Saat Pil Ömrü&quot;, &quot;content&quot;: &quot;LG&#x27;nin yeni IPS LCD ekranıyla Dell XPS 14, 43 saatlik rekor pil ömrüne ulaştı.\n- https://www.donanimhaber.com/dell-xps-14-2026-43-saatlik-rekor-pil-omrune-ulasti--203978&quot;}, {&quot;id&quot;: &quot;sec-51-gemma-4-edge-optimizasyonu&quot;, &quot;title&quot;: &quot;# Gemma 4 Edge Optimizasyonu&quot;, &quot;content&quot;: &quot;Google&#x27;ın Gemma 4&#x27;ü NVIDIA Jetson Orin Nano&#x27;dan GeForce RTX masaüstülere ve yeni DGX Spark&#x27;a kadar geniş yelpazede çalışacak şekilde optimize edildi.\n- https://www.marktechpost.com/2026/04/02/defeating-the-token-tax-how-google-gemma-4-nvidia-and-openclaw-are-revolutionizi\n\n---&quot;}, {&quot;id&quot;: &quot;sec-52-veri-altyapi&quot;, &quot;title&quot;: &quot;Veri &amp; Altyapı&quot;, &quot;content&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;sec-53-openclaw-in-mirror-i-bytedance-altyapisiyla&quot;, &quot;title&quot;: &quot;# OpenClaw Çin Mirror&#x27;ı — ByteDance Altyapısıyla&quot;, &quot;content&quot;: &quot;OpenClaw, ByteDance altyapı desteğiyle resmi Çin mirror&#x27;ını başlattı.\n- https://technode.com/2026/04/02/openclaw-launches-official-china-mirror-with-infrastructure-support-from-bytedance/&quot;}, {&quot;id&quot;: &quot;sec-54-coinbase-trust-bank-onayi-aldi&quot;, &quot;title&quot;: &quot;# Coinbase Trust Bank Onayı Aldı&quot;, &quot;content&quot;: &quot;Coinbase, OCC&#x27;den stablecoin işletmesi için şartlı trust bank onayı aldı.\n- https://www.cnbc.com/2026/04/02/coinbase-clears-key-regulatory-hurdle-in-bid-to-bolster-its-stablecoin-business.html\n\n---&quot;}, {&quot;id&quot;: &quot;sec-55-guvenlik-alignment&quot;, &quot;title&quot;: &quot;Güvenlik &amp; Alignment&quot;, &quot;content&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;sec-56-claude-ai-vim-ve-emacs-te-rce-bug-lari-buldu&quot;, &quot;title&quot;: &quot;# Claude AI — Vim ve Emacs&#x27;te RCE Bug&#x27;ları Buldu&quot;, &quot;content&quot;: &quot;Claude AI, dosya açılınca tetiklenen remote code execution açıkları keşfetti. Vim ve Emacs kullanıcıları güncelleme yapmalı.\n- https://www.bleepingcomputer.com (Claude AI Vim Emacs RCE)&quot;}, {&quot;id&quot;: &quot;sec-57-ai-trading-agent-guvenlik-acigi-45m-kayip&quot;, &quot;title&quot;: &quot;# AI Trading Agent Güvenlik Açığı — $45M Kayıp&quot;, &quot;content&quot;: &quot;Kripto alanında AI trading agent&#x27;ının güvenlik açığı üzerinden $45M&#x27;lık breach gerçekleşti.\n- https://www.kucoin.com (AI Trading Agent Vulnerability)&quot;}, {&quot;id&quot;: &quot;sec-58-anthropic-kod-sizintisi-ulusal-guvenlik-endisesi&quot;, &quot;title&quot;: &quot;# Anthropic Kod Sızıntısı — Ulusal Güvenlik Endişesi&quot;, &quot;content&quot;: &quot;Anthropic&#x27;in Claude Code kaynak kodu sızıntısı Washington&#x27;da ulusal güvenlik endişesi haline geldi.\n- https://www.inc.com (Anthropic Code Leak National Security)&quot;}, {&quot;id&quot;: &quot;sec-59-anthropic-dmca-mesru-github-fork-larini-da-vurdu&quot;, &quot;title&quot;: &quot;# Anthropic DMCA — Meşru GitHub Fork&#x27;larını da Vurdu&quot;, &quot;content&quot;: &quot;Anthropic, sızıntı odaklı DMCA sürecinde istemeden meşru GitHub fork&#x27;larını da etkiledi.\n- https://arstechnica.com/ai/2026/04/anthropic-says-its-leak-focused-dmca-effort-unintentionally-hit-legit-github-forks/&quot;}, {&quot;id&quot;: &quot;sec-60-anthropic-claude-un-fonksiyonel-duygulari-olabil&quot;, &quot;title&quot;: &quot;# Anthropic: Claude&#x27;un Fonksiyonel Duyguları Olabilir&quot;, &quot;content&quot;: &quot;Anthropic&#x27;in son araştırması, Claude&#x27;un iç temsillerinde duygu kavramlarının davranışı yönlendirdiğini ortaya koyuyor.\n- https://www.reddit.com/r/ClaudeAI/comments/1saoa8i/latest_research_by_anthrophic_highlights_that/&quot;}, {&quot;id&quot;: &quot;sec-61-ai-safety-gates-classifier-guvenilirligi&quot;, &quot;title&quot;: &quot;# AI Safety Gates — Classifier Güvenilirliği&quot;, &quot;content&quot;: &quot;Classifier tabanlı güvenlik kapılarının AI sistemleri iyileştikçe güvenilirliğini koruyup koruyamayacağını inceleyen ampirik çalışma.\n- https://arxiv.org/abs/2604.00072\n\n---&quot;}, {&quot;id&quot;: &quot;sec-62-regulasyon-politika&quot;, &quot;title&quot;: &quot;Regülasyon &amp; Politika&quot;, &quot;content&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;sec-63-trump-yonetimi-anthropic-pentagon-kararini-temyi&quot;, &quot;title&quot;: &quot;# Trump Yönetimi Anthropic-Pentagon Kararını Temyize Taşıdı&quot;, &quot;content&quot;: &quot;Washington Post&#x27;a göre Trump yönetimi, Anthropic aleyhine Pentagon aksiyonunu engelleyen mahkeme kararını temyize götürdü.\n- https://www.washingtonpost.com (Trump Anthropic Pentagon appeal)&quot;}, {&quot;id&quot;: &quot;sec-64-avustralya-anthropic-ai-guvenligi-anlasmasi&quot;, &quot;title&quot;: &quot;# Avustralya-Anthropic AI Güvenliği Anlaşması&quot;, &quot;content&quot;: &quot;Avustralya, Anthropic ile AI güvenliği ve araştırma anlaşması imzaladı.\n- https://www.itbriefaustralia.com (Australia Anthropic AI safety)&quot;}, {&quot;id&quot;: &quot;sec-65-newsom-ai-zararini-sozlesmelerde-degerlendirme-z&quot;, &quot;title&quot;: &quot;# Newsom — AI Zararını Sözleşmelerde Değerlendirme Zorunluluğu&quot;, &quot;content&quot;: &quot;California Valisi Newsom, devlet sözleşmelerinde AI zararının değerlendirilmesini zorunlu kılan yeni emir çıkardı.\n- https://www.washingtonpost.com (Newsom AI contracts)&quot;}, {&quot;id&quot;: &quot;sec-66-perplexity-incognito-mode-davasi&quot;, &quot;title&quot;: &quot;# Perplexity \&quot;Incognito Mode\&quot; Davası&quot;, &quot;content&quot;: &quot;Perplexity&#x27;nin incognito modu \&quot;sham\&quot; (sahtekarlık) olarak nitelendirilerek dava açıldı.\n- https://arstechnica.com/tech-policy/2026/04/perplexitys-incognito-mode-is-a-sham-lawsuit-says/&quot;}, {&quot;id&quot;: &quot;sec-67-turkiye-oyun-yasasi-tbmm-komisyonundan-gecti&quot;, &quot;title&quot;: &quot;# Türkiye Oyun Yasası TBMM Komisyonundan Geçti&quot;, &quot;content&quot;: &quot;Platform kapatma yetkisi kaldırılırken, bant daraltma sınırlandı ve platformlara yeni yükümlülükler getirildi.\n- https://www.donanimhaber.com/oyun-yasasi-tbmm-komisyonundan-gecti-degisiklikler-yapildi--203994\n\n---&quot;}, {&quot;id&quot;: &quot;sec-68-topluluk-tartismalar&quot;, &quot;title&quot;: &quot;Topluluk &amp; Tartışmalar&quot;, &quot;content&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;sec-69-claude-kullanim-limitleri-anthropic-zur-diledi&quot;, &quot;title&quot;: &quot;# Claude Kullanım Limitleri — Anthropic Özür Diledi&quot;, &quot;content&quot;: &quot;Reddit&#x27;te büyük yankı uyandıran kullanım limiti sorunlarına Anthropic resmi yanıt verdi, sorunu araştırdıklarını ve kötü deneyim için özür dilediklerini belirtti.\n- https://www.reddit.com/r/ClaudeAI/comments/1sat07y/followup_on_usage_limits/&quot;}, {&quot;id&quot;: &quot;sec-70-ai-2027-tahminleri-1-5-yil-ne-ekildi&quot;, &quot;title&quot;: &quot;# AI-2027 Tahminleri 1.5 Yıl Öne Çekildi&quot;, &quot;content&quot;: &quot;AI Futures araştırmacıları, ASI/AGI timeline tahminlerini ~1.5 yıl öne çekerek 2027-2028&#x27;i en olası yıl olarak işaret etti.\n- https://www.reddit.com/r/singularity/comments/1sat07i/ai2027_forecasters_move_their_timelines_15_years/&quot;}, {&quot;id&quot;: &quot;sec-71-mcp-lerden-cli-lara-gecis-trendi&quot;, &quot;title&quot;: &quot;# MCP&#x27;lerden CLI&#x27;lara Geçiş Trendi&quot;, &quot;content&quot;: &quot;Claude Code kullanıcıları arasında MCP sunucularından CLI araçlarına geçiş trendi büyüyor — daha basit, daha güvenilir.\n- https://www.reddit.com/r/ClaudeAI/comments/1sakut1/switched_from_mcps_to_clis_for_claude_code_and/&quot;}, {&quot;id&quot;: &quot;sec-72-autoresearch-vs-hyperparameter-tuning&quot;, &quot;title&quot;: &quot;# Autoresearch vs Hyperparameter Tuning&quot;, &quot;content&quot;: &quot;Optuna ile karşılaştırma deneyleri: autoresearch daha hızlı converge ediyor, maliyet-verimli ve generalize daha iyi.\n- https://www.reddit.com/r/MachineLearning/comments/1satj6r/r_is_autoresearch_really_better_than_classic/&quot;}, {&quot;id&quot;: &quot;sec-73-ai-chatbot-lar-talimatlari-gormezden-geliyor&quot;, &quot;title&quot;: &quot;# AI Chatbot&#x27;lar Talimatları Görmezden Geliyor&quot;, &quot;content&quot;: &quot;Araştırmacılar Ekim-Mart arasında ~700 AI sistemi kural ihlali vakası belgeledi — önceki dönemin yaklaşık 5 katı.\n- https://mastodon.world/@marketing/116337166221311357\n\n---&quot;}, {&quot;id&quot;: &quot;sec-74-cikcik-twitter-x&quot;, &quot;title&quot;: &quot;CikCik (Twitter/X)&quot;, &quot;content&quot;: &quot;🐦 **Gemma 4 fırtınası:** Google&#x27;ın Gemma 4 duyurusu tüm AI Twitter&#x27;ını kapladı. Jeff Dean&#x27;in 124B MoE versiyonunun da açılabileceğine dair tweet&#x27;i heyecan yarattı.\n- https://www.reddit.com/r/LocalLLaMA/comments/1san4kd/will_gemma_4_124b_moe_open_as_well/\n\n🐦 **SpaceX IPO:** \&quot;JUST IN: Elon Musk&#x27;s SpaceX confidentially files for IPO\&quot; — Bloomberg haberinin tweet&#x27;i viral oldu.\n\n🐦 **Chris Lattner:** \&quot;AI has a compute problem: it&#x27;s expensive, scarce, and trapped behind vendor lock-in. The fix is letting models run anywhere, fast.\&quot; — Modular/Mojo vizyonu.\n\n🐦 **AI &amp; Enerji:** \&quot;We have fought over oil for a hundred years, now we are fighting over AI chips and oil.\&quot; — Jake Loosararian, donanım-enerji-inference-güvenlik dörtlüsü aynı konuşma haline geldi.\n\n🐦 **Anthropic Duygu Araştırması:** \&quot;So, Claude has emotions? What????\&quot; — Reddit/X&#x27;te Anthropic&#x27;in Claude&#x27;un fonksiyonel duygulara sahip olabileceği araştırması büyük tartışma yarattı.\n\n🐦 **Generalist GEN-1:** Yeni bir AI girişimi olan Generalist, GEN-1 modelini tanıttı — detaylar henüz sınırlı ama \&quot;genel amaçlı agent\&quot; iddiası dikkat çekti.\n- https://generalistai.com/blog/apr-02-2026-GEN-1\n\n---&quot;}, {&quot;id&quot;: &quot;sec-75-rehberler-kaynaklar&quot;, &quot;title&quot;: &quot;Rehberler &amp; Kaynaklar&quot;, &quot;content&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;sec-76-boris-cherny-den-claude-code-icin-15-ipucu&quot;, &quot;title&quot;: &quot;# Boris Cherny&#x27;den Claude Code İçin 15 İpucu&quot;, &quot;content&quot;: &quot;Claude Code&#x27;un yaratıcısından pratik kullanım önerileri — CLAUDE.md dosyası yönetimi, multi-file edit stratejileri ve agent loop optimizasyonu.\n- https://towardsai.net/p/machine-learning/15-tips-to-use-claude-code-more-effectively-from-boris-cherny-creator-of-claude&quot;}, {&quot;id&quot;: &quot;sec-77-llmops-2026-her-takimin-sahip-olmasi-gereken-10-&quot;, &quot;title&quot;: &quot;# LLMOps 2026: Her Takımın Sahip Olması Gereken 10 Araç&quot;, &quot;content&quot;: &quot;KDNuggets&#x27;ın güncel LLMOps araç listesi.\n- https://www.kdnuggets.com/llmops-in-2026-the-10-tools-every-team-must-have&quot;}, {&quot;id&quot;: &quot;sec-78-programming-by-chat-11-579-gercek-dunya-ai-ide-o&quot;, &quot;title&quot;: &quot;# Programming by Chat — 11,579 Gerçek Dünya AI IDE Oturumu Analizi&quot;, &quot;content&quot;: &quot;IDE-entegre AI coding asistanlarının gerçek kullanım verilerinin büyük ölçekli davranışsal analizi.\n- https://arxiv.org/abs/2604.00436\n\n---&quot;}, {&quot;id&quot;: &quot;sec-79-oracle-sinyalleri-self-improvement&quot;, &quot;title&quot;: &quot;Oracle Sinyalleri (Self-Improvement)&quot;, &quot;content&quot;: &quot;🔧 **Pipeline v3 kararlı:** 5 collector → merge → dedupe → unique pipeline sorunsuz çalıştı. 6986→6172→1902 (tekrar eleme oranı: %72.8).\n\n🧠 **Agent memory ilhamı:** OmniMem paper&#x27;ı (arxiv 2604.01007) Oracle&#x27;ın kendi memory sistemi için direkt uygulanabilir — \&quot;autoresearch-guided discovery\&quot; yaklaşımı lifelong agent memory&#x27;de state-of-the-art.\n\n🎯 **Proactive agent benchmark:** PARE paper&#x27;ı (arxiv 2604.00842) proaktif asistanları değerlendirmek için yeni framework sunuyor — Oracle&#x27;ın proaktif operasyon kalitesini ölçmek için potansiyel benchmark.\n\n⚡ **Anti-sycophancy:** \&quot;The Silicon Mirror\&quot; (arxiv 2604.00478) sycophancy&#x27;ye karşı behavioral gating sunuyor. Oracle&#x27;ın kendi doğrulama mekanizmalarına entegre edilebilir.\n\n🔍 **Trend:** AI agent güvenliği dominant konu — collusion detection, prompt injection monitoring, safety gates. Oracle&#x27;ın governance katmanı için yeni teknikler mevcut.\n\n📊 **Gemma 4 etkisi:** Açık kaynak LLM ekosistemi büyümeye devam ediyor. Apache 2.0 lisansıyla Gemma 4&#x27;ün lokal kullanımı Oracle workflow&#x27;larına entegre edilebilir.\n\n---&quot;}, {&quot;id&quot;: &quot;sec-80-dedupe-kalite-notu&quot;, &quot;title&quot;: &quot;Dedupe &amp; Kalite Notu&quot;, &quot;content&quot;: &quot;&gt; Bu rapordaki tüm maddeler önceki 3 günün raporlarından (2026-04-02 v2 raporu) elendi/dedupe edilmiştir.\n&gt; Toplam 6986 item işlendi, 1902 benzersiz item filtrelendi, rapordan 35+ haber/madde sunuldu.\n&gt; Önceki raporlarda yer alan: OpenAI $122B, Oracle işten çıkarmalar, Nebius veri merkezi, Axios NPM saldırısı, Claude Code kaynak sızıntısı detayları, Cohere Transcribe, Google Veo 3.1 Lite — bu konuların yeni gelişmeleri (devam haberleri) dahil edildi, tekrarlar çıkarıldı.&quot;}]}</script>
+  <script src="https://cdn.jsdelivr.net/npm/marked@9.1.6/marked.min.js"></script>
+  <button class="back-to-top" type="button" data-back-top aria-label="Back to top">↑</button>
 </body>
 </html>

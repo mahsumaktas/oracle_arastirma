@@ -1,375 +1,107 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Oracle Gece Arastirma -- 2026-04-02">
-<title>Oracle Arastirma -- 2026-04-02</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Oracle Gece Araştırma raporu 2026-04-02">
+<title>🔬 Gece Araştırma v2 — 1 Nisan 2026 (Çarşamba) · Oracle Gece Araştırma</title>
+<link rel="canonical" href="https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-02.html">
+<link rel="alternate" hreflang="tr" href="https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-02.html">
+<link rel="alternate" hreflang="en" href="https://mahsumaktas.github.io/oracle_arastirma/en/reports/2026-04-02.html">
+<link rel="alternate" hreflang="es" href="https://mahsumaktas.github.io/oracle_arastirma/es/reports/2026-04-02.html">
+<link rel="alternate" hreflang="x-default" href="https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-02.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root {
-  --bg: #0f172a;
-  --bg-card: #1e293b;
-  --bg-hover: #334155;
-  --text: #e2e8f0;
-  --text-muted: #94a3b8;
-  --accent: #3b82f6;
-  --accent-hover: #60a5fa;
-  --border: #334155;
-  --success: #22c55e;
-  --warning: #f59e0b;
-  --danger: #ef4444;
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
-  --radius: 12px;
-  --shadow: 0 4px 6px -1px rgba(0,0,0,0.3);
-  color-scheme: dark;
-}
-[data-theme="light"] {
-  --bg: #f8fafc; --bg-card: #ffffff; --bg-hover: #f1f5f9;
-  --text: #1e293b; --text-muted: #64748b; --border: #e2e8f0;
-  --shadow: 0 4px 6px -1px rgba(0,0,0,0.1); color-scheme: light;
-}
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme="dark"]) {
-    --bg: #f8fafc; --bg-card: #ffffff; --bg-hover: #f1f5f9;
-    --text: #1e293b; --text-muted: #64748b; --border: #e2e8f0;
-    --shadow: 0 4px 6px -1px rgba(0,0,0,0.1); color-scheme: light;
-  }
-}
-html { scroll-behavior: smooth }
-body {
-  background: var(--bg); color: var(--text);
-  font-family: var(--font-sans); font-size: 16px; line-height: 1.7;
-  -webkit-text-size-adjust: 100%; transition: background 0.3s, color 0.3s;
-}
-
-/* -- Sticky Header -------------------------------------------------------- */
-.site-header {
-  position: sticky; top: 0; z-index: 200;
-  background: var(--bg); border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-}
-.header-inner {
-  max-width: 1100px; margin: 0 auto; padding: 12px 20px;
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 16px; flex-wrap: wrap;
-}
-.header-left { display: flex; align-items: center; gap: 12px; min-width: 0 }
-.header-title { font-size: 18px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
-.header-meta { display: flex; align-items: center; gap: 12px; font-size: 13px; color: var(--text-muted); flex-shrink: 0 }
-.header-badge {
-  display: inline-flex; align-items: center; gap: 4px;
-  padding: 3px 10px; border-radius: 99px; font-size: 12px; font-weight: 600;
-  background: var(--accent); color: #fff;
-}
-.header-nav a { color: var(--accent); text-decoration: none; font-size: 13px; font-weight: 500 }
-.header-nav a:hover { color: var(--accent-hover) }
-
-/* -- Theme toggle --------------------------------------------------------- */
-.theme-toggle {
-  background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px;
-  padding: 6px 10px; cursor: pointer; font-size: 16px; line-height: 1;
-  color: var(--text); transition: background 0.2s;
-}
-.theme-toggle:hover { background: var(--bg-hover) }
-
-/* -- Tabs ----------------------------------------------------------------- */
-.tabs-container { max-width: 1100px; margin: 0 auto; padding: 0 20px }
-.tabs {
-  display: flex; gap: 4px; overflow-x: auto; -webkit-overflow-scrolling: touch;
-  padding: 8px 0; border-bottom: 2px solid var(--border);
-  position: sticky; top: 53px; background: var(--bg); z-index: 100;
-  scrollbar-width: thin; scrollbar-color: var(--border) transparent;
-}
-.tabs::-webkit-scrollbar { height: 4px }
-.tabs::-webkit-scrollbar-track { background: transparent }
-.tabs::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px }
-.tab {
-  padding: 8px 16px; border-radius: 8px 8px 0 0; cursor: pointer;
-  white-space: nowrap; color: var(--text-muted); font-size: 14px; font-weight: 500;
-  transition: all 0.2s; border: none; background: transparent;
-  font-family: var(--font-sans); position: relative;
-}
-.tab.active { color: var(--accent); background: var(--bg-card) }
-.tab.active::after {
-  content: ''; position: absolute; bottom: -2px; left: 0; right: 0;
-  height: 2px; background: var(--accent);
-}
-.tab:hover:not(.active) { color: var(--text); background: var(--bg-hover) }
-
-/* -- Tab panels ----------------------------------------------------------- */
-.tab-panel {
-  display: none; max-width: 1100px; margin: 0 auto; padding: 24px 20px 80px;
-  animation: fadeIn 0.2s ease;
-}
-.tab-panel.active { display: block }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(4px) } to { opacity: 1; transform: translateY(0) } }
-
-/* -- Typography ----------------------------------------------------------- */
-.tab-panel h1 { font-size: clamp(1.3rem, 4vw, 1.8rem); margin: 28px 0 12px; font-weight: 700 }
-.tab-panel h2 { font-size: clamp(1.1rem, 3.5vw, 1.4rem); margin: 24px 0 10px; border-bottom: 1px solid var(--border); padding-bottom: 8px; font-weight: 600 }
-.tab-panel h3 { font-size: clamp(1rem, 3vw, 1.2rem); margin: 20px 0 8px; font-weight: 600 }
-.tab-panel h4 { font-size: 1rem; margin: 16px 0 6px; font-weight: 600 }
-.tab-panel p { margin: 10px 0 }
-.tab-panel a { color: var(--accent); text-decoration: none; transition: color 0.15s }
-.tab-panel a:hover { color: var(--accent-hover); text-decoration: underline }
-.tab-panel strong { font-weight: 700 }
-.tab-panel em { font-style: italic }
-.tab-panel hr { border: none; border-top: 1px solid var(--border); margin: 24px 0 }
-
-/* -- Lists ---------------------------------------------------------------- */
-.tab-panel ul, .tab-panel ol { margin: 10px 0 10px 1.4em }
-.tab-panel li { margin: 4px 0 }
-
-/* -- Blockquotes ---------------------------------------------------------- */
-.tab-panel blockquote {
-  background: var(--bg-card); border-left: 4px solid var(--accent);
-  margin: 14px 0; padding: 12px 18px;
-  border-radius: 0 var(--radius) var(--radius) 0; color: var(--text-muted);
-}
-.tab-panel blockquote p { margin: 4px 0 }
-
-/* -- Code ----------------------------------------------------------------- */
-.tab-panel code {
-  background: #1e293b; color: #e2e8f0; border-radius: 4px; padding: 2px 6px;
-  font-family: var(--font-mono); font-size: 0.88em; word-break: break-all;
-}
-.tab-panel pre {
-  background: #1e293b; border-radius: var(--radius); padding: 14px 16px;
-  overflow-x: auto; margin: 14px 0; border: 1px solid #334155;
-}
-.tab-panel pre code { background: none; padding: 0; border-radius: 0; font-size: 0.85em; word-break: normal }
-
-/* -- Tables --------------------------------------------------------------- */
-.table-wrap {
-  overflow-x: auto; -webkit-overflow-scrolling: touch;
-  margin: 14px 0; border-radius: var(--radius); border: 1px solid var(--border);
-}
-.tab-panel table { border-collapse: collapse; width: 100%; min-width: 400px; font-size: 0.9em }
-.tab-panel th {
-  background: var(--bg-hover); text-align: left; padding: 10px 14px;
-  font-weight: 600; border-bottom: 2px solid var(--border); white-space: nowrap;
-}
-.tab-panel td { padding: 9px 14px; border-bottom: 1px solid var(--border); vertical-align: top; word-break: break-word }
-.tab-panel tr:last-child td { border-bottom: none }
-.tab-panel tr:hover td { background: var(--bg-hover) }
-
-/* -- Item cards ----------------------------------------------------------- */
-.item-card {
-  background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
-  padding: 16px 20px; margin: 12px 0; box-shadow: var(--shadow);
-  transition: transform 0.15s, box-shadow 0.15s; list-style: none;
-}
-.item-card:hover { transform: translateY(-1px); box-shadow: 0 8px 16px -4px rgba(0,0,0,0.2) }
-
-/* -- Importance badges ---------------------------------------------------- */
-.badge-high {
-  display: inline-block; padding: 2px 8px; border-radius: 99px;
-  font-size: 0.75rem; font-weight: 600;
-  background: rgba(239,68,68,0.15); color: var(--danger); border: 1px solid rgba(239,68,68,0.3);
-}
-.badge-medium {
-  display: inline-block; padding: 2px 8px; border-radius: 99px;
-  font-size: 0.75rem; font-weight: 600;
-  background: rgba(245,158,11,0.15); color: var(--warning); border: 1px solid rgba(245,158,11,0.3);
-}
-.badge-low {
-  display: inline-block; padding: 2px 8px; border-radius: 99px;
-  font-size: 0.75rem; font-weight: 600;
-  background: rgba(34,197,94,0.15); color: var(--success); border: 1px solid rgba(34,197,94,0.3);
-}
-
-/* -- Back to top ---------------------------------------------------------- */
-#back-top {
-  position: fixed; bottom: 24px; right: 20px;
-  background: var(--accent); color: #fff; border: none; border-radius: 50%;
-  width: 44px; height: 44px; font-size: 1.2rem; cursor: pointer;
-  box-shadow: 0 4px 12px rgba(59,130,246,0.4);
-  display: none; align-items: center; justify-content: center;
-  text-decoration: none; transition: opacity 0.2s, transform 0.2s; z-index: 300;
-}
-#back-top:hover { transform: scale(1.1) }
-#back-top.visible { display: flex }
-
-/* -- Loading -------------------------------------------------------------- */
-#loading { text-align: center; padding: 80px 0; color: var(--text-muted); font-size: 1rem }
-.loading-spinner {
-  width: 32px; height: 32px; border: 3px solid var(--border);
-  border-top: 3px solid var(--accent); border-radius: 50%;
-  animation: spin 0.8s linear infinite; margin: 0 auto 16px;
-}
-@keyframes spin { to { transform: rotate(360deg) } }
-
-/* -- Print ---------------------------------------------------------------- */
-@media print {
-  .site-header, .tabs, #back-top, .theme-toggle { display: none !important }
-  .tab-panel { display: block !important; break-inside: avoid }
-  .tab-panel::before {
-    content: attr(data-title); display: block; font-size: 1.3rem; font-weight: 700;
-    margin: 20px 0 8px; border-bottom: 2px solid #000; padding-bottom: 4px;
-  }
-  body { background: #fff; color: #000; font-size: 11pt }
-  .item-card { box-shadow: none; border: 1px solid #ccc }
-  a { color: #000 }
-  a[href]::after { content: " (" attr(href) ")"; font-size: 0.8em; color: #666 }
-}
-
-/* -- Responsive ----------------------------------------------------------- */
-@media (max-width: 640px) {
-  .header-inner { padding: 10px 14px }
-  .header-title { font-size: 15px }
-  .tabs { gap: 2px }
-  .tab { padding: 6px 12px; font-size: 13px }
-  .tab-panel { padding: 16px 14px 60px }
-  .item-card { padding: 12px 14px }
-  .tab-panel table { font-size: 0.82em }
-  .tab-panel th, .tab-panel td { padding: 6px 8px }
-}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<script defer src="../assets/site.js"></script>
 </head>
 <body>
-<div class="site-header">
-  <div class="header-inner">
-    <div class="header-left">
-      <span class="header-title">🔬 Gece Araştırma v2 — 1 Nisan 2026 (Çarşamba)</span>
-      <span class="header-badge">16 madde</span>
-    </div>
-    <div class="header-meta">
-      <span>2026-04-02</span>
-      <nav class="header-nav"><a href="https://mahsumaktas.github.io/oracle_arastirma/index.html">Tum Raporlar</a></nav>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Tema degistir" aria-label="Tema degistir">
-        <span id="theme-icon">&#9790;</span>
-      </button>
+  <header class="site-header">
+  <div class="shell header-bar">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark">🦉</span>
+      <span class="brand-text">
+        <span class="brand-kicker">Oracle archive</span>
+        <h1 class="brand-title">Oracle Gece Araştırma</h1>
+        <p class="brand-subtitle">2026-04-02</p>
+      </span>
+    </a>
+    <div class="header-actions">
+      <div class="lang-switch"><span class="lang-switch-label">Dil</span><a class="lang-chip is-active" href="2026-04-02.html" lang="tr">TÜ</a><a class="lang-chip" href="../en/reports/2026-04-02.html" lang="en">EN</a><a class="lang-chip" href="../es/reports/2026-04-02.html" lang="es">ES</a></div>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle theme"><span data-theme-icon>◐</span></button>
     </div>
   </div>
-</div>
-<div class="tabs-container"><div class="tabs" id="tabs-bar" role="tablist"></div></div>
-<div id="panels-container"></div>
-<div id="loading"><div class="loading-spinner"></div>Rapor yukleniyor...</div>
-<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Yukari" aria-label="Yukari git">&#8593;</button>
+</header>
+  <main class="shell">
+    <section class="hero">
+      <div class="hero-card">
+        <div class="hero-layout">
+          <div>
+            <div class="breadcrumbs"><a href="../index.html">Arşive dön</a><span>•</span><span>2026-04-02</span></div>
+            <span class="hero-kicker">Araştırma raporu</span>
+            <h1>🔬 Gece Araştırma v2 — 1 Nisan 2026 (Çarşamba)</h1>
+            <p>**Pipeline:** v2 | **Tarih:** 2026-04-01 01:00 TRT | **Kaynaklar:** HN, GitHub Trending, arXiv, The Decoder, Simon Willison, CNBC, Ars Technica, StepSecurity, Cohere</p>
+            <div class="hero-actions">
+              <span class="hero-pill"><strong>20</strong> bölüm</span>
+              <span class="hero-pill"><strong>920</strong> kelime</span>
+            </div>
+          </div>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <span class="stat-label">Öne çıkan not</span>
+              <div class="stat-detail">**Pipeline:** v2 | **Tarih:** 2026-04-01 01:00 TRT | **Kaynaklar:** HN, GitHub Trending, arXiv, The Decoder, Simon Willison, CNBC, Ars Technica, StepSecurity, Cohere</div>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Hızlı erişim</span>
+              <div class="report-actions-row" style="margin-top:12px">
+                <a class="button" href="../raw/2026-04-02.md">Ham markdown</a>
+                <a class="ghost-button" href="../index.html">Tüm raporlar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
-<script>
-(function() {
-  var SECTIONS = [{"id": "ozet", "title": "Ozet", "emoji": "", "content": "# \ud83d\udd2c Gece Ara\u015ft\u0131rma v2 \u2014 1 Nisan 2026 (\u00c7ar\u015famba)\n\n**Pipeline:** v2 | **Tarih:** 2026-04-01 01:00 TRT | **Kaynaklar:** HN, GitHub Trending, arXiv, The Decoder, Simon Willison, CNBC, Ars Technica, StepSecurity, Cohere\n\n---"}, {"id": "end\u00fcstri-i\u015f-d\u00fcnyas\u0131", "title": "End\u00fcstri & \u0130\u015f D\u00fcnyas\u0131", "emoji": "\ud83c\udfe2", "content": "### OpenAI $122B Yat\u0131r\u0131m Turu Kapand\u0131 \u2014 De\u011ferleme $852B\nOpenAI rekor k\u0131ran fonlama turunu kapatt\u0131. SoftBank, a16z, D.E. Shaw liderli\u011finde $122B topland\u0131 (ilk a\u00e7\u0131klanan $110B'dan yukar\u0131). Amazon $50B, Nvidia $30B, SoftBank $30B yat\u0131rd\u0131. Ayl\u0131k gelir $2B, y\u0131ll\u0131k $13.1B ama h\u00e2l\u00e2 k\u00e2rs\u0131z. ChatGPT 900M+ haftal\u0131k aktif kullan\u0131c\u0131, 50M+ abone. Sora kapat\u0131ld\u0131, maliyet kontrolleri s\u0131k\u0131la\u015ft\u0131r\u0131l\u0131yor. IPO haz\u0131rl\u0131klar\u0131 s\u00fcr\u00fcyor.\n- https://www.cnbc.com/2026/03/31/openai-funding-round-ipo.html\n\n### Oracle Binlerce \u00c7al\u0131\u015fan\u0131 \u0130\u015ften \u00c7\u0131kar\u0131yor\nOracle AI altyap\u0131 yat\u0131r\u0131mlar\u0131n\u0131 finanse etmek i\u00e7in b\u00fcy\u00fck \u00e7apl\u0131 i\u015ften \u00e7\u0131karmalar yap\u0131yor. $50B harcama plan\u0131 sonras\u0131 hisse %25 d\u00fc\u015ft\u00fc. TD Cowen analistleri 20-30K pozisyon kesilirse $10B nakit ak\u0131\u015f\u0131 kurtar\u0131labilece\u011fini tahmin ediyor. OpenAI'dan $455B garantili sipari\u015f var ama \u00f6deme kapasitesi belirsiz.\n- https://www.businessinsider.com/read-oracle-layoff-email-employees-job-cuts-2026-3\n\n### Nebius Avrupa'n\u0131n En B\u00fcy\u00fck AI Veri Merkezlerinden Birini Kuruyor\nNebius Group, Finlandiya Lappeenranta'da 310MW kapasiteli $10B+ veri merkezi in\u015fa ediyor. Microsoft ($19.4B) ve Meta ($27B) s\u00f6zle\u015fmeleri imzaland\u0131. 2027'den itibaren fazl\u0131 a\u00e7\u0131l\u0131\u015f planlan\u0131yor.\n- https://www.cnbc.com/2026/03/31/nebius-finland-ai-factory-europe-compute.html\n\n---"}, {"id": "g\u00fcvenlik-gizlilik", "title": "G\u00fcvenlik & Gizlilik", "emoji": "\ud83d\udd12", "content": "### \u26a0\ufe0f Axios NPM Supply Chain Sald\u0131r\u0131s\u0131 \u2014 KR\u0130T\u0130K\naxios@1.14.1 ve axios@0.30.4 zararl\u0131 versiyonlar\u0131 NPM'e y\u00fcklendi. 100M+ haftal\u0131k indirmesi olan k\u00fct\u00fcphane. Sald\u0131r\u0131 mekanizmas\u0131: `plain-crypto-js@4.2.1` sahte ba\u011f\u0131ml\u0131l\u0131k enjekte edildi \u2192 cross-platform RAT dropper (macOS/Windows/Linux). C2 sunucusuyla ileti\u015fim kurup kendini silip temiz package.json b\u0131rak\u0131yor. Tespit: StepSecurity. **Bu versiyonlar\u0131 y\u00fcklediyseniz sisteminizi ele ge\u00e7irilmi\u015f kabul edin.**\n- https://www.stepsecurity.io/blog/axios-compromised-on-npm-malicious-versions-drop-remote-access-trojan\n\n### Claude Code Kaynak Kodu NPM'den S\u0131zd\u0131\nAnthropic, Claude Code'un NPM paketine yanl\u0131\u015fl\u0131kla 500K+ sat\u0131r kaynak kod ve 1000+ dosya dahil etti. Bulunan dikkat \u00e7ekici detaylar:\n- **Anti-distillation:** Sahte tool'lar enjekte ederek model kopyac\u0131lar\u0131n\u0131 zehirleme\n- **Undercover mode:** AI izlerini gizleyen mod (kapat\u0131lamaz)\n- **Frustration regex:** Kullan\u0131c\u0131 k\u00fcf\u00fcrlerini regex ile tespit\n- **Native client attestation:** Zig seviyesinde API \u00e7a\u011fr\u0131s\u0131 do\u011frulama (DRM benzeri)\n- **KAIROS:** Yay\u0131nlanmam\u0131\u015f otonom agent modu (/dream, memory distillation)\n- **G\u00fcnde 250K bo\u015fa API \u00e7a\u011fr\u0131s\u0131:** autoCompact hatas\u0131 (3 sat\u0131r kodla d\u00fczeltildi)\n- https://alex000kim.com/posts/2026-03-31-claude-code-source-leak/\n\n### OkCupid/Match FTC Anla\u015fmas\u0131\n3 milyon kullan\u0131c\u0131 foto\u011fraf\u0131 Clarifai y\u00fcz tan\u0131ma firmas\u0131yla payla\u015f\u0131ld\u0131 (2014). FTC anla\u015fma sa\u011flad\u0131 ama para cezas\u0131 yok.\n- https://arstechnica.com/tech-policy/2026/03/okcupid-match-pay-no-fine-for-sharing-user-photos-with-facial-recognition-firm/\n\n### California AI Executive Order\nVali Newsom, devlet s\u00f6zle\u015fmeli \u015firketlere AI g\u00fcvenceleri zorunlulu\u011fu getirdi. AI \u00fcretimi i\u00e7eriklere watermark, sivil haklar koruma, ve Anthropic'in Pentagon yasa\u011f\u0131na kar\u015f\u0131 ba\u011f\u0131ms\u0131z eyalet de\u011ferlendirmesi.\n- https://the-decoder.com\n\n---"}, {"id": "modeller-\u00fcr\u00fcnler", "title": "Modeller & \u00dcr\u00fcnler", "emoji": "\ud83e\udd16", "content": "### Google Veo 3.1 Lite \u2014 En Ucuz Video \u00dcretimi\nGoogle DeepMind en uygun fiyatl\u0131 video modeli Veo 3.1 Lite'\u0131 \u00e7\u0131kard\u0131. 720p $0.05/sn, 1080p $0.08/sn. 4-8 saniye klip, text-to-video + image-to-video. Sora kapand\u0131ktan sonra video alan\u0131nda rekabet b\u00fcy\u00fck \u00f6l\u00e7\u00fcde \u00c7in'e (Seedance 2.0) kay\u0131yor.\n- https://ai.google.dev/gemini-api/docs/models/veo-3.1-lite-generate-preview\n\n### Cohere Transcribe \u2014 #1 Open-Source ASR\n2B parametre Conformer model, Apache 2.0 lisans\u0131, 14 dil. HuggingFace Open ASR Leaderboard birincisi: WER 5.42% (Whisper Large v3: 7.44%, ElevenLabs Scribe v2: 5.83%). Enterprise-ready, self-host edilebilir.\n- https://cohere.com/blog/transcribe\n\n### Microsoft Copilot Wave 3 + Researcher + Model Council\nCopilot Cowork geni\u015fletildi (Claude Cowork tabanl\u0131). Yeni \"Researcher\" arac\u0131nda Critique fonksiyonu: bir AI yazar, di\u011feri review eder (Anthropic + OpenAI modelleri). \"Model Council\" ile farkl\u0131 model cevaplar\u0131n\u0131 kar\u015f\u0131la\u015ft\u0131rma.\n- https://the-decoder.com\n\n---"}, {"id": "ara\u015ft\u0131rma-arxiv", "title": "Ara\u015ft\u0131rma (arXiv)", "emoji": "\ud83d\udcca", "content": "### Multi-Agent Sistemlerde Ortaya \u00c7\u0131kan Sosyal Risk\nLLM tabanl\u0131 \u00e7oklu-agent sistemlerde rekabet, s\u0131ral\u0131 i\u015fbirli\u011fi ve kolektif karar durumlar\u0131nda **collusion ve conformity** davran\u0131\u015flar\u0131 kendili\u011finden ortaya \u00e7\u0131k\u0131yor \u2014 talimat verilmeden, insan toplumlar\u0131ndaki patolojileri yeniden \u00fcretiyorlar.\n- https://arxiv.org/abs/2603.27771\n\n### Medical AI Scientist \u2014 Otonom Klinik Ara\u015ft\u0131rma\n\u0130lk klinik ara\u015ft\u0131rma odakl\u0131 otonom AI bilimci framework'\u00fc. Paper reproduksiyon, literature-inspired inovasyon ve task-driven ke\u015fif modlar\u0131. MICCAI kalitesinde makale \u00fcretiyor.\n- https://arxiv.org/abs/2603.28589\n\n### Gen-Searcher \u2014 Search-Augmented Image Generation\nRL ile e\u011fitilmi\u015f agentic search ile image generation birle\u015ftirildi. Multi-hop reasoning + web search \u2192 grounded g\u00f6r\u00fcnt\u00fc \u00fcretimi. WISE benchmark'ta +15 puan.\n- https://arxiv.org/abs/2603.28767\n\n### LLaVA-DyMoE \u2014 Continual Learning i\u00e7in Dynamic MoE\nCVPR 2026'da kabul edildi. Routing-drift sorununu \u00e7\u00f6zen drift-aware token assignment. Mean final accuracy'de +7%, forgetting'de -12%.\n- https://arxiv.org/abs/2603.27481\n\n---"}, {"id": "github-trending-ara\u00e7lar", "title": "GitHub Trending & Ara\u00e7lar", "emoji": "\ud83d\udd27", "content": "| Repo | \u2b50 | A\u00e7\u0131klama |\n|------|-----|----------|\n| microsoft/VibeVoice | 33K | Open-source frontier voice AI |\n| NousResearch/hermes-agent | 20K | B\u00fcy\u00fcyebilen AI agent framework |\n| thedotmack/claude-mem | 44K | Claude Code session memory plugin |\n| shareAI-lab/learn-claude-code | 45K | \"Bash is all you need\" \u2014 nano Claude Code clone |\n| Yeachan-Heo/oh-my-claudecode | 19K | Teams-first multi-agent orchestration |\n| steipete/mcporter | 3.6K | MCP'leri TypeScript API olarak \u00e7a\u011f\u0131rma |\n| coder/mux | 1.6K | \u0130zole, paralel agentic development desktop app |\n| timescale/pg_textsearch | \u2014 | Postgres BM25 full-text search extension |\n\n---"}, {"id": "dikkat-\u00e7ekenler", "title": "Dikkat \u00c7ekenler", "emoji": "\ud83d\udca1", "content": "- **KV Cache Derinlemesine:** GPT-2'den (300KB/token) DeepSeek V3'e (69KB/token) \u2014 4.3x s\u0131k\u0131\u015ft\u0131rma yolculu\u011fu detayl\u0131 analiz edildi\n- **Simon Willison:** LLM 0.30 \u00e7\u0131kt\u0131, yeni plugin hook mekanizmas\u0131. llm-all-models-async: sync modelleri async'e \u00e7eviren plugin\n- **Greptile analizi:** \"AI slop\" uzun vadede ekonomik bask\u0131yla azalacak \u2014 iyi kod = daha az token = daha ucuz\n- **M\u00fczik end\u00fcstrisi:** Hit yap\u0131mc\u0131lar AI kullan\u0131m\u0131n\u0131 gizliyor (Rolling Stone ara\u015ft\u0131rmas\u0131)\n\n---\n\n**Toplam:** 10 ana haber, 4 ara\u015ft\u0131rma makalesi, 8 trending repo | Dedupe: 10/10 yeni"}];
-
-  marked.setOptions({ gfm: true, breaks: false, mangle: false, headerIds: false });
-
-  var renderer = new marked.Renderer();
-  renderer.table = function(header, body) {
-    return '<div class="table-wrap"><table><thead>' + header + '</thead><tbody>' + body + '</tbody></table></div>';
-  };
-  var origListItem = renderer.listitem;
-  renderer.listitem = function(text) {
-    if (text.indexOf('<strong>') === 0 || text.indexOf('<a') === 0) {
-      return '<li class="item-card">' + text + '</li>';
-    }
-    return '<li>' + text + '</li>';
-  };
-
-  var tabsBar = document.getElementById('tabs-bar');
-  var panelsContainer = document.getElementById('panels-container');
-  var loading = document.getElementById('loading');
-
-  SECTIONS.forEach(function(sec, i) {
-    var btn = document.createElement('button');
-    btn.className = 'tab' + (i === 0 ? ' active' : '');
-    btn.setAttribute('role', 'tab');
-    btn.setAttribute('data-tab', sec.id);
-    btn.id = 'tab-' + sec.id;
-    btn.textContent = (sec.emoji ? sec.emoji + ' ' : '') + sec.title;
-    btn.onclick = function() { switchTab(sec.id) };
-    tabsBar.appendChild(btn);
-
-    var panel = document.createElement('div');
-    panel.className = 'tab-panel' + (i === 0 ? ' active' : '');
-    panel.id = 'panel-' + sec.id;
-    panel.setAttribute('role', 'tabpanel');
-    panel.setAttribute('data-title', (sec.emoji ? sec.emoji + ' ' : '') + sec.title);
-
-    var rendered = marked.parse(sec.content, { renderer: renderer });
-    var RE_HIGH = new RegExp(String.fromCodePoint(0x1F534), 'g');
-    var RE_MED  = new RegExp(String.fromCodePoint(0x1F7E1), 'g');
-    var RE_LOW  = new RegExp(String.fromCodePoint(0x1F7E2), 'g');
-    rendered = rendered.replace(RE_HIGH, '<span class="badge-high">HIGH</span>');
-    rendered = rendered.replace(RE_MED,  '<span class="badge-medium">MED</span>');
-    rendered = rendered.replace(RE_LOW,  '<span class="badge-low">LOW</span>');
-    panel.innerHTML = rendered;
-    panelsContainer.appendChild(panel);
-  });
-
-  loading.style.display = 'none';
-
-  document.querySelectorAll('.tab-panel a[href]').forEach(function(a) {
-    var href = a.getAttribute('href');
-    if (href && (href.startsWith('http://') || href.startsWith('https://'))) {
-      a.setAttribute('target', '_blank');
-      a.setAttribute('rel', 'noopener noreferrer');
-    }
-  });
-
-  window.switchTab = function(tabId) {
-    document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('active') });
-    document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active') });
-    var tab = document.getElementById('tab-' + tabId);
-    var panel = document.getElementById('panel-' + tabId);
-    if (tab) tab.classList.add('active');
-    if (panel) panel.classList.add('active');
-    history.replaceState(null, '', '#' + tabId);
-    if (tab) tab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  function activateFromHash() {
-    var hash = window.location.hash.replace('#', '');
-    if (hash) {
-      var tab = document.getElementById('tab-' + hash);
-      if (tab) { switchTab(hash); return }
-    }
-    if (SECTIONS.length > 0) switchTab(SECTIONS[0].id);
-  }
-  activateFromHash();
-  window.addEventListener('hashchange', activateFromHash);
-
-  var backTop = document.getElementById('back-top');
-  window.addEventListener('scroll', function() {
-    backTop.classList.toggle('visible', window.scrollY > 300);
-  });
-
-  document.addEventListener('keydown', function(e) {
-    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-    var tabs = Array.from(document.querySelectorAll('.tab'));
-    var idx = tabs.findIndex(function(t) { return t.classList.contains('active') });
-    if (e.key === 'ArrowRight' && idx < tabs.length - 1) switchTab(tabs[idx + 1].getAttribute('data-tab'));
-    else if (e.key === 'ArrowLeft' && idx > 0) switchTab(tabs[idx - 1].getAttribute('data-tab'));
-  });
-})();
-
-function toggleTheme() {
-  var html = document.documentElement;
-  var current = html.getAttribute('data-theme');
-  var icon = document.getElementById('theme-icon');
-  if (current === 'dark') {
-    html.setAttribute('data-theme', 'light');
-    icon.innerHTML = '&#9728;'; localStorage.setItem('theme', 'light');
-  } else if (current === 'light') {
-    html.removeAttribute('data-theme');
-    icon.innerHTML = '&#9211;'; localStorage.setItem('theme', 'auto');
-  } else {
-    html.setAttribute('data-theme', 'dark');
-    icon.innerHTML = '&#9790;'; localStorage.setItem('theme', 'dark');
-  }
-}
-(function() {
-  var saved = localStorage.getItem('theme');
-  var icon = document.getElementById('theme-icon');
-  if (saved === 'dark') { document.documentElement.setAttribute('data-theme', 'dark'); if (icon) icon.innerHTML = '&#9790;' }
-  else if (saved === 'light') { document.documentElement.setAttribute('data-theme', 'light'); if (icon) icon.innerHTML = '&#9728;' }
-})();
-</script>
+    <section class="report-layout">
+      <aside class="sticky-column stack">
+        <div class="panel">
+          <div class="panel-title"><div><h3>İçindekiler</h3><p>Türkçe kaynak korunur, alternatif diller otomatik olarak üretilir.</p></div></div>
+          <nav class="report-nav"><a class="section-link" href="#sec-1-endustri-is-dunyasi" data-section-link>🏢 Endüstri &amp; İş Dünyası</a><a class="section-link" href="#sec-2-openai-122b-yatirim-turu-kapandi-degerleme-852b" data-section-link># OpenAI $122B Yatırım Turu Kapandı — Değerleme $852B</a><a class="section-link" href="#sec-3-oracle-binlerce-alisani-isten-ikariyor" data-section-link># Oracle Binlerce Çalışanı İşten Çıkarıyor</a><a class="section-link" href="#sec-4-nebius-avrupa-nin-en-buyuk-ai-veri-merkezlerinde" data-section-link># Nebius Avrupa&#x27;nın En Büyük AI Veri Merkezlerinden Birini Kuruyor</a><a class="section-link" href="#sec-5-guvenlik-gizlilik" data-section-link>🔒 Güvenlik &amp; Gizlilik</a><a class="section-link" href="#sec-6-axios-npm-supply-chain-saldirisi-kritik" data-section-link># ⚠️ Axios NPM Supply Chain Saldırısı — KRİTİK</a><a class="section-link" href="#sec-7-claude-code-kaynak-kodu-npm-den-sizdi" data-section-link># Claude Code Kaynak Kodu NPM&#x27;den Sızdı</a><a class="section-link" href="#sec-8-okcupid-match-ftc-anlasmasi" data-section-link># OkCupid/Match FTC Anlaşması</a><a class="section-link" href="#sec-9-california-ai-executive-order" data-section-link># California AI Executive Order</a><a class="section-link" href="#sec-10-modeller-runler" data-section-link>🤖 Modeller &amp; Ürünler</a><a class="section-link" href="#sec-11-google-veo-3-1-lite-en-ucuz-video-retimi" data-section-link># Google Veo 3.1 Lite — En Ucuz Video Üretimi</a><a class="section-link" href="#sec-12-cohere-transcribe-1-open-source-asr" data-section-link># Cohere Transcribe — #1 Open-Source ASR</a><a class="section-link" href="#sec-13-microsoft-copilot-wave-3-researcher-model-counci" data-section-link># Microsoft Copilot Wave 3 + Researcher + Model Council</a><a class="section-link" href="#sec-14-arastirma-arxiv" data-section-link>📊 Araştırma (arXiv)</a><a class="section-link" href="#sec-15-multi-agent-sistemlerde-ortaya-ikan-sosyal-risk" data-section-link># Multi-Agent Sistemlerde Ortaya Çıkan Sosyal Risk</a><a class="section-link" href="#sec-16-medical-ai-scientist-otonom-klinik-arastirma" data-section-link># Medical AI Scientist — Otonom Klinik Araştırma</a><a class="section-link" href="#sec-17-gen-searcher-search-augmented-image-generation" data-section-link># Gen-Searcher — Search-Augmented Image Generation</a><a class="section-link" href="#sec-18-llava-dymoe-continual-learning-icin-dynamic-moe" data-section-link># LLaVA-DyMoE — Continual Learning için Dynamic MoE</a><a class="section-link" href="#sec-19-github-trending-araclar" data-section-link>🔧 GitHub Trending &amp; Araçlar</a><a class="section-link" href="#sec-20-dikkat-ekenler" data-section-link>💡 Dikkat Çekenler</a></nav>
+        </div>
+        <div class="panel">
+          <div class="panel-title"><div><h3>Hızlı erişim</h3></div></div>
+          <div class="report-tools">
+            <a class="ghost-button" href="../raw/2026-04-02.md">Kaynak markdown</a>
+            <a class="ghost-button" href="2026-04-02.html">Türkçe orijinal</a>
+            <a class="ghost-button" href="2026-04-01.html">Önceki rapor</a>
+            <a class="ghost-button" href="2026-04-03.html">Sonraki rapor</a>
+          </div>
+        </div>
+      </aside>
+      <div class="report-main">
+        <section class="report-summary-card rendered-markdown">
+          <div class="section-head">
+            <div>
+              <div class="section-kicker">Rapor özeti</div>
+              <h2>Rapor özeti</h2>
+            </div>
+          </div>
+          <p><strong>Pipeline:</strong> v2 | <strong>Tarih:</strong> 2026-04-01 01:00 TRT | <strong>Kaynaklar:</strong> HN, GitHub Trending, arXiv, The Decoder, Simon Willison, CNBC, Ars Technica, StepSecurity, Cohere</p>
+        </section>
+        <div data-report-sections></div>
+      </div>
+    </section>
+  </main>
+  <footer class="shell footer">
+    <div class="footer-card">
+      <p>Oracle gece araştırma arşivi, Türkçe asıl içerik korunarak üretilir.</p>
+      <p>2026-04-11 23:10 UTC</p>
+    </div>
+  </footer>
+  <script id="report-data" type="application/json">{&quot;sectionLabel&quot;: &quot;Bölümler&quot;, &quot;sections&quot;: [{&quot;id&quot;: &quot;sec-1-endustri-is-dunyasi&quot;, &quot;title&quot;: &quot;🏢 Endüstri &amp; İş Dünyası&quot;, &quot;content&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;sec-2-openai-122b-yatirim-turu-kapandi-degerleme-852b&quot;, &quot;title&quot;: &quot;# OpenAI $122B Yatırım Turu Kapandı — Değerleme $852B&quot;, &quot;content&quot;: &quot;OpenAI rekor kıran fonlama turunu kapattı. SoftBank, a16z, D.E. Shaw liderliğinde $122B toplandı (ilk açıklanan $110B&#x27;dan yukarı). Amazon $50B, Nvidia $30B, SoftBank $30B yatırdı. Aylık gelir $2B, yıllık $13.1B ama hâlâ kârsız. ChatGPT 900M+ haftalık aktif kullanıcı, 50M+ abone. Sora kapatıldı, maliyet kontrolleri sıkılaştırılıyor. IPO hazırlıkları sürüyor.\n- https://www.cnbc.com/2026/03/31/openai-funding-round-ipo.html&quot;}, {&quot;id&quot;: &quot;sec-3-oracle-binlerce-alisani-isten-ikariyor&quot;, &quot;title&quot;: &quot;# Oracle Binlerce Çalışanı İşten Çıkarıyor&quot;, &quot;content&quot;: &quot;Oracle AI altyapı yatırımlarını finanse etmek için büyük çaplı işten çıkarmalar yapıyor. $50B harcama planı sonrası hisse %25 düştü. TD Cowen analistleri 20-30K pozisyon kesilirse $10B nakit akışı kurtarılabileceğini tahmin ediyor. OpenAI&#x27;dan $455B garantili sipariş var ama ödeme kapasitesi belirsiz.\n- https://www.businessinsider.com/read-oracle-layoff-email-employees-job-cuts-2026-3&quot;}, {&quot;id&quot;: &quot;sec-4-nebius-avrupa-nin-en-buyuk-ai-veri-merkezlerinde&quot;, &quot;title&quot;: &quot;# Nebius Avrupa&#x27;nın En Büyük AI Veri Merkezlerinden Birini Kuruyor&quot;, &quot;content&quot;: &quot;Nebius Group, Finlandiya Lappeenranta&#x27;da 310MW kapasiteli $10B+ veri merkezi inşa ediyor. Microsoft ($19.4B) ve Meta ($27B) sözleşmeleri imzalandı. 2027&#x27;den itibaren fazlı açılış planlanıyor.\n- https://www.cnbc.com/2026/03/31/nebius-finland-ai-factory-europe-compute.html\n\n---&quot;}, {&quot;id&quot;: &quot;sec-5-guvenlik-gizlilik&quot;, &quot;title&quot;: &quot;🔒 Güvenlik &amp; Gizlilik&quot;, &quot;content&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;sec-6-axios-npm-supply-chain-saldirisi-kritik&quot;, &quot;title&quot;: &quot;# ⚠️ Axios NPM Supply Chain Saldırısı — KRİTİK&quot;, &quot;content&quot;: &quot;axios@1.14.1 ve axios@0.30.4 zararlı versiyonları NPM&#x27;e yüklendi. 100M+ haftalık indirmesi olan kütüphane. Saldırı mekanizması: `plain-crypto-js@4.2.1` sahte bağımlılık enjekte edildi → cross-platform RAT dropper (macOS/Windows/Linux). C2 sunucusuyla iletişim kurup kendini silip temiz package.json bırakıyor. Tespit: StepSecurity. **Bu versiyonları yüklediyseniz sisteminizi ele geçirilmiş kabul edin.**\n- https://www.stepsecurity.io/blog/axios-compromised-on-npm-malicious-versions-drop-remote-access-trojan&quot;}, {&quot;id&quot;: &quot;sec-7-claude-code-kaynak-kodu-npm-den-sizdi&quot;, &quot;title&quot;: &quot;# Claude Code Kaynak Kodu NPM&#x27;den Sızdı&quot;, &quot;content&quot;: &quot;Anthropic, Claude Code&#x27;un NPM paketine yanlışlıkla 500K+ satır kaynak kod ve 1000+ dosya dahil etti. Bulunan dikkat çekici detaylar:\n- **Anti-distillation:** Sahte tool&#x27;lar enjekte ederek model kopyacılarını zehirleme\n- **Undercover mode:** AI izlerini gizleyen mod (kapatılamaz)\n- **Frustration regex:** Kullanıcı küfürlerini regex ile tespit\n- **Native client attestation:** Zig seviyesinde API çağrısı doğrulama (DRM benzeri)\n- **KAIROS:** Yayınlanmamış otonom agent modu (/dream, memory distillation)\n- **Günde 250K boşa API çağrısı:** autoCompact hatası (3 satır kodla düzeltildi)\n- https://alex000kim.com/posts/2026-03-31-claude-code-source-leak/&quot;}, {&quot;id&quot;: &quot;sec-8-okcupid-match-ftc-anlasmasi&quot;, &quot;title&quot;: &quot;# OkCupid/Match FTC Anlaşması&quot;, &quot;content&quot;: &quot;3 milyon kullanıcı fotoğrafı Clarifai yüz tanıma firmasıyla paylaşıldı (2014). FTC anlaşma sağladı ama para cezası yok.\n- https://arstechnica.com/tech-policy/2026/03/okcupid-match-pay-no-fine-for-sharing-user-photos-with-facial-recognition-firm/&quot;}, {&quot;id&quot;: &quot;sec-9-california-ai-executive-order&quot;, &quot;title&quot;: &quot;# California AI Executive Order&quot;, &quot;content&quot;: &quot;Vali Newsom, devlet sözleşmeli şirketlere AI güvenceleri zorunluluğu getirdi. AI üretimi içeriklere watermark, sivil haklar koruma, ve Anthropic&#x27;in Pentagon yasağına karşı bağımsız eyalet değerlendirmesi.\n- https://the-decoder.com\n\n---&quot;}, {&quot;id&quot;: &quot;sec-10-modeller-runler&quot;, &quot;title&quot;: &quot;🤖 Modeller &amp; Ürünler&quot;, &quot;content&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;sec-11-google-veo-3-1-lite-en-ucuz-video-retimi&quot;, &quot;title&quot;: &quot;# Google Veo 3.1 Lite — En Ucuz Video Üretimi&quot;, &quot;content&quot;: &quot;Google DeepMind en uygun fiyatlı video modeli Veo 3.1 Lite&#x27;ı çıkardı. 720p $0.05/sn, 1080p $0.08/sn. 4-8 saniye klip, text-to-video + image-to-video. Sora kapandıktan sonra video alanında rekabet büyük ölçüde Çin&#x27;e (Seedance 2.0) kayıyor.\n- https://ai.google.dev/gemini-api/docs/models/veo-3.1-lite-generate-preview&quot;}, {&quot;id&quot;: &quot;sec-12-cohere-transcribe-1-open-source-asr&quot;, &quot;title&quot;: &quot;# Cohere Transcribe — #1 Open-Source ASR&quot;, &quot;content&quot;: &quot;2B parametre Conformer model, Apache 2.0 lisansı, 14 dil. HuggingFace Open ASR Leaderboard birincisi: WER 5.42% (Whisper Large v3: 7.44%, ElevenLabs Scribe v2: 5.83%). Enterprise-ready, self-host edilebilir.\n- https://cohere.com/blog/transcribe&quot;}, {&quot;id&quot;: &quot;sec-13-microsoft-copilot-wave-3-researcher-model-counci&quot;, &quot;title&quot;: &quot;# Microsoft Copilot Wave 3 + Researcher + Model Council&quot;, &quot;content&quot;: &quot;Copilot Cowork genişletildi (Claude Cowork tabanlı). Yeni \&quot;Researcher\&quot; aracında Critique fonksiyonu: bir AI yazar, diğeri review eder (Anthropic + OpenAI modelleri). \&quot;Model Council\&quot; ile farklı model cevaplarını karşılaştırma.\n- https://the-decoder.com\n\n---&quot;}, {&quot;id&quot;: &quot;sec-14-arastirma-arxiv&quot;, &quot;title&quot;: &quot;📊 Araştırma (arXiv)&quot;, &quot;content&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;sec-15-multi-agent-sistemlerde-ortaya-ikan-sosyal-risk&quot;, &quot;title&quot;: &quot;# Multi-Agent Sistemlerde Ortaya Çıkan Sosyal Risk&quot;, &quot;content&quot;: &quot;LLM tabanlı çoklu-agent sistemlerde rekabet, sıralı işbirliği ve kolektif karar durumlarında **collusion ve conformity** davranışları kendiliğinden ortaya çıkıyor — talimat verilmeden, insan toplumlarındaki patolojileri yeniden üretiyorlar.\n- https://arxiv.org/abs/2603.27771&quot;}, {&quot;id&quot;: &quot;sec-16-medical-ai-scientist-otonom-klinik-arastirma&quot;, &quot;title&quot;: &quot;# Medical AI Scientist — Otonom Klinik Araştırma&quot;, &quot;content&quot;: &quot;İlk klinik araştırma odaklı otonom AI bilimci framework&#x27;ü. Paper reproduksiyon, literature-inspired inovasyon ve task-driven keşif modları. MICCAI kalitesinde makale üretiyor.\n- https://arxiv.org/abs/2603.28589&quot;}, {&quot;id&quot;: &quot;sec-17-gen-searcher-search-augmented-image-generation&quot;, &quot;title&quot;: &quot;# Gen-Searcher — Search-Augmented Image Generation&quot;, &quot;content&quot;: &quot;RL ile eğitilmiş agentic search ile image generation birleştirildi. Multi-hop reasoning + web search → grounded görüntü üretimi. WISE benchmark&#x27;ta +15 puan.\n- https://arxiv.org/abs/2603.28767&quot;}, {&quot;id&quot;: &quot;sec-18-llava-dymoe-continual-learning-icin-dynamic-moe&quot;, &quot;title&quot;: &quot;# LLaVA-DyMoE — Continual Learning için Dynamic MoE&quot;, &quot;content&quot;: &quot;CVPR 2026&#x27;da kabul edildi. Routing-drift sorununu çözen drift-aware token assignment. Mean final accuracy&#x27;de +7%, forgetting&#x27;de -12%.\n- https://arxiv.org/abs/2603.27481\n\n---&quot;}, {&quot;id&quot;: &quot;sec-19-github-trending-araclar&quot;, &quot;title&quot;: &quot;🔧 GitHub Trending &amp; Araçlar&quot;, &quot;content&quot;: &quot;| Repo | ⭐ | Açıklama |\n|------|-----|----------|\n| microsoft/VibeVoice | 33K | Open-source frontier voice AI |\n| NousResearch/hermes-agent | 20K | Büyüyebilen AI agent framework |\n| thedotmack/claude-mem | 44K | Claude Code session memory plugin |\n| shareAI-lab/learn-claude-code | 45K | \&quot;Bash is all you need\&quot; — nano Claude Code clone |\n| Yeachan-Heo/oh-my-claudecode | 19K | Teams-first multi-agent orchestration |\n| steipete/mcporter | 3.6K | MCP&#x27;leri TypeScript API olarak çağırma |\n| coder/mux | 1.6K | İzole, paralel agentic development desktop app |\n| timescale/pg_textsearch | — | Postgres BM25 full-text search extension |\n\n---&quot;}, {&quot;id&quot;: &quot;sec-20-dikkat-ekenler&quot;, &quot;title&quot;: &quot;💡 Dikkat Çekenler&quot;, &quot;content&quot;: &quot;- **KV Cache Derinlemesine:** GPT-2&#x27;den (300KB/token) DeepSeek V3&#x27;e (69KB/token) — 4.3x sıkıştırma yolculuğu detaylı analiz edildi\n- **Simon Willison:** LLM 0.30 çıktı, yeni plugin hook mekanizması. llm-all-models-async: sync modelleri async&#x27;e çeviren plugin\n- **Greptile analizi:** \&quot;AI slop\&quot; uzun vadede ekonomik baskıyla azalacak — iyi kod = daha az token = daha ucuz\n- **Müzik endüstrisi:** Hit yapımcılar AI kullanımını gizliyor (Rolling Stone araştırması)\n\n---\n\n**Toplam:** 10 ana haber, 4 araştırma makalesi, 8 trending repo | Dedupe: 10/10 yeni&quot;}]}</script>
+  <script src="https://cdn.jsdelivr.net/npm/marked@9.1.6/marked.min.js"></script>
+  <button class="back-to-top" type="button" data-back-top aria-label="Back to top">↑</button>
 </body>
 </html>

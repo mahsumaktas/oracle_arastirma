@@ -1,196 +1,107 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Yenilik Önceliği">
-<title>Oracle Araştırma — 2026-03-12</title>
-<style>
-/* ── Reset & base ── */
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#ffffff;--fg:#111111;--link:#0066cc;--link-hover:#004499;
-  --border:#dee2e6;--code-bg:#f4f4f4;--blockquote-bg:#f8f9fa;
-  --table-head:#f0f0f0;--table-stripe:#fafafa;
-  --accent:#2563eb;--warn:#f59e0b;--ok:#16a34a;--danger:#dc2626;
-  --font-sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  --font-mono:"SFMono-Regular",Menlo,Monaco,Consolas,"Liberation Mono",monospace;
-  --radius:8px;
-}
-@media(prefers-color-scheme:dark){
-  :root{
-    --bg:#0d1117;--fg:#e6edf3;--link:#58a6ff;--link-hover:#79b8ff;
-    --border:#30363d;--code-bg:#161b22;--blockquote-bg:#161b22;
-    --table-head:#161b22;--table-stripe:#161b22;
-    --accent:#58a6ff;
-  }
-}
-html{scroll-behavior:smooth}
-body{
-  background:var(--bg);color:var(--fg);
-  font-family:var(--font-sans);font-size:16px;line-height:1.7;
-  -webkit-text-size-adjust:100%;
-}
-
-/* ── Layout ── */
-.page-wrap{max-width:860px;margin:0 auto;padding:0 16px 80px}
-header{
-  background:var(--accent);color:#fff;
-  padding:18px 16px 14px;
-  border-radius:0 0 var(--radius) var(--radius);
-  margin-bottom:28px;
-}
-header h1{font-size:clamp(1.1rem,4vw,1.5rem);font-weight:700;line-height:1.3}
-header .meta{font-size:.85rem;opacity:.85;margin-top:6px}
-header .meta a{color:#cfe2ff;text-decoration:none}
-header .meta a:hover{text-decoration:underline}
-
-nav.breadcrumb{font-size:.85rem;margin-bottom:20px;color:var(--link)}
-nav.breadcrumb a{color:var(--link);text-decoration:none}
-nav.breadcrumb a:hover{text-decoration:underline}
-nav.breadcrumb span{color:var(--fg);opacity:.6;margin:0 6px}
-
-/* ── Markdown content ── */
-#content h1{font-size:clamp(1.3rem,5vw,1.8rem);margin:32px 0 12px;line-height:1.3}
-#content h2{font-size:clamp(1.1rem,4vw,1.4rem);margin:28px 0 10px;border-bottom:2px solid var(--border);padding-bottom:6px}
-#content h3{font-size:clamp(1rem,3.5vw,1.2rem);margin:22px 0 8px}
-#content p{margin:10px 0}
-#content a{color:var(--link);word-break:break-word}
-#content a:hover{color:var(--link-hover)}
-#content strong{font-weight:700}
-#content em{font-style:italic}
-#content hr{border:none;border-top:2px solid var(--border);margin:28px 0}
-
-/* ── Lists ── */
-#content ul,#content ol{margin:10px 0 10px 1.4em}
-#content li{margin:4px 0}
-
-/* ── Blockquotes ── */
-#content blockquote{
-  background:var(--blockquote-bg);
-  border-left:4px solid var(--accent);
-  margin:14px 0;padding:10px 16px;
-  border-radius:0 var(--radius) var(--radius) 0;
-}
-#content blockquote p{margin:4px 0}
-
-/* ── Code ── */
-#content code{
-  background:var(--code-bg);color:var(--fg);
-  border-radius:4px;padding:2px 6px;
-  font-family:var(--font-mono);font-size:.88em;
-  word-break:break-all;
-}
-#content pre{
-  background:var(--code-bg);border-radius:var(--radius);
-  padding:14px 16px;overflow-x:auto;margin:14px 0;
-}
-#content pre code{
-  background:none;padding:0;border-radius:0;
-  font-size:.85em;word-break:normal;
-}
-
-/* ── Tables — responsive wrap ── */
-.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0}
-#content table{
-  border-collapse:collapse;width:100%;min-width:340px;
-  font-size:.9em;
-}
-#content th{
-  background:var(--table-head);
-  text-align:left;padding:8px 12px;
-  border:1px solid var(--border);font-weight:600;
-}
-#content td{
-  padding:7px 12px;border:1px solid var(--border);
-  vertical-align:top;word-break:break-word;
-}
-#content tr:nth-child(even) td{background:var(--table-stripe)}
-
-/* ── Emoji badges in text ── */
-.badge{
-  display:inline-block;padding:1px 7px;border-radius:99px;
-  font-size:.78rem;font-weight:600;line-height:1.6;
-}
-
-/* ── Back to top ── */
-#back-top{
-  position:fixed;bottom:20px;right:16px;
-  background:var(--accent);color:#fff;
-  border:none;border-radius:50%;width:44px;height:44px;
-  font-size:1.3rem;cursor:pointer;
-  box-shadow:0 2px 8px rgba(0,0,0,.3);
-  display:flex;align-items:center;justify-content:center;
-  text-decoration:none;
-}
-#back-top:hover{opacity:.85}
-
-/* ── Loading state ── */
-#loading{text-align:center;padding:60px 0;color:var(--fg);opacity:.5;font-size:1.1rem}
-</style>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Oracle Gece Araştırma raporu 2026-03-12">
+<title>🔬 Gece Araştırma — 2026-03-12 (Perşembe 01:21 İST) · Oracle Gece Araştırma</title>
+<link rel="canonical" href="https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-12.html">
+<link rel="alternate" hreflang="tr" href="https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-12.html">
+<link rel="alternate" hreflang="en" href="https://mahsumaktas.github.io/oracle_arastirma/en/reports/2026-03-12.html">
+<link rel="alternate" hreflang="es" href="https://mahsumaktas.github.io/oracle_arastirma/es/reports/2026-03-12.html">
+<link rel="alternate" hreflang="x-default" href="https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-12.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<script defer src="../assets/site.js"></script>
 </head>
 <body>
-<header>
-  <div class="page-wrap">
-    <h1>🔬 🔬 Gece Araştırma — 2026-03-12 (Perşembe 01:21 İST)</h1>
-    <div class="meta">
-      Oracle Gece Araştırma &middot; 2026-03-12 &middot;
-      <a href="https://mahsumaktas.github.io/oracle_arastirma/index.html">← Tüm Raporlar</a>
+  <header class="site-header">
+  <div class="shell header-bar">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark">🦉</span>
+      <span class="brand-text">
+        <span class="brand-kicker">Oracle archive</span>
+        <h1 class="brand-title">Oracle Gece Araştırma</h1>
+        <p class="brand-subtitle">2026-03-12</p>
+      </span>
+    </a>
+    <div class="header-actions">
+      <div class="lang-switch"><span class="lang-switch-label">Dil</span><a class="lang-chip is-active" href="2026-03-12.html" lang="tr">TÜ</a><a class="lang-chip" href="../en/reports/2026-03-12.html" lang="en">EN</a><a class="lang-chip" href="../es/reports/2026-03-12.html" lang="es">ES</a></div>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle theme"><span data-theme-icon>◐</span></button>
     </div>
   </div>
 </header>
+  <main class="shell">
+    <section class="hero">
+      <div class="hero-card">
+        <div class="hero-layout">
+          <div>
+            <div class="breadcrumbs"><a href="../index.html">Arşive dön</a><span>•</span><span>2026-03-12</span></div>
+            <span class="hero-kicker">Araştırma raporu</span>
+            <h1>🔬 Gece Araştırma — 2026-03-12 (Perşembe 01:21 İST)</h1>
+            <p>**Yenilik Önceliği** · 9/9 kategori · 20+ kaynak tarandı · Dedupe: Anthropic Pentagon dava, Karpathy autoresearch, MCP ana hikayesi, Microsoft Phi-4 gibi önceki konular elendi</p>
+            <div class="hero-actions">
+              <span class="hero-pill"><strong>13</strong> bölüm</span>
+              <span class="hero-pill"><strong>1389</strong> kelime</span>
+            </div>
+          </div>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <span class="stat-label">Öne çıkan not</span>
+              <div class="stat-detail">**Yenilik Önceliği** · 9/9 kategori · 20+ kaynak tarandı · Dedupe: Anthropic Pentagon dava, Karpathy autoresearch, MCP ana hikayesi, Microsoft Phi-4 gibi önceki konular elendi</div>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Hızlı erişim</span>
+              <div class="report-actions-row" style="margin-top:12px">
+                <a class="button" href="../raw/2026-03-12.md">Ham markdown</a>
+                <a class="ghost-button" href="../index.html">Tüm raporlar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<div class="page-wrap">
-  <nav class="breadcrumb">
-    <a href="https://mahsumaktas.github.io/oracle_arastirma/index.html">Oracle Araştırma</a>
-    <span>/</span>
-    2026-03-12
-  </nav>
-
-  <div id="loading">Rapor yükleniyor…</div>
-  <div id="content" style="display:none"></div>
-</div>
-
-<a href="#" id="back-top" title="Yukarı" aria-label="Yukarı git">↑</a>
-
-<!-- marked.js — lightweight CDN markdown parser (no server needed) -->
-<script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
-<script>
-(function(){
-  // ── Raw markdown (HTML-escaped by publisher, decoded here) ──
-  var RAW = "# \ud83d\udd2c Gece Ara\u015ft\u0131rma \u2014 2026-03-12 (Per\u015fembe 01:21 \u0130ST)\n\n> **Yenilik \u00d6nceli\u011fi** \u00b7 9/9 kategori \u00b7 20+ kaynak tarand\u0131 \u00b7 Dedupe: Anthropic Pentagon dava, Karpathy autoresearch, MCP ana hikayesi, Microsoft Phi-4 gibi \u00f6nceki konular elendi\n\n---\n\n## \ud83d\udd25 Top 7 \u2014 Sadece GER\u00c7EKTEN YEN\u0130 (Son 24-48 Saat Delta)\n\n| # | Madde | Kategori | Kaynak | \u00d6nem |\n|---|-------|----------|--------|------|\n| 1 | **Anthropic Code Review Multi-Agent PR Analizi (9 Mart)** \u2014 Paralel ajan tak\u0131m\u0131 her PR'da bug yakal\u0131yor. \u0130\u00e7 testlerde review oran\u0131 %16\u2192%54. B\u00fcy\u00fck PR'larda (%1.000+ sat\u0131r) %84 bulgu. Enterprise i\u015f ak\u0131\u015flar\u0131n\u0131 d\u00f6n\u00fc\u015ft\u00fcr\u00fcyor. [\ud83d\udd17 TechCrunch](https://techcrunch.com/2026/03/09/anthropic-launches-code-review-tool) | KAT-1/KAT-2 | TechCrunch, VentureBeat | \ud83d\udd34 |\n| 2 | **Anthropic Pentagon Davas\u0131 + Microsoft M365 Ortakl\u0131\u011f\u0131 \u2014 Ayn\u0131 G\u00fcn** \u2014 Anthropic, DOD kara listesine dava a\u00e7arken Microsoft 365 Copilot'a Claude entegrasyonu imzaland\u0131. [\ud83d\udd17 VentureBeat](https://venturebeat.com/technology/anthropic-rolls-out-code-review-for-claude-code-as-it-sues-over-pentagon) | KAT-1/KAT-7 | VentureBeat | \ud83d\udd34 |\n| 3 | **MCP 10.000+ Server + A2A 100+ Kurum** \u2014 Ajan internet altyap\u0131s\u0131 olgunla\u015f\u0131yor. WebMCP Chrome 146 Canary ile geliyor. Python/TS SDK 97M indirme/ay. [\ud83d\udd17 dev.to](https://dev.to/alexmercedcoder/ai-weekly-claude-code-dominates-mcp-goes-mainstream-week-of-march-5-2026-15af) | KAT-2 | dev.to | \ud83d\udd34 |\n| 4 | **Tesla Optimus v3 \"\u0130nsan Elleri\" Foto\u011fraf\u0131 (11 Mart)** \u2014 TeslaAI Weibo'da neredeyse insan eline benzeyen hassas parmak g\u00f6rseli payla\u015ft\u0131. X'te viral. [\ud83d\udd17 Teslarati](https://www.teslarati.com/tesla-optimus-human-like-hands-teaser/) | KAT-8 | Teslarati | \ud83d\udd34 |\n| 5 | **llama.cpp \u2192 Hugging Face Birle\u015fimi (20 \u015eubat)** \u2014 Georgi Gerganov tam zamanl\u0131 HF'ye kat\u0131ld\u0131. GGUF + HF Hub = yerel AI ekosistemi birle\u015fiyor. [\ud83d\udd17 enclaveai.app](https://enclaveai.app/blog/2026/02/21/llama-cpp-joins-hugging-face-local-ai/) | KAT-9 | enclaveai.app | \ud83d\udd34 |\n| 6 | **Karpathy: \"Asenkron Kolektif Ajan Ara\u015ft\u0131rmas\u0131\"** \u2014 SETI@home modeli AI R&D \u00f6nerisi. Da\u011f\u0131t\u0131k g\u00f6rev par\u00e7alama, tekille\u015ftirme, ajan \u00e7apraz bellek gerektirir. [\ud83d\udd17 blockchain.news](https://blockchain.news/ainews/autoresearch-breakthrough-karpathy-calls-for-massively-asynchronous-collaborative-ai-agents-seti-home-style-2026-analysis) | KAT-4 | blockchain.news | \ud83d\udfe1 |\n| 7 | **\u00c7in Humanoid %90 Pazar Pay\u0131** \u2014 Unitree 5.500 robot, Agibot 5.168 robot 2025'te. Bat\u0131 hen\u00fcz rekabet edemiyor. [\ud83d\udd17 restofworld.org](https://restofworld.org/2026/china-humanoid-robots-unitree-agibot-tesla-optimus/) | KAT-8 | restofworld.org | \ud83d\udfe1 |\n\n**Dedupe notu:** Elenen konular \u2014 Anthropic-Pentagon dava ana hikayesi (\u00f6nceki g\u00fcn), Karpathy autoresearch ilk haberi, OpenAI ChatGPT for Excel ilk haberi.\n\n---\n\n## \ud83e\udd16 KAT-1 \u00b7 AI Laboratuvarlar\u0131 & Model Haberleri\n\n- **Anthropic Code Review (9 Mart 2026):** Multi-agent PR analizi. %16\u2192%54 review oran\u0131 art\u0131\u015f\u0131. PR ba\u015f\u0131na $15\u201325 maliyet, ~20 dakika s\u00fcre. [\ud83d\udd17 techcrunch.com](https://techcrunch.com/2026/03/09/anthropic-launches-code-review-tool) | [\ud83d\udd17 claude.com/blog/code-review](https://claude.com/blog/code-review)\n\n- **OpenAI ChatGPT for Excel & \u0130nteraktif Matematik:** GPT-5.4 Thinking motoru. Se\u00e7ili Business plan kullan\u0131c\u0131lar\u0131na a\u00e7\u0131ld\u0131. 70+ konu i\u00e7in interaktif g\u00f6rsel a\u00e7\u0131klama. [\ud83d\udd17 releasebot.io](https://releasebot.io/updates/openai)\n\n- **Gemini 3.1 Pro Benchmark Hakimiyeti:** 16 major benchmark'\u0131n 13'\u00fcnde lider. 1M context, ARC-AGI-2'de %77.1. [\ud83d\udd17 llm-stats.com](https://llm-stats.com/ai-news)\n\n- **Grok 4.1 & Yeni Ses Modelleri:** LM Arena liderlik tablosu zirvesi. Y\u00fcksek EQ + g\u00fc\u00e7l\u00fc mant\u0131k. [\ud83d\udd17 nhlocal.github.io](https://nhlocal.github.io/AiTimeline/)\n\n---\n\n## \ud83d\udd78\ufe0f KAT-2 \u00b7 Agent & Framework\n\n- **Claude Code Review Multi-Agent (9 Mart):** PR ba\u015f\u0131na paralel ajan tak\u0131m\u0131. Enterprise Team + Enterprise plan m\u00fc\u015fterilerine ara\u015ft\u0131rma \u00f6nizlemesi. Dahili Anthropic'te m\u00fchendis ba\u015f\u0131na kod \u00e7\u0131kt\u0131s\u0131 %200 artt\u0131. [\ud83d\udd17 techcrunch.com](https://techcrunch.com/2026/03/09/anthropic-launches-code-review-tool)\n\n- **MCP + A2A Olgunla\u015fma:** 10.000+ MCP sunucu, 97M SDK indirme/ay. Chrome 146 Canary WebMCP ile geliyor. Fortune 500 kurumsal da\u011f\u0131t\u0131mlar\u0131. [\ud83d\udd17 dev.to](https://dev.to/alexmercedcoder/ai-weekly-claude-code-dominates-mcp-goes-mainstream-week-of-march-5-2026-15af)\n\n- **Apple Xcode 26.3 MCP Entegrasyonu:** Herhangi MCP-uyumlu ajan Xcode'a \"tak\u0131labiliyor\". Claude Code ve Cursor harici edit\u00f6rler Xcode derleme sistemi \u00fczerinden s\u00fcr\u00fclebiliyor. [\ud83d\udd17 creati.ai](https://creati.ai/ai-news/2026-02-11/apple-xcode-263-agentic-coding-claude-codex-integration/)\n\n---\n\n## \ud83d\udcc4 KAT-3 \u00b7 Makaleler & Ara\u015ft\u0131rma\n\n| arXiv / Kaynak | Ba\u015fl\u0131k | Neden \u00d6nemli |\n|----------------|--------|--------------|\n| arxiv.org/list/cs.AI/current | ICLR 2026 Post-AGI Workshop | G\u00fcnl\u00fck 490+ makale hacmiyle rekor; yapay zeka sonras\u0131 toplumsal etki ana tema |\n| arxiv.org/list/cs.AI/new | DeepEarth: Gezegen \u00d6l\u00e7e\u011finde D\u00fcnya Modeli | 4D uzay-zaman, santimetre/saniye hassasiyetle k\u00fcresel \u00f6l\u00e7ek |\n| [github.com/dair-ai/ML-Papers-of-the-Week](https://github.com/dair-ai/ML-Papers-of-the-Week) | AlphaGenome (DeepMind) | RNA ekleme kav\u015fak tahmini; AMI, SMA hastaliklar\u0131na kap\u0131 |\n| [github.com/dair-ai/ML-Papers-of-the-Week](https://github.com/dair-ai/ML-Papers-of-the-Week) | AlphaEvolve | LLM g\u00fcd\u00fcml\u00fc evrimsel algoritma kod ajan\u0131 |\n\n---\n\n## \ud83e\udde0 KAT-4 \u00b7 D\u00fc\u015f\u00fcnce Liderleri\n\n| Ki\u015fi | G\u00f6r\u00fc\u015f \u00d6zeti | Tarih | Kaynak |\n|------|-------------|-------|--------|\n| Karpathy | \"Post-AGI hissiyat\u0131\" \u2014 hands-free, hi\u00e7bir \u015feye dokunmadan \u00e7al\u0131\u015fma | 6 Mart | [\ud83d\udd17](https://blockchain.news/ainews/autoresearch-breakthrough-karpathy-calls-for-massively-asynchronous-collaborative-ai-agents-seti-home-style-2026-analysis) |\n| Karpathy | Asenkron SETI@home modeli ajan ara\u015ft\u0131rmas\u0131 \u00f6nerisi | 8 Mart | [\ud83d\udd17](https://blockchain.news/ainews/autoresearch-breakthrough-karpathy-calls-for-massively-asynchronous-collaborative-ai-agents-seti-home-style-2026-analysis) |\n| Karpathy | \"microGPT\" \u2014 200 sat\u0131r saf Python ile GPT | 12 \u015eubat | [\ud83d\udd17 karpathy.github.io](http://karpathy.github.io/) |\n\n---\n\n## \ud83d\udd34 KAT-5 \u00b7 Reddit Viral\n\n| Subreddit | Ba\u015fl\u0131k | Kaynak |\n|-----------|--------|--------|\n| r/LocalLLaMA | llama.cpp \u2192 Hugging Face tam zamanl\u0131 birle\u015fimi | [\ud83d\udd17 enclaveai.app](https://enclaveai.app/blog/2026/02/21/llama-cpp-joins-hugging-face-local-ai/) |\n| r/LocalLLaMA | Tencent WeDLM 8B \u2014 diffusion LM, standart LLM'den 3-6\u00d7 h\u0131zl\u0131 | [\ud83d\udd17 latent.space](https://www.latent.space/p/ainews-truth-in-the-time-of-artifice) |\n| r/MachineLearning | Meta \"Geni\u015f ve Derin Transformat\u00f6rlerin Teorisi\" makalesi | [\ud83d\udd17 latent.space](https://www.latent.space/p/ainews-truth-in-the-time-of-artifice) |\n\n---\n\n## \ud83d\udc26 KAT-6 \u00b7 Twitter/X Viral\n\n- **#ClaudeCode + #Anthropic** \u2014 Code Review lansman\u0131 + Pentagon davas\u0131 + Microsoft M365 \u00fc\u00e7l\u00fcs\u00fc; saatlerce g\u00fcndemde kald\u0131.\n- **#OptimusV3 + #TeslaBot** \u2014 Tesla Optimus v3 \"insan elleri\" foto\u011fraf\u0131 viral. [\ud83d\udd17 teslarati.com](https://www.teslarati.com/tesla-optimus-human-like-hands-teaser/)\n- **Karpathy \"Post-AGI Sauna\" Tweeti** \u2014 Binlerce RT. AI toplulu\u011funun haftal\u0131k mizah ve ger\u00e7ekten kesi\u015fim noktas\u0131.\n\n---\n\n## \u2601\ufe0f KAT-7 \u00b7 Platform & Ekosistem\n\n- **Microsoft: Claude \u2192 M365 Copilot Entegrasyonu:** Code Review lansman\u0131yla ayn\u0131 g\u00fcn. Azure + NVIDIA Rubin tabanl\u0131 \u00f6rnekler 2026 y\u0131l\u0131nda geliyor. [\ud83d\udd17 redmondmag.com](https://redmondmag.com/articles/2026/01/06/microsoft-signals-azure-datacenter-readiness-for-nvidia-rubin-platform.aspx)\n\n- **AWS $200B CapEx + 12 Servis Emeklili\u011fi:** Rekor sermaye harcamas\u0131. AI altyap\u0131s\u0131na odak. 12+ eski servis koordineli emekliye ayr\u0131ld\u0131. [\ud83d\udd17 thinkmovesolutions.com](https://thinkmovesolutions.com/blogs/aws-in-2026-latest-services-updates/)\n\n- **GitHub 4.3M AI Repository:** 180M geli\u015ftirici, Copilot kullan\u0131m\u0131 %80. Agent HQ ile g\u00fcvenlik ve \u00f6l\u00e7eklenebilirlik. [\ud83d\udd17 github.blog](https://github.blog/)\n\n---\n\n## \ud83e\uddbe KAT-8 \u00b7 Robotik & Edge AI\n\n- **Tesla Optimus v3 Hassas El G\u00f6rseli (11 Mart):** Neredeyse insan eline \u00f6zde\u015f parmaklar. Musk: \"Ger\u00e7ek d\u00fcnyan\u0131n ilk Von Neumann makinesi olabilir\". [\ud83d\udd17 teslarati.com](https://www.teslarati.com/tesla-optimus-human-like-hands-teaser/)\n\n- **\u00c7in Humanoid %90 Pazar Pay\u0131:** Unitree 2025'te 5.500 birim (ilk kez a\u00e7\u0131klama). Agibot 5.168 birim. Bat\u0131 rakip olam\u0131yor. [\ud83d\udd17 restofworld.org](https://restofworld.org/2026/china-humanoid-robots-unitree-agibot-tesla-optimus/)\n\n- **Figure Helix 02 Tam-V\u00fccut \u00d6zerklik:** Tahmin edilemez ev ortamlar\u0131 i\u00e7in genel ama\u00e7l\u0131 ev yard\u0131m\u0131. 2026 alfa ev testleri. [\ud83d\udd17 humanoid.press](https://www.humanoid.press/)\n\n---\n\n## \ud83d\udd13 KAT-9 \u00b7 OSS & \u00dcr\u00fcn Sinyalleri\n\n- **llama.cpp \u2192 Hugging Face (20 \u015eubat):** GGUF + HF Hub birle\u015fimi. Yerel \u00e7\u0131kar\u0131m bulut \u00e7\u0131kar\u0131m\u0131na ger\u00e7ek alternatif oluyor. [\ud83d\udd17 enclaveai.app](https://enclaveai.app/blog/2026/02/21/llama-cpp-joins-hugging-face-local-ai/)\n\n- **Qwen 3.5 Edge Serisi (0.8B/2B/4B/9B):** 262K do\u011fal context (1M'a geni\u015fletilebilir). Kenar + hafif ajan da\u011f\u0131t\u0131mlar\u0131. [\ud83d\udd17 latent.space](https://www.latent.space/p/ainews-truth-in-the-time-of-artifice)\n\n- **Mistral 3 Ailesi (Devstral + Codestral 2508):** GPT-5.2 performans\u0131n\u0131n %92'si, fiyat\u0131n %15'ine. 80+ dilde d\u00fc\u015f\u00fck gecikme. [\ud83d\udd17 shakudo.io](https://www.shakudo.io/blog/top-9-large-language-models)\n\n---\n\n## \ud83d\udc26 CikCik Paketi\n\n### Tweetler\n\n**Tweet 1 (Anthropic Code Review):**\n> Claude Code art\u0131k PR'lar\u0131n\u0131 kendi review ediyor. Paralel multi-agent sistem, b\u00fcy\u00fck PR'larda %84 bulgu oran\u0131na ula\u015ft\u0131. Anthropic m\u00fchendisleri art\u0131k PR ba\u015f\u0131na 7.5 sorun bulan bir asistanla \u00e7al\u0131\u015f\u0131yor \ud83e\uddf5\n\n**Tweet 2 (Optimus v3):**\n> Tesla Optimus v3'\u00fcn el foto\u011fraf\u0131 \u00e7\u0131kt\u0131. \"\u0130nsan elleriyle neredeyse \u00f6zde\u015f\" yorumlar\u0131 ya\u011f\u0131yor. Musk'\u0131n \"Von Neumann makinesi\" hedefi art\u0131k \u00e7ok uzak de\u011fil \ud83e\udd16\n\n**Tweet 3 (llama.cpp + HF):**\n> llama.cpp, Hugging Face'e kat\u0131ld\u0131. Gerganov: \"Yerel \u00e7\u0131kar\u0131m\u0131 bulut \u00e7\u0131kar\u0131m\u0131na ger\u00e7ek alternatif yapmak istiyoruz.\" A\u00e7\u0131k kaynak AI tarihinde d\u00f6n\u00fcm noktas\u0131.\n\n### Reply F\u0131rsatlar\u0131\n\n**@karpathy alt\u0131na:**\n> Async kolektif ajan ara\u015ft\u0131rmas\u0131 \u2014 Oracle'\u0131n trajectory pool + seen-topics mant\u0131\u011f\u0131n\u0131n tam olarak gitti\u011fi yer bu. Ajanlar aras\u0131 bellek senkronizasyonu next frontier.\n\n---\n\n*Rapor: Gece Ara\u015ft\u0131rma v2 \u00b7 2026-03-12 01:21 \u0130ST \u00b7 Oracle \ud83e\udd89*\n";
-
-  // ── marked config ──
-  marked.setOptions({
-    gfm:true,
-    breaks:false,
-    mangle:false,
-    headerIds:false
-  });
-
-  // ── Wrap tables for horizontal scroll ──
-  var renderer = new marked.Renderer();
-  renderer.table = function(header, body){
-    return '<div class="table-wrap"><table><thead>' + header + '</thead><tbody>' + body + '</tbody></table></div>';
-  };
-
-  var html = marked.parse(RAW, {renderer:renderer});
-  var content = document.getElementById('content');
-  var loading = document.getElementById('loading');
-  content.innerHTML = html;
-  content.style.display = '';
-  loading.style.display = 'none';
-
-  // ── Open external links in new tab ──
-  var links = content.querySelectorAll('a[href]');
-  for(var i=0;i<links.length;i++){
-    var href = links[i].getAttribute('href');
-    if(href && (href.startsWith('http://') || href.startsWith('https://'))){
-      links[i].setAttribute('target','_blank');
-      links[i].setAttribute('rel','noopener noreferrer');
-    }
-  }
-})();
-</script>
+    <section class="report-layout">
+      <aside class="sticky-column stack">
+        <div class="panel">
+          <div class="panel-title"><div><h3>İçindekiler</h3><p>Türkçe kaynak korunur, alternatif diller otomatik olarak üretilir.</p></div></div>
+          <nav class="report-nav"><a class="section-link" href="#sec-1-top-7-sadece-ger-ekten-yeni-son-24-48-saat-delta" data-section-link>🔥 Top 7 — Sadece GERÇEKTEN YENİ (Son 24-48 Saat Delta)</a><a class="section-link" href="#sec-2-kat-1-ai-laboratuvarlari-model-haberleri" data-section-link>🤖 KAT-1 · AI Laboratuvarları &amp; Model Haberleri</a><a class="section-link" href="#sec-3-kat-2-agent-framework" data-section-link>🕸️ KAT-2 · Agent &amp; Framework</a><a class="section-link" href="#sec-4-kat-3-makaleler-arastirma" data-section-link>📄 KAT-3 · Makaleler &amp; Araştırma</a><a class="section-link" href="#sec-5-kat-4-dusunce-liderleri" data-section-link>🧠 KAT-4 · Düşünce Liderleri</a><a class="section-link" href="#sec-6-kat-5-reddit-viral" data-section-link>🔴 KAT-5 · Reddit Viral</a><a class="section-link" href="#sec-7-kat-6-twitter-x-viral" data-section-link>🐦 KAT-6 · Twitter/X Viral</a><a class="section-link" href="#sec-8-kat-7-platform-ekosistem" data-section-link>☁️ KAT-7 · Platform &amp; Ekosistem</a><a class="section-link" href="#sec-9-kat-8-robotik-edge-ai" data-section-link>🦾 KAT-8 · Robotik &amp; Edge AI</a><a class="section-link" href="#sec-10-kat-9-oss-run-sinyalleri" data-section-link>🔓 KAT-9 · OSS &amp; Ürün Sinyalleri</a><a class="section-link" href="#sec-11-cikcik-paketi" data-section-link>🐦 CikCik Paketi</a><a class="section-link" href="#sec-12-tweetler" data-section-link># Tweetler</a><a class="section-link" href="#sec-13-reply-firsatlari" data-section-link># Reply Fırsatları</a></nav>
+        </div>
+        <div class="panel">
+          <div class="panel-title"><div><h3>Hızlı erişim</h3></div></div>
+          <div class="report-tools">
+            <a class="ghost-button" href="../raw/2026-03-12.md">Kaynak markdown</a>
+            <a class="ghost-button" href="2026-03-12.html">Türkçe orijinal</a>
+            <a class="ghost-button" href="2026-03-11.html">Önceki rapor</a>
+            <a class="ghost-button" href="2026-03-13.html">Sonraki rapor</a>
+          </div>
+        </div>
+      </aside>
+      <div class="report-main">
+        <section class="report-summary-card rendered-markdown">
+          <div class="section-head">
+            <div>
+              <div class="section-kicker">Rapor özeti</div>
+              <h2>Rapor özeti</h2>
+            </div>
+          </div>
+          <blockquote><p><strong>Yenilik Önceliği</strong> · 9/9 kategori · 20+ kaynak tarandı · Dedupe: Anthropic Pentagon dava, Karpathy autoresearch, MCP ana hikayesi, Microsoft Phi-4 gibi önceki konular elendi</p></blockquote>
+        </section>
+        <div data-report-sections></div>
+      </div>
+    </section>
+  </main>
+  <footer class="shell footer">
+    <div class="footer-card">
+      <p>Oracle gece araştırma arşivi, Türkçe asıl içerik korunarak üretilir.</p>
+      <p>2026-04-11 23:10 UTC</p>
+    </div>
+  </footer>
+  <script id="report-data" type="application/json">{&quot;sectionLabel&quot;: &quot;Bölümler&quot;, &quot;sections&quot;: [{&quot;id&quot;: &quot;sec-1-top-7-sadece-ger-ekten-yeni-son-24-48-saat-delta&quot;, &quot;title&quot;: &quot;🔥 Top 7 — Sadece GERÇEKTEN YENİ (Son 24-48 Saat Delta)&quot;, &quot;content&quot;: &quot;| # | Madde | Kategori | Kaynak | Önem |\n|---|-------|----------|--------|------|\n| 1 | **Anthropic Code Review Multi-Agent PR Analizi (9 Mart)** — Paralel ajan takımı her PR&#x27;da bug yakalıyor. İç testlerde review oranı %16→%54. Büyük PR&#x27;larda (%1.000+ satır) %84 bulgu. Enterprise iş akışlarını dönüştürüyor. [🔗 TechCrunch](https://techcrunch.com/2026/03/09/anthropic-launches-code-review-tool) | KAT-1/KAT-2 | TechCrunch, VentureBeat | 🔴 |\n| 2 | **Anthropic Pentagon Davası + Microsoft M365 Ortaklığı — Aynı Gün** — Anthropic, DOD kara listesine dava açarken Microsoft 365 Copilot&#x27;a Claude entegrasyonu imzalandı. [🔗 VentureBeat](https://venturebeat.com/technology/anthropic-rolls-out-code-review-for-claude-code-as-it-sues-over-pentagon) | KAT-1/KAT-7 | VentureBeat | 🔴 |\n| 3 | **MCP 10.000+ Server + A2A 100+ Kurum** — Ajan internet altyapısı olgunlaşıyor. WebMCP Chrome 146 Canary ile geliyor. Python/TS SDK 97M indirme/ay. [🔗 dev.to](https://dev.to/alexmercedcoder/ai-weekly-claude-code-dominates-mcp-goes-mainstream-week-of-march-5-2026-15af) | KAT-2 | dev.to | 🔴 |\n| 4 | **Tesla Optimus v3 \&quot;İnsan Elleri\&quot; Fotoğrafı (11 Mart)** — TeslaAI Weibo&#x27;da neredeyse insan eline benzeyen hassas parmak görseli paylaştı. X&#x27;te viral. [🔗 Teslarati](https://www.teslarati.com/tesla-optimus-human-like-hands-teaser/) | KAT-8 | Teslarati | 🔴 |\n| 5 | **llama.cpp → Hugging Face Birleşimi (20 Şubat)** — Georgi Gerganov tam zamanlı HF&#x27;ye katıldı. GGUF + HF Hub = yerel AI ekosistemi birleşiyor. [🔗 enclaveai.app](https://enclaveai.app/blog/2026/02/21/llama-cpp-joins-hugging-face-local-ai/) | KAT-9 | enclaveai.app | 🔴 |\n| 6 | **Karpathy: \&quot;Asenkron Kolektif Ajan Araştırması\&quot;** — SETI@home modeli AI R&amp;D önerisi. Dağıtık görev parçalama, tekilleştirme, ajan çapraz bellek gerektirir. [🔗 blockchain.news](https://blockchain.news/ainews/autoresearch-breakthrough-karpathy-calls-for-massively-asynchronous-collaborative-ai-agents-seti-home-style-2026-analysis) | KAT-4 | blockchain.news | 🟡 |\n| 7 | **Çin Humanoid %90 Pazar Payı** — Unitree 5.500 robot, Agibot 5.168 robot 2025&#x27;te. Batı henüz rekabet edemiyor. [🔗 restofworld.org](https://restofworld.org/2026/china-humanoid-robots-unitree-agibot-tesla-optimus/) | KAT-8 | restofworld.org | 🟡 |\n\n**Dedupe notu:** Elenen konular — Anthropic-Pentagon dava ana hikayesi (önceki gün), Karpathy autoresearch ilk haberi, OpenAI ChatGPT for Excel ilk haberi.\n\n---&quot;}, {&quot;id&quot;: &quot;sec-2-kat-1-ai-laboratuvarlari-model-haberleri&quot;, &quot;title&quot;: &quot;🤖 KAT-1 · AI Laboratuvarları &amp; Model Haberleri&quot;, &quot;content&quot;: &quot;- **Anthropic Code Review (9 Mart 2026):** Multi-agent PR analizi. %16→%54 review oranı artışı. PR başına $15–25 maliyet, ~20 dakika süre. [🔗 techcrunch.com](https://techcrunch.com/2026/03/09/anthropic-launches-code-review-tool) | [🔗 claude.com/blog/code-review](https://claude.com/blog/code-review)\n\n- **OpenAI ChatGPT for Excel &amp; İnteraktif Matematik:** GPT-5.4 Thinking motoru. Seçili Business plan kullanıcılarına açıldı. 70+ konu için interaktif görsel açıklama. [🔗 releasebot.io](https://releasebot.io/updates/openai)\n\n- **Gemini 3.1 Pro Benchmark Hakimiyeti:** 16 major benchmark&#x27;ın 13&#x27;ünde lider. 1M context, ARC-AGI-2&#x27;de %77.1. [🔗 llm-stats.com](https://llm-stats.com/ai-news)\n\n- **Grok 4.1 &amp; Yeni Ses Modelleri:** LM Arena liderlik tablosu zirvesi. Yüksek EQ + güçlü mantık. [🔗 nhlocal.github.io](https://nhlocal.github.io/AiTimeline/)\n\n---&quot;}, {&quot;id&quot;: &quot;sec-3-kat-2-agent-framework&quot;, &quot;title&quot;: &quot;🕸️ KAT-2 · Agent &amp; Framework&quot;, &quot;content&quot;: &quot;- **Claude Code Review Multi-Agent (9 Mart):** PR başına paralel ajan takımı. Enterprise Team + Enterprise plan müşterilerine araştırma önizlemesi. Dahili Anthropic&#x27;te mühendis başına kod çıktısı %200 arttı. [🔗 techcrunch.com](https://techcrunch.com/2026/03/09/anthropic-launches-code-review-tool)\n\n- **MCP + A2A Olgunlaşma:** 10.000+ MCP sunucu, 97M SDK indirme/ay. Chrome 146 Canary WebMCP ile geliyor. Fortune 500 kurumsal dağıtımları. [🔗 dev.to](https://dev.to/alexmercedcoder/ai-weekly-claude-code-dominates-mcp-goes-mainstream-week-of-march-5-2026-15af)\n\n- **Apple Xcode 26.3 MCP Entegrasyonu:** Herhangi MCP-uyumlu ajan Xcode&#x27;a \&quot;takılabiliyor\&quot;. Claude Code ve Cursor harici editörler Xcode derleme sistemi üzerinden sürülebiliyor. [🔗 creati.ai](https://creati.ai/ai-news/2026-02-11/apple-xcode-263-agentic-coding-claude-codex-integration/)\n\n---&quot;}, {&quot;id&quot;: &quot;sec-4-kat-3-makaleler-arastirma&quot;, &quot;title&quot;: &quot;📄 KAT-3 · Makaleler &amp; Araştırma&quot;, &quot;content&quot;: &quot;| arXiv / Kaynak | Başlık | Neden Önemli |\n|----------------|--------|--------------|\n| arxiv.org/list/cs.AI/current | ICLR 2026 Post-AGI Workshop | Günlük 490+ makale hacmiyle rekor; yapay zeka sonrası toplumsal etki ana tema |\n| arxiv.org/list/cs.AI/new | DeepEarth: Gezegen Ölçeğinde Dünya Modeli | 4D uzay-zaman, santimetre/saniye hassasiyetle küresel ölçek |\n| [github.com/dair-ai/ML-Papers-of-the-Week](https://github.com/dair-ai/ML-Papers-of-the-Week) | AlphaGenome (DeepMind) | RNA ekleme kavşak tahmini; AMI, SMA hastaliklarına kapı |\n| [github.com/dair-ai/ML-Papers-of-the-Week](https://github.com/dair-ai/ML-Papers-of-the-Week) | AlphaEvolve | LLM güdümlü evrimsel algoritma kod ajanı |\n\n---&quot;}, {&quot;id&quot;: &quot;sec-5-kat-4-dusunce-liderleri&quot;, &quot;title&quot;: &quot;🧠 KAT-4 · Düşünce Liderleri&quot;, &quot;content&quot;: &quot;| Kişi | Görüş Özeti | Tarih | Kaynak |\n|------|-------------|-------|--------|\n| Karpathy | \&quot;Post-AGI hissiyatı\&quot; — hands-free, hiçbir şeye dokunmadan çalışma | 6 Mart | [🔗](https://blockchain.news/ainews/autoresearch-breakthrough-karpathy-calls-for-massively-asynchronous-collaborative-ai-agents-seti-home-style-2026-analysis) |\n| Karpathy | Asenkron SETI@home modeli ajan araştırması önerisi | 8 Mart | [🔗](https://blockchain.news/ainews/autoresearch-breakthrough-karpathy-calls-for-massively-asynchronous-collaborative-ai-agents-seti-home-style-2026-analysis) |\n| Karpathy | \&quot;microGPT\&quot; — 200 satır saf Python ile GPT | 12 Şubat | [🔗 karpathy.github.io](http://karpathy.github.io/) |\n\n---&quot;}, {&quot;id&quot;: &quot;sec-6-kat-5-reddit-viral&quot;, &quot;title&quot;: &quot;🔴 KAT-5 · Reddit Viral&quot;, &quot;content&quot;: &quot;| Subreddit | Başlık | Kaynak |\n|-----------|--------|--------|\n| r/LocalLLaMA | llama.cpp → Hugging Face tam zamanlı birleşimi | [🔗 enclaveai.app](https://enclaveai.app/blog/2026/02/21/llama-cpp-joins-hugging-face-local-ai/) |\n| r/LocalLLaMA | Tencent WeDLM 8B — diffusion LM, standart LLM&#x27;den 3-6× hızlı | [🔗 latent.space](https://www.latent.space/p/ainews-truth-in-the-time-of-artifice) |\n| r/MachineLearning | Meta \&quot;Geniş ve Derin Transformatörlerin Teorisi\&quot; makalesi | [🔗 latent.space](https://www.latent.space/p/ainews-truth-in-the-time-of-artifice) |\n\n---&quot;}, {&quot;id&quot;: &quot;sec-7-kat-6-twitter-x-viral&quot;, &quot;title&quot;: &quot;🐦 KAT-6 · Twitter/X Viral&quot;, &quot;content&quot;: &quot;- **#ClaudeCode + #Anthropic** — Code Review lansmanı + Pentagon davası + Microsoft M365 üçlüsü; saatlerce gündemde kaldı.\n- **#OptimusV3 + #TeslaBot** — Tesla Optimus v3 \&quot;insan elleri\&quot; fotoğrafı viral. [🔗 teslarati.com](https://www.teslarati.com/tesla-optimus-human-like-hands-teaser/)\n- **Karpathy \&quot;Post-AGI Sauna\&quot; Tweeti** — Binlerce RT. AI topluluğunun haftalık mizah ve gerçekten kesişim noktası.\n\n---&quot;}, {&quot;id&quot;: &quot;sec-8-kat-7-platform-ekosistem&quot;, &quot;title&quot;: &quot;☁️ KAT-7 · Platform &amp; Ekosistem&quot;, &quot;content&quot;: &quot;- **Microsoft: Claude → M365 Copilot Entegrasyonu:** Code Review lansmanıyla aynı gün. Azure + NVIDIA Rubin tabanlı örnekler 2026 yılında geliyor. [🔗 redmondmag.com](https://redmondmag.com/articles/2026/01/06/microsoft-signals-azure-datacenter-readiness-for-nvidia-rubin-platform.aspx)\n\n- **AWS $200B CapEx + 12 Servis Emekliliği:** Rekor sermaye harcaması. AI altyapısına odak. 12+ eski servis koordineli emekliye ayrıldı. [🔗 thinkmovesolutions.com](https://thinkmovesolutions.com/blogs/aws-in-2026-latest-services-updates/)\n\n- **GitHub 4.3M AI Repository:** 180M geliştirici, Copilot kullanımı %80. Agent HQ ile güvenlik ve ölçeklenebilirlik. [🔗 github.blog](https://github.blog/)\n\n---&quot;}, {&quot;id&quot;: &quot;sec-9-kat-8-robotik-edge-ai&quot;, &quot;title&quot;: &quot;🦾 KAT-8 · Robotik &amp; Edge AI&quot;, &quot;content&quot;: &quot;- **Tesla Optimus v3 Hassas El Görseli (11 Mart):** Neredeyse insan eline özdeş parmaklar. Musk: \&quot;Gerçek dünyanın ilk Von Neumann makinesi olabilir\&quot;. [🔗 teslarati.com](https://www.teslarati.com/tesla-optimus-human-like-hands-teaser/)\n\n- **Çin Humanoid %90 Pazar Payı:** Unitree 2025&#x27;te 5.500 birim (ilk kez açıklama). Agibot 5.168 birim. Batı rakip olamıyor. [🔗 restofworld.org](https://restofworld.org/2026/china-humanoid-robots-unitree-agibot-tesla-optimus/)\n\n- **Figure Helix 02 Tam-Vücut Özerklik:** Tahmin edilemez ev ortamları için genel amaçlı ev yardımı. 2026 alfa ev testleri. [🔗 humanoid.press](https://www.humanoid.press/)\n\n---&quot;}, {&quot;id&quot;: &quot;sec-10-kat-9-oss-run-sinyalleri&quot;, &quot;title&quot;: &quot;🔓 KAT-9 · OSS &amp; Ürün Sinyalleri&quot;, &quot;content&quot;: &quot;- **llama.cpp → Hugging Face (20 Şubat):** GGUF + HF Hub birleşimi. Yerel çıkarım bulut çıkarımına gerçek alternatif oluyor. [🔗 enclaveai.app](https://enclaveai.app/blog/2026/02/21/llama-cpp-joins-hugging-face-local-ai/)\n\n- **Qwen 3.5 Edge Serisi (0.8B/2B/4B/9B):** 262K doğal context (1M&#x27;a genişletilebilir). Kenar + hafif ajan dağıtımları. [🔗 latent.space](https://www.latent.space/p/ainews-truth-in-the-time-of-artifice)\n\n- **Mistral 3 Ailesi (Devstral + Codestral 2508):** GPT-5.2 performansının %92&#x27;si, fiyatın %15&#x27;ine. 80+ dilde düşük gecikme. [🔗 shakudo.io](https://www.shakudo.io/blog/top-9-large-language-models)\n\n---&quot;}, {&quot;id&quot;: &quot;sec-11-cikcik-paketi&quot;, &quot;title&quot;: &quot;🐦 CikCik Paketi&quot;, &quot;content&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;sec-12-tweetler&quot;, &quot;title&quot;: &quot;# Tweetler&quot;, &quot;content&quot;: &quot;**Tweet 1 (Anthropic Code Review):**\n&gt; Claude Code artık PR&#x27;larını kendi review ediyor. Paralel multi-agent sistem, büyük PR&#x27;larda %84 bulgu oranına ulaştı. Anthropic mühendisleri artık PR başına 7.5 sorun bulan bir asistanla çalışıyor 🧵\n\n**Tweet 2 (Optimus v3):**\n&gt; Tesla Optimus v3&#x27;ün el fotoğrafı çıktı. \&quot;İnsan elleriyle neredeyse özdeş\&quot; yorumları yağıyor. Musk&#x27;ın \&quot;Von Neumann makinesi\&quot; hedefi artık çok uzak değil 🤖\n\n**Tweet 3 (llama.cpp + HF):**\n&gt; llama.cpp, Hugging Face&#x27;e katıldı. Gerganov: \&quot;Yerel çıkarımı bulut çıkarımına gerçek alternatif yapmak istiyoruz.\&quot; Açık kaynak AI tarihinde dönüm noktası.&quot;}, {&quot;id&quot;: &quot;sec-13-reply-firsatlari&quot;, &quot;title&quot;: &quot;# Reply Fırsatları&quot;, &quot;content&quot;: &quot;**@karpathy altına:**\n&gt; Async kolektif ajan araştırması — Oracle&#x27;ın trajectory pool + seen-topics mantığının tam olarak gittiği yer bu. Ajanlar arası bellek senkronizasyonu next frontier.\n\n---\n\n*Rapor: Gece Araştırma v2 · 2026-03-12 01:21 İST · Oracle 🦉*&quot;}]}</script>
+  <script src="https://cdn.jsdelivr.net/npm/marked@9.1.6/marked.min.js"></script>
+  <button class="back-to-top" type="button" data-back-top aria-label="Back to top">↑</button>
 </body>
 </html>

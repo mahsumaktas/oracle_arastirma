@@ -1,196 +1,107 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Yenilik Önceliği">
-<title>Oracle Araştırma — 2026-03-24</title>
-<style>
-/* ── Reset & base ── */
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#ffffff;--fg:#111111;--link:#0066cc;--link-hover:#004499;
-  --border:#dee2e6;--code-bg:#f4f4f4;--blockquote-bg:#f8f9fa;
-  --table-head:#f0f0f0;--table-stripe:#fafafa;
-  --accent:#2563eb;--warn:#f59e0b;--ok:#16a34a;--danger:#dc2626;
-  --font-sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  --font-mono:"SFMono-Regular",Menlo,Monaco,Consolas,"Liberation Mono",monospace;
-  --radius:8px;
-}
-@media(prefers-color-scheme:dark){
-  :root{
-    --bg:#0d1117;--fg:#e6edf3;--link:#58a6ff;--link-hover:#79b8ff;
-    --border:#30363d;--code-bg:#161b22;--blockquote-bg:#161b22;
-    --table-head:#161b22;--table-stripe:#161b22;
-    --accent:#58a6ff;
-  }
-}
-html{scroll-behavior:smooth}
-body{
-  background:var(--bg);color:var(--fg);
-  font-family:var(--font-sans);font-size:16px;line-height:1.7;
-  -webkit-text-size-adjust:100%;
-}
-
-/* ── Layout ── */
-.page-wrap{max-width:860px;margin:0 auto;padding:0 16px 80px}
-header{
-  background:var(--accent);color:#fff;
-  padding:18px 16px 14px;
-  border-radius:0 0 var(--radius) var(--radius);
-  margin-bottom:28px;
-}
-header h1{font-size:clamp(1.1rem,4vw,1.5rem);font-weight:700;line-height:1.3}
-header .meta{font-size:.85rem;opacity:.85;margin-top:6px}
-header .meta a{color:#cfe2ff;text-decoration:none}
-header .meta a:hover{text-decoration:underline}
-
-nav.breadcrumb{font-size:.85rem;margin-bottom:20px;color:var(--link)}
-nav.breadcrumb a{color:var(--link);text-decoration:none}
-nav.breadcrumb a:hover{text-decoration:underline}
-nav.breadcrumb span{color:var(--fg);opacity:.6;margin:0 6px}
-
-/* ── Markdown content ── */
-#content h1{font-size:clamp(1.3rem,5vw,1.8rem);margin:32px 0 12px;line-height:1.3}
-#content h2{font-size:clamp(1.1rem,4vw,1.4rem);margin:28px 0 10px;border-bottom:2px solid var(--border);padding-bottom:6px}
-#content h3{font-size:clamp(1rem,3.5vw,1.2rem);margin:22px 0 8px}
-#content p{margin:10px 0}
-#content a{color:var(--link);word-break:break-word}
-#content a:hover{color:var(--link-hover)}
-#content strong{font-weight:700}
-#content em{font-style:italic}
-#content hr{border:none;border-top:2px solid var(--border);margin:28px 0}
-
-/* ── Lists ── */
-#content ul,#content ol{margin:10px 0 10px 1.4em}
-#content li{margin:4px 0}
-
-/* ── Blockquotes ── */
-#content blockquote{
-  background:var(--blockquote-bg);
-  border-left:4px solid var(--accent);
-  margin:14px 0;padding:10px 16px;
-  border-radius:0 var(--radius) var(--radius) 0;
-}
-#content blockquote p{margin:4px 0}
-
-/* ── Code ── */
-#content code{
-  background:var(--code-bg);color:var(--fg);
-  border-radius:4px;padding:2px 6px;
-  font-family:var(--font-mono);font-size:.88em;
-  word-break:break-all;
-}
-#content pre{
-  background:var(--code-bg);border-radius:var(--radius);
-  padding:14px 16px;overflow-x:auto;margin:14px 0;
-}
-#content pre code{
-  background:none;padding:0;border-radius:0;
-  font-size:.85em;word-break:normal;
-}
-
-/* ── Tables — responsive wrap ── */
-.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0}
-#content table{
-  border-collapse:collapse;width:100%;min-width:340px;
-  font-size:.9em;
-}
-#content th{
-  background:var(--table-head);
-  text-align:left;padding:8px 12px;
-  border:1px solid var(--border);font-weight:600;
-}
-#content td{
-  padding:7px 12px;border:1px solid var(--border);
-  vertical-align:top;word-break:break-word;
-}
-#content tr:nth-child(even) td{background:var(--table-stripe)}
-
-/* ── Emoji badges in text ── */
-.badge{
-  display:inline-block;padding:1px 7px;border-radius:99px;
-  font-size:.78rem;font-weight:600;line-height:1.6;
-}
-
-/* ── Back to top ── */
-#back-top{
-  position:fixed;bottom:20px;right:16px;
-  background:var(--accent);color:#fff;
-  border:none;border-radius:50%;width:44px;height:44px;
-  font-size:1.3rem;cursor:pointer;
-  box-shadow:0 2px 8px rgba(0,0,0,.3);
-  display:flex;align-items:center;justify-content:center;
-  text-decoration:none;
-}
-#back-top:hover{opacity:.85}
-
-/* ── Loading state ── */
-#loading{text-align:center;padding:60px 0;color:var(--fg);opacity:.5;font-size:1.1rem}
-</style>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Oracle Gece Araştırma raporu 2026-03-24">
+<title>Gece Araştırma — 2026-03-24 (Salı 01:00 İST) · Oracle Gece Araştırma</title>
+<link rel="canonical" href="https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-24.html">
+<link rel="alternate" hreflang="tr" href="https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-24.html">
+<link rel="alternate" hreflang="en" href="https://mahsumaktas.github.io/oracle_arastirma/en/reports/2026-03-24.html">
+<link rel="alternate" hreflang="es" href="https://mahsumaktas.github.io/oracle_arastirma/es/reports/2026-03-24.html">
+<link rel="alternate" hreflang="x-default" href="https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-24.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<script defer src="../assets/site.js"></script>
 </head>
 <body>
-<header>
-  <div class="page-wrap">
-    <h1>🔬 Gece Araştırma — 2026-03-24 (Salı 01:00 İST)</h1>
-    <div class="meta">
-      Oracle Gece Araştırma &middot; 2026-03-24 &middot;
-      <a href="https://mahsumaktas.github.io/oracle_arastirma/index.html">← Tüm Raporlar</a>
+  <header class="site-header">
+  <div class="shell header-bar">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark">🦉</span>
+      <span class="brand-text">
+        <span class="brand-kicker">Oracle archive</span>
+        <h1 class="brand-title">Oracle Gece Araştırma</h1>
+        <p class="brand-subtitle">2026-03-24</p>
+      </span>
+    </a>
+    <div class="header-actions">
+      <div class="lang-switch"><span class="lang-switch-label">Dil</span><a class="lang-chip is-active" href="2026-03-24.html" lang="tr">TÜ</a><a class="lang-chip" href="../en/reports/2026-03-24.html" lang="en">EN</a><a class="lang-chip" href="../es/reports/2026-03-24.html" lang="es">ES</a></div>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle theme"><span data-theme-icon>◐</span></button>
     </div>
   </div>
 </header>
+  <main class="shell">
+    <section class="hero">
+      <div class="hero-card">
+        <div class="hero-layout">
+          <div>
+            <div class="breadcrumbs"><a href="../index.html">Arşive dön</a><span>•</span><span>2026-03-24</span></div>
+            <span class="hero-kicker">Araştırma raporu</span>
+            <h1>Gece Araştırma — 2026-03-24 (Salı 01:00 İST)</h1>
+            <p>**Yenilik Önceliği** · 9/9 kategori · Kaynaklar: HN, The Decoder, GitHub Trending, arXiv/HuggingFace · Dedupe: 25 konu aktif listede · web_search quota-exceeded → web_fetch fallback</p>
+            <div class="hero-actions">
+              <span class="hero-pill"><strong>14</strong> bölüm</span>
+              <span class="hero-pill"><strong>1523</strong> kelime</span>
+            </div>
+          </div>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <span class="stat-label">Öne çıkan not</span>
+              <div class="stat-detail">**Yenilik Önceliği** · 9/9 kategori · Kaynaklar: HN, The Decoder, GitHub Trending, arXiv/HuggingFace · Dedupe: 25 konu aktif listede · web_search quota-exceeded → web_fetch fallback</div>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Hızlı erişim</span>
+              <div class="report-actions-row" style="margin-top:12px">
+                <a class="button" href="../raw/2026-03-24.md">Ham markdown</a>
+                <a class="ghost-button" href="../index.html">Tüm raporlar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<div class="page-wrap">
-  <nav class="breadcrumb">
-    <a href="https://mahsumaktas.github.io/oracle_arastirma/index.html">Oracle Araştırma</a>
-    <span>/</span>
-    2026-03-24
-  </nav>
-
-  <div id="loading">Rapor yükleniyor…</div>
-  <div id="content" style="display:none"></div>
-</div>
-
-<a href="#" id="back-top" title="Yukarı" aria-label="Yukarı git">↑</a>
-
-<!-- marked.js — lightweight CDN markdown parser (no server needed) -->
-<script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
-<script>
-(function(){
-  // ── Raw markdown (HTML-escaped by publisher, decoded here) ──
-  var RAW = "# Gece Ara\u015ft\u0131rma \u2014 2026-03-24 (Sal\u0131 01:00 \u0130ST)\n\n> **Yenilik \u00d6nceli\u011fi** \u00b7 9/9 kategori \u00b7 Kaynaklar: HN, The Decoder, GitHub Trending, arXiv/HuggingFace \u00b7 Dedupe: 25 konu aktif listede \u00b7 web_search quota-exceeded \u2192 web_fetch fallback\n\n---\n\n## Top 7 \u2014 Sadece GER\u00c7EKTEN YEN\u0130 (Son 72 Saat Delta)\n\n| # | Madde | Kategori | Kaynak | \u00d6nem |\n|---|-------|----------|--------|------|\n| 1 | **OpenAI PE Firmalara %17.5 Garantili Getiri Teklifi** \u2014 Anthropic'e kar\u015f\u0131 enterprise sava\u015f\u0131nda OpenAI, TPG/Blackstone/Permira gibi firmalara %17.5 minimum return + yeni model erken eri\u015fim sunuyor. Anthropic garantisiz benzer g\u00f6r\u00fc\u015fmeler yap\u0131yor. Claude Code'un enterprise liderli\u011fi bu hamleyi h\u0131zland\u0131rd\u0131. [Reuters kaynakl\u0131 / The Decoder](https://the-decoder.com/) | KAT-1 | The Decoder, Reuters | KIRMIZI |\n| 2 | **Meta, Dreamer'\u0131 Acqui-hire Etti \u2014 Hugo Barra Geri D\u00f6nd\u00fc** \u2014 Dreamer AI startup'\u0131 t\u00fcm ekibiyle Meta Superintelligence Labs'a ge\u00e7ti. Eski Meta VP Hugo Barra y\u00f6netimi \u00fcstlendi. Bu y\u0131lki ikinci agent-AI hamlesi. [The Decoder](https://the-decoder.com/meta-acqui-hires-dreamers-entire-team/) | KAT-1 | The Decoder, WSJ | KIRMIZI |\n| 3 | **DGM-Hyperagents: Metacognitive Self-Modification** \u2014 Facebook Research (arXiv 2603.19461): g\u00f6rev agent + meta agent tek d\u00fczenlenebilir programda. Meta-level mekanizman\u0131n kendisi de d\u00fczenlenebilir \u2014 hem g\u00f6rev hem iyile\u015ftirme s\u00fcreci evrimle\u015fiyor. Coding d\u0131\u015f\u0131 domain'lerde de \u00e7al\u0131\u015f\u0131yor. [arXiv](https://arxiv.org/abs/2603.19461) | KAT-2 | arXiv cs.AI, Facebook Research | KIRMIZI |\n| 4 | **\u03bb-RLM: \u03bb-Calculus ile LLM Uzun-Context \u00c7\u00fcr\u00fcmesi \u00c7\u00f6z\u00fcm\u00fc** \u2014 Serbest recursive kod yerine tip g\u00fcvenli fonksiyonel runtime. 9 modelde 29/36 kar\u015f\u0131la\u015ft\u0131rmada standart RLM'yi ge\u00e7iyor, +21.9 puan, 4.1x h\u0131z kazanc\u0131. Open-source. [arXiv 2603.20105](https://arxiv.org/abs/2603.20105) | KAT-3 | arXiv cs.LG | KIRMIZI |\n| 5 | **Trivy GitHub Actions Tag Compromise \u2014 10.000+ Pipeline Risk Alt\u0131nda** \u2014 aquasecurity/trivy-action'da 75/76 versiyon tag'i force-push ile k\u00f6t\u00fc ama\u00e7l\u0131 infostealer payload'a y\u00f6nlendirildi. v0.69.4/5/6 + Docker Hub enfekte. Mart ay\u0131nda ikinci Trivy sald\u0131r\u0131s\u0131. [socket.dev](https://socket.dev/blog/trivy-under-attack-again-github-actions-compromise) | KAT-9 | socket.dev, HN | KIRMIZI |\n| 6 | **MiRA: A\u00e7\u0131k Model Gemma3-12B'yi %6.4'ten %43.0 SR'ye Ta\u015f\u0131d\u0131** \u2014 Milestone-tabanl\u0131 RL + subgoal decomposition. WebArena-Lite'ta GPT-4-Turbo (17.6%) ve GPT-4o (13.9%) ge\u00e7ildi. \u00d6nceki SOTA WebRL (38.4%) a\u015f\u0131ld\u0131. [arXiv 2603.19685](https://arxiv.org/abs/2603.19685) | KAT-2 | arXiv cs.AI/MA | SARI |\n| 7 | **iPhone 17 Pro 400B LLM \u00c7al\u0131\u015ft\u0131r\u0131yor** \u2014 HN #2 (406 puan, 220 yorum): ANEMLL Twitter demosu. On-device inference'da yeni referans noktas\u0131. [HN](https://news.ycombinator.com/item?id=47490070) | KAT-8 | HN, Twitter/@anemll | SARI |\n\n**Dedupe notu:** 25 madde aktif listede (LLM Circuit Finder, Newton 1.0, Xiaomi MiMo-V2, Cursor Composer 2, Claude Code Channels, Trump AI Politikas\u0131, BIGMAS, Grok 4.20, Cloudflare Bot 2027, WordPress AI, Microsoft Copilot, VS Code MCP, Chrome 147, GitHub Dependabot MCP, LangChain NVIDIA, LlamaIndex ACP, Semantic Invariance, Deep Thinking, MAR Reflexion, Qualcomm Wear, GitHub Enterprise 3.20, A2A v0.3, Karpathy Psychosis, OpenAI 8000 Hedefi, NVIDIA GTC Cosmos3). Bu konular bu rapora ta\u015f\u0131nmad\u0131.\n\n---\n\n## KAT-1 \u00b7 AI Laboratuvarlar\u0131 & Model Haberleri\n\n### OpenAI\n- **%17.5 PE Garantisi**: TPG, Advent, Blackstone, Permira hedefte. Y\u00fczlerce portf\u00f6y \u015firketine OpenAI ara\u00e7lar\u0131 da\u011f\u0131tma plan\u0131. Mevcut Claude Code enterprise \u00fcst\u00fcnl\u00fc\u011f\u00fcn\u00fc k\u0131rmak i\u00e7in. [The Decoder](https://the-decoder.com/)\n- **GPT-5.4 Frontend Prompting Rehberi**: Tasar\u0131mc\u0131lar i\u00e7in generik tasar\u0131mlardan ka\u00e7\u0131nmak ve daha iyi frontend sonu\u00e7lar\u0131 almak \u00fczerine yeni playbook. [The Decoder](https://the-decoder.com/)\n- **Superapp Plan\u0131**: ChatGPT + Codex + Atlas Browser tek desktop uygulamas\u0131nda birle\u015fecek. [The Decoder](https://the-decoder.com/openai-plans-to-merge-chatgpt-codex-and-atlas-browser-into-a-single-desktop-superapp/)\n\n### Meta AI\n- **Dreamer Acqui-hire**: Hugo Barra liderli\u011finde t\u00fcm ekip Meta Superintelligence Labs'a ge\u00e7ti. [The Decoder](https://the-decoder.com/)\n- **Zuckerberg'in Ki\u015fisel AI Agent'\u0131**: WSJ'ye g\u00f6re \u00e7al\u0131\u015fan katmanlar\u0131n\u0131 bypass ederek h\u0131zl\u0131 bilgi eri\u015fimi. \u015eirket genelinde herkese agent hedefi. [The Decoder](https://the-decoder.com/)\n\n### Karpathy\n- **\"Kendini Bottleneck Yapma\"**: Otonom agent GPT-2 training'ini geceleri optimize etti \u2014 insan\u0131n g\u00f6zden ka\u00e7\u0131rd\u0131\u011f\u0131 ince ayarlar\u0131 buldu. \"Remove yourself from the loop.\" [The Decoder](https://the-decoder.com/) / [HN](https://news.ycombinator.com/item?id=47493460)\n\n---\n\n## KAT-2 \u00b7 Agent & Framework\n\n- **DGM-Hyperagents** (arXiv 2603.19461, Facebook Research): Metacognitive self-modification \u2014 iyile\u015ftirme mekanizmas\u0131n\u0131n kendisi de evrimle\u015fiyor. Coding d\u0131\u015f\u0131 domain'lerde de \u00e7al\u0131\u015f\u0131yor. [arXiv](https://arxiv.org/abs/2603.19461)\n- **MiRA Framework** (arXiv 2603.19685): Subgoal decomposition + milestone RL. Gemma3-12B: 6.4%\u219243.0% WebArena SR. [arXiv](https://arxiv.org/abs/2603.19685)\n- **MiroThinker v1.0** (arXiv 2511.11793): 72B open-source research agent, 256K context, 600 tool call/g\u00f6rev. GAIA %81.9, HLE %37.7, BrowseComp %47.1. [HF Papers](https://huggingface.co/papers/2511.11793)\n- **bytedance/deer-flow** (GitHub Trending, 39K star, +3.569 bug\u00fcn): SuperAgent harness \u2014 ara\u015ft\u0131rma, kod, \u00fcretim. Sandbox + memory + subagent.\n- **czlonkowski/n8n-mcp** (16K star): Claude Code/Windsurf/Cursor i\u00e7in n8n workflow MCP.\n\n---\n\n## KAT-3 \u00b7 Makaleler & Ara\u015ft\u0131rma\n\n- **Attention Residuals / AttnRes** (arXiv 2603.15031, Kimi Team): Sabit residual ba\u011flant\u0131lar yerine softmax attention. PreNorm seyrelmesini \u00f6nl\u00fcyor. 1.4T token \u00fczerinde Kimi Linear 48B'de e\u011fitildi. [arXiv](https://arxiv.org/abs/2603.15031)\n- **\u03bb-RLM** (arXiv 2603.20105): \u03bb-calculus tabanl\u0131 uzun-context reasoning. 9 modelde 29/36 \u00fcst\u00fcn, +21.9 puan, 4.1x h\u0131z. [arXiv](https://arxiv.org/abs/2603.20105)\n- **HopChain** (arXiv 2603.17024): Multi-hop VLM reasoning i\u00e7in RLVR veri sentezi. Qwen3.5-35B/397B \u00fczerinde 24 benchmark. [arXiv](https://arxiv.org/abs/2603.17024)\n- **ProactiveBench** (arXiv 2603.19466): 22 MLLM'de proaktiflik testi. Modeller proaktif de\u011fil, model kapasitesi ile korelasyon yok, RL ile \u00f6\u011frenilebiliyor. [arXiv](https://arxiv.org/abs/2603.19466)\n- **DynaEdit** (arXiv 2603.17989): Training-free video d\u00fczenleme \u2014 aksiyon de\u011fi\u015ftirme, nesne ekleme, global efekt. Model-agnostic. [arXiv](https://arxiv.org/abs/2603.17989)\n\n---\n\n## KAT-4 \u00b7 D\u00fc\u015f\u00fcnce Liderleri\n\n- **Karpathy** \u2014 \"Researchers systematically automating themselves out of a job. Which is also their stated goal.\" Otonom agent'a geceleri kendi ara\u015ft\u0131rmas\u0131n\u0131 b\u0131rakma deneyi. [HN 199 puan](https://news.ycombinator.com/item?id=47493460)\n- **Simon Willison** (23 Mart): Starlette 1.0 + Claude skills denemesi. \"Beats\" \u00f6zelli\u011fine not ekleme. [simonwillison.net](https://simonwillison.net/)\n- **David Abram** (simonwillison.net \u00fczerinden): \"The machine didn't take your craft. You gave it up.\" \u2014 LLM'lerin \u00e7\u00f6zemeyece\u011fi \u015fey: sistem anlama, neyin var olmas\u0131 gerekti\u011fini bilmek. [davidabram.dev](https://www.davidabram.dev/musings/the-machine-didnt-take-your-craft/)\n\n---\n\n## KAT-5 \u00b7 Reddit Viral\n\n\u26a0\ufe0f KAT-5 Kaynak Hatas\u0131: Reddit 403-bot-block devam ediyor. HN fallback:\n- **Walmart: ChatGPT Checkout 3x K\u00f6t\u00fc D\u00f6n\u00fc\u015ft\u00fcrd\u00fc** \u2014 HN #20 (382 puan, 254 yorum). AI checkout deneyimi web sitesinden \u00e7ok geride. [searchengineland.com](https://searchengineland.com/walmart-chatgpt-checkout-converted-worse-472071)\n- **AI Risks \"Hypernormal\" Science** \u2014 HN #10 (43 puan): AI'n\u0131n bilimsel yay\u0131n kalitesini homojenle\u015ftirdi\u011fine dair analiz. [asimov.press](https://www.asimov.press/p/ai-science)\n\n---\n\n## KAT-6 \u00b7 Twitter/X Viral\n\n\u26a0\ufe0f KAT-6 Kaynak Hatas\u0131: Twitter/X javascript-block devam ediyor. HN fallback:\n- **iPhone 17 Pro 400B LLM Demo** (@anemll): HN #2, 406 puan, 220 yorum. On-device b\u00fcy\u00fck model inference demosu. [twitter.com/anemll](https://twitter.com/anemll/status/2035901335984611412)\n\n---\n\n## KAT-7 \u00b7 Platform & Ekosistem\n\n- **LocalStack GitHub Repo Ar\u015fivlendi** \u2014 HN #3 (108 puan, 52 yorum): Art\u0131k hesap gerektiriyor. Cloud yerel geli\u015ftirme ekosisteminde b\u00fcy\u00fck k\u0131r\u0131lma. [HN](https://news.ycombinator.com/item?id=47493657)\n- **Claude Code Ekosistemi B\u00fcy\u00fcyor**: `everything-claude-code` ve `awesome-claude-code` her ikisi GitHub Trending'de. [GitHub Trending](https://github.com/trending)\n- **kepano/obsidian-skills**: Obsidian i\u00e7in agent skills (Markdown, Bases, JSON Canvas, CLI). [GitHub](https://github.com/kepano/obsidian-skills)\n- **OpenAI Superapp**: ChatGPT + Codex + Atlas Browser birle\u015fiyor. [The Decoder](https://the-decoder.com/openai-plans-to-merge-chatgpt-codex-and-atlas-browser-into-a-single-desktop-superapp/)\n\n---\n\n## KAT-8 \u00b7 Robotik & Edge AI\n\n- **iPhone 17 Pro 400B LLM**: On-device inference demosu \u2014 cihazda b\u00fcy\u00fck model i\u00e7in yeni referans. [HN](https://news.ycombinator.com/item?id=47490070)\n- **Adaptive Transformer (The Decoder)**: Alman ekibi, modelin her sorun i\u00e7in kendi d\u00fc\u015f\u00fcnme s\u00fcresini belirledi\u011fi mimari geli\u015ftirdi. Bellek + hesaplama ayr\u0131m\u0131. [The Decoder](https://the-decoder.com/)\n\n---\n\n## KAT-9 \u00b7 OSS & \u00dcr\u00fcn Sinyalleri\n\n- **Trivy Supply Chain Sald\u0131r\u0131s\u0131** (socket.dev): 75/76 tag enfekte, v0.69.4/5/6, Docker Hub etkilendi, 10.000+ CI/CD pipeline risk. Mart'ta ikinci sald\u0131r\u0131. [socket.dev](https://socket.dev/blog/trivy-under-attack-again-github-actions-compromise)\n- **project-nomad** (13.232 star, +4.148 bug\u00fcn): Offline survival computer, TypeScript, kritik ara\u00e7lar + AI. [GitHub](https://github.com/Crosstalk-Solutions/project-nomad)\n- **MoneyPrinterV2** (22.709 star, +2.902 bug\u00fcn): Online para kazanmay\u0131 otomatize eden Python projesi trending. [GitHub](https://github.com/FujiwaraChoki/MoneyPrinterV2)\n- **Bombadil** (HN #19, 212 puan): Web UI'lar i\u00e7in property-based testing. [GitHub](https://github.com/antithesishq/bombadil)\n- **Autoresearch on eCLIP** (HN #1, 199 puan): Karpathy y\u00f6ntemini ger\u00e7ek ara\u015ft\u0131rmaya uygulamak \u2014 Claude Code konteynerize training loop'a b\u0131rak\u0131ld\u0131. [ykumar.me](https://ykumar.me/blog/eclip-autoresearch/)\n\n---\n\n## \ud83d\udcca Kaynak & Durum \u00d6zeti\n\n| Kategori | Kaynak | Durum | Madde |\n|----------|--------|-------|-------|\n| KAT-1 | The Decoder, Reuters | \u2705 | 4 |\n| KAT-2 | arXiv, GitHub Trending | \u2705 | 5 |\n| KAT-3 | HuggingFace, arXiv | \u2705 | 5 |\n| KAT-4 | The Decoder, simonwillison.net | \u2705 | 3 |\n| KAT-5 | Reddit | \u274c 403 \u2192 HN fallback | 2 |\n| KAT-6 | Twitter/X | \u274c js-block \u2192 HN fallback | 1 |\n| KAT-7 | HN, GitHub, The Decoder | \u2705 | 4 |\n| KAT-8 | HN, The Decoder | \u2705 | 2 |\n| KAT-9 | socket.dev, GitHub, HN | \u2705 | 5 |\n\n**Toplam dedupe elenen:** 25 madde | **Yeni madde:** 30+ | **Perplexity API:** quota-exceeded \u2192 web_fetch fallback | **web_search:** devre d\u0131\u015f\u0131 bu \u00e7al\u0131\u015ft\u0131rmada\n\n---\n\n*Rapor: Gece Ara\u015ft\u0131rma v2 \u00b7 2026-03-24 01:00 \u0130ST \u00b7 Oracle \ud83e\udd89*\n";
-
-  // ── marked config ──
-  marked.setOptions({
-    gfm:true,
-    breaks:false,
-    mangle:false,
-    headerIds:false
-  });
-
-  // ── Wrap tables for horizontal scroll ──
-  var renderer = new marked.Renderer();
-  renderer.table = function(header, body){
-    return '<div class="table-wrap"><table><thead>' + header + '</thead><tbody>' + body + '</tbody></table></div>';
-  };
-
-  var html = marked.parse(RAW, {renderer:renderer});
-  var content = document.getElementById('content');
-  var loading = document.getElementById('loading');
-  content.innerHTML = html;
-  content.style.display = '';
-  loading.style.display = 'none';
-
-  // ── Open external links in new tab ──
-  var links = content.querySelectorAll('a[href]');
-  for(var i=0;i<links.length;i++){
-    var href = links[i].getAttribute('href');
-    if(href && (href.startsWith('http://') || href.startsWith('https://'))){
-      links[i].setAttribute('target','_blank');
-      links[i].setAttribute('rel','noopener noreferrer');
-    }
-  }
-})();
-</script>
+    <section class="report-layout">
+      <aside class="sticky-column stack">
+        <div class="panel">
+          <div class="panel-title"><div><h3>İçindekiler</h3><p>Türkçe kaynak korunur, alternatif diller otomatik olarak üretilir.</p></div></div>
+          <nav class="report-nav"><a class="section-link" href="#sec-1-top-7-sadece-ger-ekten-yeni-son-72-saat-delta" data-section-link>Top 7 — Sadece GERÇEKTEN YENİ (Son 72 Saat Delta)</a><a class="section-link" href="#sec-2-kat-1-ai-laboratuvarlari-model-haberleri" data-section-link>KAT-1 · AI Laboratuvarları &amp; Model Haberleri</a><a class="section-link" href="#sec-3-openai" data-section-link># OpenAI</a><a class="section-link" href="#sec-4-meta-ai" data-section-link># Meta AI</a><a class="section-link" href="#sec-5-karpathy" data-section-link># Karpathy</a><a class="section-link" href="#sec-6-kat-2-agent-framework" data-section-link>KAT-2 · Agent &amp; Framework</a><a class="section-link" href="#sec-7-kat-3-makaleler-arastirma" data-section-link>KAT-3 · Makaleler &amp; Araştırma</a><a class="section-link" href="#sec-8-kat-4-dusunce-liderleri" data-section-link>KAT-4 · Düşünce Liderleri</a><a class="section-link" href="#sec-9-kat-5-reddit-viral" data-section-link>KAT-5 · Reddit Viral</a><a class="section-link" href="#sec-10-kat-6-twitter-x-viral" data-section-link>KAT-6 · Twitter/X Viral</a><a class="section-link" href="#sec-11-kat-7-platform-ekosistem" data-section-link>KAT-7 · Platform &amp; Ekosistem</a><a class="section-link" href="#sec-12-kat-8-robotik-edge-ai" data-section-link>KAT-8 · Robotik &amp; Edge AI</a><a class="section-link" href="#sec-13-kat-9-oss-run-sinyalleri" data-section-link>KAT-9 · OSS &amp; Ürün Sinyalleri</a><a class="section-link" href="#sec-14-kaynak-durum-zeti" data-section-link>📊 Kaynak &amp; Durum Özeti</a></nav>
+        </div>
+        <div class="panel">
+          <div class="panel-title"><div><h3>Hızlı erişim</h3></div></div>
+          <div class="report-tools">
+            <a class="ghost-button" href="../raw/2026-03-24.md">Kaynak markdown</a>
+            <a class="ghost-button" href="2026-03-24.html">Türkçe orijinal</a>
+            <a class="ghost-button" href="2026-03-23.html">Önceki rapor</a>
+            <a class="ghost-button" href="2026-03-25.html">Sonraki rapor</a>
+          </div>
+        </div>
+      </aside>
+      <div class="report-main">
+        <section class="report-summary-card rendered-markdown">
+          <div class="section-head">
+            <div>
+              <div class="section-kicker">Rapor özeti</div>
+              <h2>Rapor özeti</h2>
+            </div>
+          </div>
+          <blockquote><p><strong>Yenilik Önceliği</strong> · 9/9 kategori · Kaynaklar: HN, The Decoder, GitHub Trending, arXiv/HuggingFace · Dedupe: 25 konu aktif listede · web_search quota-exceeded → web_fetch fallback</p></blockquote>
+        </section>
+        <div data-report-sections></div>
+      </div>
+    </section>
+  </main>
+  <footer class="shell footer">
+    <div class="footer-card">
+      <p>Oracle gece araştırma arşivi, Türkçe asıl içerik korunarak üretilir.</p>
+      <p>2026-04-11 23:10 UTC</p>
+    </div>
+  </footer>
+  <script id="report-data" type="application/json">{&quot;sectionLabel&quot;: &quot;Bölümler&quot;, &quot;sections&quot;: [{&quot;id&quot;: &quot;sec-1-top-7-sadece-ger-ekten-yeni-son-72-saat-delta&quot;, &quot;title&quot;: &quot;Top 7 — Sadece GERÇEKTEN YENİ (Son 72 Saat Delta)&quot;, &quot;content&quot;: &quot;| # | Madde | Kategori | Kaynak | Önem |\n|---|-------|----------|--------|------|\n| 1 | **OpenAI PE Firmalara %17.5 Garantili Getiri Teklifi** — Anthropic&#x27;e karşı enterprise savaşında OpenAI, TPG/Blackstone/Permira gibi firmalara %17.5 minimum return + yeni model erken erişim sunuyor. Anthropic garantisiz benzer görüşmeler yapıyor. Claude Code&#x27;un enterprise liderliği bu hamleyi hızlandırdı. [Reuters kaynaklı / The Decoder](https://the-decoder.com/) | KAT-1 | The Decoder, Reuters | KIRMIZI |\n| 2 | **Meta, Dreamer&#x27;ı Acqui-hire Etti — Hugo Barra Geri Döndü** — Dreamer AI startup&#x27;ı tüm ekibiyle Meta Superintelligence Labs&#x27;a geçti. Eski Meta VP Hugo Barra yönetimi üstlendi. Bu yılki ikinci agent-AI hamlesi. [The Decoder](https://the-decoder.com/meta-acqui-hires-dreamers-entire-team/) | KAT-1 | The Decoder, WSJ | KIRMIZI |\n| 3 | **DGM-Hyperagents: Metacognitive Self-Modification** — Facebook Research (arXiv 2603.19461): görev agent + meta agent tek düzenlenebilir programda. Meta-level mekanizmanın kendisi de düzenlenebilir — hem görev hem iyileştirme süreci evrimleşiyor. Coding dışı domain&#x27;lerde de çalışıyor. [arXiv](https://arxiv.org/abs/2603.19461) | KAT-2 | arXiv cs.AI, Facebook Research | KIRMIZI |\n| 4 | **λ-RLM: λ-Calculus ile LLM Uzun-Context Çürümesi Çözümü** — Serbest recursive kod yerine tip güvenli fonksiyonel runtime. 9 modelde 29/36 karşılaştırmada standart RLM&#x27;yi geçiyor, +21.9 puan, 4.1x hız kazancı. Open-source. [arXiv 2603.20105](https://arxiv.org/abs/2603.20105) | KAT-3 | arXiv cs.LG | KIRMIZI |\n| 5 | **Trivy GitHub Actions Tag Compromise — 10.000+ Pipeline Risk Altında** — aquasecurity/trivy-action&#x27;da 75/76 versiyon tag&#x27;i force-push ile kötü amaçlı infostealer payload&#x27;a yönlendirildi. v0.69.4/5/6 + Docker Hub enfekte. Mart ayında ikinci Trivy saldırısı. [socket.dev](https://socket.dev/blog/trivy-under-attack-again-github-actions-compromise) | KAT-9 | socket.dev, HN | KIRMIZI |\n| 6 | **MiRA: Açık Model Gemma3-12B&#x27;yi %6.4&#x27;ten %43.0 SR&#x27;ye Taşıdı** — Milestone-tabanlı RL + subgoal decomposition. WebArena-Lite&#x27;ta GPT-4-Turbo (17.6%) ve GPT-4o (13.9%) geçildi. Önceki SOTA WebRL (38.4%) aşıldı. [arXiv 2603.19685](https://arxiv.org/abs/2603.19685) | KAT-2 | arXiv cs.AI/MA | SARI |\n| 7 | **iPhone 17 Pro 400B LLM Çalıştırıyor** — HN #2 (406 puan, 220 yorum): ANEMLL Twitter demosu. On-device inference&#x27;da yeni referans noktası. [HN](https://news.ycombinator.com/item?id=47490070) | KAT-8 | HN, Twitter/@anemll | SARI |\n\n**Dedupe notu:** 25 madde aktif listede (LLM Circuit Finder, Newton 1.0, Xiaomi MiMo-V2, Cursor Composer 2, Claude Code Channels, Trump AI Politikası, BIGMAS, Grok 4.20, Cloudflare Bot 2027, WordPress AI, Microsoft Copilot, VS Code MCP, Chrome 147, GitHub Dependabot MCP, LangChain NVIDIA, LlamaIndex ACP, Semantic Invariance, Deep Thinking, MAR Reflexion, Qualcomm Wear, GitHub Enterprise 3.20, A2A v0.3, Karpathy Psychosis, OpenAI 8000 Hedefi, NVIDIA GTC Cosmos3). Bu konular bu rapora taşınmadı.\n\n---&quot;}, {&quot;id&quot;: &quot;sec-2-kat-1-ai-laboratuvarlari-model-haberleri&quot;, &quot;title&quot;: &quot;KAT-1 · AI Laboratuvarları &amp; Model Haberleri&quot;, &quot;content&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;sec-3-openai&quot;, &quot;title&quot;: &quot;# OpenAI&quot;, &quot;content&quot;: &quot;- **%17.5 PE Garantisi**: TPG, Advent, Blackstone, Permira hedefte. Yüzlerce portföy şirketine OpenAI araçları dağıtma planı. Mevcut Claude Code enterprise üstünlüğünü kırmak için. [The Decoder](https://the-decoder.com/)\n- **GPT-5.4 Frontend Prompting Rehberi**: Tasarımcılar için generik tasarımlardan kaçınmak ve daha iyi frontend sonuçları almak üzerine yeni playbook. [The Decoder](https://the-decoder.com/)\n- **Superapp Planı**: ChatGPT + Codex + Atlas Browser tek desktop uygulamasında birleşecek. [The Decoder](https://the-decoder.com/openai-plans-to-merge-chatgpt-codex-and-atlas-browser-into-a-single-desktop-superapp/)&quot;}, {&quot;id&quot;: &quot;sec-4-meta-ai&quot;, &quot;title&quot;: &quot;# Meta AI&quot;, &quot;content&quot;: &quot;- **Dreamer Acqui-hire**: Hugo Barra liderliğinde tüm ekip Meta Superintelligence Labs&#x27;a geçti. [The Decoder](https://the-decoder.com/)\n- **Zuckerberg&#x27;in Kişisel AI Agent&#x27;ı**: WSJ&#x27;ye göre çalışan katmanlarını bypass ederek hızlı bilgi erişimi. Şirket genelinde herkese agent hedefi. [The Decoder](https://the-decoder.com/)&quot;}, {&quot;id&quot;: &quot;sec-5-karpathy&quot;, &quot;title&quot;: &quot;# Karpathy&quot;, &quot;content&quot;: &quot;- **\&quot;Kendini Bottleneck Yapma\&quot;**: Otonom agent GPT-2 training&#x27;ini geceleri optimize etti — insanın gözden kaçırdığı ince ayarları buldu. \&quot;Remove yourself from the loop.\&quot; [The Decoder](https://the-decoder.com/) / [HN](https://news.ycombinator.com/item?id=47493460)\n\n---&quot;}, {&quot;id&quot;: &quot;sec-6-kat-2-agent-framework&quot;, &quot;title&quot;: &quot;KAT-2 · Agent &amp; Framework&quot;, &quot;content&quot;: &quot;- **DGM-Hyperagents** (arXiv 2603.19461, Facebook Research): Metacognitive self-modification — iyileştirme mekanizmasının kendisi de evrimleşiyor. Coding dışı domain&#x27;lerde de çalışıyor. [arXiv](https://arxiv.org/abs/2603.19461)\n- **MiRA Framework** (arXiv 2603.19685): Subgoal decomposition + milestone RL. Gemma3-12B: 6.4%→43.0% WebArena SR. [arXiv](https://arxiv.org/abs/2603.19685)\n- **MiroThinker v1.0** (arXiv 2511.11793): 72B open-source research agent, 256K context, 600 tool call/görev. GAIA %81.9, HLE %37.7, BrowseComp %47.1. [HF Papers](https://huggingface.co/papers/2511.11793)\n- **bytedance/deer-flow** (GitHub Trending, 39K star, +3.569 bugün): SuperAgent harness — araştırma, kod, üretim. Sandbox + memory + subagent.\n- **czlonkowski/n8n-mcp** (16K star): Claude Code/Windsurf/Cursor için n8n workflow MCP.\n\n---&quot;}, {&quot;id&quot;: &quot;sec-7-kat-3-makaleler-arastirma&quot;, &quot;title&quot;: &quot;KAT-3 · Makaleler &amp; Araştırma&quot;, &quot;content&quot;: &quot;- **Attention Residuals / AttnRes** (arXiv 2603.15031, Kimi Team): Sabit residual bağlantılar yerine softmax attention. PreNorm seyrelmesini önlüyor. 1.4T token üzerinde Kimi Linear 48B&#x27;de eğitildi. [arXiv](https://arxiv.org/abs/2603.15031)\n- **λ-RLM** (arXiv 2603.20105): λ-calculus tabanlı uzun-context reasoning. 9 modelde 29/36 üstün, +21.9 puan, 4.1x hız. [arXiv](https://arxiv.org/abs/2603.20105)\n- **HopChain** (arXiv 2603.17024): Multi-hop VLM reasoning için RLVR veri sentezi. Qwen3.5-35B/397B üzerinde 24 benchmark. [arXiv](https://arxiv.org/abs/2603.17024)\n- **ProactiveBench** (arXiv 2603.19466): 22 MLLM&#x27;de proaktiflik testi. Modeller proaktif değil, model kapasitesi ile korelasyon yok, RL ile öğrenilebiliyor. [arXiv](https://arxiv.org/abs/2603.19466)\n- **DynaEdit** (arXiv 2603.17989): Training-free video düzenleme — aksiyon değiştirme, nesne ekleme, global efekt. Model-agnostic. [arXiv](https://arxiv.org/abs/2603.17989)\n\n---&quot;}, {&quot;id&quot;: &quot;sec-8-kat-4-dusunce-liderleri&quot;, &quot;title&quot;: &quot;KAT-4 · Düşünce Liderleri&quot;, &quot;content&quot;: &quot;- **Karpathy** — \&quot;Researchers systematically automating themselves out of a job. Which is also their stated goal.\&quot; Otonom agent&#x27;a geceleri kendi araştırmasını bırakma deneyi. [HN 199 puan](https://news.ycombinator.com/item?id=47493460)\n- **Simon Willison** (23 Mart): Starlette 1.0 + Claude skills denemesi. \&quot;Beats\&quot; özelliğine not ekleme. [simonwillison.net](https://simonwillison.net/)\n- **David Abram** (simonwillison.net üzerinden): \&quot;The machine didn&#x27;t take your craft. You gave it up.\&quot; — LLM&#x27;lerin çözemeyeceği şey: sistem anlama, neyin var olması gerektiğini bilmek. [davidabram.dev](https://www.davidabram.dev/musings/the-machine-didnt-take-your-craft/)\n\n---&quot;}, {&quot;id&quot;: &quot;sec-9-kat-5-reddit-viral&quot;, &quot;title&quot;: &quot;KAT-5 · Reddit Viral&quot;, &quot;content&quot;: &quot;⚠️ KAT-5 Kaynak Hatası: Reddit 403-bot-block devam ediyor. HN fallback:\n- **Walmart: ChatGPT Checkout 3x Kötü Dönüştürdü** — HN #20 (382 puan, 254 yorum). AI checkout deneyimi web sitesinden çok geride. [searchengineland.com](https://searchengineland.com/walmart-chatgpt-checkout-converted-worse-472071)\n- **AI Risks \&quot;Hypernormal\&quot; Science** — HN #10 (43 puan): AI&#x27;nın bilimsel yayın kalitesini homojenleştirdiğine dair analiz. [asimov.press](https://www.asimov.press/p/ai-science)\n\n---&quot;}, {&quot;id&quot;: &quot;sec-10-kat-6-twitter-x-viral&quot;, &quot;title&quot;: &quot;KAT-6 · Twitter/X Viral&quot;, &quot;content&quot;: &quot;⚠️ KAT-6 Kaynak Hatası: Twitter/X javascript-block devam ediyor. HN fallback:\n- **iPhone 17 Pro 400B LLM Demo** (@anemll): HN #2, 406 puan, 220 yorum. On-device büyük model inference demosu. [twitter.com/anemll](https://twitter.com/anemll/status/2035901335984611412)\n\n---&quot;}, {&quot;id&quot;: &quot;sec-11-kat-7-platform-ekosistem&quot;, &quot;title&quot;: &quot;KAT-7 · Platform &amp; Ekosistem&quot;, &quot;content&quot;: &quot;- **LocalStack GitHub Repo Arşivlendi** — HN #3 (108 puan, 52 yorum): Artık hesap gerektiriyor. Cloud yerel geliştirme ekosisteminde büyük kırılma. [HN](https://news.ycombinator.com/item?id=47493657)\n- **Claude Code Ekosistemi Büyüyor**: `everything-claude-code` ve `awesome-claude-code` her ikisi GitHub Trending&#x27;de. [GitHub Trending](https://github.com/trending)\n- **kepano/obsidian-skills**: Obsidian için agent skills (Markdown, Bases, JSON Canvas, CLI). [GitHub](https://github.com/kepano/obsidian-skills)\n- **OpenAI Superapp**: ChatGPT + Codex + Atlas Browser birleşiyor. [The Decoder](https://the-decoder.com/openai-plans-to-merge-chatgpt-codex-and-atlas-browser-into-a-single-desktop-superapp/)\n\n---&quot;}, {&quot;id&quot;: &quot;sec-12-kat-8-robotik-edge-ai&quot;, &quot;title&quot;: &quot;KAT-8 · Robotik &amp; Edge AI&quot;, &quot;content&quot;: &quot;- **iPhone 17 Pro 400B LLM**: On-device inference demosu — cihazda büyük model için yeni referans. [HN](https://news.ycombinator.com/item?id=47490070)\n- **Adaptive Transformer (The Decoder)**: Alman ekibi, modelin her sorun için kendi düşünme süresini belirlediği mimari geliştirdi. Bellek + hesaplama ayrımı. [The Decoder](https://the-decoder.com/)\n\n---&quot;}, {&quot;id&quot;: &quot;sec-13-kat-9-oss-run-sinyalleri&quot;, &quot;title&quot;: &quot;KAT-9 · OSS &amp; Ürün Sinyalleri&quot;, &quot;content&quot;: &quot;- **Trivy Supply Chain Saldırısı** (socket.dev): 75/76 tag enfekte, v0.69.4/5/6, Docker Hub etkilendi, 10.000+ CI/CD pipeline risk. Mart&#x27;ta ikinci saldırı. [socket.dev](https://socket.dev/blog/trivy-under-attack-again-github-actions-compromise)\n- **project-nomad** (13.232 star, +4.148 bugün): Offline survival computer, TypeScript, kritik araçlar + AI. [GitHub](https://github.com/Crosstalk-Solutions/project-nomad)\n- **MoneyPrinterV2** (22.709 star, +2.902 bugün): Online para kazanmayı otomatize eden Python projesi trending. [GitHub](https://github.com/FujiwaraChoki/MoneyPrinterV2)\n- **Bombadil** (HN #19, 212 puan): Web UI&#x27;lar için property-based testing. [GitHub](https://github.com/antithesishq/bombadil)\n- **Autoresearch on eCLIP** (HN #1, 199 puan): Karpathy yöntemini gerçek araştırmaya uygulamak — Claude Code konteynerize training loop&#x27;a bırakıldı. [ykumar.me](https://ykumar.me/blog/eclip-autoresearch/)\n\n---&quot;}, {&quot;id&quot;: &quot;sec-14-kaynak-durum-zeti&quot;, &quot;title&quot;: &quot;📊 Kaynak &amp; Durum Özeti&quot;, &quot;content&quot;: &quot;| Kategori | Kaynak | Durum | Madde |\n|----------|--------|-------|-------|\n| KAT-1 | The Decoder, Reuters | ✅ | 4 |\n| KAT-2 | arXiv, GitHub Trending | ✅ | 5 |\n| KAT-3 | HuggingFace, arXiv | ✅ | 5 |\n| KAT-4 | The Decoder, simonwillison.net | ✅ | 3 |\n| KAT-5 | Reddit | ❌ 403 → HN fallback | 2 |\n| KAT-6 | Twitter/X | ❌ js-block → HN fallback | 1 |\n| KAT-7 | HN, GitHub, The Decoder | ✅ | 4 |\n| KAT-8 | HN, The Decoder | ✅ | 2 |\n| KAT-9 | socket.dev, GitHub, HN | ✅ | 5 |\n\n**Toplam dedupe elenen:** 25 madde | **Yeni madde:** 30+ | **Perplexity API:** quota-exceeded → web_fetch fallback | **web_search:** devre dışı bu çalıştırmada\n\n---\n\n*Rapor: Gece Araştırma v2 · 2026-03-24 01:00 İST · Oracle 🦉*&quot;}]}</script>
+  <script src="https://cdn.jsdelivr.net/npm/marked@9.1.6/marked.min.js"></script>
+  <button class="back-to-top" type="button" data-back-top aria-label="Back to top">↑</button>
 </body>
 </html>

@@ -1,196 +1,107 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Yenilik Önceliği">
-<title>Oracle Araştırma — 2026-03-15</title>
-<style>
-/* ── Reset & base ── */
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#ffffff;--fg:#111111;--link:#0066cc;--link-hover:#004499;
-  --border:#dee2e6;--code-bg:#f4f4f4;--blockquote-bg:#f8f9fa;
-  --table-head:#f0f0f0;--table-stripe:#fafafa;
-  --accent:#2563eb;--warn:#f59e0b;--ok:#16a34a;--danger:#dc2626;
-  --font-sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  --font-mono:"SFMono-Regular",Menlo,Monaco,Consolas,"Liberation Mono",monospace;
-  --radius:8px;
-}
-@media(prefers-color-scheme:dark){
-  :root{
-    --bg:#0d1117;--fg:#e6edf3;--link:#58a6ff;--link-hover:#79b8ff;
-    --border:#30363d;--code-bg:#161b22;--blockquote-bg:#161b22;
-    --table-head:#161b22;--table-stripe:#161b22;
-    --accent:#58a6ff;
-  }
-}
-html{scroll-behavior:smooth}
-body{
-  background:var(--bg);color:var(--fg);
-  font-family:var(--font-sans);font-size:16px;line-height:1.7;
-  -webkit-text-size-adjust:100%;
-}
-
-/* ── Layout ── */
-.page-wrap{max-width:860px;margin:0 auto;padding:0 16px 80px}
-header{
-  background:var(--accent);color:#fff;
-  padding:18px 16px 14px;
-  border-radius:0 0 var(--radius) var(--radius);
-  margin-bottom:28px;
-}
-header h1{font-size:clamp(1.1rem,4vw,1.5rem);font-weight:700;line-height:1.3}
-header .meta{font-size:.85rem;opacity:.85;margin-top:6px}
-header .meta a{color:#cfe2ff;text-decoration:none}
-header .meta a:hover{text-decoration:underline}
-
-nav.breadcrumb{font-size:.85rem;margin-bottom:20px;color:var(--link)}
-nav.breadcrumb a{color:var(--link);text-decoration:none}
-nav.breadcrumb a:hover{text-decoration:underline}
-nav.breadcrumb span{color:var(--fg);opacity:.6;margin:0 6px}
-
-/* ── Markdown content ── */
-#content h1{font-size:clamp(1.3rem,5vw,1.8rem);margin:32px 0 12px;line-height:1.3}
-#content h2{font-size:clamp(1.1rem,4vw,1.4rem);margin:28px 0 10px;border-bottom:2px solid var(--border);padding-bottom:6px}
-#content h3{font-size:clamp(1rem,3.5vw,1.2rem);margin:22px 0 8px}
-#content p{margin:10px 0}
-#content a{color:var(--link);word-break:break-word}
-#content a:hover{color:var(--link-hover)}
-#content strong{font-weight:700}
-#content em{font-style:italic}
-#content hr{border:none;border-top:2px solid var(--border);margin:28px 0}
-
-/* ── Lists ── */
-#content ul,#content ol{margin:10px 0 10px 1.4em}
-#content li{margin:4px 0}
-
-/* ── Blockquotes ── */
-#content blockquote{
-  background:var(--blockquote-bg);
-  border-left:4px solid var(--accent);
-  margin:14px 0;padding:10px 16px;
-  border-radius:0 var(--radius) var(--radius) 0;
-}
-#content blockquote p{margin:4px 0}
-
-/* ── Code ── */
-#content code{
-  background:var(--code-bg);color:var(--fg);
-  border-radius:4px;padding:2px 6px;
-  font-family:var(--font-mono);font-size:.88em;
-  word-break:break-all;
-}
-#content pre{
-  background:var(--code-bg);border-radius:var(--radius);
-  padding:14px 16px;overflow-x:auto;margin:14px 0;
-}
-#content pre code{
-  background:none;padding:0;border-radius:0;
-  font-size:.85em;word-break:normal;
-}
-
-/* ── Tables — responsive wrap ── */
-.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0}
-#content table{
-  border-collapse:collapse;width:100%;min-width:340px;
-  font-size:.9em;
-}
-#content th{
-  background:var(--table-head);
-  text-align:left;padding:8px 12px;
-  border:1px solid var(--border);font-weight:600;
-}
-#content td{
-  padding:7px 12px;border:1px solid var(--border);
-  vertical-align:top;word-break:break-word;
-}
-#content tr:nth-child(even) td{background:var(--table-stripe)}
-
-/* ── Emoji badges in text ── */
-.badge{
-  display:inline-block;padding:1px 7px;border-radius:99px;
-  font-size:.78rem;font-weight:600;line-height:1.6;
-}
-
-/* ── Back to top ── */
-#back-top{
-  position:fixed;bottom:20px;right:16px;
-  background:var(--accent);color:#fff;
-  border:none;border-radius:50%;width:44px;height:44px;
-  font-size:1.3rem;cursor:pointer;
-  box-shadow:0 2px 8px rgba(0,0,0,.3);
-  display:flex;align-items:center;justify-content:center;
-  text-decoration:none;
-}
-#back-top:hover{opacity:.85}
-
-/* ── Loading state ── */
-#loading{text-align:center;padding:60px 0;color:var(--fg);opacity:.5;font-size:1.1rem}
-</style>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Oracle Gece Araştırma raporu 2026-03-15">
+<title>🔬 Gece Araştırma — 2026-03-15 (Pazar 01:00 IST) · Oracle Gece Araştırma</title>
+<link rel="canonical" href="https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-15.html">
+<link rel="alternate" hreflang="tr" href="https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-15.html">
+<link rel="alternate" hreflang="en" href="https://mahsumaktas.github.io/oracle_arastirma/en/reports/2026-03-15.html">
+<link rel="alternate" hreflang="es" href="https://mahsumaktas.github.io/oracle_arastirma/es/reports/2026-03-15.html">
+<link rel="alternate" hreflang="x-default" href="https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-15.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<script defer src="../assets/site.js"></script>
 </head>
 <body>
-<header>
-  <div class="page-wrap">
-    <h1>🔬 🔬 Gece Araştırma — 2026-03-15 (Pazar 01:00 IST)</h1>
-    <div class="meta">
-      Oracle Gece Araştırma &middot; 2026-03-15 &middot;
-      <a href="https://mahsumaktas.github.io/oracle_arastirma/index.html">← Tüm Raporlar</a>
+  <header class="site-header">
+  <div class="shell header-bar">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark">🦉</span>
+      <span class="brand-text">
+        <span class="brand-kicker">Oracle archive</span>
+        <h1 class="brand-title">Oracle Gece Araştırma</h1>
+        <p class="brand-subtitle">2026-03-15</p>
+      </span>
+    </a>
+    <div class="header-actions">
+      <div class="lang-switch"><span class="lang-switch-label">Dil</span><a class="lang-chip is-active" href="2026-03-15.html" lang="tr">TÜ</a><a class="lang-chip" href="../en/reports/2026-03-15.html" lang="en">EN</a><a class="lang-chip" href="../es/reports/2026-03-15.html" lang="es">ES</a></div>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle theme"><span data-theme-icon>◐</span></button>
     </div>
   </div>
 </header>
+  <main class="shell">
+    <section class="hero">
+      <div class="hero-card">
+        <div class="hero-layout">
+          <div>
+            <div class="breadcrumbs"><a href="../index.html">Arşive dön</a><span>•</span><span>2026-03-15</span></div>
+            <span class="hero-kicker">Araştırma raporu</span>
+            <h1>🔬 Gece Araştırma — 2026-03-15 (Pazar 01:00 IST)</h1>
+            <p>**Yenilik Önceliği** · 9/9 kategori · Dedupe aktif (25 madde filtresi) · Fallback: web_fetch doğrudan (Perplexity kota tükendi, oracle-bridge timeout) · Oracle doğrudan araştırma modu</p>
+            <div class="hero-actions">
+              <span class="hero-pill"><strong>11</strong> bölüm</span>
+              <span class="hero-pill"><strong>1480</strong> kelime</span>
+            </div>
+          </div>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <span class="stat-label">Öne çıkan not</span>
+              <div class="stat-detail">**Yenilik Önceliği** · 9/9 kategori · Dedupe aktif (25 madde filtresi) · Fallback: web_fetch doğrudan (Perplexity kota tükendi, oracle-bridge timeout) · Oracle doğrudan araştırma modu</div>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Hızlı erişim</span>
+              <div class="report-actions-row" style="margin-top:12px">
+                <a class="button" href="../raw/2026-03-15.md">Ham markdown</a>
+                <a class="ghost-button" href="../index.html">Tüm raporlar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<div class="page-wrap">
-  <nav class="breadcrumb">
-    <a href="https://mahsumaktas.github.io/oracle_arastirma/index.html">Oracle Araştırma</a>
-    <span>/</span>
-    2026-03-15
-  </nav>
-
-  <div id="loading">Rapor yükleniyor…</div>
-  <div id="content" style="display:none"></div>
-</div>
-
-<a href="#" id="back-top" title="Yukarı" aria-label="Yukarı git">↑</a>
-
-<!-- marked.js — lightweight CDN markdown parser (no server needed) -->
-<script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
-<script>
-(function(){
-  // ── Raw markdown (HTML-escaped by publisher, decoded here) ──
-  var RAW = "# \ud83d\udd2c Gece Ara\u015ft\u0131rma \u2014 2026-03-15 (Pazar 01:00 IST)\n\n> **Yenilik \u00d6nceli\u011fi** \u00b7 9/9 kategori \u00b7 Dedupe aktif (25 madde filtresi) \u00b7 Fallback: web_fetch do\u011frudan (Perplexity kota t\u00fckendi, oracle-bridge timeout) \u00b7 Oracle do\u011frudan ara\u015ft\u0131rma modu\n\n---\n\n## \ud83d\udd25 Top 7 \u2014 Sadece GER\u00c7EKTEN YEN\u0130 (Son 48 Saat Delta)\n\n| # | Madde | Kategori | Kaynak | \u00d6nem |\n|---|-------|----------|--------|------|\n| 1 | **Claude 1M Context GA \u2014 Standart Fiyatla** (13 Mart): Anthropic, Opus 4.6 + Sonnet 4.6 i\u00e7in 1M token context window'u standart fiyata indirdi. OpenAI 272K token'dan, Gemini 200K'dan sonra ek \u00fccret al\u0131rken Anthropic art\u0131k alm\u0131yor. Medya limiti de 100'den 600 g\u00f6rsele y\u00fckseldi. | KAT-1 | [the-decoder.com](https://the-decoder.com) \u00b7 [simonwillison.net](https://simonwillison.net/2026/Mar/13/1m-context/) | \ud83d\udd34 |\n| 2 | **Meta %20 \u0130\u015ften \u00c7\u0131karma Plan\u0131 \u2014 ~16.000 Ki\u015fi** (14 Mart, BUG\u00dcN): Reuters raporu \u2014 Meta y\u00f6neticileri %20 i\u015fg\u00fcc\u00fc kesintisi planl\u0131yor. Resmi s\u00f6zc\u00fc \"spek\u00fclatif\" dedi. Ama\u00e7 y\u00fckselen AI altyap\u0131 maliyetlerini dengelemek. Zuckerberg'in $600B AI yat\u0131r\u0131m plan\u0131yla \u00e7eli\u015fkili g\u00f6r\u00fcn\u00fcyor. | KAT-1/KAT-5 | [reuters.com](https://www.reuters.com/business/world-at-work/meta-planning-sweeping-layoffs-ai-costs-mount-2026-03-14/) \u00b7 [the-decoder.com](https://the-decoder.com) | \ud83d\udd34 |\n| 3 | **xAI Yeniden Yap\u0131lanma \u2014 12 Kurucu'dan 6's\u0131 Ayr\u0131ld\u0131** (The Decoder): Elon Musk \"\u015firket ilk seferinde do\u011fru kurulmad\u0131\" dedi, s\u0131f\u0131rdan yap\u0131lanma s\u00fcrecinde. Co-kurucu Guodong Zhang'\u0131n ard\u0131ndan \u00e7oklu ayr\u0131l\u0131\u015f. Cursor'dan iki k\u0131demli coding AI transfer edildi. | KAT-1 | [the-decoder.com](https://the-decoder.com) | \ud83d\udd34 |\n| 4 | **Mirendil \u2014 Anthropic'ten Neo-Lab, $175M, $1B De\u011ferleme** (14 Mart): Anthropic'ten Behnam Neyshabur (CEO) + Harsh Mehta (CTO) taraf\u0131ndan kuruldu. Biyoloji ve malzeme bilimi i\u00e7in AI ara\u015ft\u0131rma odakl\u0131. A16Z + Kleiner Perkins co-lead. xAI ve OpenAI mezunlar\u0131 da ekipte. | KAT-1/KAT-9 | [the-decoder.com](https://the-decoder.com) \u00b7 [theinformation.com](https://theinformation.com) | \ud83d\udd34 |\n| 5 | **Ai2 MolmoBot \u2014 Tamamen Sim\u00fclasyonda E\u011fitildi, Ger\u00e7ek D\u00fcnyada S\u0131f\u0131r-Shot** (The Decoder): Allen AI'dan MolmoSpaces (230.000+ i\u00e7 mekan sahnesi, 42M+ tutma anotasyonu) + MolmoBot (\u00e7ekme, a\u00e7ma, kald\u0131rma \u2014 hi\u00e7 ger\u00e7ek veri g\u00f6rmeden). Zero-shot sim-to-real transfer. | KAT-3/KAT-8 | [allenai.org](https://allenai.org/blog/molmobot-robot-manipulation) \u00b7 [the-decoder.com](https://the-decoder.com) | \ud83d\udfe1 |\n| 6 | **Hume AI TADA \u2014 Hall\u00fcsinasyonsuz TTS, 5x H\u0131zl\u0131, MIT Lisans** (The Decoder): Her metin token'\u0131na tam 1 ses sinyali \u2014 s\u0131f\u0131r transkripsiyon hall\u00fcsinasyonu (1000+ \u00f6rnekte). Kar\u015f\u0131la\u015ft\u0131r\u0131labilir sistemlerden 5x h\u0131zl\u0131. 1B (\u0130ngilizce) + 3B (8 dil). Smartphone'da \u00e7al\u0131\u015f\u0131yor. | KAT-3 | [github.com/HumeAI/tada](https://github.com/HumeAI/tada) \u00b7 [arxiv:2602.23068](https://arxiv.org/abs/2602.23068) | \ud83d\udfe1 |\n| 7 | **\u00c7in AI Agent Furyas\u0131 \u2014 7 \u015eehir OpenClaw Subsidi Ba\u015flatt\u0131** (The Decoder + SCMP): Hefei, Shenzhen (her biri $1.4M), Wuxi, Changshu, Changzhou, Nanjing \u2014 \"tek ki\u015filik \u015firket + AI \u00e7al\u0131\u015fan\" modeli. \u00c7in'de bireysel kurucu + AI agent ekibi = yeni \u00e7al\u0131\u015fma modeli. | KAT-5/KAT-7 | [the-decoder.com](https://the-decoder.com) \u00b7 [scmp.com](https://www.scmp.com/tech/tech-trends/article/3346513/) | \ud83d\udfe1 |\n\n**Dedupe notu:** 03-14 raporundaki maddeler elendi \u2014 Claude Sonnet 4.6 duyurusu, Claude Code /btw komutu, Anthropic Institute $100M, Figure Helix 02, xAI insan em\u00fclat\u00f6rleri, Karpathy autoresearch, VC rekorlar\u0131 tekrarlanmad\u0131.\n\n---\n\n## \ud83e\udd16 KAT-1 \u00b7 AI Laboratuvarlar\u0131 & Model Haberleri\n\n**Anthropic:**\n- Claude Opus 4.6 + Sonnet 4.6 \u2014 1M context GA standart fiyata d\u00fc\u015ft\u00fc (13 Mart) [\ud83d\udd17](https://the-decoder.com)\n- Medya limiti: 100 \u2192 600 g\u00f6rsel/PDF sayfa \u2014 Claude Code Max/Team/Enterprise'da aktif\n- Mirendil neo-lab: Anthropic'ten \u00e7\u0131kan ara\u015ft\u0131rmac\u0131lar $175M toplayor ($1B de\u011ferleme) [\ud83d\udd17](https://the-decoder.com)\n- DoW (Department of War) gerilimi s\u00fcrmekte \u2014 Anthropic resmi a\u00e7\u0131klamalarla yan\u0131t veriyor [\ud83d\udd17](https://anthropic.com/news/where-stand-department-war)\n\n**Meta:**\n- Reuters: %20 i\u015fg\u00fcc\u00fc kesintisi plan\u0131 (~16.000 ki\u015fi) \u2014 AI maliyet bask\u0131s\u0131 ana sebep [\ud83d\udd17](https://reuters.com)\n- Zuckerberg $600B AI yat\u0131r\u0131m plan\u0131 2028'e kadar devam ediyor\n- Manus (\u00c7in AI startup) sat\u0131n al\u0131m\u0131 \u00c7in ihracat kontrol soru\u015fturmas\u0131nda [\ud83d\udd17](https://the-decoder.com)\n\n**xAI:**\n- 12 kurucu ortaktan 6's\u0131 ayr\u0131ld\u0131 \u2014 Elon: \"ilk seferinde do\u011fru kurulmad\u0131\"\n- Cursor'dan iki k\u0131demli coding AI m\u00fchendisi transfer edildi\n\n**Amazon / Block:**\n- Amazon k\u0131demli m\u00fchendisleri AI kodu insan filtresi yap\u0131yor \u2014 seri kesinti sonras\u0131 [\ud83d\udd17](https://the-decoder.com)\n- Block neredeyse yar\u0131 i\u015fg\u00fcc\u00fcn\u00fc kesti \u2014 Dorsey AI'\u0131 krediled\u0131 ancak sebepler daha \u00f6nce ba\u015flam\u0131\u015ft\u0131 [\ud83d\udd17](https://the-decoder.com)\n\n---\n\n## \ud83d\udee0\ufe0f KAT-2 \u00b7 Geli\u015ftirici Ara\u00e7lar\u0131 & Altyap\u0131\n\n- **HuggingFace Storage Buckets** \u2014 Hub'da depolama bucket'lar\u0131 a\u00e7\u0131ld\u0131 (10 Mart) [\ud83d\udd17](https://huggingface.co/blog/storage-buckets)\n- **NVIDIA NeMo Retriever Agentic Retrieval Pipeline** \u2014 genelle\u015ftirilebilir ajansal eri\u015fim (13 Mart) [\ud83d\udd17](https://huggingface.co/blog/nvidia/nemo-retriever-agentic-retrieval)\n- **LeRobot v0.5.0** \u2014 her boyutu \u00f6l\u00e7eklendirme (HuggingFace robotik, 9 Mart) [\ud83d\udd17](https://huggingface.co/blog/lerobot-release-v050)\n- **OpenViking** (Volcengine) \u2014 AI Agent'lar i\u00e7in context veritaban\u0131 (memory+resources+skills, dosya sistemi paradigmas\u0131) \u2014 1.557 star bug\u00fcn [\ud83d\udd17](https://github.com/volcengine/OpenViking)\n- **Hindsight** (vectorize-io) \u2014 \"Agent Memory That Learns\" \u2014 502 star bug\u00fcn [\ud83d\udd17](https://github.com/vectorize-io/hindsight)\n- **OpenRAG** (Langflow) \u2014 tek paket RAG platformu (Langflow+Docling+Opensearch) \u2014 568 star bug\u00fcn [\ud83d\udd17](https://github.com/langflow-ai/openrag)\n- **MiroFish** \u2014 Swarm Intelligence Engine, \"Predict Anything\" \u2014 2.048 star bug\u00fcn [\ud83d\udd17](https://github.com/666ghj/MiroFish)\n- **Async RL Training Landscape** \u2014 16 a\u00e7\u0131k kaynak RL library kar\u015f\u0131la\u015ft\u0131rmas\u0131 (HuggingFace) [\ud83d\udd17](https://huggingface.co/blog/async-rl-training-landscape)\n\n---\n\n## \ud83d\udcda KAT-3 \u00b7 Ara\u015ft\u0131rma Makaleleri & Akademi\n\n- **MolmoBot** (Ai2/Allen AI) \u2014 230.000+ sim\u00fcle sahne, 42M+ fizik tabanl\u0131 tutma anotasyonu; zero-shot sim-to-real; ger\u00e7ek veri yok [\ud83d\udd17](https://allenai.org/blog/molmobot-robot-manipulation) \u00b7 [arxiv](https://allenai.org/papers/molmobot)\n- **Hume AI TADA** \u2014 metin-ses 1:1 e\u015fle\u015fme, s\u0131f\u0131r transkripsiyon hall\u00fcsinasyonu, 5x h\u0131z, MIT lisans, Llama tabanl\u0131 [\ud83d\udd17](https://arxiv.org/abs/2602.23068)\n- **arXiv cs.AI 13 Mart** \u2014 193 yeni submission (2603.12246 ba\u015fta) [\ud83d\udd17](https://arxiv.org/list/cs.AI/recent)\n- **Ulysses Sequence Parallelism** (HuggingFace) \u2014 milyon token context ile da\u011f\u0131t\u0131k e\u011fitim [\ud83d\udd17](https://huggingface.co/blog/ulysses-sp)\n- **Modular Diffusers** (HuggingFace) \u2014 composable, de\u011fi\u015ftirilebilir diffusion pipeline bloklar\u0131 [\ud83d\udd17](https://huggingface.co/blog/modular-diffusers)\n\n---\n\n## \ud83d\udde3\ufe0f KAT-4 \u00b7 D\u00fc\u015f\u00fcnce \u00d6nderleri & Topluluk\n\n- **Simon Willison** (14 Mart): Pragmatic Summit'te agentic engineering fireside chat. 1M context GA'y\u0131 fiyat kar\u015f\u0131la\u015ft\u0131rmas\u0131yla analiz etti: \"OpenAI 272K'dan, Gemini 200K'dan sonra ek \u00fccret al\u0131yor \u2014 Anthropic art\u0131k alm\u0131yor.\" [\ud83d\udd17](https://simonwillison.net/2026/Mar/14/pragmatic-summit/)\n- **p-e-w/heretic** GitHub: \"Dil modelleri i\u00e7in tam otomatik sans\u00fcr kald\u0131rma\" \u2014 GitHub trending (tart\u0131\u015fmal\u0131, sans\u00fcr/etik tart\u0131\u015fmalar\u0131) [\ud83d\udd17](https://github.com/p-e-w/heretic)\n- **\u00c7in AI krizi tart\u0131\u015fmas\u0131** \u2014 SCMP: \"Tek ki\u015filik \u015firket + AI \u00e7al\u0131\u015fan\" modelinin 7 \u015fehirde subsidi ile yayg\u0131nla\u015fmas\u0131 sosyal sentiment'i de\u011fi\u015ftiriyor [\ud83d\udd17](https://scmp.com/tech/tech-trends/article/3346513/)\n\n---\n\n## \ud83c\udfed KAT-5 \u00b7 Enterprise & End\u00fcstri Uygulamalar\u0131\n\n- **Meta %20 kesinti** \u2014 AI altyap\u0131 maliyetleri dengelemek i\u00e7in i\u015fg\u00fcc\u00fc azaltma [\ud83d\udd17](https://reuters.com)\n- **Amazon insan filtresi** \u2014 K\u0131demli m\u00fchendisler AI kodunu g\u00f6zden ge\u00e7irmek zorunda; seri kesinti AI hatalar\u0131ndan kaynakland\u0131 [\ud83d\udd17](https://the-decoder.com)\n- **Block yar\u0131 i\u015fg\u00fcc\u00fc** \u2014 Dorsey AI verimlili\u011fini krediled\u0131, ancak analistler ger\u00e7ek sebeplerin daha eski oldu\u011funu s\u00f6yl\u00fcyor [\ud83d\udd17](https://the-decoder.com)\n- **\u00c7in \"tek ki\u015filik \u015firket\"** \u2014 7 \u015fehir fonlama program\u0131; Shenzhen+Hefei her biri $1.4M, Wuxi $700K, Changshu $830K\n\n---\n\n## \ud83d\udd12 KAT-6 \u00b7 G\u00fcvenlik, Hizalama & Etik\n\n- **xAI kurucu \u00e7\u00f6k\u00fc\u015f\u00fc** \u2014 12'den 6 kurucu ayr\u0131ld\u0131; y\u00f6netim ve k\u00fclt\u00fcr sorunlar\u0131 d\u0131\u015far\u0131ya s\u0131zd\u0131\n- **Amazon AI kod g\u00fcvenli\u011fi** \u2014 Seri \u00fcretim kesintisi AI kodundan kaynakland\u0131; insan oversight zorunlu hale getirildi\n- **heretic repo** \u2014 LLM sans\u00fcr kald\u0131rma a\u00e7\u0131k kaynak toolu; etik/hukuki tart\u0131\u015fma ba\u015flad\u0131 [\ud83d\udd17](https://github.com/p-e-w/heretic)\n\n---\n\n## \ud83e\udde0 KAT-7 \u00b7 Meta-AI / Felsefe / Uzun Vade\n\n- **Sim-to-real transfer olgunla\u015f\u0131yor** \u2014 MolmoBot kan\u0131tlad\u0131: yeterince \u00e7e\u015fitli sim\u00fclasyon + fizik anotasyonu = ger\u00e7ek d\u00fcnya s\u0131f\u0131r-shot. Robotik veri u\u00e7urumu kapan\u0131yor.\n- **\"Tek ki\u015filik \u015firket + AI\"** \u2014 \u00c7in'de 7 y\u00f6netim bu modeli fonluyor. \u00c7al\u0131\u015fma bi\u00e7imi deneyi k\u00fcresel \u00f6l\u00e7ekte ilk kez devlet destekli somut form al\u0131yor.\n- **1:1 ses-metin e\u015fle\u015fmesi (TADA)** \u2014 \u00dcretken modellerde hall\u00fcsinasyonu s\u0131f\u0131ra indirme ba\u015far\u0131s\u0131 ses alan\u0131nda ilk; di\u011fer modaliteler i\u00e7in yol haritas\u0131 \u00e7iziyor.\n\n---\n\n## \ud83e\udd16 KAT-8 \u00b7 Robotik & Fiziksel AI\n\n- **Ai2 MolmoBot** \u2014 zero-shot sim-to-real: 230.000+ sahne, 130.000+ nesne, 42M+ tutma anotasyonu; a\u00e7\u0131k kaynak [\ud83d\udd17](https://allenai.org/blog/molmobot-robot-manipulation)\n- **LeRobot v0.5.0** \u2014 dataset recording, VLA fine-tuning, on-device optimizasyon [\ud83d\udd17](https://huggingface.co/blog/lerobot-release-v050)\n- **NXP Embedded Robotics AI** \u2014 kenar platformlarda robotik AI (HuggingFace, 5 Mart) [\ud83d\udd17](https://huggingface.co/blog/nxp/bringing-robotics-ai-to-embedded-platforms)\n\n---\n\n## \ud83d\udcb0 KAT-9 \u00b7 Giri\u015fim Ekosistemi & Finansman\n\n- **Mirendil** (Anthropic neo-lab) \u2014 $175M seri A, $1B de\u011ferleme, A16Z+Kleiner Perkins co-lead [\ud83d\udd17](https://the-decoder.com)\n- **OpenClaw furyas\u0131 \u00c7in'de** \u2014 7 \u015fehir subsidi program\u0131; \"tek ki\u015filik \u015firket+AI \u00e7al\u0131\u015fan\" modeli ekonomik b\u00fcy\u00fcme vekt\u00f6r\u00fc olarak g\u00f6r\u00fcl\u00fcyor\n- **AI maliyet bask\u0131s\u0131** \u2014 Meta, Amazon, Block \u00fc\u00e7 b\u00fcy\u00fck \u015firket AI maliyeti nedeniyle i\u015fg\u00fcc\u00fc kesiyor; sekt\u00f6rel trend\n\n---\n\n## \ud83d\udcca Kaynak & Durum \u00d6zeti\n\n| Kategori | Kaynak | Durum | Madde |\n|----------|--------|-------|-------|\n| KAT-1 | anthropic.com, the-decoder.com, reuters.com | \u2705 | 7 |\n| KAT-2 | github.com/trending, huggingface.co/blog | \u2705 | 8 |\n| KAT-3 | arxiv.org, allenai.org, huggingface.co/papers | \u2705 | 5 |\n| KAT-4 | simonwillison.net, github.com, scmp.com | \u2705 | 3 |\n| KAT-5 | reuters.com, the-decoder.com | \u2705 | 4 |\n| KAT-6 | the-decoder.com, github.com | \u2705 | 3 |\n| KAT-7 | the-decoder.com, allenai.org | \u2705 | 3 |\n| KAT-8 | allenai.org, huggingface.co/blog | \u2705 | 3 |\n| KAT-9 | the-decoder.com, theinformation.com | \u2705 | 3 |\n\n**Perplexity API:** \u274c Kota t\u00fckendi \u2014 web_fetch fallback ile \u00e7al\u0131\u015f\u0131ld\u0131\n**oracle-bridge / claude CLI:** \u274c Timeout \u2014 Oracle do\u011frudan ara\u015ft\u0131rma moduna ge\u00e7ti\n**Toplam dedupe filtresi:** 25 aktif madde (03-14 raporu i\u00e7erikleri) elendi\n**Sonraki temizlik:** 2026-03-15 22:00 UTC\n\n---\n\n*Rapor: Gece Ara\u015ft\u0131rma v2 \u00b7 2026-03-15 01:00 \u0130ST \u00b7 Oracle \ud83e\udd89*\n";
-
-  // ── marked config ──
-  marked.setOptions({
-    gfm:true,
-    breaks:false,
-    mangle:false,
-    headerIds:false
-  });
-
-  // ── Wrap tables for horizontal scroll ──
-  var renderer = new marked.Renderer();
-  renderer.table = function(header, body){
-    return '<div class="table-wrap"><table><thead>' + header + '</thead><tbody>' + body + '</tbody></table></div>';
-  };
-
-  var html = marked.parse(RAW, {renderer:renderer});
-  var content = document.getElementById('content');
-  var loading = document.getElementById('loading');
-  content.innerHTML = html;
-  content.style.display = '';
-  loading.style.display = 'none';
-
-  // ── Open external links in new tab ──
-  var links = content.querySelectorAll('a[href]');
-  for(var i=0;i<links.length;i++){
-    var href = links[i].getAttribute('href');
-    if(href && (href.startsWith('http://') || href.startsWith('https://'))){
-      links[i].setAttribute('target','_blank');
-      links[i].setAttribute('rel','noopener noreferrer');
-    }
-  }
-})();
-</script>
+    <section class="report-layout">
+      <aside class="sticky-column stack">
+        <div class="panel">
+          <div class="panel-title"><div><h3>İçindekiler</h3><p>Türkçe kaynak korunur, alternatif diller otomatik olarak üretilir.</p></div></div>
+          <nav class="report-nav"><a class="section-link" href="#sec-1-top-7-sadece-ger-ekten-yeni-son-48-saat-delta" data-section-link>🔥 Top 7 — Sadece GERÇEKTEN YENİ (Son 48 Saat Delta)</a><a class="section-link" href="#sec-2-kat-1-ai-laboratuvarlari-model-haberleri" data-section-link>🤖 KAT-1 · AI Laboratuvarları &amp; Model Haberleri</a><a class="section-link" href="#sec-3-kat-2-gelistirici-araclari-altyapi" data-section-link>🛠️ KAT-2 · Geliştirici Araçları &amp; Altyapı</a><a class="section-link" href="#sec-4-kat-3-arastirma-makaleleri-akademi" data-section-link>📚 KAT-3 · Araştırma Makaleleri &amp; Akademi</a><a class="section-link" href="#sec-5-kat-4-dusunce-nderleri-topluluk" data-section-link>🗣️ KAT-4 · Düşünce Önderleri &amp; Topluluk</a><a class="section-link" href="#sec-6-kat-5-enterprise-endustri-uygulamalari" data-section-link>🏭 KAT-5 · Enterprise &amp; Endüstri Uygulamaları</a><a class="section-link" href="#sec-7-kat-6-guvenlik-hizalama-etik" data-section-link>🔒 KAT-6 · Güvenlik, Hizalama &amp; Etik</a><a class="section-link" href="#sec-8-kat-7-meta-ai-felsefe-uzun-vade" data-section-link>🧠 KAT-7 · Meta-AI / Felsefe / Uzun Vade</a><a class="section-link" href="#sec-9-kat-8-robotik-fiziksel-ai" data-section-link>🤖 KAT-8 · Robotik &amp; Fiziksel AI</a><a class="section-link" href="#sec-10-kat-9-girisim-ekosistemi-finansman" data-section-link>💰 KAT-9 · Girişim Ekosistemi &amp; Finansman</a><a class="section-link" href="#sec-11-kaynak-durum-zeti" data-section-link>📊 Kaynak &amp; Durum Özeti</a></nav>
+        </div>
+        <div class="panel">
+          <div class="panel-title"><div><h3>Hızlı erişim</h3></div></div>
+          <div class="report-tools">
+            <a class="ghost-button" href="../raw/2026-03-15.md">Kaynak markdown</a>
+            <a class="ghost-button" href="2026-03-15.html">Türkçe orijinal</a>
+            <a class="ghost-button" href="2026-03-13.html">Önceki rapor</a>
+            <a class="ghost-button" href="2026-03-16.html">Sonraki rapor</a>
+          </div>
+        </div>
+      </aside>
+      <div class="report-main">
+        <section class="report-summary-card rendered-markdown">
+          <div class="section-head">
+            <div>
+              <div class="section-kicker">Rapor özeti</div>
+              <h2>Rapor özeti</h2>
+            </div>
+          </div>
+          <blockquote><p><strong>Yenilik Önceliği</strong> · 9/9 kategori · Dedupe aktif (25 madde filtresi) · Fallback: web_fetch doğrudan (Perplexity kota tükendi, oracle-bridge timeout) · Oracle doğrudan araştırma modu</p></blockquote>
+        </section>
+        <div data-report-sections></div>
+      </div>
+    </section>
+  </main>
+  <footer class="shell footer">
+    <div class="footer-card">
+      <p>Oracle gece araştırma arşivi, Türkçe asıl içerik korunarak üretilir.</p>
+      <p>2026-04-11 23:10 UTC</p>
+    </div>
+  </footer>
+  <script id="report-data" type="application/json">{&quot;sectionLabel&quot;: &quot;Bölümler&quot;, &quot;sections&quot;: [{&quot;id&quot;: &quot;sec-1-top-7-sadece-ger-ekten-yeni-son-48-saat-delta&quot;, &quot;title&quot;: &quot;🔥 Top 7 — Sadece GERÇEKTEN YENİ (Son 48 Saat Delta)&quot;, &quot;content&quot;: &quot;| # | Madde | Kategori | Kaynak | Önem |\n|---|-------|----------|--------|------|\n| 1 | **Claude 1M Context GA — Standart Fiyatla** (13 Mart): Anthropic, Opus 4.6 + Sonnet 4.6 için 1M token context window&#x27;u standart fiyata indirdi. OpenAI 272K token&#x27;dan, Gemini 200K&#x27;dan sonra ek ücret alırken Anthropic artık almıyor. Medya limiti de 100&#x27;den 600 görsele yükseldi. | KAT-1 | [the-decoder.com](https://the-decoder.com) · [simonwillison.net](https://simonwillison.net/2026/Mar/13/1m-context/) | 🔴 |\n| 2 | **Meta %20 İşten Çıkarma Planı — ~16.000 Kişi** (14 Mart, BUGÜN): Reuters raporu — Meta yöneticileri %20 işgücü kesintisi planlıyor. Resmi sözcü \&quot;spekülatif\&quot; dedi. Amaç yükselen AI altyapı maliyetlerini dengelemek. Zuckerberg&#x27;in $600B AI yatırım planıyla çelişkili görünüyor. | KAT-1/KAT-5 | [reuters.com](https://www.reuters.com/business/world-at-work/meta-planning-sweeping-layoffs-ai-costs-mount-2026-03-14/) · [the-decoder.com](https://the-decoder.com) | 🔴 |\n| 3 | **xAI Yeniden Yapılanma — 12 Kurucu&#x27;dan 6&#x27;sı Ayrıldı** (The Decoder): Elon Musk \&quot;şirket ilk seferinde doğru kurulmadı\&quot; dedi, sıfırdan yapılanma sürecinde. Co-kurucu Guodong Zhang&#x27;ın ardından çoklu ayrılış. Cursor&#x27;dan iki kıdemli coding AI transfer edildi. | KAT-1 | [the-decoder.com](https://the-decoder.com) | 🔴 |\n| 4 | **Mirendil — Anthropic&#x27;ten Neo-Lab, $175M, $1B Değerleme** (14 Mart): Anthropic&#x27;ten Behnam Neyshabur (CEO) + Harsh Mehta (CTO) tarafından kuruldu. Biyoloji ve malzeme bilimi için AI araştırma odaklı. A16Z + Kleiner Perkins co-lead. xAI ve OpenAI mezunları da ekipte. | KAT-1/KAT-9 | [the-decoder.com](https://the-decoder.com) · [theinformation.com](https://theinformation.com) | 🔴 |\n| 5 | **Ai2 MolmoBot — Tamamen Simülasyonda Eğitildi, Gerçek Dünyada Sıfır-Shot** (The Decoder): Allen AI&#x27;dan MolmoSpaces (230.000+ iç mekan sahnesi, 42M+ tutma anotasyonu) + MolmoBot (çekme, açma, kaldırma — hiç gerçek veri görmeden). Zero-shot sim-to-real transfer. | KAT-3/KAT-8 | [allenai.org](https://allenai.org/blog/molmobot-robot-manipulation) · [the-decoder.com](https://the-decoder.com) | 🟡 |\n| 6 | **Hume AI TADA — Hallüsinasyonsuz TTS, 5x Hızlı, MIT Lisans** (The Decoder): Her metin token&#x27;ına tam 1 ses sinyali — sıfır transkripsiyon hallüsinasyonu (1000+ örnekte). Karşılaştırılabilir sistemlerden 5x hızlı. 1B (İngilizce) + 3B (8 dil). Smartphone&#x27;da çalışıyor. | KAT-3 | [github.com/HumeAI/tada](https://github.com/HumeAI/tada) · [arxiv:2602.23068](https://arxiv.org/abs/2602.23068) | 🟡 |\n| 7 | **Çin AI Agent Furyası — 7 Şehir OpenClaw Subsidi Başlattı** (The Decoder + SCMP): Hefei, Shenzhen (her biri $1.4M), Wuxi, Changshu, Changzhou, Nanjing — \&quot;tek kişilik şirket + AI çalışan\&quot; modeli. Çin&#x27;de bireysel kurucu + AI agent ekibi = yeni çalışma modeli. | KAT-5/KAT-7 | [the-decoder.com](https://the-decoder.com) · [scmp.com](https://www.scmp.com/tech/tech-trends/article/3346513/) | 🟡 |\n\n**Dedupe notu:** 03-14 raporundaki maddeler elendi — Claude Sonnet 4.6 duyurusu, Claude Code /btw komutu, Anthropic Institute $100M, Figure Helix 02, xAI insan emülatörleri, Karpathy autoresearch, VC rekorları tekrarlanmadı.\n\n---&quot;}, {&quot;id&quot;: &quot;sec-2-kat-1-ai-laboratuvarlari-model-haberleri&quot;, &quot;title&quot;: &quot;🤖 KAT-1 · AI Laboratuvarları &amp; Model Haberleri&quot;, &quot;content&quot;: &quot;**Anthropic:**\n- Claude Opus 4.6 + Sonnet 4.6 — 1M context GA standart fiyata düştü (13 Mart) [🔗](https://the-decoder.com)\n- Medya limiti: 100 → 600 görsel/PDF sayfa — Claude Code Max/Team/Enterprise&#x27;da aktif\n- Mirendil neo-lab: Anthropic&#x27;ten çıkan araştırmacılar $175M toplayor ($1B değerleme) [🔗](https://the-decoder.com)\n- DoW (Department of War) gerilimi sürmekte — Anthropic resmi açıklamalarla yanıt veriyor [🔗](https://anthropic.com/news/where-stand-department-war)\n\n**Meta:**\n- Reuters: %20 işgücü kesintisi planı (~16.000 kişi) — AI maliyet baskısı ana sebep [🔗](https://reuters.com)\n- Zuckerberg $600B AI yatırım planı 2028&#x27;e kadar devam ediyor\n- Manus (Çin AI startup) satın alımı Çin ihracat kontrol soruşturmasında [🔗](https://the-decoder.com)\n\n**xAI:**\n- 12 kurucu ortaktan 6&#x27;sı ayrıldı — Elon: \&quot;ilk seferinde doğru kurulmadı\&quot;\n- Cursor&#x27;dan iki kıdemli coding AI mühendisi transfer edildi\n\n**Amazon / Block:**\n- Amazon kıdemli mühendisleri AI kodu insan filtresi yapıyor — seri kesinti sonrası [🔗](https://the-decoder.com)\n- Block neredeyse yarı işgücünü kesti — Dorsey AI&#x27;ı krediledı ancak sebepler daha önce başlamıştı [🔗](https://the-decoder.com)\n\n---&quot;}, {&quot;id&quot;: &quot;sec-3-kat-2-gelistirici-araclari-altyapi&quot;, &quot;title&quot;: &quot;🛠️ KAT-2 · Geliştirici Araçları &amp; Altyapı&quot;, &quot;content&quot;: &quot;- **HuggingFace Storage Buckets** — Hub&#x27;da depolama bucket&#x27;ları açıldı (10 Mart) [🔗](https://huggingface.co/blog/storage-buckets)\n- **NVIDIA NeMo Retriever Agentic Retrieval Pipeline** — genelleştirilebilir ajansal erişim (13 Mart) [🔗](https://huggingface.co/blog/nvidia/nemo-retriever-agentic-retrieval)\n- **LeRobot v0.5.0** — her boyutu ölçeklendirme (HuggingFace robotik, 9 Mart) [🔗](https://huggingface.co/blog/lerobot-release-v050)\n- **OpenViking** (Volcengine) — AI Agent&#x27;lar için context veritabanı (memory+resources+skills, dosya sistemi paradigması) — 1.557 star bugün [🔗](https://github.com/volcengine/OpenViking)\n- **Hindsight** (vectorize-io) — \&quot;Agent Memory That Learns\&quot; — 502 star bugün [🔗](https://github.com/vectorize-io/hindsight)\n- **OpenRAG** (Langflow) — tek paket RAG platformu (Langflow+Docling+Opensearch) — 568 star bugün [🔗](https://github.com/langflow-ai/openrag)\n- **MiroFish** — Swarm Intelligence Engine, \&quot;Predict Anything\&quot; — 2.048 star bugün [🔗](https://github.com/666ghj/MiroFish)\n- **Async RL Training Landscape** — 16 açık kaynak RL library karşılaştırması (HuggingFace) [🔗](https://huggingface.co/blog/async-rl-training-landscape)\n\n---&quot;}, {&quot;id&quot;: &quot;sec-4-kat-3-arastirma-makaleleri-akademi&quot;, &quot;title&quot;: &quot;📚 KAT-3 · Araştırma Makaleleri &amp; Akademi&quot;, &quot;content&quot;: &quot;- **MolmoBot** (Ai2/Allen AI) — 230.000+ simüle sahne, 42M+ fizik tabanlı tutma anotasyonu; zero-shot sim-to-real; gerçek veri yok [🔗](https://allenai.org/blog/molmobot-robot-manipulation) · [arxiv](https://allenai.org/papers/molmobot)\n- **Hume AI TADA** — metin-ses 1:1 eşleşme, sıfır transkripsiyon hallüsinasyonu, 5x hız, MIT lisans, Llama tabanlı [🔗](https://arxiv.org/abs/2602.23068)\n- **arXiv cs.AI 13 Mart** — 193 yeni submission (2603.12246 başta) [🔗](https://arxiv.org/list/cs.AI/recent)\n- **Ulysses Sequence Parallelism** (HuggingFace) — milyon token context ile dağıtık eğitim [🔗](https://huggingface.co/blog/ulysses-sp)\n- **Modular Diffusers** (HuggingFace) — composable, değiştirilebilir diffusion pipeline blokları [🔗](https://huggingface.co/blog/modular-diffusers)\n\n---&quot;}, {&quot;id&quot;: &quot;sec-5-kat-4-dusunce-nderleri-topluluk&quot;, &quot;title&quot;: &quot;🗣️ KAT-4 · Düşünce Önderleri &amp; Topluluk&quot;, &quot;content&quot;: &quot;- **Simon Willison** (14 Mart): Pragmatic Summit&#x27;te agentic engineering fireside chat. 1M context GA&#x27;yı fiyat karşılaştırmasıyla analiz etti: \&quot;OpenAI 272K&#x27;dan, Gemini 200K&#x27;dan sonra ek ücret alıyor — Anthropic artık almıyor.\&quot; [🔗](https://simonwillison.net/2026/Mar/14/pragmatic-summit/)\n- **p-e-w/heretic** GitHub: \&quot;Dil modelleri için tam otomatik sansür kaldırma\&quot; — GitHub trending (tartışmalı, sansür/etik tartışmaları) [🔗](https://github.com/p-e-w/heretic)\n- **Çin AI krizi tartışması** — SCMP: \&quot;Tek kişilik şirket + AI çalışan\&quot; modelinin 7 şehirde subsidi ile yaygınlaşması sosyal sentiment&#x27;i değiştiriyor [🔗](https://scmp.com/tech/tech-trends/article/3346513/)\n\n---&quot;}, {&quot;id&quot;: &quot;sec-6-kat-5-enterprise-endustri-uygulamalari&quot;, &quot;title&quot;: &quot;🏭 KAT-5 · Enterprise &amp; Endüstri Uygulamaları&quot;, &quot;content&quot;: &quot;- **Meta %20 kesinti** — AI altyapı maliyetleri dengelemek için işgücü azaltma [🔗](https://reuters.com)\n- **Amazon insan filtresi** — Kıdemli mühendisler AI kodunu gözden geçirmek zorunda; seri kesinti AI hatalarından kaynaklandı [🔗](https://the-decoder.com)\n- **Block yarı işgücü** — Dorsey AI verimliliğini krediledı, ancak analistler gerçek sebeplerin daha eski olduğunu söylüyor [🔗](https://the-decoder.com)\n- **Çin \&quot;tek kişilik şirket\&quot;** — 7 şehir fonlama programı; Shenzhen+Hefei her biri $1.4M, Wuxi $700K, Changshu $830K\n\n---&quot;}, {&quot;id&quot;: &quot;sec-7-kat-6-guvenlik-hizalama-etik&quot;, &quot;title&quot;: &quot;🔒 KAT-6 · Güvenlik, Hizalama &amp; Etik&quot;, &quot;content&quot;: &quot;- **xAI kurucu çöküşü** — 12&#x27;den 6 kurucu ayrıldı; yönetim ve kültür sorunları dışarıya sızdı\n- **Amazon AI kod güvenliği** — Seri üretim kesintisi AI kodundan kaynaklandı; insan oversight zorunlu hale getirildi\n- **heretic repo** — LLM sansür kaldırma açık kaynak toolu; etik/hukuki tartışma başladı [🔗](https://github.com/p-e-w/heretic)\n\n---&quot;}, {&quot;id&quot;: &quot;sec-8-kat-7-meta-ai-felsefe-uzun-vade&quot;, &quot;title&quot;: &quot;🧠 KAT-7 · Meta-AI / Felsefe / Uzun Vade&quot;, &quot;content&quot;: &quot;- **Sim-to-real transfer olgunlaşıyor** — MolmoBot kanıtladı: yeterince çeşitli simülasyon + fizik anotasyonu = gerçek dünya sıfır-shot. Robotik veri uçurumu kapanıyor.\n- **\&quot;Tek kişilik şirket + AI\&quot;** — Çin&#x27;de 7 yönetim bu modeli fonluyor. Çalışma biçimi deneyi küresel ölçekte ilk kez devlet destekli somut form alıyor.\n- **1:1 ses-metin eşleşmesi (TADA)** — Üretken modellerde hallüsinasyonu sıfıra indirme başarısı ses alanında ilk; diğer modaliteler için yol haritası çiziyor.\n\n---&quot;}, {&quot;id&quot;: &quot;sec-9-kat-8-robotik-fiziksel-ai&quot;, &quot;title&quot;: &quot;🤖 KAT-8 · Robotik &amp; Fiziksel AI&quot;, &quot;content&quot;: &quot;- **Ai2 MolmoBot** — zero-shot sim-to-real: 230.000+ sahne, 130.000+ nesne, 42M+ tutma anotasyonu; açık kaynak [🔗](https://allenai.org/blog/molmobot-robot-manipulation)\n- **LeRobot v0.5.0** — dataset recording, VLA fine-tuning, on-device optimizasyon [🔗](https://huggingface.co/blog/lerobot-release-v050)\n- **NXP Embedded Robotics AI** — kenar platformlarda robotik AI (HuggingFace, 5 Mart) [🔗](https://huggingface.co/blog/nxp/bringing-robotics-ai-to-embedded-platforms)\n\n---&quot;}, {&quot;id&quot;: &quot;sec-10-kat-9-girisim-ekosistemi-finansman&quot;, &quot;title&quot;: &quot;💰 KAT-9 · Girişim Ekosistemi &amp; Finansman&quot;, &quot;content&quot;: &quot;- **Mirendil** (Anthropic neo-lab) — $175M seri A, $1B değerleme, A16Z+Kleiner Perkins co-lead [🔗](https://the-decoder.com)\n- **OpenClaw furyası Çin&#x27;de** — 7 şehir subsidi programı; \&quot;tek kişilik şirket+AI çalışan\&quot; modeli ekonomik büyüme vektörü olarak görülüyor\n- **AI maliyet baskısı** — Meta, Amazon, Block üç büyük şirket AI maliyeti nedeniyle işgücü kesiyor; sektörel trend\n\n---&quot;}, {&quot;id&quot;: &quot;sec-11-kaynak-durum-zeti&quot;, &quot;title&quot;: &quot;📊 Kaynak &amp; Durum Özeti&quot;, &quot;content&quot;: &quot;| Kategori | Kaynak | Durum | Madde |\n|----------|--------|-------|-------|\n| KAT-1 | anthropic.com, the-decoder.com, reuters.com | ✅ | 7 |\n| KAT-2 | github.com/trending, huggingface.co/blog | ✅ | 8 |\n| KAT-3 | arxiv.org, allenai.org, huggingface.co/papers | ✅ | 5 |\n| KAT-4 | simonwillison.net, github.com, scmp.com | ✅ | 3 |\n| KAT-5 | reuters.com, the-decoder.com | ✅ | 4 |\n| KAT-6 | the-decoder.com, github.com | ✅ | 3 |\n| KAT-7 | the-decoder.com, allenai.org | ✅ | 3 |\n| KAT-8 | allenai.org, huggingface.co/blog | ✅ | 3 |\n| KAT-9 | the-decoder.com, theinformation.com | ✅ | 3 |\n\n**Perplexity API:** ❌ Kota tükendi — web_fetch fallback ile çalışıldı\n**oracle-bridge / claude CLI:** ❌ Timeout — Oracle doğrudan araştırma moduna geçti\n**Toplam dedupe filtresi:** 25 aktif madde (03-14 raporu içerikleri) elendi\n**Sonraki temizlik:** 2026-03-15 22:00 UTC\n\n---\n\n*Rapor: Gece Araştırma v2 · 2026-03-15 01:00 İST · Oracle 🦉*&quot;}]}</script>
+  <script src="https://cdn.jsdelivr.net/npm/marked@9.1.6/marked.min.js"></script>
+  <button class="back-to-top" type="button" data-back-top aria-label="Back to top">↑</button>
 </body>
 </html>

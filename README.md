@@ -1,39 +1,35 @@
 # 🔭 Oracle Gece Araştırma
 
-**Oracle Nightly Research v2** raporlarının herkese açık arşivi.
+Çok dilli GitHub Pages arşivi. Türkçe raporlar kaynak kabul edilir, İngilizce ve İspanyolca sürümler build sırasında üretilir.
 
-Her gece otomatik olarak üretilen AI/tech araştırma raporları bu sitede yayınlanmaktadır.
-
-## 📋 Raporlar
-
-Tüm raporları **[index sayfasından](https://mahsumaktas.github.io/oracle_arastirma/)** görebilirsiniz.
-
-## Dizin Yapısı
+## Yapı
 
 ```
 oracle_arastirma/
-├── index.html          ← Rapor listesi (GitHub Pages ana sayfası)
-├── reports/
-│   └── YYYY-MM-DD.html ← Her gecenin HTML raporu (mobile-friendly)
-├── raw/
-│   └── YYYY-MM-DD.md   ← Ham markdown kopyaları
-└── .nojekyll           ← GitHub Pages Jekyll işlemeyi devre dışı bırakır
+├── assets/               # Ortak CSS ve JS
+├── data/                 # Çeviri cache'i
+├── reports/              # Türkçe rapor URL'leri korunur
+├── en/reports/           # İngilizce alternatif URL'ler
+├── es/reports/           # İspanyolca alternatif URL'ler
+├── raw/                  # Türkçe kaynak markdown
+├── scripts/build_site.py # Tüm statik site üretimi
+└── api/latest.json       # Son rapor bilgisi
 ```
 
-## GitHub Pages
+## Build
 
-Site adresi: **https://mahsumaktas.github.io/oracle_arastirma/**
-
-Pages etkinleştirme (tek seferlik):
 ```bash
-gh repo edit mahsumaktas/oracle_arastirma --enable-pages
-# veya GitHub → Settings → Pages → Source: Deploy from branch → main / (root)
+python3 scripts/build_site.py
 ```
 
-## Kaynak Pipeline
+Script şunları yapar:
+- `raw/*.md` dosyalarını okuyup Türkçe rapor sayfalarını yeniden üretir
+- İngilizce ve İspanyolca alternatif sayfaları oluşturur
+- ana indeks, raw arşiv indeksleri, RSS, sitemap ve latest API çıktısını günceller
+- Google Translate web endpoint üzerinden eksik çevirileri alır ve `data/translation-cache.json` içinde cache'ler
 
-Raporlar `/Users/mahsum/clawd/research/nightly-v2/` pipeline'ından üretilir.
-Yayıncı betik: `research/nightly-v2/scripts/publish-html.py`
+## Notlar
 
----
-*Oracle 🦉 · Gece Araştırma v2*
+- Mevcut Türkçe URL'ler korunur: `/index.html` ve `/reports/YYYY-MM-DD.html`
+- Alternatif diller temiz URL'lerle yayınlanır: `/en/...` ve `/es/...`
+- `raw/` dizini korunur, ayrıca daha okunabilir arşiv sayfaları eklenir

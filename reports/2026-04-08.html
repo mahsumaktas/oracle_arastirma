@@ -1,375 +1,107 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Oracle Gece Arastirma -- 2026-04-08">
-<title>Oracle Arastirma -- 2026-04-08</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Oracle Gece Araştırma raporu 2026-04-08">
+<title>Oracle Gece Araştırma v3 | 8 Nisan 2026 · Oracle Gece Araştırma</title>
+<link rel="canonical" href="https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-08.html">
+<link rel="alternate" hreflang="tr" href="https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-08.html">
+<link rel="alternate" hreflang="en" href="https://mahsumaktas.github.io/oracle_arastirma/en/reports/2026-04-08.html">
+<link rel="alternate" hreflang="es" href="https://mahsumaktas.github.io/oracle_arastirma/es/reports/2026-04-08.html">
+<link rel="alternate" hreflang="x-default" href="https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-08.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root {
-  --bg: #0f172a;
-  --bg-card: #1e293b;
-  --bg-hover: #334155;
-  --text: #e2e8f0;
-  --text-muted: #94a3b8;
-  --accent: #3b82f6;
-  --accent-hover: #60a5fa;
-  --border: #334155;
-  --success: #22c55e;
-  --warning: #f59e0b;
-  --danger: #ef4444;
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
-  --radius: 12px;
-  --shadow: 0 4px 6px -1px rgba(0,0,0,0.3);
-  color-scheme: dark;
-}
-[data-theme="light"] {
-  --bg: #f8fafc; --bg-card: #ffffff; --bg-hover: #f1f5f9;
-  --text: #1e293b; --text-muted: #64748b; --border: #e2e8f0;
-  --shadow: 0 4px 6px -1px rgba(0,0,0,0.1); color-scheme: light;
-}
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme="dark"]) {
-    --bg: #f8fafc; --bg-card: #ffffff; --bg-hover: #f1f5f9;
-    --text: #1e293b; --text-muted: #64748b; --border: #e2e8f0;
-    --shadow: 0 4px 6px -1px rgba(0,0,0,0.1); color-scheme: light;
-  }
-}
-html { scroll-behavior: smooth }
-body {
-  background: var(--bg); color: var(--text);
-  font-family: var(--font-sans); font-size: 16px; line-height: 1.7;
-  -webkit-text-size-adjust: 100%; transition: background 0.3s, color 0.3s;
-}
-
-/* -- Sticky Header -------------------------------------------------------- */
-.site-header {
-  position: sticky; top: 0; z-index: 200;
-  background: var(--bg); border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-}
-.header-inner {
-  max-width: 1100px; margin: 0 auto; padding: 12px 20px;
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 16px; flex-wrap: wrap;
-}
-.header-left { display: flex; align-items: center; gap: 12px; min-width: 0 }
-.header-title { font-size: 18px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
-.header-meta { display: flex; align-items: center; gap: 12px; font-size: 13px; color: var(--text-muted); flex-shrink: 0 }
-.header-badge {
-  display: inline-flex; align-items: center; gap: 4px;
-  padding: 3px 10px; border-radius: 99px; font-size: 12px; font-weight: 600;
-  background: var(--accent); color: #fff;
-}
-.header-nav a { color: var(--accent); text-decoration: none; font-size: 13px; font-weight: 500 }
-.header-nav a:hover { color: var(--accent-hover) }
-
-/* -- Theme toggle --------------------------------------------------------- */
-.theme-toggle {
-  background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px;
-  padding: 6px 10px; cursor: pointer; font-size: 16px; line-height: 1;
-  color: var(--text); transition: background 0.2s;
-}
-.theme-toggle:hover { background: var(--bg-hover) }
-
-/* -- Tabs ----------------------------------------------------------------- */
-.tabs-container { max-width: 1100px; margin: 0 auto; padding: 0 20px }
-.tabs {
-  display: flex; gap: 4px; overflow-x: auto; -webkit-overflow-scrolling: touch;
-  padding: 8px 0; border-bottom: 2px solid var(--border);
-  position: sticky; top: 53px; background: var(--bg); z-index: 100;
-  scrollbar-width: thin; scrollbar-color: var(--border) transparent;
-}
-.tabs::-webkit-scrollbar { height: 4px }
-.tabs::-webkit-scrollbar-track { background: transparent }
-.tabs::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px }
-.tab {
-  padding: 8px 16px; border-radius: 8px 8px 0 0; cursor: pointer;
-  white-space: nowrap; color: var(--text-muted); font-size: 14px; font-weight: 500;
-  transition: all 0.2s; border: none; background: transparent;
-  font-family: var(--font-sans); position: relative;
-}
-.tab.active { color: var(--accent); background: var(--bg-card) }
-.tab.active::after {
-  content: ''; position: absolute; bottom: -2px; left: 0; right: 0;
-  height: 2px; background: var(--accent);
-}
-.tab:hover:not(.active) { color: var(--text); background: var(--bg-hover) }
-
-/* -- Tab panels ----------------------------------------------------------- */
-.tab-panel {
-  display: none; max-width: 1100px; margin: 0 auto; padding: 24px 20px 80px;
-  animation: fadeIn 0.2s ease;
-}
-.tab-panel.active { display: block }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(4px) } to { opacity: 1; transform: translateY(0) } }
-
-/* -- Typography ----------------------------------------------------------- */
-.tab-panel h1 { font-size: clamp(1.3rem, 4vw, 1.8rem); margin: 28px 0 12px; font-weight: 700 }
-.tab-panel h2 { font-size: clamp(1.1rem, 3.5vw, 1.4rem); margin: 24px 0 10px; border-bottom: 1px solid var(--border); padding-bottom: 8px; font-weight: 600 }
-.tab-panel h3 { font-size: clamp(1rem, 3vw, 1.2rem); margin: 20px 0 8px; font-weight: 600 }
-.tab-panel h4 { font-size: 1rem; margin: 16px 0 6px; font-weight: 600 }
-.tab-panel p { margin: 10px 0 }
-.tab-panel a { color: var(--accent); text-decoration: none; transition: color 0.15s }
-.tab-panel a:hover { color: var(--accent-hover); text-decoration: underline }
-.tab-panel strong { font-weight: 700 }
-.tab-panel em { font-style: italic }
-.tab-panel hr { border: none; border-top: 1px solid var(--border); margin: 24px 0 }
-
-/* -- Lists ---------------------------------------------------------------- */
-.tab-panel ul, .tab-panel ol { margin: 10px 0 10px 1.4em }
-.tab-panel li { margin: 4px 0 }
-
-/* -- Blockquotes ---------------------------------------------------------- */
-.tab-panel blockquote {
-  background: var(--bg-card); border-left: 4px solid var(--accent);
-  margin: 14px 0; padding: 12px 18px;
-  border-radius: 0 var(--radius) var(--radius) 0; color: var(--text-muted);
-}
-.tab-panel blockquote p { margin: 4px 0 }
-
-/* -- Code ----------------------------------------------------------------- */
-.tab-panel code {
-  background: #1e293b; color: #e2e8f0; border-radius: 4px; padding: 2px 6px;
-  font-family: var(--font-mono); font-size: 0.88em; word-break: break-all;
-}
-.tab-panel pre {
-  background: #1e293b; border-radius: var(--radius); padding: 14px 16px;
-  overflow-x: auto; margin: 14px 0; border: 1px solid #334155;
-}
-.tab-panel pre code { background: none; padding: 0; border-radius: 0; font-size: 0.85em; word-break: normal }
-
-/* -- Tables --------------------------------------------------------------- */
-.table-wrap {
-  overflow-x: auto; -webkit-overflow-scrolling: touch;
-  margin: 14px 0; border-radius: var(--radius); border: 1px solid var(--border);
-}
-.tab-panel table { border-collapse: collapse; width: 100%; min-width: 400px; font-size: 0.9em }
-.tab-panel th {
-  background: var(--bg-hover); text-align: left; padding: 10px 14px;
-  font-weight: 600; border-bottom: 2px solid var(--border); white-space: nowrap;
-}
-.tab-panel td { padding: 9px 14px; border-bottom: 1px solid var(--border); vertical-align: top; word-break: break-word }
-.tab-panel tr:last-child td { border-bottom: none }
-.tab-panel tr:hover td { background: var(--bg-hover) }
-
-/* -- Item cards ----------------------------------------------------------- */
-.item-card {
-  background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
-  padding: 16px 20px; margin: 12px 0; box-shadow: var(--shadow);
-  transition: transform 0.15s, box-shadow 0.15s; list-style: none;
-}
-.item-card:hover { transform: translateY(-1px); box-shadow: 0 8px 16px -4px rgba(0,0,0,0.2) }
-
-/* -- Importance badges ---------------------------------------------------- */
-.badge-high {
-  display: inline-block; padding: 2px 8px; border-radius: 99px;
-  font-size: 0.75rem; font-weight: 600;
-  background: rgba(239,68,68,0.15); color: var(--danger); border: 1px solid rgba(239,68,68,0.3);
-}
-.badge-medium {
-  display: inline-block; padding: 2px 8px; border-radius: 99px;
-  font-size: 0.75rem; font-weight: 600;
-  background: rgba(245,158,11,0.15); color: var(--warning); border: 1px solid rgba(245,158,11,0.3);
-}
-.badge-low {
-  display: inline-block; padding: 2px 8px; border-radius: 99px;
-  font-size: 0.75rem; font-weight: 600;
-  background: rgba(34,197,94,0.15); color: var(--success); border: 1px solid rgba(34,197,94,0.3);
-}
-
-/* -- Back to top ---------------------------------------------------------- */
-#back-top {
-  position: fixed; bottom: 24px; right: 20px;
-  background: var(--accent); color: #fff; border: none; border-radius: 50%;
-  width: 44px; height: 44px; font-size: 1.2rem; cursor: pointer;
-  box-shadow: 0 4px 12px rgba(59,130,246,0.4);
-  display: none; align-items: center; justify-content: center;
-  text-decoration: none; transition: opacity 0.2s, transform 0.2s; z-index: 300;
-}
-#back-top:hover { transform: scale(1.1) }
-#back-top.visible { display: flex }
-
-/* -- Loading -------------------------------------------------------------- */
-#loading { text-align: center; padding: 80px 0; color: var(--text-muted); font-size: 1rem }
-.loading-spinner {
-  width: 32px; height: 32px; border: 3px solid var(--border);
-  border-top: 3px solid var(--accent); border-radius: 50%;
-  animation: spin 0.8s linear infinite; margin: 0 auto 16px;
-}
-@keyframes spin { to { transform: rotate(360deg) } }
-
-/* -- Print ---------------------------------------------------------------- */
-@media print {
-  .site-header, .tabs, #back-top, .theme-toggle { display: none !important }
-  .tab-panel { display: block !important; break-inside: avoid }
-  .tab-panel::before {
-    content: attr(data-title); display: block; font-size: 1.3rem; font-weight: 700;
-    margin: 20px 0 8px; border-bottom: 2px solid #000; padding-bottom: 4px;
-  }
-  body { background: #fff; color: #000; font-size: 11pt }
-  .item-card { box-shadow: none; border: 1px solid #ccc }
-  a { color: #000 }
-  a[href]::after { content: " (" attr(href) ")"; font-size: 0.8em; color: #666 }
-}
-
-/* -- Responsive ----------------------------------------------------------- */
-@media (max-width: 640px) {
-  .header-inner { padding: 10px 14px }
-  .header-title { font-size: 15px }
-  .tabs { gap: 2px }
-  .tab { padding: 6px 12px; font-size: 13px }
-  .tab-panel { padding: 16px 14px 60px }
-  .item-card { padding: 12px 14px }
-  .tab-panel table { font-size: 0.82em }
-  .tab-panel th, .tab-panel td { padding: 6px 8px }
-}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<script defer src="../assets/site.js"></script>
 </head>
 <body>
-<div class="site-header">
-  <div class="header-inner">
-    <div class="header-left">
-      <span class="header-title">Oracle Gece Araştırma v3 | 8 Nisan 2026</span>
-      <span class="header-badge">67 madde</span>
-    </div>
-    <div class="header-meta">
-      <span>2026-04-08</span>
-      <nav class="header-nav"><a href="https://mahsumaktas.github.io/oracle_arastirma/index.html">Tum Raporlar</a></nav>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Tema degistir" aria-label="Tema degistir">
-        <span id="theme-icon">&#9790;</span>
-      </button>
+  <header class="site-header">
+  <div class="shell header-bar">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark">🦉</span>
+      <span class="brand-text">
+        <span class="brand-kicker">Oracle archive</span>
+        <h1 class="brand-title">Oracle Gece Araştırma</h1>
+        <p class="brand-subtitle">2026-04-08</p>
+      </span>
+    </a>
+    <div class="header-actions">
+      <div class="lang-switch"><span class="lang-switch-label">Dil</span><a class="lang-chip is-active" href="2026-04-08.html" lang="tr">TÜ</a><a class="lang-chip" href="../en/reports/2026-04-08.html" lang="en">EN</a><a class="lang-chip" href="../es/reports/2026-04-08.html" lang="es">ES</a></div>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle theme"><span data-theme-icon>◐</span></button>
     </div>
   </div>
-</div>
-<div class="tabs-container"><div class="tabs" id="tabs-bar" role="tablist"></div></div>
-<div id="panels-container"></div>
-<div id="loading"><div class="loading-spinner"></div>Rapor yukleniyor...</div>
-<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Yukari" aria-label="Yukari git">&#8593;</button>
+</header>
+  <main class="shell">
+    <section class="hero">
+      <div class="hero-card">
+        <div class="hero-layout">
+          <div>
+            <div class="breadcrumbs"><a href="../index.html">Arşive dön</a><span>•</span><span>2026-04-08</span></div>
+            <span class="hero-kicker">Araştırma raporu</span>
+            <h1>Oracle Gece Araştırma v3 | 8 Nisan 2026</h1>
+            <p>Otomatik derleme | v3 pipeline | 5 kaynak akışı | 5018 benzersiz item | Tarih: 2026-04-08 00:38 TRT</p>
+            <div class="hero-actions">
+              <span class="hero-pill"><strong>23</strong> bölüm</span>
+              <span class="hero-pill"><strong>3006</strong> kelime</span>
+            </div>
+          </div>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <span class="stat-label">Öne çıkan not</span>
+              <div class="stat-detail">Otomatik derleme | v3 pipeline | 5 kaynak akışı | 5018 benzersiz item | Tarih: 2026-04-08 00:38 TRT</div>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Hızlı erişim</span>
+              <div class="report-actions-row" style="margin-top:12px">
+                <a class="button" href="../raw/2026-04-08.md">Ham markdown</a>
+                <a class="ghost-button" href="../index.html">Tüm raporlar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
-<script>
-(function() {
-  var SECTIONS = [{"id": "ozet", "title": "Ozet", "emoji": "", "content": "# Oracle Gece Ara\u015ft\u0131rma v3 | 8 Nisan 2026\n\n> Otomatik derleme | v3 pipeline | 5 kaynak ak\u0131\u015f\u0131 | 5018 benzersiz item | Tarih: 2026-04-08 00:38 TRT\n\n---"}, {"id": "g\u00fcn\u00fcn-\u00f6zeti", "title": "G\u00fcn\u00fcn \u00d6zeti", "emoji": "", "content": "- **Bug\u00fcn\u00fcn ana ekseni, agent \u00e7a\u011f\u0131n\u0131n g\u00fcvenlik ve y\u00f6neti\u015fim borcu oldu.** Anthropic, Mythos Preview ile sald\u0131r\u0131 seviyesinde siber kabiliyet g\u00f6steren bir modeli do\u011frudan geni\u015f kitleye a\u00e7mak yerine Project Glasswing alt\u0131nda savunma ama\u00e7l\u0131 s\u0131n\u0131rl\u0131 eri\u015fimle konumland\u0131rd\u0131. Kaynaklar: https://www.anthropic.com/glasswing | https://red.anthropic.com/2026/mythos-preview/ | https://techcrunch.com/2026/04/07/anthropic-mythos-ai-model-preview-security/\n- **Altyap\u0131 taraf\u0131nda \u201cham model\u201d de\u011fil, onu ta\u015f\u0131yan compute ve g\u00fcvenli a\u011f omurgas\u0131 konu\u015fuldu.** Anthropic\u2019in Google ve Broadcom ile TPU/compute kapasitesini b\u00fcy\u00fctmesi ve Cloudflare\u2019in post-quantum hedefini 2029\u2019a \u00e7ekmesi, yar\u0131\u015f\u0131n model kadar altyap\u0131 ve kripto dayan\u0131kl\u0131l\u0131\u011f\u0131 taraf\u0131nda sertle\u015fti\u011fini g\u00f6steriyor. Kaynaklar: https://techcrunch.com/2026/04/07/anthropic-compute-deal-google-broadcom-tpus/ | https://www.cnbc.com/2026/04/07/broadcom-shares-jump-before-bell-google-deal.html | https://blog.cloudflare.com/post-quantum-roadmap/\n- **Agent tooling hatt\u0131 daha operasyonel hale geliyor.** GitHub\u2019\u0131n Dependabot alert\u2019lerini AI agent\u2019lara atayabilmesi, Copilot CLI\u2019\u0131n BYOK ve local model deste\u011fi ve LangChain Deep Agents v0.5 g\u00fcncellemesi, agent\u2019lar\u0131 demo katman\u0131ndan g\u00fcnl\u00fck i\u015f ak\u0131\u015f\u0131na itiyor. Kaynaklar: https://github.blog/changelog/2026-04-07-dependabot-alerts-are-now-assignable-to-ai-agents-for-remediation | https://github.blog/changelog/2026-04-07-copilot-cli-now-supports-byok-and-local-models | https://blog.langchain.com/deep-agents-v0-5/\n- **Ara\u015ft\u0131rma hatt\u0131nda ki\u015fisel agent g\u00fcvenli\u011fi, beceri belle\u011fi ve dosya sistemi ki\u015fiselle\u015ftirmesi ayn\u0131 anda y\u00fckseldi.** OpenClaw g\u00fcvenlik analizi, ClawSafety, SkillX, Memory Intelligence Agent ve FileGram birlikte okundu\u011funda, agent ekosistemi art\u0131k \u201cne yapabiliyor?\u201d kadar \u201cneyi ne kadar g\u00fcvenli ve ki\u015fisel yap\u0131yor?\u201d sorusuna kilitlenmi\u015f g\u00f6r\u00fcn\u00fcyor. Kaynaklar: https://arxiv.org/abs/2604.04759 | https://arxiv.org/abs/2604.01438 | https://arxiv.org/abs/2604.04804 | https://arxiv.org/abs/2604.04503 | https://arxiv.org/abs/2604.04901"}, {"id": "trend-analizi", "title": "Trend Analizi", "emoji": "", "content": "- **Frontier model tart\u0131\u015fmas\u0131 capability yar\u0131\u015f\u0131ndan kontroll\u00fc da\u011f\u0131t\u0131ma kay\u0131yor.** Mythos Preview\u2019in do\u011frudan yay\u0131na a\u00e7\u0131lmamas\u0131 ve Glasswing \u00e7er\u00e7evesi, \u201cen g\u00fc\u00e7l\u00fc modeli \u00e7\u0131kar\u201d mant\u0131\u011f\u0131n\u0131n yerini \u201cen riskli kabiliyeti nas\u0131l s\u0131n\u0131rlar\u0131z?\u201d sorusuna b\u0131rakt\u0131\u011f\u0131n\u0131 g\u00f6steriyor. Kaynaklar: https://www.anthropic.com/glasswing | https://red.anthropic.com/2026/mythos-preview/\n- **Agent ekosisteminde g\u00fcvenlik ve provenance katman\u0131 kal\u0131nla\u015f\u0131yor.** OpenClaw g\u00fcvenlik analizi, ClawSafety ve HDP, prompt injection ile zincir delegasyon izlenebilirli\u011fini ayn\u0131 tehdit d\u00fczleminde birle\u015ftiriyor. Kaynaklar: https://arxiv.org/abs/2604.04759 | https://arxiv.org/abs/2604.01438 | https://huggingface.co/papers/2604.04522\n- **Infra yar\u0131\u015f\u0131nda compute + crypto + routing \u00fc\u00e7l\u00fcs\u00fc \u00f6ne \u00e7\u0131kt\u0131.** Anthropic\u2019in kapasite anla\u015fmas\u0131, Broadcom etkisi, Cloudflare\u2019in PQ takvimi ve TriAttention tipi verimlilik \u00e7al\u0131\u015fmalar\u0131 birlikte, \u00f6l\u00e7eklenmenin hem fiziksel hem matematiksel hale geldi\u011fini g\u00f6steriyor. Kaynaklar: https://techcrunch.com/2026/04/07/anthropic-compute-deal-google-broadcom-tpus/ | https://www.cnbc.com/2026/04/07/broadcom-shares-jump-before-bell-google-deal.html | https://blog.cloudflare.com/post-quantum-roadmap/ | https://arxiv.org/abs/2604.04921\n- **Multimodal ve g\u00f6rsel reasoning hatt\u0131nda kalite bask\u0131s\u0131 art\u0131yor.** Vero, MinerU2.5-Pro, Focus Matters ve AVLLM interpretability \u00e7al\u0131\u015fmalar\u0131, \u201cg\u00f6r\u00fcyor mu yoksa yak\u0131\u015ft\u0131r\u0131yor mu?\u201d sorusunu yeniden merkezde tutuyor. Kaynaklar: https://arxiv.org/abs/2604.04917 | https://arxiv.org/abs/2604.04771 | https://arxiv.org/abs/2604.03556 | https://huggingface.co/papers/2604.02605\n- **Kurumsal operasyonda ajanlar art\u0131k remediation ve CLI katman\u0131na iniyor.** Dependabot agent atamas\u0131, local/BYOK CLI ak\u0131\u015f\u0131 ve Deep Agents g\u00fcncellemesi, agent kullan\u0131m\u0131n\u0131 ger\u00e7ek \u00fcretim ortamlar\u0131na daha do\u011frudan ba\u011fl\u0131yor. Kaynaklar: https://github.blog/changelog/2026-04-07-dependabot-alerts-are-now-assignable-to-ai-agents-for-remediation | https://github.blog/changelog/2026-04-07-copilot-cli-now-supports-byok-and-local-models | https://blog.langchain.com/deep-agents-v0-5/"}, {"id": "top-7", "title": "Top 7", "emoji": "", "content": "1. **Anthropic, Mythos Preview\u2019i geni\u015f a\u00e7mak yerine Glasswing alt\u0131nda savunma odakl\u0131 s\u0131n\u0131rl\u0131 eri\u015fime ald\u0131.** Bu, siber yetenekli frontier modeller i\u00e7in da\u011f\u0131t\u0131m politikas\u0131n\u0131n \u00fcr\u00fcn karar\u0131ndan \u00e7ok g\u00fcvenlik y\u00f6neti\u015fimi karar\u0131 haline geldi\u011fini g\u00f6steriyor. Kaynaklar: https://www.anthropic.com/glasswing | https://red.anthropic.com/2026/mythos-preview/ | https://techcrunch.com/2026/04/07/anthropic-mythos-ai-model-preview-security/\n2. **Anthropic, Google ve Broadcom ile compute kapasitesini b\u00fcy\u00fct\u00fcyor.** Frontier yar\u0131\u015fta as\u0131l darbo\u011faz\u0131n model mimarisinden \u00e7ok s\u00fcrd\u00fcr\u00fclebilir TPU/compute eri\u015fimi oldu\u011fu bir kez daha netle\u015fti. Kaynaklar: https://techcrunch.com/2026/04/07/anthropic-compute-deal-google-broadcom-tpus/ | https://www.cnbc.com/2026/04/07/broadcom-shares-jump-before-bell-google-deal.html\n3. **Cloudflare tam post-quantum g\u00fcvenlik hedefini 2029\u2019a \u00e7ekti.** Q-Day tehdidi art\u0131k uzun vadeli teorik risk de\u011fil, a\u011f ve kimlik katman\u0131nda plan takvimini de\u011fi\u015ftiren operasyonel bask\u0131. Kaynak: https://blog.cloudflare.com/post-quantum-roadmap/\n4. **Microsoft Bing ekibi Harrier embedding modelini a\u00e7\u0131k kaynaklad\u0131.** \u00c7ok dilli embedding yar\u0131\u015f\u0131nda a\u00e7\u0131k kaynak taraf\u0131 yeniden ivme kazan\u0131rken, grounding servisleri i\u00e7in daha eri\u015filebilir bir taban olu\u015fuyor. Kaynak: https://the-decoder.com/microsofts-bing-team-open-sources-harrier-embedding-model/\n5. **Device-code phishing kampanyalar\u0131 y\u00fczlerce kurumu g\u00fcnl\u00fck \u00f6l\u00e7ekle vuruyor.** Agent ve otomasyon \u00e7a\u011f\u0131nda zay\u0131f halka h\u00e2l\u00e2 kimlik ak\u0131\u015f\u0131 ve kullan\u0131c\u0131 kand\u0131rma y\u00fczeyi olmaya devam ediyor. Kaynaklar: https://go.theregister.com/feed/www.theregister.com/2026/04/07/microsoft_device_code_phishing/ | https://www.bleepingcomputer.com/news/security/authorities-disrupt-dns-hijacks-used-to-steal-microsoft-365-logins/\n6. **OpenClaw g\u00fcvenlik analizi ve ClawSafety, ki\u015fisel agent\u2019lar\u0131n ger\u00e7ek d\u00fcnyadaki sald\u0131r\u0131 y\u00fczeyini daha g\u00f6r\u00fcn\u00fcr hale getirdi.** Agent\u2019\u0131 modelden ayr\u0131 bir risk nesnesi olarak ele alma d\u00f6nemi sertle\u015fiyor. Kaynaklar: https://arxiv.org/abs/2604.04759 | https://arxiv.org/abs/2604.01438\n7. **SkillX, Memory Intelligence Agent, FileGram ve ClawArena birlikte agent belle\u011fi ve ki\u015fiselle\u015ftirme yar\u0131\u015f\u0131n\u0131 \u00f6ne \u00e7\u0131kard\u0131.** S\u0131radaki fark yaratan katman, genel ajanl\u0131ktan \u00e7ok birikimli ve ba\u011flama uyarlanm\u0131\u015f ajanl\u0131k olabilir. Kaynaklar: https://arxiv.org/abs/2604.04804 | https://arxiv.org/abs/2604.04503 | https://arxiv.org/abs/2604.04901 | https://arxiv.org/abs/2604.04202"}, {"id": "kat-1", "title": "KAT-1", "emoji": "", "content": "- **Agent g\u00fcvenli\u011fi bug\u00fcn\u00fcn en s\u0131cak akademik k\u00fcmesi oldu.** OpenClaw saha analizi ile ClawSafety birlikte, ki\u015fisel ajanlar\u0131n local yetki, dosya sistemi eri\u015fimi ve prompt injection riskini do\u011frudan operasyonel g\u00fcvenlik meselesine \u00e7eviriyor. Kaynaklar: https://arxiv.org/abs/2604.04759 | https://arxiv.org/abs/2604.01438"}, {"id": "kat-2", "title": "KAT-2", "emoji": "", "content": "- **Agent belle\u011fi ve beceri birikimi, performans art\u0131\u015f\u0131 i\u00e7in ayr\u0131 katman haline geliyor.** SkillX ile Memory Intelligence Agent, ajanlar\u0131n her seferinde s\u0131f\u0131rdan ke\u015fif yapmas\u0131 yerine bir beceri deposu ve ge\u00e7mi\u015f deneyimden yararlanmas\u0131 gerekti\u011fini savunuyor. Kaynaklar: https://arxiv.org/abs/2604.04804 | https://arxiv.org/abs/2604.04503"}, {"id": "kat-3", "title": "KAT-3", "emoji": "", "content": "- **Dosya sistemi ve ki\u015fiselle\u015ftirme taraf\u0131 ciddile\u015fiyor.** FileGram, agent ki\u015fiselle\u015ftirmesini ger\u00e7ek dosya sistemi davran\u0131\u015f izleriyle temellendirmeye \u00e7al\u0131\u015farak \u201cki\u015fisel agent\u201d kavram\u0131n\u0131 daha \u00f6l\u00e7\u00fclebilir hale getiriyor. Kaynak: https://arxiv.org/abs/2604.04901"}, {"id": "kat-4", "title": "KAT-4", "emoji": "", "content": "- **S\u00fcrekli \u00e7al\u0131\u015fan ajanlar i\u00e7in de\u011fi\u015fen d\u00fcnya problemi ayr\u0131 benchmark istiyor.** ClawArena, da\u011f\u0131n\u0131k ve \u00e7eli\u015fkili bilgi ak\u0131\u015f\u0131nda do\u011fru inanc\u0131 koruman\u0131n agent\u2019lar i\u00e7in temel zorluk oldu\u011funu netle\u015ftiriyor. Kaynak: https://arxiv.org/abs/2604.04202"}, {"id": "kat-5", "title": "KAT-5", "emoji": "", "content": "- **MLE agent\u2019lar\u0131 i\u00e7in sentetik e\u011fitim alan\u0131 y\u00fckseliyor.** Synthetic Sandbox, yaz\u0131l\u0131m m\u00fchendisli\u011finden makine \u00f6\u011frenimi m\u00fchendisli\u011fine ge\u00e7en agent\u2019larda do\u011frulama maliyetini d\u00fc\u015f\u00fcrmek i\u00e7in sentetik bir g\u00fcvenli oyun alan\u0131 \u00f6neriyor. Kaynak: https://arxiv.org/abs/2604.04872"}, {"id": "kat-6", "title": "KAT-6", "emoji": "", "content": "- **Delegation provenance art\u0131k kriptografik problem olarak ele al\u0131n\u0131yor.** HDP, \u00e7ok ad\u0131ml\u0131 agent zincirlerinde insan ad\u0131na kimin neyi, hangi yetkiyle yapt\u0131\u011f\u0131n\u0131 izlenebilir hale getirmeye odaklan\u0131yor. Kaynak: https://huggingface.co/papers/2604.04522"}, {"id": "kat-7", "title": "KAT-7", "emoji": "", "content": "- **Uzun reasoning maliyeti, KV s\u0131k\u0131\u015ft\u0131rma ile yeniden optimize ediliyor.** TriAttention, uzun ba\u011flaml\u0131 d\u00fc\u015f\u00fcnme i\u00e7in bellek darbo\u011faz\u0131n\u0131 daha verimli bir s\u0131k\u0131\u015ft\u0131rma mant\u0131\u011f\u0131yla hedefliyor. Kaynak: https://arxiv.org/abs/2604.04921"}, {"id": "kat-8", "title": "KAT-8", "emoji": "", "content": "- **Dok\u00fcman ayr\u0131\u015ft\u0131rma ve g\u00f6rsel reasoning taraf\u0131nda veri-merkezli yakla\u015f\u0131m g\u00fc\u00e7leniyor.** MinerU2.5-Pro ve Vero, sadece daha b\u00fcy\u00fck model de\u011fil, daha iyi veri ve RL tarifinin de fark yaratt\u0131\u011f\u0131n\u0131 g\u00f6steriyor. Kaynaklar: https://arxiv.org/abs/2604.04771 | https://arxiv.org/abs/2604.04917"}, {"id": "kat-9", "title": "KAT-9", "emoji": "", "content": "- **Multimodal do\u011fruluk h\u00e2l\u00e2 k\u0131r\u0131lgan.** AVLLM interpretability, Full-Duplex-Bench-v3 ve Focus Matters birlikte, ses-g\u00f6r\u00fcnt\u00fc kombinasyonunda alg\u0131, konu\u015fma ak\u0131c\u0131l\u0131\u011f\u0131 ve hal\u00fcsinasyon bast\u0131rman\u0131n h\u00e2l\u00e2 a\u00e7\u0131k problem oldu\u011funu g\u00f6steriyor. Kaynaklar: https://huggingface.co/papers/2604.02605 | https://arxiv.org/abs/2604.04847 | https://arxiv.org/abs/2604.03556"}, {"id": "security", "title": "SECURITY", "emoji": "", "content": "- **Mythos Preview, frontier model g\u00fcvenli\u011finde yeni e\u015fik sinyali verdi.** Anthropic\u2019in kamuya a\u00e7\u0131k yerine s\u0131n\u0131rl\u0131 ve savunma odakl\u0131 eri\u015fim tercih etmesi, siber kabiliyeti y\u00fcksek modeller i\u00e7in release politikas\u0131n\u0131n sertle\u015fece\u011fini g\u00f6steriyor. Kaynaklar: https://www.anthropic.com/glasswing | https://red.anthropic.com/2026/mythos-preview/\n- **Microsoft device-code phishing kampanyalar\u0131, MFA \u00e7evresinden dola\u015fan otomasyonlu tehditleri b\u00fcy\u00fct\u00fcyor.** Kimlik ak\u0131\u015f\u0131 manip\u00fclasyonu h\u00e2l\u00e2 en verimli sald\u0131r\u0131 y\u00fczeylerinden biri. Kaynak: https://go.theregister.com/feed/www.theregister.com/2026/04/07/microsoft_device_code_phishing/\n- **FrostArmada DNS hijack operasyonunun bozulmas\u0131, router katman\u0131n\u0131n h\u00e2l\u00e2 zay\u0131f halka oldu\u011funu hat\u0131rlatt\u0131.** \u00d6zellikle Microsoft 365 kimlik bilgisi av\u0131nda a\u011f y\u00f6nlendirme katman\u0131 yeniden g\u00fcndemde. Kaynak: https://www.bleepingcomputer.com/news/security/authorities-disrupt-dns-hijacks-used-to-steal-microsoft-365-logins/\n- **Dependabot remediation\u2019\u0131n AI agent\u2019lara devri, g\u00fcvenlik otomasyonunu do\u011frudan kod de\u011fi\u015fikli\u011fi hatt\u0131na indiriyor.** Bu verimlilik sa\u011flarken yanl\u0131\u015f remediation riskini de b\u00fcy\u00fctebilir. Kaynak: https://github.blog/changelog/2026-04-07-dependabot-alerts-are-now-assignable-to-ai-agents-for-remediation"}, {"id": "regulation", "title": "REGULATION", "emoji": "", "content": "- **Mythos/Glasswing hatt\u0131, frontier model release\u2019lerinde fiili self-regulation \u00f6rne\u011fi sundu.** Resmi d\u00fczenleme gelmeden \u00f6nce \u015firketler kritik kabiliyeti kime a\u00e7acaklar\u0131n\u0131 daraltmak zorunda kal\u0131yor. Kaynaklar: https://www.anthropic.com/glasswing | https://techcrunch.com/2026/04/07/anthropic-mythos-ai-model-preview-security/\n- **Post-quantum ge\u00e7i\u015f takviminin \u00f6ne \u00e7ekilmesi, reg\u00fclasyon ve uyum bask\u0131s\u0131n\u0131 h\u0131zland\u0131racak.** A\u011f g\u00fcvenli\u011fi taraf\u0131nda \u201chaz\u0131rlan\u0131yoruz\u201d s\u00f6ylemi yerine somut tarih vermek zorunlu hale geliyor. Kaynak: https://blog.cloudflare.com/post-quantum-roadmap/\n- **Ki\u015fisel agent g\u00fcvenli\u011fi art\u0131k \u00fcr\u00fcn konusu kadar y\u00f6neti\u015fim konusu.** OpenClaw g\u00fcvenlik analizi ve ClawSafety, kullan\u0131c\u0131 ad\u0131na \u00e7al\u0131\u015fan ajanlar i\u00e7in sorumluluk ve standart ihtiyac\u0131n\u0131 g\u00fc\u00e7lendiriyor. Kaynaklar: https://arxiv.org/abs/2604.04759 | https://arxiv.org/abs/2604.01438"}, {"id": "ai-science", "title": "AI-SCIENCE", "emoji": "", "content": "- **SkillX, agent \u00f6\u011frenmesini bireysel deneme-yan\u0131lmadan kurumsal beceri taban\u0131na kayd\u0131r\u0131yor.** Bu, self-evolving agent literat\u00fcr\u00fcnde \u00f6nemli bir verimlilik d\u00f6n\u00fc\u015f\u00fc olabilir. Kaynak: https://arxiv.org/abs/2604.04804\n- **Memory Intelligence Agent, deep research ak\u0131\u015f\u0131nda haf\u0131zay\u0131 reasoning verimlili\u011fi katman\u0131 olarak \u00e7er\u00e7eveliyor.** \u00d6zellikle tekrar eden ara\u015ft\u0131rma senaryolar\u0131nda fark yaratabilir. Kaynak: https://arxiv.org/abs/2604.04503\n- **Synthetic Sandbox, ML engineering agent\u2019lar\u0131 i\u00e7in do\u011frulanabilir e\u011fitim evreni \u00f6neriyor.** S\u0131radaki b\u00fcy\u00fck benchmark sava\u015f\u0131 SWE yerine MLE g\u00f6revlerinde olabilir. Kaynak: https://arxiv.org/abs/2604.04872\n- **HDP, insan delegasyon zincirini kriptografik olarak ispatlama fikrini ana ak\u0131ma ta\u015f\u0131yor.** Agentic AI\u2019de g\u00fcven ili\u015fkisini protokolle\u015ftirme y\u00f6n\u00fcnde ciddi bir sinyal. Kaynak: https://huggingface.co/papers/2604.04522"}, {"id": "infra", "title": "INFRA", "emoji": "", "content": "- **Anthropic\u2019in Google ve Broadcom ile kapasite anla\u015fmas\u0131, compute tedarikini stratejik silah seviyesine \u00e7\u0131kard\u0131.** Frontier model rekabetinde \u00f6l\u00e7ek, veri merkezi ve \u00e7ip anla\u015fmalar\u0131yla kazan\u0131l\u0131yor. Kaynaklar: https://techcrunch.com/2026/04/07/anthropic-compute-deal-google-broadcom-tpus/ | https://www.cnbc.com/2026/04/07/broadcom-shares-jump-before-bell-google-deal.html\n- **Uber\u2019in Amazon \u00e7iplerine kaymas\u0131, inference tercihlerinin sa\u011flay\u0131c\u0131 rekabetini yeniden kar\u0131\u015ft\u0131rd\u0131\u011f\u0131n\u0131 g\u00f6steriyor.** Cloud maliyeti ile model servisi se\u00e7imi daha s\u0131k\u0131 ba\u011flan\u0131yor. Kaynak: https://techcrunch.com/2026/04/07/uber-is-the-latest-to-be-won-over-by-amazons-ai-chips/\n- **Harrier\u2019in a\u00e7\u0131k kaynaklanmas\u0131, grounding ve retrieval katman\u0131nda a\u00e7\u0131k model cephesine yeni malzeme verdi.** Embedding sava\u015f\u0131 yeniden h\u0131zlanabilir. Kaynak: https://the-decoder.com/microsofts-bing-team-open-sources-harrier-embedding-model/\n- **TriAttention gibi KV s\u0131k\u0131\u015ft\u0131rma fikirleri, uzun reasoning\u2019i donan\u0131m sat\u0131n almak yerine matematikle ucuzlatmaya \u00e7al\u0131\u015f\u0131yor.** Bu hat, 2026\u2019n\u0131n verimlilik cephesinde g\u00fc\u00e7l\u00fc kalacak gibi g\u00f6r\u00fcn\u00fcyor. Kaynak: https://arxiv.org/abs/2604.04921"}, {"id": "safety", "title": "SAFETY", "emoji": "", "content": "- **ClawSafety, \u201csafe model\u201d ile \u201csafe agent\u201d aras\u0131ndaki fark\u0131 sert bi\u00e7imde g\u00f6steriyor.** Modelin tek ba\u015f\u0131na g\u00fcvenli olmas\u0131, agent b\u00fct\u00fcn\u00fcn\u00fcn g\u00fcvenli oldu\u011fu anlam\u0131na gelmiyor. Kaynak: https://arxiv.org/abs/2604.01438\n- **OpenClaw saha analizi, ki\u015fisel ajanlar\u0131n tam yerel eri\u015fim alt\u0131nda ne kadar geni\u015f sald\u0131r\u0131 y\u00fczeyi ta\u015f\u0131d\u0131\u011f\u0131n\u0131 somutla\u015ft\u0131r\u0131yor.** G\u00fcvenlik tart\u0131\u015fmas\u0131 art\u0131k teorik de\u011fil, deployed agent realitesi. Kaynak: https://arxiv.org/abs/2604.04759\n- **Focus Matters, VLM hal\u00fcsinasyon bast\u0131rmada faz fark\u0131na duyarl\u0131 yakla\u015f\u0131m \u00f6neriyor.** Multimodal \u00fcr\u00fcnlerde \u201cak\u0131c\u0131 ama yanl\u0131\u015f\u201d \u00e7\u0131kt\u0131y\u0131 d\u00fc\u015f\u00fcrme bask\u0131s\u0131 s\u00fcr\u00fcyor. Kaynak: https://arxiv.org/abs/2604.03556\n- **Full-Duplex-Bench-v3, ger\u00e7ek konu\u015fma da\u011f\u0131n\u0131kl\u0131\u011f\u0131 alt\u0131nda voice agent\u2019lar\u0131n h\u00e2l\u00e2 zorland\u0131\u011f\u0131n\u0131 g\u00f6steriyor.** Disfluency ve tool use ayn\u0131 anda test edilmeden sesli ajanlar g\u00fcvenli say\u0131lmaz. Kaynak: https://arxiv.org/abs/2604.04847"}, {"id": "watchlist", "title": "WATCHLIST", "emoji": "", "content": "- **Glasswing tipi k\u0131s\u0131tl\u0131 eri\u015fim programlar\u0131 \u00e7o\u011falabilir.** G\u00fc\u00e7l\u00fc siber modeller i\u00e7in a\u00e7\u0131k API yerine vetted-partner da\u011f\u0131t\u0131m\u0131 yeni norm olabilir. Kaynaklar: https://www.anthropic.com/glasswing | https://www.theverge.com/ai-artificial-intelligence/908114/anthropic-project-glasswing-cybersecurity\n- **Post-quantum ge\u00e7i\u015f takvimleri h\u0131zla \u00f6ne \u00e7ekilebilir.** Cloudflare\u2019in 2029 hedefi, a\u011f sa\u011flay\u0131c\u0131lar\u0131nda zincirleme benzer taahh\u00fctler do\u011furabilir. Kaynak: https://blog.cloudflare.com/post-quantum-roadmap/\n- **Agent remediation ara\u00e7lar\u0131 yanl\u0131\u015f g\u00fcven \u00fcretebilir.** Dependabot alert\u2019lerini AI agent\u2019lara ba\u011flamak verimlidir ama inceleme k\u00fclt\u00fcr\u00fc zay\u0131flarsa sessiz k\u0131r\u0131lma \u00fcretir. Kaynak: https://github.blog/changelog/2026-04-07-dependabot-alerts-are-now-assignable-to-ai-agents-for-remediation\n- **Agent belle\u011fi ve ki\u015fiselle\u015ftirme literat\u00fcr\u00fc \u00fcr\u00fcnle\u015fmeye yakla\u015f\u0131yor.** SkillX, Memory Intelligence Agent ve FileGram \u00e7izgisi, 2026 i\u00e7inde daha somut \u00fcr\u00fcn \u00f6zelliklerine d\u00f6n\u00fc\u015febilir. Kaynaklar: https://arxiv.org/abs/2604.04804 | https://arxiv.org/abs/2604.04503 | https://arxiv.org/abs/2604.04901"}, {"id": "trends", "title": "TRENDS", "emoji": "", "content": "- **Bug\u00fcn\u00fcn trendi \u201cdaha g\u00fc\u00e7l\u00fc agent\u201d de\u011fil, \u201cdaha denetlenebilir agent\u201d oldu.** G\u00fcvenlik analizi, provenance ve remediation kontrol\u00fc ayn\u0131 anda \u00f6ne \u00e7\u0131kt\u0131. Kaynaklar: https://arxiv.org/abs/2604.04759 | https://arxiv.org/abs/2604.01438 | https://huggingface.co/papers/2604.04522 | https://github.blog/changelog/2026-04-07-dependabot-alerts-are-now-assignable-to-ai-agents-for-remediation\n- **Model yar\u0131\u015f\u0131nda donan\u0131m ve a\u011f katman\u0131 geri d\u00f6nd\u00fc.** Compute anla\u015fmalar\u0131, \u00e7ip etkisi ve post-quantum takvimler model benchmark\u2019lar\u0131n\u0131n \u00f6n\u00fcne ge\u00e7meye ba\u015flad\u0131. Kaynaklar: https://techcrunch.com/2026/04/07/anthropic-compute-deal-google-broadcom-tpus/ | https://www.cnbc.com/2026/04/07/broadcom-shares-jump-before-bell-google-deal.html | https://blog.cloudflare.com/post-quantum-roadmap/\n- **A\u00e7\u0131k kaynak embedding ve agent ara\u00e7lar\u0131 sessiz ama g\u00fc\u00e7l\u00fc bir ak\u0131\u015f olu\u015fturuyor.** Harrier, Copilot CLI BYOK/local ve Deep Agents v0.5 birlikte okununca ekosistem daha mod\u00fcler bir y\u00f6ne kay\u0131yor. Kaynaklar: https://the-decoder.com/microsofts-bing-team-open-sources-harrier-embedding-model/ | https://github.blog/changelog/2026-04-07-copilot-cli-now-supports-byok-and-local-models | https://blog.langchain.com/deep-agents-v0-5/\n- **Multimodal alanda kalite bask\u0131s\u0131, \u00fcr\u00fcn hype\u2019\u0131n\u0131 bast\u0131r\u0131yor.** Vero, Focus Matters ve AVLLM \u00e7al\u0131\u015fmalar\u0131, g\u00f6rsel-sesli ak\u0131ll\u0131 sistemlerde hatan\u0131n h\u00e2l\u00e2 y\u00fcksek bedelli oldu\u011funu hat\u0131rlat\u0131yor. Kaynaklar: https://arxiv.org/abs/2604.04917 | https://arxiv.org/abs/2604.03556 | https://huggingface.co/papers/2604.02605"}, {"id": "cikcik-paketi", "title": "CikCik Paketi", "emoji": "", "content": "- **\u201cMythos herkese a\u00e7\u0131lmad\u0131ysa mesele benchmark de\u011fil, blast radius.\u201d** Glasswing hatt\u0131 sosyal ak\u0131\u015fta en \u00e7ok g\u00fcvenlik y\u00f6neti\u015fimi tart\u0131\u015fmas\u0131 \u00fcretir. Kaynaklar: https://www.anthropic.com/glasswing | https://simonwillison.net/2026/Apr/7/project-glasswing/\n- **\u201cCompute anla\u015fmas\u0131 art\u0131k press release de\u011fil, rekabet hendek bildirimi.\u201d** Anthropic\u2019in Google/Broadcom hamlesi, frontier yar\u0131\u015f\u0131n \u00e7ip ve enerji taraf\u0131nda sertle\u015fti\u011fini s\u00f6yl\u00fcyor. Kaynak: https://techcrunch.com/2026/04/07/anthropic-compute-deal-google-broadcom-tpus/\n- **\u201cCloudflare 2029 diyorsa post-quantum art\u0131k uzak gelecek de\u011fil.\u201d** Bu ba\u015fl\u0131k \u00f6zellikle g\u00fcvenlik ve infra taraf\u0131nda geni\u015f yank\u0131 bulur. Kaynak: https://blog.cloudflare.com/post-quantum-roadmap/\n- **\u201cHarrier a\u00e7\u0131k kayna\u011fa d\u00fc\u015ft\u00fc, embedding sava\u015f\u0131 yeniden ilgin\u00e7le\u015fiyor.\u201d** Grounding ve retrieval taraf\u0131nda payla\u015f\u0131m de\u011feri y\u00fcksek haber. Kaynak: https://the-decoder.com/microsofts-bing-team-open-sources-harrier-embedding-model/\n- **\u201cDependabot alert\u2019i art\u0131k do\u011frudan AI coding agent\u2019a paslanabiliyor.\u201d** Bu k\u0131sa c\u00fcmle, developer ak\u0131\u015flar\u0131nda agent adaptasyonunun ne kadar h\u0131zland\u0131\u011f\u0131n\u0131 anlatmak i\u00e7in g\u00fc\u00e7l\u00fc. Kaynak: https://github.blog/changelog/2026-04-07-dependabot-alerts-are-now-assignable-to-ai-agents-for-remediation\n- **\u201cSkillX + Memory Intelligence Agent \u00e7izgisi, agent\u2019lar\u0131n haf\u0131za \u00e7a\u011f\u0131n\u0131 ba\u015flat\u0131yor.\u201d** Teknik toplulukta tart\u0131\u015fma \u00fcretme potansiyeli y\u00fcksek. Kaynaklar: https://arxiv.org/abs/2604.04804 | https://arxiv.org/abs/2604.04503"}, {"id": "oracle-self-improvement-sinyalleri", "title": "Oracle Self-Improvement Sinyalleri", "emoji": "", "content": "- **Agent g\u00fcvenli\u011fini model g\u00fcvenli\u011finden ayr\u0131 \u00f6l\u00e7mek \u015fart.** OpenClaw saha analizi ve ClawSafety, orchestration katman\u0131nda ek guardrail gerektirdi\u011fini a\u00e7\u0131k bi\u00e7imde s\u00f6yl\u00fcyor. Kaynaklar: https://arxiv.org/abs/2604.04759 | https://arxiv.org/abs/2604.01438\n- **Delegation zincirinde provenance eksikli\u011fi b\u00fcy\u00fcyen risk.** HDP benzeri yakla\u015f\u0131m, Oracle tarz\u0131 \u00e7ok ad\u0131ml\u0131 ajan sistemlerinde izlenebilir yetki kayd\u0131 ihtiyac\u0131n\u0131 do\u011fruluyor. Kaynak: https://huggingface.co/papers/2604.04522\n- **Memory katman\u0131 art\u0131k nice-to-have de\u011fil.** SkillX ve Memory Intelligence Agent, tekrar eden ara\u015ft\u0131rma ve g\u00f6revlerde kal\u0131c\u0131 beceri/haf\u0131za olmadan verimlilik tavan\u0131na \u00e7arp\u0131laca\u011f\u0131n\u0131 g\u00f6steriyor. Kaynaklar: https://arxiv.org/abs/2604.04804 | https://arxiv.org/abs/2604.04503\n- **AI remediation ak\u0131\u015flar\u0131 i\u00e7in insan inceleme kap\u0131s\u0131 korunmal\u0131.** Dependabot\u2019u do\u011frudan agent\u2019a ba\u011flamak h\u0131z kazand\u0131r\u0131r ama yanl\u0131\u015f d\u00fczeltmeyi de h\u0131zland\u0131rabilir. Kaynak: https://github.blog/changelog/2026-04-07-dependabot-alerts-are-now-assignable-to-ai-agents-for-remediation\n- **Uzun reasoning maliyeti i\u00e7in sadece daha b\u00fcy\u00fck donan\u0131m almak \u015fart de\u011fil.** TriAttention gibi yakla\u015f\u0131mlar, cost-aware routing ve hafifletme mant\u0131\u011f\u0131n\u0131 Oracle taraf\u0131nda da \u00f6nemli k\u0131l\u0131yor. Kaynak: https://arxiv.org/abs/2604.04921"}, {"id": "kaynak-\u00f6zeti", "title": "Kaynak \u00d6zeti", "emoji": "", "content": "- **G\u00fcvenlik omurgas\u0131**, Mythos/Glasswing, device-code phishing, DNS hijack bozma operasyonu ve agent security literat\u00fcr\u00fc \u00fcst\u00fcnden kuruldu. Kaynaklar: https://www.anthropic.com/glasswing | https://red.anthropic.com/2026/mythos-preview/ | https://go.theregister.com/feed/www.theregister.com/2026/04/07/microsoft_device_code_phishing/ | https://www.bleepingcomputer.com/news/security/authorities-disrupt-dns-hijacks-used-to-steal-microsoft-365-logins/ | https://arxiv.org/abs/2604.04759 | https://arxiv.org/abs/2604.01438\n- **Altyap\u0131 omurgas\u0131**, Anthropic compute geni\u015flemesi, Broadcom etkisi, Harrier ve post-quantum takvimi etraf\u0131nda \u015fekillendi. Kaynaklar: https://techcrunch.com/2026/04/07/anthropic-compute-deal-google-broadcom-tpus/ | https://www.cnbc.com/2026/04/07/broadcom-shares-jump-before-bell-google-deal.html | https://the-decoder.com/microsofts-bing-team-open-sources-harrier-embedding-model/ | https://blog.cloudflare.com/post-quantum-roadmap/\n- **Agent ara\u015ft\u0131rma omurgas\u0131**, SkillX, Memory Intelligence Agent, FileGram, ClawArena, Synthetic Sandbox ve HDP ile kuruldu. Kaynaklar: https://arxiv.org/abs/2604.04804 | https://arxiv.org/abs/2604.04503 | https://arxiv.org/abs/2604.04901 | https://arxiv.org/abs/2604.04202 | https://arxiv.org/abs/2604.04872 | https://huggingface.co/papers/2604.04522\n- **Multimodal/quality omurgas\u0131**, Vero, MinerU2.5-Pro, AVLLM interpretability, Focus Matters ve Full-Duplex-Bench-v3 ile desteklendi. Kaynaklar: https://arxiv.org/abs/2604.04917 | https://arxiv.org/abs/2604.04771 | https://huggingface.co/papers/2604.02605 | https://arxiv.org/abs/2604.03556 | https://arxiv.org/abs/2604.04847"}, {"id": "dedupe-kalite-notu", "title": "Dedupe & Kalite Notu", "emoji": "", "content": "> Bu rapor, `raw-sources/2026-04-08/unique.json` i\u00e7indeki 5018 benzersiz item ve son 3 g\u00fcn raporlar\u0131 (`2026-04-05.md`, `2026-04-06.md`, `2026-04-07.md`) \u00e7apraz kontrol edilerek haz\u0131rland\u0131.\n>\n> \u00d6nceki 3 g\u00fcnde \u00f6ne \u00e7\u0131kan Anthropic/OpenClaw eri\u015fim k\u0131s\u0131t\u0131, Gemma 4 dalgas\u0131, OpenAI y\u00f6netim de\u011fi\u015fikli\u011fi ve benzeri ba\u015fl\u0131klar tekrar edilmedi; bug\u00fcn yaln\u0131zca yeni a\u00e7\u0131 veya yeni birincil kaynakla belirginle\u015fen geli\u015fmeler se\u00e7ildi.\n>\n> Bug\u00fcn\u00fcn seti akademik agent g\u00fcvenli\u011fi ve altyap\u0131 sinyali a\u011f\u0131rl\u0131kl\u0131 oldu\u011fu i\u00e7in yorumlar kaynak ba\u015fl\u0131klar\u0131, \u00f6zetler ve do\u011frulanabilir URL\u2019ler s\u0131n\u0131r\u0131nda tutuldu; prompt d\u0131\u015f\u0131 spek\u00fclatif iddia eklenmedi."}];
-
-  marked.setOptions({ gfm: true, breaks: false, mangle: false, headerIds: false });
-
-  var renderer = new marked.Renderer();
-  renderer.table = function(header, body) {
-    return '<div class="table-wrap"><table><thead>' + header + '</thead><tbody>' + body + '</tbody></table></div>';
-  };
-  var origListItem = renderer.listitem;
-  renderer.listitem = function(text) {
-    if (text.indexOf('<strong>') === 0 || text.indexOf('<a') === 0) {
-      return '<li class="item-card">' + text + '</li>';
-    }
-    return '<li>' + text + '</li>';
-  };
-
-  var tabsBar = document.getElementById('tabs-bar');
-  var panelsContainer = document.getElementById('panels-container');
-  var loading = document.getElementById('loading');
-
-  SECTIONS.forEach(function(sec, i) {
-    var btn = document.createElement('button');
-    btn.className = 'tab' + (i === 0 ? ' active' : '');
-    btn.setAttribute('role', 'tab');
-    btn.setAttribute('data-tab', sec.id);
-    btn.id = 'tab-' + sec.id;
-    btn.textContent = (sec.emoji ? sec.emoji + ' ' : '') + sec.title;
-    btn.onclick = function() { switchTab(sec.id) };
-    tabsBar.appendChild(btn);
-
-    var panel = document.createElement('div');
-    panel.className = 'tab-panel' + (i === 0 ? ' active' : '');
-    panel.id = 'panel-' + sec.id;
-    panel.setAttribute('role', 'tabpanel');
-    panel.setAttribute('data-title', (sec.emoji ? sec.emoji + ' ' : '') + sec.title);
-
-    var rendered = marked.parse(sec.content, { renderer: renderer });
-    var RE_HIGH = new RegExp(String.fromCodePoint(0x1F534), 'g');
-    var RE_MED  = new RegExp(String.fromCodePoint(0x1F7E1), 'g');
-    var RE_LOW  = new RegExp(String.fromCodePoint(0x1F7E2), 'g');
-    rendered = rendered.replace(RE_HIGH, '<span class="badge-high">HIGH</span>');
-    rendered = rendered.replace(RE_MED,  '<span class="badge-medium">MED</span>');
-    rendered = rendered.replace(RE_LOW,  '<span class="badge-low">LOW</span>');
-    panel.innerHTML = rendered;
-    panelsContainer.appendChild(panel);
-  });
-
-  loading.style.display = 'none';
-
-  document.querySelectorAll('.tab-panel a[href]').forEach(function(a) {
-    var href = a.getAttribute('href');
-    if (href && (href.startsWith('http://') || href.startsWith('https://'))) {
-      a.setAttribute('target', '_blank');
-      a.setAttribute('rel', 'noopener noreferrer');
-    }
-  });
-
-  window.switchTab = function(tabId) {
-    document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('active') });
-    document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active') });
-    var tab = document.getElementById('tab-' + tabId);
-    var panel = document.getElementById('panel-' + tabId);
-    if (tab) tab.classList.add('active');
-    if (panel) panel.classList.add('active');
-    history.replaceState(null, '', '#' + tabId);
-    if (tab) tab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  function activateFromHash() {
-    var hash = window.location.hash.replace('#', '');
-    if (hash) {
-      var tab = document.getElementById('tab-' + hash);
-      if (tab) { switchTab(hash); return }
-    }
-    if (SECTIONS.length > 0) switchTab(SECTIONS[0].id);
-  }
-  activateFromHash();
-  window.addEventListener('hashchange', activateFromHash);
-
-  var backTop = document.getElementById('back-top');
-  window.addEventListener('scroll', function() {
-    backTop.classList.toggle('visible', window.scrollY > 300);
-  });
-
-  document.addEventListener('keydown', function(e) {
-    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-    var tabs = Array.from(document.querySelectorAll('.tab'));
-    var idx = tabs.findIndex(function(t) { return t.classList.contains('active') });
-    if (e.key === 'ArrowRight' && idx < tabs.length - 1) switchTab(tabs[idx + 1].getAttribute('data-tab'));
-    else if (e.key === 'ArrowLeft' && idx > 0) switchTab(tabs[idx - 1].getAttribute('data-tab'));
-  });
-})();
-
-function toggleTheme() {
-  var html = document.documentElement;
-  var current = html.getAttribute('data-theme');
-  var icon = document.getElementById('theme-icon');
-  if (current === 'dark') {
-    html.setAttribute('data-theme', 'light');
-    icon.innerHTML = '&#9728;'; localStorage.setItem('theme', 'light');
-  } else if (current === 'light') {
-    html.removeAttribute('data-theme');
-    icon.innerHTML = '&#9211;'; localStorage.setItem('theme', 'auto');
-  } else {
-    html.setAttribute('data-theme', 'dark');
-    icon.innerHTML = '&#9790;'; localStorage.setItem('theme', 'dark');
-  }
-}
-(function() {
-  var saved = localStorage.getItem('theme');
-  var icon = document.getElementById('theme-icon');
-  if (saved === 'dark') { document.documentElement.setAttribute('data-theme', 'dark'); if (icon) icon.innerHTML = '&#9790;' }
-  else if (saved === 'light') { document.documentElement.setAttribute('data-theme', 'light'); if (icon) icon.innerHTML = '&#9728;' }
-})();
-</script>
+    <section class="report-layout">
+      <aside class="sticky-column stack">
+        <div class="panel">
+          <div class="panel-title"><div><h3>İçindekiler</h3><p>Türkçe kaynak korunur, alternatif diller otomatik olarak üretilir.</p></div></div>
+          <nav class="report-nav"><a class="section-link" href="#sec-1-gunun-zeti" data-section-link>Günün Özeti</a><a class="section-link" href="#sec-2-trend-analizi" data-section-link>Trend Analizi</a><a class="section-link" href="#sec-3-top-7" data-section-link>Top 7</a><a class="section-link" href="#sec-4-kat-1" data-section-link>KAT-1</a><a class="section-link" href="#sec-5-kat-2" data-section-link>KAT-2</a><a class="section-link" href="#sec-6-kat-3" data-section-link>KAT-3</a><a class="section-link" href="#sec-7-kat-4" data-section-link>KAT-4</a><a class="section-link" href="#sec-8-kat-5" data-section-link>KAT-5</a><a class="section-link" href="#sec-9-kat-6" data-section-link>KAT-6</a><a class="section-link" href="#sec-10-kat-7" data-section-link>KAT-7</a><a class="section-link" href="#sec-11-kat-8" data-section-link>KAT-8</a><a class="section-link" href="#sec-12-kat-9" data-section-link>KAT-9</a><a class="section-link" href="#sec-13-security" data-section-link>SECURITY</a><a class="section-link" href="#sec-14-regulation" data-section-link>REGULATION</a><a class="section-link" href="#sec-15-ai-science" data-section-link>AI-SCIENCE</a><a class="section-link" href="#sec-16-infra" data-section-link>INFRA</a><a class="section-link" href="#sec-17-safety" data-section-link>SAFETY</a><a class="section-link" href="#sec-18-watchlist" data-section-link>WATCHLIST</a><a class="section-link" href="#sec-19-trends" data-section-link>TRENDS</a><a class="section-link" href="#sec-20-cikcik-paketi" data-section-link>CikCik Paketi</a><a class="section-link" href="#sec-21-oracle-self-improvement-sinyalleri" data-section-link>Oracle Self-Improvement Sinyalleri</a><a class="section-link" href="#sec-22-kaynak-zeti" data-section-link>Kaynak Özeti</a><a class="section-link" href="#sec-23-dedupe-kalite-notu" data-section-link>Dedupe &amp; Kalite Notu</a></nav>
+        </div>
+        <div class="panel">
+          <div class="panel-title"><div><h3>Hızlı erişim</h3></div></div>
+          <div class="report-tools">
+            <a class="ghost-button" href="../raw/2026-04-08.md">Kaynak markdown</a>
+            <a class="ghost-button" href="2026-04-08.html">Türkçe orijinal</a>
+            <a class="ghost-button" href="2026-04-07.html">Önceki rapor</a>
+            <a class="ghost-button" href="2026-04-09.html">Sonraki rapor</a>
+          </div>
+        </div>
+      </aside>
+      <div class="report-main">
+        <section class="report-summary-card rendered-markdown">
+          <div class="section-head">
+            <div>
+              <div class="section-kicker">Rapor özeti</div>
+              <h2>Rapor özeti</h2>
+            </div>
+          </div>
+          <blockquote><p>Otomatik derleme | v3 pipeline | 5 kaynak akışı | 5018 benzersiz item | Tarih: 2026-04-08 00:38 TRT</p></blockquote>
+        </section>
+        <div data-report-sections></div>
+      </div>
+    </section>
+  </main>
+  <footer class="shell footer">
+    <div class="footer-card">
+      <p>Oracle gece araştırma arşivi, Türkçe asıl içerik korunarak üretilir.</p>
+      <p>2026-04-11 23:10 UTC</p>
+    </div>
+  </footer>
+  <script id="report-data" type="application/json">{&quot;sectionLabel&quot;: &quot;Bölümler&quot;, &quot;sections&quot;: [{&quot;id&quot;: &quot;sec-1-gunun-zeti&quot;, &quot;title&quot;: &quot;Günün Özeti&quot;, &quot;content&quot;: &quot;- **Bugünün ana ekseni, agent çağının güvenlik ve yönetişim borcu oldu.** Anthropic, Mythos Preview ile saldırı seviyesinde siber kabiliyet gösteren bir modeli doğrudan geniş kitleye açmak yerine Project Glasswing altında savunma amaçlı sınırlı erişimle konumlandırdı. Kaynaklar: https://www.anthropic.com/glasswing | https://red.anthropic.com/2026/mythos-preview/ | https://techcrunch.com/2026/04/07/anthropic-mythos-ai-model-preview-security/\n- **Altyapı tarafında “ham model” değil, onu taşıyan compute ve güvenli ağ omurgası konuşuldu.** Anthropic’in Google ve Broadcom ile TPU/compute kapasitesini büyütmesi ve Cloudflare’in post-quantum hedefini 2029’a çekmesi, yarışın model kadar altyapı ve kripto dayanıklılığı tarafında sertleştiğini gösteriyor. Kaynaklar: https://techcrunch.com/2026/04/07/anthropic-compute-deal-google-broadcom-tpus/ | https://www.cnbc.com/2026/04/07/broadcom-shares-jump-before-bell-google-deal.html | https://blog.cloudflare.com/post-quantum-roadmap/\n- **Agent tooling hattı daha operasyonel hale geliyor.** GitHub’ın Dependabot alert’lerini AI agent’lara atayabilmesi, Copilot CLI’ın BYOK ve local model desteği ve LangChain Deep Agents v0.5 güncellemesi, agent’ları demo katmanından günlük iş akışına itiyor. Kaynaklar: https://github.blog/changelog/2026-04-07-dependabot-alerts-are-now-assignable-to-ai-agents-for-remediation | https://github.blog/changelog/2026-04-07-copilot-cli-now-supports-byok-and-local-models | https://blog.langchain.com/deep-agents-v0-5/\n- **Araştırma hattında kişisel agent güvenliği, beceri belleği ve dosya sistemi kişiselleştirmesi aynı anda yükseldi.** OpenClaw güvenlik analizi, ClawSafety, SkillX, Memory Intelligence Agent ve FileGram birlikte okunduğunda, agent ekosistemi artık “ne yapabiliyor?” kadar “neyi ne kadar güvenli ve kişisel yapıyor?” sorusuna kilitlenmiş görünüyor. Kaynaklar: https://arxiv.org/abs/2604.04759 | https://arxiv.org/abs/2604.01438 | https://arxiv.org/abs/2604.04804 | https://arxiv.org/abs/2604.04503 | https://arxiv.org/abs/2604.04901&quot;}, {&quot;id&quot;: &quot;sec-2-trend-analizi&quot;, &quot;title&quot;: &quot;Trend Analizi&quot;, &quot;content&quot;: &quot;- **Frontier model tartışması capability yarışından kontrollü dağıtıma kayıyor.** Mythos Preview’in doğrudan yayına açılmaması ve Glasswing çerçevesi, “en güçlü modeli çıkar” mantığının yerini “en riskli kabiliyeti nasıl sınırlarız?” sorusuna bıraktığını gösteriyor. Kaynaklar: https://www.anthropic.com/glasswing | https://red.anthropic.com/2026/mythos-preview/\n- **Agent ekosisteminde güvenlik ve provenance katmanı kalınlaşıyor.** OpenClaw güvenlik analizi, ClawSafety ve HDP, prompt injection ile zincir delegasyon izlenebilirliğini aynı tehdit düzleminde birleştiriyor. Kaynaklar: https://arxiv.org/abs/2604.04759 | https://arxiv.org/abs/2604.01438 | https://huggingface.co/papers/2604.04522\n- **Infra yarışında compute + crypto + routing üçlüsü öne çıktı.** Anthropic’in kapasite anlaşması, Broadcom etkisi, Cloudflare’in PQ takvimi ve TriAttention tipi verimlilik çalışmaları birlikte, ölçeklenmenin hem fiziksel hem matematiksel hale geldiğini gösteriyor. Kaynaklar: https://techcrunch.com/2026/04/07/anthropic-compute-deal-google-broadcom-tpus/ | https://www.cnbc.com/2026/04/07/broadcom-shares-jump-before-bell-google-deal.html | https://blog.cloudflare.com/post-quantum-roadmap/ | https://arxiv.org/abs/2604.04921\n- **Multimodal ve görsel reasoning hattında kalite baskısı artıyor.** Vero, MinerU2.5-Pro, Focus Matters ve AVLLM interpretability çalışmaları, “görüyor mu yoksa yakıştırıyor mu?” sorusunu yeniden merkezde tutuyor. Kaynaklar: https://arxiv.org/abs/2604.04917 | https://arxiv.org/abs/2604.04771 | https://arxiv.org/abs/2604.03556 | https://huggingface.co/papers/2604.02605\n- **Kurumsal operasyonda ajanlar artık remediation ve CLI katmanına iniyor.** Dependabot agent ataması, local/BYOK CLI akışı ve Deep Agents güncellemesi, agent kullanımını gerçek üretim ortamlarına daha doğrudan bağlıyor. Kaynaklar: https://github.blog/changelog/2026-04-07-dependabot-alerts-are-now-assignable-to-ai-agents-for-remediation | https://github.blog/changelog/2026-04-07-copilot-cli-now-supports-byok-and-local-models | https://blog.langchain.com/deep-agents-v0-5/&quot;}, {&quot;id&quot;: &quot;sec-3-top-7&quot;, &quot;title&quot;: &quot;Top 7&quot;, &quot;content&quot;: &quot;1. **Anthropic, Mythos Preview’i geniş açmak yerine Glasswing altında savunma odaklı sınırlı erişime aldı.** Bu, siber yetenekli frontier modeller için dağıtım politikasının ürün kararından çok güvenlik yönetişimi kararı haline geldiğini gösteriyor. Kaynaklar: https://www.anthropic.com/glasswing | https://red.anthropic.com/2026/mythos-preview/ | https://techcrunch.com/2026/04/07/anthropic-mythos-ai-model-preview-security/\n2. **Anthropic, Google ve Broadcom ile compute kapasitesini büyütüyor.** Frontier yarışta asıl darboğazın model mimarisinden çok sürdürülebilir TPU/compute erişimi olduğu bir kez daha netleşti. Kaynaklar: https://techcrunch.com/2026/04/07/anthropic-compute-deal-google-broadcom-tpus/ | https://www.cnbc.com/2026/04/07/broadcom-shares-jump-before-bell-google-deal.html\n3. **Cloudflare tam post-quantum güvenlik hedefini 2029’a çekti.** Q-Day tehdidi artık uzun vadeli teorik risk değil, ağ ve kimlik katmanında plan takvimini değiştiren operasyonel baskı. Kaynak: https://blog.cloudflare.com/post-quantum-roadmap/\n4. **Microsoft Bing ekibi Harrier embedding modelini açık kaynakladı.** Çok dilli embedding yarışında açık kaynak tarafı yeniden ivme kazanırken, grounding servisleri için daha erişilebilir bir taban oluşuyor. Kaynak: https://the-decoder.com/microsofts-bing-team-open-sources-harrier-embedding-model/\n5. **Device-code phishing kampanyaları yüzlerce kurumu günlük ölçekle vuruyor.** Agent ve otomasyon çağında zayıf halka hâlâ kimlik akışı ve kullanıcı kandırma yüzeyi olmaya devam ediyor. Kaynaklar: https://go.theregister.com/feed/www.theregister.com/2026/04/07/microsoft_device_code_phishing/ | https://www.bleepingcomputer.com/news/security/authorities-disrupt-dns-hijacks-used-to-steal-microsoft-365-logins/\n6. **OpenClaw güvenlik analizi ve ClawSafety, kişisel agent’ların gerçek dünyadaki saldırı yüzeyini daha görünür hale getirdi.** Agent’ı modelden ayrı bir risk nesnesi olarak ele alma dönemi sertleşiyor. Kaynaklar: https://arxiv.org/abs/2604.04759 | https://arxiv.org/abs/2604.01438\n7. **SkillX, Memory Intelligence Agent, FileGram ve ClawArena birlikte agent belleği ve kişiselleştirme yarışını öne çıkardı.** Sıradaki fark yaratan katman, genel ajanlıktan çok birikimli ve bağlama uyarlanmış ajanlık olabilir. Kaynaklar: https://arxiv.org/abs/2604.04804 | https://arxiv.org/abs/2604.04503 | https://arxiv.org/abs/2604.04901 | https://arxiv.org/abs/2604.04202&quot;}, {&quot;id&quot;: &quot;sec-4-kat-1&quot;, &quot;title&quot;: &quot;KAT-1&quot;, &quot;content&quot;: &quot;- **Agent güvenliği bugünün en sıcak akademik kümesi oldu.** OpenClaw saha analizi ile ClawSafety birlikte, kişisel ajanların local yetki, dosya sistemi erişimi ve prompt injection riskini doğrudan operasyonel güvenlik meselesine çeviriyor. Kaynaklar: https://arxiv.org/abs/2604.04759 | https://arxiv.org/abs/2604.01438&quot;}, {&quot;id&quot;: &quot;sec-5-kat-2&quot;, &quot;title&quot;: &quot;KAT-2&quot;, &quot;content&quot;: &quot;- **Agent belleği ve beceri birikimi, performans artışı için ayrı katman haline geliyor.** SkillX ile Memory Intelligence Agent, ajanların her seferinde sıfırdan keşif yapması yerine bir beceri deposu ve geçmiş deneyimden yararlanması gerektiğini savunuyor. Kaynaklar: https://arxiv.org/abs/2604.04804 | https://arxiv.org/abs/2604.04503&quot;}, {&quot;id&quot;: &quot;sec-6-kat-3&quot;, &quot;title&quot;: &quot;KAT-3&quot;, &quot;content&quot;: &quot;- **Dosya sistemi ve kişiselleştirme tarafı ciddileşiyor.** FileGram, agent kişiselleştirmesini gerçek dosya sistemi davranış izleriyle temellendirmeye çalışarak “kişisel agent” kavramını daha ölçülebilir hale getiriyor. Kaynak: https://arxiv.org/abs/2604.04901&quot;}, {&quot;id&quot;: &quot;sec-7-kat-4&quot;, &quot;title&quot;: &quot;KAT-4&quot;, &quot;content&quot;: &quot;- **Sürekli çalışan ajanlar için değişen dünya problemi ayrı benchmark istiyor.** ClawArena, dağınık ve çelişkili bilgi akışında doğru inancı korumanın agent’lar için temel zorluk olduğunu netleştiriyor. Kaynak: https://arxiv.org/abs/2604.04202&quot;}, {&quot;id&quot;: &quot;sec-8-kat-5&quot;, &quot;title&quot;: &quot;KAT-5&quot;, &quot;content&quot;: &quot;- **MLE agent’ları için sentetik eğitim alanı yükseliyor.** Synthetic Sandbox, yazılım mühendisliğinden makine öğrenimi mühendisliğine geçen agent’larda doğrulama maliyetini düşürmek için sentetik bir güvenli oyun alanı öneriyor. Kaynak: https://arxiv.org/abs/2604.04872&quot;}, {&quot;id&quot;: &quot;sec-9-kat-6&quot;, &quot;title&quot;: &quot;KAT-6&quot;, &quot;content&quot;: &quot;- **Delegation provenance artık kriptografik problem olarak ele alınıyor.** HDP, çok adımlı agent zincirlerinde insan adına kimin neyi, hangi yetkiyle yaptığını izlenebilir hale getirmeye odaklanıyor. Kaynak: https://huggingface.co/papers/2604.04522&quot;}, {&quot;id&quot;: &quot;sec-10-kat-7&quot;, &quot;title&quot;: &quot;KAT-7&quot;, &quot;content&quot;: &quot;- **Uzun reasoning maliyeti, KV sıkıştırma ile yeniden optimize ediliyor.** TriAttention, uzun bağlamlı düşünme için bellek darboğazını daha verimli bir sıkıştırma mantığıyla hedefliyor. Kaynak: https://arxiv.org/abs/2604.04921&quot;}, {&quot;id&quot;: &quot;sec-11-kat-8&quot;, &quot;title&quot;: &quot;KAT-8&quot;, &quot;content&quot;: &quot;- **Doküman ayrıştırma ve görsel reasoning tarafında veri-merkezli yaklaşım güçleniyor.** MinerU2.5-Pro ve Vero, sadece daha büyük model değil, daha iyi veri ve RL tarifinin de fark yarattığını gösteriyor. Kaynaklar: https://arxiv.org/abs/2604.04771 | https://arxiv.org/abs/2604.04917&quot;}, {&quot;id&quot;: &quot;sec-12-kat-9&quot;, &quot;title&quot;: &quot;KAT-9&quot;, &quot;content&quot;: &quot;- **Multimodal doğruluk hâlâ kırılgan.** AVLLM interpretability, Full-Duplex-Bench-v3 ve Focus Matters birlikte, ses-görüntü kombinasyonunda algı, konuşma akıcılığı ve halüsinasyon bastırmanın hâlâ açık problem olduğunu gösteriyor. Kaynaklar: https://huggingface.co/papers/2604.02605 | https://arxiv.org/abs/2604.04847 | https://arxiv.org/abs/2604.03556&quot;}, {&quot;id&quot;: &quot;sec-13-security&quot;, &quot;title&quot;: &quot;SECURITY&quot;, &quot;content&quot;: &quot;- **Mythos Preview, frontier model güvenliğinde yeni eşik sinyali verdi.** Anthropic’in kamuya açık yerine sınırlı ve savunma odaklı erişim tercih etmesi, siber kabiliyeti yüksek modeller için release politikasının sertleşeceğini gösteriyor. Kaynaklar: https://www.anthropic.com/glasswing | https://red.anthropic.com/2026/mythos-preview/\n- **Microsoft device-code phishing kampanyaları, MFA çevresinden dolaşan otomasyonlu tehditleri büyütüyor.** Kimlik akışı manipülasyonu hâlâ en verimli saldırı yüzeylerinden biri. Kaynak: https://go.theregister.com/feed/www.theregister.com/2026/04/07/microsoft_device_code_phishing/\n- **FrostArmada DNS hijack operasyonunun bozulması, router katmanının hâlâ zayıf halka olduğunu hatırlattı.** Özellikle Microsoft 365 kimlik bilgisi avında ağ yönlendirme katmanı yeniden gündemde. Kaynak: https://www.bleepingcomputer.com/news/security/authorities-disrupt-dns-hijacks-used-to-steal-microsoft-365-logins/\n- **Dependabot remediation’ın AI agent’lara devri, güvenlik otomasyonunu doğrudan kod değişikliği hattına indiriyor.** Bu verimlilik sağlarken yanlış remediation riskini de büyütebilir. Kaynak: https://github.blog/changelog/2026-04-07-dependabot-alerts-are-now-assignable-to-ai-agents-for-remediation&quot;}, {&quot;id&quot;: &quot;sec-14-regulation&quot;, &quot;title&quot;: &quot;REGULATION&quot;, &quot;content&quot;: &quot;- **Mythos/Glasswing hattı, frontier model release’lerinde fiili self-regulation örneği sundu.** Resmi düzenleme gelmeden önce şirketler kritik kabiliyeti kime açacaklarını daraltmak zorunda kalıyor. Kaynaklar: https://www.anthropic.com/glasswing | https://techcrunch.com/2026/04/07/anthropic-mythos-ai-model-preview-security/\n- **Post-quantum geçiş takviminin öne çekilmesi, regülasyon ve uyum baskısını hızlandıracak.** Ağ güvenliği tarafında “hazırlanıyoruz” söylemi yerine somut tarih vermek zorunlu hale geliyor. Kaynak: https://blog.cloudflare.com/post-quantum-roadmap/\n- **Kişisel agent güvenliği artık ürün konusu kadar yönetişim konusu.** OpenClaw güvenlik analizi ve ClawSafety, kullanıcı adına çalışan ajanlar için sorumluluk ve standart ihtiyacını güçlendiriyor. Kaynaklar: https://arxiv.org/abs/2604.04759 | https://arxiv.org/abs/2604.01438&quot;}, {&quot;id&quot;: &quot;sec-15-ai-science&quot;, &quot;title&quot;: &quot;AI-SCIENCE&quot;, &quot;content&quot;: &quot;- **SkillX, agent öğrenmesini bireysel deneme-yanılmadan kurumsal beceri tabanına kaydırıyor.** Bu, self-evolving agent literatüründe önemli bir verimlilik dönüşü olabilir. Kaynak: https://arxiv.org/abs/2604.04804\n- **Memory Intelligence Agent, deep research akışında hafızayı reasoning verimliliği katmanı olarak çerçeveliyor.** Özellikle tekrar eden araştırma senaryolarında fark yaratabilir. Kaynak: https://arxiv.org/abs/2604.04503\n- **Synthetic Sandbox, ML engineering agent’ları için doğrulanabilir eğitim evreni öneriyor.** Sıradaki büyük benchmark savaşı SWE yerine MLE görevlerinde olabilir. Kaynak: https://arxiv.org/abs/2604.04872\n- **HDP, insan delegasyon zincirini kriptografik olarak ispatlama fikrini ana akıma taşıyor.** Agentic AI’de güven ilişkisini protokolleştirme yönünde ciddi bir sinyal. Kaynak: https://huggingface.co/papers/2604.04522&quot;}, {&quot;id&quot;: &quot;sec-16-infra&quot;, &quot;title&quot;: &quot;INFRA&quot;, &quot;content&quot;: &quot;- **Anthropic’in Google ve Broadcom ile kapasite anlaşması, compute tedarikini stratejik silah seviyesine çıkardı.** Frontier model rekabetinde ölçek, veri merkezi ve çip anlaşmalarıyla kazanılıyor. Kaynaklar: https://techcrunch.com/2026/04/07/anthropic-compute-deal-google-broadcom-tpus/ | https://www.cnbc.com/2026/04/07/broadcom-shares-jump-before-bell-google-deal.html\n- **Uber’in Amazon çiplerine kayması, inference tercihlerinin sağlayıcı rekabetini yeniden karıştırdığını gösteriyor.** Cloud maliyeti ile model servisi seçimi daha sıkı bağlanıyor. Kaynak: https://techcrunch.com/2026/04/07/uber-is-the-latest-to-be-won-over-by-amazons-ai-chips/\n- **Harrier’in açık kaynaklanması, grounding ve retrieval katmanında açık model cephesine yeni malzeme verdi.** Embedding savaşı yeniden hızlanabilir. Kaynak: https://the-decoder.com/microsofts-bing-team-open-sources-harrier-embedding-model/\n- **TriAttention gibi KV sıkıştırma fikirleri, uzun reasoning’i donanım satın almak yerine matematikle ucuzlatmaya çalışıyor.** Bu hat, 2026’nın verimlilik cephesinde güçlü kalacak gibi görünüyor. Kaynak: https://arxiv.org/abs/2604.04921&quot;}, {&quot;id&quot;: &quot;sec-17-safety&quot;, &quot;title&quot;: &quot;SAFETY&quot;, &quot;content&quot;: &quot;- **ClawSafety, “safe model” ile “safe agent” arasındaki farkı sert biçimde gösteriyor.** Modelin tek başına güvenli olması, agent bütününün güvenli olduğu anlamına gelmiyor. Kaynak: https://arxiv.org/abs/2604.01438\n- **OpenClaw saha analizi, kişisel ajanların tam yerel erişim altında ne kadar geniş saldırı yüzeyi taşıdığını somutlaştırıyor.** Güvenlik tartışması artık teorik değil, deployed agent realitesi. Kaynak: https://arxiv.org/abs/2604.04759\n- **Focus Matters, VLM halüsinasyon bastırmada faz farkına duyarlı yaklaşım öneriyor.** Multimodal ürünlerde “akıcı ama yanlış” çıktıyı düşürme baskısı sürüyor. Kaynak: https://arxiv.org/abs/2604.03556\n- **Full-Duplex-Bench-v3, gerçek konuşma dağınıklığı altında voice agent’ların hâlâ zorlandığını gösteriyor.** Disfluency ve tool use aynı anda test edilmeden sesli ajanlar güvenli sayılmaz. Kaynak: https://arxiv.org/abs/2604.04847&quot;}, {&quot;id&quot;: &quot;sec-18-watchlist&quot;, &quot;title&quot;: &quot;WATCHLIST&quot;, &quot;content&quot;: &quot;- **Glasswing tipi kısıtlı erişim programları çoğalabilir.** Güçlü siber modeller için açık API yerine vetted-partner dağıtımı yeni norm olabilir. Kaynaklar: https://www.anthropic.com/glasswing | https://www.theverge.com/ai-artificial-intelligence/908114/anthropic-project-glasswing-cybersecurity\n- **Post-quantum geçiş takvimleri hızla öne çekilebilir.** Cloudflare’in 2029 hedefi, ağ sağlayıcılarında zincirleme benzer taahhütler doğurabilir. Kaynak: https://blog.cloudflare.com/post-quantum-roadmap/\n- **Agent remediation araçları yanlış güven üretebilir.** Dependabot alert’lerini AI agent’lara bağlamak verimlidir ama inceleme kültürü zayıflarsa sessiz kırılma üretir. Kaynak: https://github.blog/changelog/2026-04-07-dependabot-alerts-are-now-assignable-to-ai-agents-for-remediation\n- **Agent belleği ve kişiselleştirme literatürü ürünleşmeye yaklaşıyor.** SkillX, Memory Intelligence Agent ve FileGram çizgisi, 2026 içinde daha somut ürün özelliklerine dönüşebilir. Kaynaklar: https://arxiv.org/abs/2604.04804 | https://arxiv.org/abs/2604.04503 | https://arxiv.org/abs/2604.04901&quot;}, {&quot;id&quot;: &quot;sec-19-trends&quot;, &quot;title&quot;: &quot;TRENDS&quot;, &quot;content&quot;: &quot;- **Bugünün trendi “daha güçlü agent” değil, “daha denetlenebilir agent” oldu.** Güvenlik analizi, provenance ve remediation kontrolü aynı anda öne çıktı. Kaynaklar: https://arxiv.org/abs/2604.04759 | https://arxiv.org/abs/2604.01438 | https://huggingface.co/papers/2604.04522 | https://github.blog/changelog/2026-04-07-dependabot-alerts-are-now-assignable-to-ai-agents-for-remediation\n- **Model yarışında donanım ve ağ katmanı geri döndü.** Compute anlaşmaları, çip etkisi ve post-quantum takvimler model benchmark’larının önüne geçmeye başladı. Kaynaklar: https://techcrunch.com/2026/04/07/anthropic-compute-deal-google-broadcom-tpus/ | https://www.cnbc.com/2026/04/07/broadcom-shares-jump-before-bell-google-deal.html | https://blog.cloudflare.com/post-quantum-roadmap/\n- **Açık kaynak embedding ve agent araçları sessiz ama güçlü bir akış oluşturuyor.** Harrier, Copilot CLI BYOK/local ve Deep Agents v0.5 birlikte okununca ekosistem daha modüler bir yöne kayıyor. Kaynaklar: https://the-decoder.com/microsofts-bing-team-open-sources-harrier-embedding-model/ | https://github.blog/changelog/2026-04-07-copilot-cli-now-supports-byok-and-local-models | https://blog.langchain.com/deep-agents-v0-5/\n- **Multimodal alanda kalite baskısı, ürün hype’ını bastırıyor.** Vero, Focus Matters ve AVLLM çalışmaları, görsel-sesli akıllı sistemlerde hatanın hâlâ yüksek bedelli olduğunu hatırlatıyor. Kaynaklar: https://arxiv.org/abs/2604.04917 | https://arxiv.org/abs/2604.03556 | https://huggingface.co/papers/2604.02605&quot;}, {&quot;id&quot;: &quot;sec-20-cikcik-paketi&quot;, &quot;title&quot;: &quot;CikCik Paketi&quot;, &quot;content&quot;: &quot;- **“Mythos herkese açılmadıysa mesele benchmark değil, blast radius.”** Glasswing hattı sosyal akışta en çok güvenlik yönetişimi tartışması üretir. Kaynaklar: https://www.anthropic.com/glasswing | https://simonwillison.net/2026/Apr/7/project-glasswing/\n- **“Compute anlaşması artık press release değil, rekabet hendek bildirimi.”** Anthropic’in Google/Broadcom hamlesi, frontier yarışın çip ve enerji tarafında sertleştiğini söylüyor. Kaynak: https://techcrunch.com/2026/04/07/anthropic-compute-deal-google-broadcom-tpus/\n- **“Cloudflare 2029 diyorsa post-quantum artık uzak gelecek değil.”** Bu başlık özellikle güvenlik ve infra tarafında geniş yankı bulur. Kaynak: https://blog.cloudflare.com/post-quantum-roadmap/\n- **“Harrier açık kaynağa düştü, embedding savaşı yeniden ilginçleşiyor.”** Grounding ve retrieval tarafında paylaşım değeri yüksek haber. Kaynak: https://the-decoder.com/microsofts-bing-team-open-sources-harrier-embedding-model/\n- **“Dependabot alert’i artık doğrudan AI coding agent’a paslanabiliyor.”** Bu kısa cümle, developer akışlarında agent adaptasyonunun ne kadar hızlandığını anlatmak için güçlü. Kaynak: https://github.blog/changelog/2026-04-07-dependabot-alerts-are-now-assignable-to-ai-agents-for-remediation\n- **“SkillX + Memory Intelligence Agent çizgisi, agent’ların hafıza çağını başlatıyor.”** Teknik toplulukta tartışma üretme potansiyeli yüksek. Kaynaklar: https://arxiv.org/abs/2604.04804 | https://arxiv.org/abs/2604.04503&quot;}, {&quot;id&quot;: &quot;sec-21-oracle-self-improvement-sinyalleri&quot;, &quot;title&quot;: &quot;Oracle Self-Improvement Sinyalleri&quot;, &quot;content&quot;: &quot;- **Agent güvenliğini model güvenliğinden ayrı ölçmek şart.** OpenClaw saha analizi ve ClawSafety, orchestration katmanında ek guardrail gerektirdiğini açık biçimde söylüyor. Kaynaklar: https://arxiv.org/abs/2604.04759 | https://arxiv.org/abs/2604.01438\n- **Delegation zincirinde provenance eksikliği büyüyen risk.** HDP benzeri yaklaşım, Oracle tarzı çok adımlı ajan sistemlerinde izlenebilir yetki kaydı ihtiyacını doğruluyor. Kaynak: https://huggingface.co/papers/2604.04522\n- **Memory katmanı artık nice-to-have değil.** SkillX ve Memory Intelligence Agent, tekrar eden araştırma ve görevlerde kalıcı beceri/hafıza olmadan verimlilik tavanına çarpılacağını gösteriyor. Kaynaklar: https://arxiv.org/abs/2604.04804 | https://arxiv.org/abs/2604.04503\n- **AI remediation akışları için insan inceleme kapısı korunmalı.** Dependabot’u doğrudan agent’a bağlamak hız kazandırır ama yanlış düzeltmeyi de hızlandırabilir. Kaynak: https://github.blog/changelog/2026-04-07-dependabot-alerts-are-now-assignable-to-ai-agents-for-remediation\n- **Uzun reasoning maliyeti için sadece daha büyük donanım almak şart değil.** TriAttention gibi yaklaşımlar, cost-aware routing ve hafifletme mantığını Oracle tarafında da önemli kılıyor. Kaynak: https://arxiv.org/abs/2604.04921&quot;}, {&quot;id&quot;: &quot;sec-22-kaynak-zeti&quot;, &quot;title&quot;: &quot;Kaynak Özeti&quot;, &quot;content&quot;: &quot;- **Güvenlik omurgası**, Mythos/Glasswing, device-code phishing, DNS hijack bozma operasyonu ve agent security literatürü üstünden kuruldu. Kaynaklar: https://www.anthropic.com/glasswing | https://red.anthropic.com/2026/mythos-preview/ | https://go.theregister.com/feed/www.theregister.com/2026/04/07/microsoft_device_code_phishing/ | https://www.bleepingcomputer.com/news/security/authorities-disrupt-dns-hijacks-used-to-steal-microsoft-365-logins/ | https://arxiv.org/abs/2604.04759 | https://arxiv.org/abs/2604.01438\n- **Altyapı omurgası**, Anthropic compute genişlemesi, Broadcom etkisi, Harrier ve post-quantum takvimi etrafında şekillendi. Kaynaklar: https://techcrunch.com/2026/04/07/anthropic-compute-deal-google-broadcom-tpus/ | https://www.cnbc.com/2026/04/07/broadcom-shares-jump-before-bell-google-deal.html | https://the-decoder.com/microsofts-bing-team-open-sources-harrier-embedding-model/ | https://blog.cloudflare.com/post-quantum-roadmap/\n- **Agent araştırma omurgası**, SkillX, Memory Intelligence Agent, FileGram, ClawArena, Synthetic Sandbox ve HDP ile kuruldu. Kaynaklar: https://arxiv.org/abs/2604.04804 | https://arxiv.org/abs/2604.04503 | https://arxiv.org/abs/2604.04901 | https://arxiv.org/abs/2604.04202 | https://arxiv.org/abs/2604.04872 | https://huggingface.co/papers/2604.04522\n- **Multimodal/quality omurgası**, Vero, MinerU2.5-Pro, AVLLM interpretability, Focus Matters ve Full-Duplex-Bench-v3 ile desteklendi. Kaynaklar: https://arxiv.org/abs/2604.04917 | https://arxiv.org/abs/2604.04771 | https://huggingface.co/papers/2604.02605 | https://arxiv.org/abs/2604.03556 | https://arxiv.org/abs/2604.04847&quot;}, {&quot;id&quot;: &quot;sec-23-dedupe-kalite-notu&quot;, &quot;title&quot;: &quot;Dedupe &amp; Kalite Notu&quot;, &quot;content&quot;: &quot;&gt; Bu rapor, `raw-sources/2026-04-08/unique.json` içindeki 5018 benzersiz item ve son 3 gün raporları (`2026-04-05.md`, `2026-04-06.md`, `2026-04-07.md`) çapraz kontrol edilerek hazırlandı.\n&gt;\n&gt; Önceki 3 günde öne çıkan Anthropic/OpenClaw erişim kısıtı, Gemma 4 dalgası, OpenAI yönetim değişikliği ve benzeri başlıklar tekrar edilmedi; bugün yalnızca yeni açı veya yeni birincil kaynakla belirginleşen gelişmeler seçildi.\n&gt;\n&gt; Bugünün seti akademik agent güvenliği ve altyapı sinyali ağırlıklı olduğu için yorumlar kaynak başlıkları, özetler ve doğrulanabilir URL’ler sınırında tutuldu; prompt dışı spekülatif iddia eklenmedi.&quot;}]}</script>
+  <script src="https://cdn.jsdelivr.net/npm/marked@9.1.6/marked.min.js"></script>
+  <button class="back-to-top" type="button" data-back-top aria-label="Back to top">↑</button>
 </body>
 </html>

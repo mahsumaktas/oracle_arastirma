@@ -1,375 +1,107 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Oracle Gece Arastirma -- 2026-04-11">
-<title>Oracle Arastirma -- 2026-04-11</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Oracle Gece Araştırma raporu 2026-04-11">
+<title>Oracle Gece Arastirma — 2026-04-11 · Oracle Gece Araştırma</title>
+<link rel="canonical" href="https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-11.html">
+<link rel="alternate" hreflang="tr" href="https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-11.html">
+<link rel="alternate" hreflang="en" href="https://mahsumaktas.github.io/oracle_arastirma/en/reports/2026-04-11.html">
+<link rel="alternate" hreflang="es" href="https://mahsumaktas.github.io/oracle_arastirma/es/reports/2026-04-11.html">
+<link rel="alternate" hreflang="x-default" href="https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-11.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root {
-  --bg: #0f172a;
-  --bg-card: #1e293b;
-  --bg-hover: #334155;
-  --text: #e2e8f0;
-  --text-muted: #94a3b8;
-  --accent: #3b82f6;
-  --accent-hover: #60a5fa;
-  --border: #334155;
-  --success: #22c55e;
-  --warning: #f59e0b;
-  --danger: #ef4444;
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
-  --radius: 12px;
-  --shadow: 0 4px 6px -1px rgba(0,0,0,0.3);
-  color-scheme: dark;
-}
-[data-theme="light"] {
-  --bg: #f8fafc; --bg-card: #ffffff; --bg-hover: #f1f5f9;
-  --text: #1e293b; --text-muted: #64748b; --border: #e2e8f0;
-  --shadow: 0 4px 6px -1px rgba(0,0,0,0.1); color-scheme: light;
-}
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme="dark"]) {
-    --bg: #f8fafc; --bg-card: #ffffff; --bg-hover: #f1f5f9;
-    --text: #1e293b; --text-muted: #64748b; --border: #e2e8f0;
-    --shadow: 0 4px 6px -1px rgba(0,0,0,0.1); color-scheme: light;
-  }
-}
-html { scroll-behavior: smooth }
-body {
-  background: var(--bg); color: var(--text);
-  font-family: var(--font-sans); font-size: 16px; line-height: 1.7;
-  -webkit-text-size-adjust: 100%; transition: background 0.3s, color 0.3s;
-}
-
-/* -- Sticky Header -------------------------------------------------------- */
-.site-header {
-  position: sticky; top: 0; z-index: 200;
-  background: var(--bg); border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-}
-.header-inner {
-  max-width: 1100px; margin: 0 auto; padding: 12px 20px;
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 16px; flex-wrap: wrap;
-}
-.header-left { display: flex; align-items: center; gap: 12px; min-width: 0 }
-.header-title { font-size: 18px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
-.header-meta { display: flex; align-items: center; gap: 12px; font-size: 13px; color: var(--text-muted); flex-shrink: 0 }
-.header-badge {
-  display: inline-flex; align-items: center; gap: 4px;
-  padding: 3px 10px; border-radius: 99px; font-size: 12px; font-weight: 600;
-  background: var(--accent); color: #fff;
-}
-.header-nav a { color: var(--accent); text-decoration: none; font-size: 13px; font-weight: 500 }
-.header-nav a:hover { color: var(--accent-hover) }
-
-/* -- Theme toggle --------------------------------------------------------- */
-.theme-toggle {
-  background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px;
-  padding: 6px 10px; cursor: pointer; font-size: 16px; line-height: 1;
-  color: var(--text); transition: background 0.2s;
-}
-.theme-toggle:hover { background: var(--bg-hover) }
-
-/* -- Tabs ----------------------------------------------------------------- */
-.tabs-container { max-width: 1100px; margin: 0 auto; padding: 0 20px }
-.tabs {
-  display: flex; gap: 4px; overflow-x: auto; -webkit-overflow-scrolling: touch;
-  padding: 8px 0; border-bottom: 2px solid var(--border);
-  position: sticky; top: 53px; background: var(--bg); z-index: 100;
-  scrollbar-width: thin; scrollbar-color: var(--border) transparent;
-}
-.tabs::-webkit-scrollbar { height: 4px }
-.tabs::-webkit-scrollbar-track { background: transparent }
-.tabs::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px }
-.tab {
-  padding: 8px 16px; border-radius: 8px 8px 0 0; cursor: pointer;
-  white-space: nowrap; color: var(--text-muted); font-size: 14px; font-weight: 500;
-  transition: all 0.2s; border: none; background: transparent;
-  font-family: var(--font-sans); position: relative;
-}
-.tab.active { color: var(--accent); background: var(--bg-card) }
-.tab.active::after {
-  content: ''; position: absolute; bottom: -2px; left: 0; right: 0;
-  height: 2px; background: var(--accent);
-}
-.tab:hover:not(.active) { color: var(--text); background: var(--bg-hover) }
-
-/* -- Tab panels ----------------------------------------------------------- */
-.tab-panel {
-  display: none; max-width: 1100px; margin: 0 auto; padding: 24px 20px 80px;
-  animation: fadeIn 0.2s ease;
-}
-.tab-panel.active { display: block }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(4px) } to { opacity: 1; transform: translateY(0) } }
-
-/* -- Typography ----------------------------------------------------------- */
-.tab-panel h1 { font-size: clamp(1.3rem, 4vw, 1.8rem); margin: 28px 0 12px; font-weight: 700 }
-.tab-panel h2 { font-size: clamp(1.1rem, 3.5vw, 1.4rem); margin: 24px 0 10px; border-bottom: 1px solid var(--border); padding-bottom: 8px; font-weight: 600 }
-.tab-panel h3 { font-size: clamp(1rem, 3vw, 1.2rem); margin: 20px 0 8px; font-weight: 600 }
-.tab-panel h4 { font-size: 1rem; margin: 16px 0 6px; font-weight: 600 }
-.tab-panel p { margin: 10px 0 }
-.tab-panel a { color: var(--accent); text-decoration: none; transition: color 0.15s }
-.tab-panel a:hover { color: var(--accent-hover); text-decoration: underline }
-.tab-panel strong { font-weight: 700 }
-.tab-panel em { font-style: italic }
-.tab-panel hr { border: none; border-top: 1px solid var(--border); margin: 24px 0 }
-
-/* -- Lists ---------------------------------------------------------------- */
-.tab-panel ul, .tab-panel ol { margin: 10px 0 10px 1.4em }
-.tab-panel li { margin: 4px 0 }
-
-/* -- Blockquotes ---------------------------------------------------------- */
-.tab-panel blockquote {
-  background: var(--bg-card); border-left: 4px solid var(--accent);
-  margin: 14px 0; padding: 12px 18px;
-  border-radius: 0 var(--radius) var(--radius) 0; color: var(--text-muted);
-}
-.tab-panel blockquote p { margin: 4px 0 }
-
-/* -- Code ----------------------------------------------------------------- */
-.tab-panel code {
-  background: #1e293b; color: #e2e8f0; border-radius: 4px; padding: 2px 6px;
-  font-family: var(--font-mono); font-size: 0.88em; word-break: break-all;
-}
-.tab-panel pre {
-  background: #1e293b; border-radius: var(--radius); padding: 14px 16px;
-  overflow-x: auto; margin: 14px 0; border: 1px solid #334155;
-}
-.tab-panel pre code { background: none; padding: 0; border-radius: 0; font-size: 0.85em; word-break: normal }
-
-/* -- Tables --------------------------------------------------------------- */
-.table-wrap {
-  overflow-x: auto; -webkit-overflow-scrolling: touch;
-  margin: 14px 0; border-radius: var(--radius); border: 1px solid var(--border);
-}
-.tab-panel table { border-collapse: collapse; width: 100%; min-width: 400px; font-size: 0.9em }
-.tab-panel th {
-  background: var(--bg-hover); text-align: left; padding: 10px 14px;
-  font-weight: 600; border-bottom: 2px solid var(--border); white-space: nowrap;
-}
-.tab-panel td { padding: 9px 14px; border-bottom: 1px solid var(--border); vertical-align: top; word-break: break-word }
-.tab-panel tr:last-child td { border-bottom: none }
-.tab-panel tr:hover td { background: var(--bg-hover) }
-
-/* -- Item cards ----------------------------------------------------------- */
-.item-card {
-  background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
-  padding: 16px 20px; margin: 12px 0; box-shadow: var(--shadow);
-  transition: transform 0.15s, box-shadow 0.15s; list-style: none;
-}
-.item-card:hover { transform: translateY(-1px); box-shadow: 0 8px 16px -4px rgba(0,0,0,0.2) }
-
-/* -- Importance badges ---------------------------------------------------- */
-.badge-high {
-  display: inline-block; padding: 2px 8px; border-radius: 99px;
-  font-size: 0.75rem; font-weight: 600;
-  background: rgba(239,68,68,0.15); color: var(--danger); border: 1px solid rgba(239,68,68,0.3);
-}
-.badge-medium {
-  display: inline-block; padding: 2px 8px; border-radius: 99px;
-  font-size: 0.75rem; font-weight: 600;
-  background: rgba(245,158,11,0.15); color: var(--warning); border: 1px solid rgba(245,158,11,0.3);
-}
-.badge-low {
-  display: inline-block; padding: 2px 8px; border-radius: 99px;
-  font-size: 0.75rem; font-weight: 600;
-  background: rgba(34,197,94,0.15); color: var(--success); border: 1px solid rgba(34,197,94,0.3);
-}
-
-/* -- Back to top ---------------------------------------------------------- */
-#back-top {
-  position: fixed; bottom: 24px; right: 20px;
-  background: var(--accent); color: #fff; border: none; border-radius: 50%;
-  width: 44px; height: 44px; font-size: 1.2rem; cursor: pointer;
-  box-shadow: 0 4px 12px rgba(59,130,246,0.4);
-  display: none; align-items: center; justify-content: center;
-  text-decoration: none; transition: opacity 0.2s, transform 0.2s; z-index: 300;
-}
-#back-top:hover { transform: scale(1.1) }
-#back-top.visible { display: flex }
-
-/* -- Loading -------------------------------------------------------------- */
-#loading { text-align: center; padding: 80px 0; color: var(--text-muted); font-size: 1rem }
-.loading-spinner {
-  width: 32px; height: 32px; border: 3px solid var(--border);
-  border-top: 3px solid var(--accent); border-radius: 50%;
-  animation: spin 0.8s linear infinite; margin: 0 auto 16px;
-}
-@keyframes spin { to { transform: rotate(360deg) } }
-
-/* -- Print ---------------------------------------------------------------- */
-@media print {
-  .site-header, .tabs, #back-top, .theme-toggle { display: none !important }
-  .tab-panel { display: block !important; break-inside: avoid }
-  .tab-panel::before {
-    content: attr(data-title); display: block; font-size: 1.3rem; font-weight: 700;
-    margin: 20px 0 8px; border-bottom: 2px solid #000; padding-bottom: 4px;
-  }
-  body { background: #fff; color: #000; font-size: 11pt }
-  .item-card { box-shadow: none; border: 1px solid #ccc }
-  a { color: #000 }
-  a[href]::after { content: " (" attr(href) ")"; font-size: 0.8em; color: #666 }
-}
-
-/* -- Responsive ----------------------------------------------------------- */
-@media (max-width: 640px) {
-  .header-inner { padding: 10px 14px }
-  .header-title { font-size: 15px }
-  .tabs { gap: 2px }
-  .tab { padding: 6px 12px; font-size: 13px }
-  .tab-panel { padding: 16px 14px 60px }
-  .item-card { padding: 12px 14px }
-  .tab-panel table { font-size: 0.82em }
-  .tab-panel th, .tab-panel td { padding: 6px 8px }
-}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<script defer src="../assets/site.js"></script>
 </head>
 <body>
-<div class="site-header">
-  <div class="header-inner">
-    <div class="header-left">
-      <span class="header-title">Oracle Gece Arastirma — 2026-04-11</span>
-      <span class="header-badge">45 madde</span>
-    </div>
-    <div class="header-meta">
-      <span>2026-04-11</span>
-      <nav class="header-nav"><a href="https://mahsumaktas.github.io/oracle_arastirma/index.html">Tum Raporlar</a></nav>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Tema degistir" aria-label="Tema degistir">
-        <span id="theme-icon">&#9790;</span>
-      </button>
+  <header class="site-header">
+  <div class="shell header-bar">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark">🦉</span>
+      <span class="brand-text">
+        <span class="brand-kicker">Oracle archive</span>
+        <h1 class="brand-title">Oracle Gece Araştırma</h1>
+        <p class="brand-subtitle">2026-04-11</p>
+      </span>
+    </a>
+    <div class="header-actions">
+      <div class="lang-switch"><span class="lang-switch-label">Dil</span><a class="lang-chip is-active" href="2026-04-11.html" lang="tr">TÜ</a><a class="lang-chip" href="../en/reports/2026-04-11.html" lang="en">EN</a><a class="lang-chip" href="../es/reports/2026-04-11.html" lang="es">ES</a></div>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle theme"><span data-theme-icon>◐</span></button>
     </div>
   </div>
-</div>
-<div class="tabs-container"><div class="tabs" id="tabs-bar" role="tablist"></div></div>
-<div id="panels-container"></div>
-<div id="loading"><div class="loading-spinner"></div>Rapor yukleniyor...</div>
-<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Yukari" aria-label="Yukari git">&#8593;</button>
+</header>
+  <main class="shell">
+    <section class="hero">
+      <div class="hero-card">
+        <div class="hero-layout">
+          <div>
+            <div class="breadcrumbs"><a href="../index.html">Arşive dön</a><span>•</span><span>2026-04-11</span></div>
+            <span class="hero-kicker">Araştırma raporu</span>
+            <h1>Oracle Gece Arastirma — 2026-04-11</h1>
+            <p>Otomatik derleme | v3 pipeline | 5 kaynak akisi | 6243 merged -&gt; 1819 unique | son 3 gun tekrar filtreli</p>
+            <div class="hero-actions">
+              <span class="hero-pill"><strong>20</strong> bölüm</span>
+              <span class="hero-pill"><strong>1702</strong> kelime</span>
+            </div>
+          </div>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <span class="stat-label">Öne çıkan not</span>
+              <div class="stat-detail">Otomatik derleme | v3 pipeline | 5 kaynak akisi | 6243 merged -&gt; 1819 unique | son 3 gun tekrar filtreli</div>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Hızlı erişim</span>
+              <div class="report-actions-row" style="margin-top:12px">
+                <a class="button" href="../raw/2026-04-11.md">Ham markdown</a>
+                <a class="ghost-button" href="../index.html">Tüm raporlar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
-<script>
-(function() {
-  var SECTIONS = [{"id": "ozet", "title": "Ozet", "emoji": "", "content": "# Oracle Gece Arastirma \u2014 2026-04-11\n\n> Otomatik derleme | v3 pipeline | 5 kaynak akisi | 6243 merged -> 1819 unique | son 3 gun tekrar filtreli"}, {"id": "gunun-ozeti", "title": "Gunun Ozeti", "emoji": "", "content": "- GitHub cephesinde Copilot tarafi daha fazla olcumlenebilir hale geliyor: CLI kullanim metrikleri ana toplamlara girdi, cloud agent validation araclari hizlandi ve Pro trial akisi abuse nedeniyle durduruldu. Kaynaklar: https://github.blog/changelog/2026-04-10-copilot-cli-activity-now-included-in-usage-metrics-totals-and-feature-breakdowns , https://github.blog/changelog/2026-04-10-copilot-cloud-agents-validation-tools-are-now-20-faster , https://github.blog/changelog/2026-04-10-pausing-new-github-copilot-pro-trials\n- Agent ekosisteminde MCP ve orkestrasyon katmani yine merkezde: Colab MCP server, MCP Dev Summit ve hiyerarsik agentic RAG yaklasimlari operasyonel standartlasmanin hizlandigini gosteriyor. Kaynaklar: https://www.infoq.com/news/2026/04/colab-mcp-server/?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=AI%2C+ML+%26+Data+Engineering , https://www.infoq.com/news/2026/04/aaif-mcp-summit/?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=AI%2C+ML+%26+Data+Engineering , https://www.infoq.com/articles/building-hierarchical-agentic-rag-systems/?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=AI%2C+ML+%26+Data+Engineering\n- Guvenlik tarafinda odak net: prompt injection, RAG poisoning ve agent tabanli ofansif guvenlik artik teori degil, hizli sekilde urunlesiyor. Kaynaklar: https://arxiv.org/abs/2504.20472 , https://arxiv.org/abs/2505.11548 , https://arxiv.org/abs/2604.08291 , https://arxiv.org/abs/2604.06618"}, {"id": "top-7", "title": "Top 7", "emoji": "", "content": "1. **GitHub Copilot Pro deneme akisini durdurdu**: abuse baskisi free-trial tarafinda maliyet ve suistimal savasinin sertlestigini gosteriyor. Kaynak: https://github.blog/changelog/2026-04-10-pausing-new-github-copilot-pro-trials\n2. **Copilot CLI metrikleri artik ana kullanim tablolarina giriyor**: yonetim ve maliyet takibi icin kritik. Kaynak: https://github.blog/changelog/2026-04-10-copilot-cli-activity-now-included-in-usage-metrics-totals-and-feature-breakdowns\n3. **Cloudflare 500 Tbps dis kapasiteyi asti**: AI ve DDoS cagi icin altyapi kasi gosterisi. Kaynak: https://blog.cloudflare.com/500-tbps-of-capacity/\n4. **Google Colab icin MCP server cikardi**: cloud notebook ortamlarini agent workflow'una baglama yarisi hizlaniyor. Kaynak: https://www.infoq.com/news/2026/04/colab-mcp-server/?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=AI%2C+ML+%26+Data+Engineering\n5. **VCAO arastirmasi agentic OS bug discovery'yi verifier-merkezli modele cekiyor**: ajan + dogrulayici mimarisi guvenlik icin ana tema. Kaynak: https://arxiv.org/abs/2604.08291\n6. **Claude Code ekosisteminde LSP zorlamali gezinme kiti toplulukta ilgi cekti**: token verimliligi ve navigation hygiene odaga girdi. Kaynak: https://www.reddit.com/r/ClaudeAI/comments/1shlcf0/hooks_that_force_claude_code_to_use_lsp_instead/\n7. **Local model cephesinde GLM 5.1, Gemma 4 fixleri ve DMax tartismalari one cikti**: acik model rekabeti tekrar isinmis durumda. Kaynaklar: https://www.reddit.com/r/LocalLLaMA/comments/1shq4ty/glm_51_tops_the_code_arena_rankings_for_open/ , https://www.reddit.com/r/LocalLLaMA/comments/1shs6sx/more_gemma4_fixes_in_the_past_24_hours/ , https://www.reddit.com/r/LocalLLaMA/comments/1sht2yo/national_university_of_singapore_presents_dmax_a/"}, {"id": "trend-analizi", "title": "Trend Analizi", "emoji": "", "content": "- **Olcum + yonetim trendi:** Copilot CLI metrikleri, validation hizlari ve usage API genislemeleri kurumsal AI kullaniminda gozlemlenebilirligin artik opsiyon olmadigini gosteriyor. Kaynaklar: https://github.blog/changelog/2026-04-10-copilot-cli-activity-now-included-in-usage-metrics-totals-and-feature-breakdowns , https://github.blog/changelog/2026-04-10-copilot-cloud-agents-validation-tools-are-now-20-faster\n- **Interface standardizasyonu:** MCP, cloud execution ve gateway/observability katmani artik tekil demo degil, ekosistem standardi olma yolunda. Kaynaklar: https://www.infoq.com/news/2026/04/colab-mcp-server/?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=AI%2C+ML+%26+Data+Engineering , https://www.infoq.com/news/2026/04/aaif-mcp-summit/?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=AI%2C+ML+%26+Data+Engineering\n- **Savunma tarafi yetismekte zorlaniyor:** injection, poisoning ve multimodal saldiri payload'lari hem akademide hem toplulukta ayni anda yukseliyor. Kaynaklar: https://arxiv.org/abs/2504.20472 , https://arxiv.org/abs/2505.11548 , https://www.reddit.com/r/LocalLLaMA/comments/1shkwn3/opensourcing_23759_crossmodal_prompt_injection/\n- **Acik model yarisi yeniden hizlandi:** GLM 5.1, Gemma 4 template/fix dalgasi ve yeni decoding fikirleri yerel stack'i tekrar ciddiye bindiriyor. Kaynaklar: https://www.reddit.com/r/LocalLLaMA/comments/1shq4ty/glm_51_tops_the_code_arena_rankings_for_open/ , https://www.reddit.com/r/LocalLLaMA/comments/1shs6sx/more_gemma4_fixes_in_the_past_24_hours/ , https://www.reddit.com/r/LocalLLaMA/comments/1sht2yo/national_university_of_singapore_presents_dmax_a/"}, {"id": "kat-1", "title": "KAT-1", "emoji": "", "content": "- **Copilot Pro trial pause**: buyume ile suistimal arasindaki gerilim acik sekilde urun politikasina yansidi. Kaynak: https://github.blog/changelog/2026-04-10-pausing-new-github-copilot-pro-trials\n- **Actions workflow rerun limiti 50 oldu**: CI suistimali ve kaynak tuketimine karsi yeni guardrail geldi. Kaynak: https://github.blog/changelog/2026-04-10-actions-workflows-are-limited-to-50-reruns"}, {"id": "kat-2", "title": "KAT-2", "emoji": "", "content": "- **Copilot CLI activity artik toplam usage metriklerinde**: kurumsal yonetim panelleri icin daha anlamli raporlama. Kaynak: https://github.blog/changelog/2026-04-10-copilot-cli-activity-now-included-in-usage-metrics-totals-and-feature-breakdowns\n- **Copilot cloud agent validation araclari %20 hizlandi**: agent kullaniminda test/verify dongusu kisaltiliyor. Kaynak: https://github.blog/changelog/2026-04-10-copilot-cloud-agents-validation-tools-are-now-20-faster"}, {"id": "kat-3", "title": "KAT-3", "emoji": "", "content": "- **Security assessments icinde Ask Copilot acildi**: security review ile AI rehberligi daha siki baglaniyor. Kaynak: https://github.blog/changelog/2026-04-09-ask-copilot-in-security-assessments-now-available\n- **Issue sidebar release bilgisi ve project default field'lari geldi**: delivery tracking daha az el isi isteyecek. Kaynak: https://github.blog/changelog/2026-04-09-release-info-in-issue-sidebar-and-project-defaults"}, {"id": "kat-4", "title": "KAT-4", "emoji": "", "content": "- **Google Colab MCP Server**: notebook + agent koprusu resmilesti, local-agent -> cloud execution hattini guclendiriyor. Kaynak: https://www.infoq.com/news/2026/04/colab-mcp-server/?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=AI%2C+ML+%26+Data+Engineering\n- **AAIF MCP Dev Summit**: gateway, gRPC ve observability sertlestirme temalari MCP'nin enterprise fazina girdigini gosteriyor. Kaynak: https://www.infoq.com/news/2026/04/aaif-mcp-summit/?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=AI%2C+ML+%26+Data+Engineering"}, {"id": "kat-5", "title": "KAT-5", "emoji": "", "content": "- **Choosing Your AI Copilot** sunumu: piyasa autocomplete'ten orchestration/cowork tarafina kayiyor. Kaynak: https://www.infoq.com/presentations/ai-coding-agents-copilot/?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=AI%2C+ML+%26+Data+Engineering\n- **Hierarchical Agentic RAG**: hata toparlama ve worker hiyerarsisi artik mimari ana desenlerden biri. Kaynak: https://www.infoq.com/articles/building-hierarchical-agentic-rag-systems/?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=AI%2C+ML+%26+Data+Engineering"}, {"id": "kat-6", "title": "KAT-6", "emoji": "", "content": "- **Cloudflare 500 Tbps**: sadece network brag degil, AI kaynakli trafik ve mega-DDoS cagi icin operasyonel zemin. Kaynak: https://blog.cloudflare.com/500-tbps-of-capacity/\n- **Google Cloud -> PostgreSQL core katkilarini vurguladi**: veri altyapisinda commodity degil, stratejik cekirdek katkilar one cikiyor. Kaynak: https://www.infoq.com/news/2026/04/google-cloud-postgresql/?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=AI%2C+ML+%26+Data+Engineering"}, {"id": "kat-7", "title": "KAT-7", "emoji": "", "content": "- **VCAO**: verifier-merkezli agent orkestrasyonu ile stratejik OS acik tarama modeli oneriyor. Kaynak: https://arxiv.org/abs/2604.08291\n- **PoC-Adapt**: LLM multi-agent + RL ile PoC exploit uretimi ve uyarlama zinciri daha pratik hale geliyor. Kaynak: https://arxiv.org/abs/2604.06618"}, {"id": "kat-8", "title": "KAT-8", "emoji": "", "content": "- **Robustness via Referencing**: prompt injection savunmasinda calisan talimata referans veren yaklasim one cikiyor. Kaynak: https://arxiv.org/abs/2504.20472\n- **One Shot Dominance**: RAG sistemlerinde knowledge poisoning'in tek atislik ama yuksek etkili bir sinif olarak cercevelendirilmesi dikkat cekici. Kaynak: https://arxiv.org/abs/2505.11548"}, {"id": "kat-9", "title": "KAT-9", "emoji": "", "content": "- **Towards Effective Offensive Security LLM Agents**: benchmark, tuning ve judge katmani ile ofansif agent'lar olgunlasiyor. Kaynak: https://arxiv.org/abs/2508.05674\n- **Cross-modal prompt injection payload dataset'i aciklandi**: pratik savunma test seti olarak degerli. Kaynak: https://www.reddit.com/r/LocalLLaMA/comments/1shkwn3/opensourcing_23759_crossmodal_prompt_injection/"}, {"id": "security", "title": "SECURITY", "emoji": "", "content": "- **Vercel plugin telemetry yazisi**: Claude Code etrafinda prompt/telemetry sinirlari tekrar tartisiliyor. Kaynak: https://akshaychugh.xyz/writings/png/vercel-plugin-telemetry\n- **Claude mixes up who said what**: oturum ici attribution hatalari agent guvenilirligi icin hala can yakici. Kaynak: https://dwyer.co.za/static/claude-mixes-up-who-said-what-and-thats-not-ok.html\n- **OpenClaw + Claude kullanimi zorlasabilir** topluluk sinyali: entegrasyon riski yakindan izlenmeli. Kaynak: https://www.reddit.com/r/artificial/comments/1shtdca/openclaw_claude_might_get_harder_to_use_going/"}, {"id": "regulation", "title": "REGULATION", "emoji": "", "content": "- **OpenAI'nin AI destekli kitlesel zarar/finansal felaket sorumlulugunu sinirlayan yasa destegi** tartisiliyor: bu baslik policy backlash uretebilir. Kaynak: https://www.reddit.com/r/artificial/comments/1shd7cz/openai_backs_bill_that_would_limit_liability_for/\n- **CIA'nin insan kaynakli istihbarat analizinde AI kullanimi** devlet tarafinda operational AI'nin normallestigini gosteriyor. Kaynak: https://www.reddit.com/r/artificial/comments/1shimak/cia_is_trusting_ai_to_help_analyze_intel_from/"}, {"id": "ai-science", "title": "AI-SCIENCE", "emoji": "", "content": "- **DMax**: diffusion language models icin agresif parallel decoding iddiasi ile dikkat cekti. Kaynak: https://www.reddit.com/r/LocalLLaMA/comments/1sht2yo/national_university_of_singapore_presents_dmax_a/\n- **Stanford meta-harness tartismasi**: self-improving harness fikri agent runtime optimizasyonu icin topluluk ilgisi topluyor. Kaynak: https://www.reddit.com/r/LocalLLaMA/comments/1shyczh/stanford_self_improving_metaharness/"}, {"id": "infra", "title": "INFRA", "emoji": "", "content": "- **GLM 5.1 code arena'da one cikti** topluluk algisinda acik modellerin yeniden ciddi aday oldugunu gosteriyor. Kaynak: https://www.reddit.com/r/LocalLLaMA/comments/1shq4ty/glm_51_tops_the_code_arena_rankings_for_open/\n- **Gemma 4 fix dalgasi suruyor**: template ve reasoning budget duzeltmeleri ekosistemde hizli toparlanma refleksi oldugunu gosteriyor. Kaynak: https://www.reddit.com/r/LocalLLaMA/comments/1shs6sx/more_gemma4_fixes_in_the_past_24_hours/"}, {"id": "safety", "title": "SAFETY", "emoji": "", "content": "- **Claude Platform icin advisor strategy**: zor kararlarda agir model danisman, hafif model icraci deseni daha yayginlasabilir. Kaynak: https://www.reddit.com/r/ClaudeAI/comments/1sgy11x/were_bringing_the_advisor_strategy_to_the_claude/\n- **Claude Code icin LSP enforcement kit**: tool-disiplin ve token hijyeni, safety kadar maliyet kontrolu icin de kritik. Kaynak: https://www.reddit.com/r/ClaudeAI/comments/1shlcf0/hooks_that_force_claude_code_to_use_lsp_instead/"}, {"id": "watchlist", "title": "WATCHLIST", "emoji": "", "content": "- **Anthropic 52 gunde 74 release** toplulukta 'chatbot degil platform' algisini guclendiriyor; roadmap hizinin surdurulebilirligi izlenmeli. Kaynak: https://www.reddit.com/r/ClaudeAI/comments/1she8ux/anthropic_just_shipped_74_product_releases_in_52/\n- **Claude spend reallocation yazisi**: gelistirici tarafinda vendor mix ve cost-optimization egilimi suruyor. Kaynak: https://braw.dev/blog/2026-04-06-reallocating-100-month-claude-spend/"}, {"id": "cikcik-paketi", "title": "CIKCIK PAKETI", "emoji": "", "content": "- **Gemini uygulamasi interaktif simulasyon ve 3D model uretmeye basladi**: son kullanici AI deneyimi daha gorsel/hesaplanabilir hale geliyor. Kaynak: https://www.reddit.com/r/artificial/comments/1shmxyq/the_gemini_app_can_now_generate_interactive/\n- **Cloud LLM olmadan hizli web research** toplulukta yeniden gundemde: local-first arastirma stack'leri daha uygulanabilir goruluyor. Kaynak: https://www.reddit.com/r/LocalLLaMA/comments/1shezi8/i_no_longer_need_a_cloud_llm_to_do_quick_web/\n- **Fed/Treasury/banka CEO'lari + Mythos basligi** dogrulanmaya muhtac ama hype/spekulasyon riskini gosteren iyi bir sinyal. Kaynak: https://www.reddit.com/r/artificial/comments/1shxvr4/fed_chair_jerome_powell_treasurys_bessent_and_top/"}, {"id": "veri-notlari", "title": "Veri Notlari", "emoji": "", "content": "- Collector durumu: rss, academic, community, search, social basarili.\n- Kaynak hacmi: rss 1644, academic 970, community 85, search 514, social 4042.\n- Dedupe sonucu: 7255 ham giris -> 6243 merged -> 1819 unique.\n- Son 3 gun raporlarina gore secili basliklar tekrar edilmedi."}];
-
-  marked.setOptions({ gfm: true, breaks: false, mangle: false, headerIds: false });
-
-  var renderer = new marked.Renderer();
-  renderer.table = function(header, body) {
-    return '<div class="table-wrap"><table><thead>' + header + '</thead><tbody>' + body + '</tbody></table></div>';
-  };
-  var origListItem = renderer.listitem;
-  renderer.listitem = function(text) {
-    if (text.indexOf('<strong>') === 0 || text.indexOf('<a') === 0) {
-      return '<li class="item-card">' + text + '</li>';
-    }
-    return '<li>' + text + '</li>';
-  };
-
-  var tabsBar = document.getElementById('tabs-bar');
-  var panelsContainer = document.getElementById('panels-container');
-  var loading = document.getElementById('loading');
-
-  SECTIONS.forEach(function(sec, i) {
-    var btn = document.createElement('button');
-    btn.className = 'tab' + (i === 0 ? ' active' : '');
-    btn.setAttribute('role', 'tab');
-    btn.setAttribute('data-tab', sec.id);
-    btn.id = 'tab-' + sec.id;
-    btn.textContent = (sec.emoji ? sec.emoji + ' ' : '') + sec.title;
-    btn.onclick = function() { switchTab(sec.id) };
-    tabsBar.appendChild(btn);
-
-    var panel = document.createElement('div');
-    panel.className = 'tab-panel' + (i === 0 ? ' active' : '');
-    panel.id = 'panel-' + sec.id;
-    panel.setAttribute('role', 'tabpanel');
-    panel.setAttribute('data-title', (sec.emoji ? sec.emoji + ' ' : '') + sec.title);
-
-    var rendered = marked.parse(sec.content, { renderer: renderer });
-    var RE_HIGH = new RegExp(String.fromCodePoint(0x1F534), 'g');
-    var RE_MED  = new RegExp(String.fromCodePoint(0x1F7E1), 'g');
-    var RE_LOW  = new RegExp(String.fromCodePoint(0x1F7E2), 'g');
-    rendered = rendered.replace(RE_HIGH, '<span class="badge-high">HIGH</span>');
-    rendered = rendered.replace(RE_MED,  '<span class="badge-medium">MED</span>');
-    rendered = rendered.replace(RE_LOW,  '<span class="badge-low">LOW</span>');
-    panel.innerHTML = rendered;
-    panelsContainer.appendChild(panel);
-  });
-
-  loading.style.display = 'none';
-
-  document.querySelectorAll('.tab-panel a[href]').forEach(function(a) {
-    var href = a.getAttribute('href');
-    if (href && (href.startsWith('http://') || href.startsWith('https://'))) {
-      a.setAttribute('target', '_blank');
-      a.setAttribute('rel', 'noopener noreferrer');
-    }
-  });
-
-  window.switchTab = function(tabId) {
-    document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('active') });
-    document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active') });
-    var tab = document.getElementById('tab-' + tabId);
-    var panel = document.getElementById('panel-' + tabId);
-    if (tab) tab.classList.add('active');
-    if (panel) panel.classList.add('active');
-    history.replaceState(null, '', '#' + tabId);
-    if (tab) tab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  function activateFromHash() {
-    var hash = window.location.hash.replace('#', '');
-    if (hash) {
-      var tab = document.getElementById('tab-' + hash);
-      if (tab) { switchTab(hash); return }
-    }
-    if (SECTIONS.length > 0) switchTab(SECTIONS[0].id);
-  }
-  activateFromHash();
-  window.addEventListener('hashchange', activateFromHash);
-
-  var backTop = document.getElementById('back-top');
-  window.addEventListener('scroll', function() {
-    backTop.classList.toggle('visible', window.scrollY > 300);
-  });
-
-  document.addEventListener('keydown', function(e) {
-    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-    var tabs = Array.from(document.querySelectorAll('.tab'));
-    var idx = tabs.findIndex(function(t) { return t.classList.contains('active') });
-    if (e.key === 'ArrowRight' && idx < tabs.length - 1) switchTab(tabs[idx + 1].getAttribute('data-tab'));
-    else if (e.key === 'ArrowLeft' && idx > 0) switchTab(tabs[idx - 1].getAttribute('data-tab'));
-  });
-})();
-
-function toggleTheme() {
-  var html = document.documentElement;
-  var current = html.getAttribute('data-theme');
-  var icon = document.getElementById('theme-icon');
-  if (current === 'dark') {
-    html.setAttribute('data-theme', 'light');
-    icon.innerHTML = '&#9728;'; localStorage.setItem('theme', 'light');
-  } else if (current === 'light') {
-    html.removeAttribute('data-theme');
-    icon.innerHTML = '&#9211;'; localStorage.setItem('theme', 'auto');
-  } else {
-    html.setAttribute('data-theme', 'dark');
-    icon.innerHTML = '&#9790;'; localStorage.setItem('theme', 'dark');
-  }
-}
-(function() {
-  var saved = localStorage.getItem('theme');
-  var icon = document.getElementById('theme-icon');
-  if (saved === 'dark') { document.documentElement.setAttribute('data-theme', 'dark'); if (icon) icon.innerHTML = '&#9790;' }
-  else if (saved === 'light') { document.documentElement.setAttribute('data-theme', 'light'); if (icon) icon.innerHTML = '&#9728;' }
-})();
-</script>
+    <section class="report-layout">
+      <aside class="sticky-column stack">
+        <div class="panel">
+          <div class="panel-title"><div><h3>İçindekiler</h3><p>Türkçe kaynak korunur, alternatif diller otomatik olarak üretilir.</p></div></div>
+          <nav class="report-nav"><a class="section-link" href="#sec-1-gunun-ozeti" data-section-link>Gunun Ozeti</a><a class="section-link" href="#sec-2-top-7" data-section-link>Top 7</a><a class="section-link" href="#sec-3-trend-analizi" data-section-link>Trend Analizi</a><a class="section-link" href="#sec-4-kat-1" data-section-link>KAT-1</a><a class="section-link" href="#sec-5-kat-2" data-section-link>KAT-2</a><a class="section-link" href="#sec-6-kat-3" data-section-link>KAT-3</a><a class="section-link" href="#sec-7-kat-4" data-section-link>KAT-4</a><a class="section-link" href="#sec-8-kat-5" data-section-link>KAT-5</a><a class="section-link" href="#sec-9-kat-6" data-section-link>KAT-6</a><a class="section-link" href="#sec-10-kat-7" data-section-link>KAT-7</a><a class="section-link" href="#sec-11-kat-8" data-section-link>KAT-8</a><a class="section-link" href="#sec-12-kat-9" data-section-link>KAT-9</a><a class="section-link" href="#sec-13-security" data-section-link>SECURITY</a><a class="section-link" href="#sec-14-regulation" data-section-link>REGULATION</a><a class="section-link" href="#sec-15-ai-science" data-section-link>AI-SCIENCE</a><a class="section-link" href="#sec-16-infra" data-section-link>INFRA</a><a class="section-link" href="#sec-17-safety" data-section-link>SAFETY</a><a class="section-link" href="#sec-18-watchlist" data-section-link>WATCHLIST</a><a class="section-link" href="#sec-19-cikcik-paketi" data-section-link>CIKCIK PAKETI</a><a class="section-link" href="#sec-20-veri-notlari" data-section-link>Veri Notlari</a></nav>
+        </div>
+        <div class="panel">
+          <div class="panel-title"><div><h3>Hızlı erişim</h3></div></div>
+          <div class="report-tools">
+            <a class="ghost-button" href="../raw/2026-04-11.md">Kaynak markdown</a>
+            <a class="ghost-button" href="2026-04-11.html">Türkçe orijinal</a>
+            <a class="ghost-button" href="2026-04-09.html">Önceki rapor</a>
+            <a class="ghost-button" href="2026-04-12.html">Sonraki rapor</a>
+          </div>
+        </div>
+      </aside>
+      <div class="report-main">
+        <section class="report-summary-card rendered-markdown">
+          <div class="section-head">
+            <div>
+              <div class="section-kicker">Rapor özeti</div>
+              <h2>Rapor özeti</h2>
+            </div>
+          </div>
+          <blockquote><p>Otomatik derleme | v3 pipeline | 5 kaynak akisi | 6243 merged -&gt; 1819 unique | son 3 gun tekrar filtreli</p></blockquote>
+        </section>
+        <div data-report-sections></div>
+      </div>
+    </section>
+  </main>
+  <footer class="shell footer">
+    <div class="footer-card">
+      <p>Oracle gece araştırma arşivi, Türkçe asıl içerik korunarak üretilir.</p>
+      <p>2026-04-11 23:10 UTC</p>
+    </div>
+  </footer>
+  <script id="report-data" type="application/json">{&quot;sectionLabel&quot;: &quot;Bölümler&quot;, &quot;sections&quot;: [{&quot;id&quot;: &quot;sec-1-gunun-ozeti&quot;, &quot;title&quot;: &quot;Gunun Ozeti&quot;, &quot;content&quot;: &quot;- GitHub cephesinde Copilot tarafi daha fazla olcumlenebilir hale geliyor: CLI kullanim metrikleri ana toplamlara girdi, cloud agent validation araclari hizlandi ve Pro trial akisi abuse nedeniyle durduruldu. Kaynaklar: https://github.blog/changelog/2026-04-10-copilot-cli-activity-now-included-in-usage-metrics-totals-and-feature-breakdowns , https://github.blog/changelog/2026-04-10-copilot-cloud-agents-validation-tools-are-now-20-faster , https://github.blog/changelog/2026-04-10-pausing-new-github-copilot-pro-trials\n- Agent ekosisteminde MCP ve orkestrasyon katmani yine merkezde: Colab MCP server, MCP Dev Summit ve hiyerarsik agentic RAG yaklasimlari operasyonel standartlasmanin hizlandigini gosteriyor. Kaynaklar: https://www.infoq.com/news/2026/04/colab-mcp-server/?utm_campaign=infoq_content&amp;utm_source=infoq&amp;utm_medium=feed&amp;utm_term=AI%2C+ML+%26+Data+Engineering , https://www.infoq.com/news/2026/04/aaif-mcp-summit/?utm_campaign=infoq_content&amp;utm_source=infoq&amp;utm_medium=feed&amp;utm_term=AI%2C+ML+%26+Data+Engineering , https://www.infoq.com/articles/building-hierarchical-agentic-rag-systems/?utm_campaign=infoq_content&amp;utm_source=infoq&amp;utm_medium=feed&amp;utm_term=AI%2C+ML+%26+Data+Engineering\n- Guvenlik tarafinda odak net: prompt injection, RAG poisoning ve agent tabanli ofansif guvenlik artik teori degil, hizli sekilde urunlesiyor. Kaynaklar: https://arxiv.org/abs/2504.20472 , https://arxiv.org/abs/2505.11548 , https://arxiv.org/abs/2604.08291 , https://arxiv.org/abs/2604.06618&quot;}, {&quot;id&quot;: &quot;sec-2-top-7&quot;, &quot;title&quot;: &quot;Top 7&quot;, &quot;content&quot;: &quot;1. **GitHub Copilot Pro deneme akisini durdurdu**: abuse baskisi free-trial tarafinda maliyet ve suistimal savasinin sertlestigini gosteriyor. Kaynak: https://github.blog/changelog/2026-04-10-pausing-new-github-copilot-pro-trials\n2. **Copilot CLI metrikleri artik ana kullanim tablolarina giriyor**: yonetim ve maliyet takibi icin kritik. Kaynak: https://github.blog/changelog/2026-04-10-copilot-cli-activity-now-included-in-usage-metrics-totals-and-feature-breakdowns\n3. **Cloudflare 500 Tbps dis kapasiteyi asti**: AI ve DDoS cagi icin altyapi kasi gosterisi. Kaynak: https://blog.cloudflare.com/500-tbps-of-capacity/\n4. **Google Colab icin MCP server cikardi**: cloud notebook ortamlarini agent workflow&#x27;una baglama yarisi hizlaniyor. Kaynak: https://www.infoq.com/news/2026/04/colab-mcp-server/?utm_campaign=infoq_content&amp;utm_source=infoq&amp;utm_medium=feed&amp;utm_term=AI%2C+ML+%26+Data+Engineering\n5. **VCAO arastirmasi agentic OS bug discovery&#x27;yi verifier-merkezli modele cekiyor**: ajan + dogrulayici mimarisi guvenlik icin ana tema. Kaynak: https://arxiv.org/abs/2604.08291\n6. **Claude Code ekosisteminde LSP zorlamali gezinme kiti toplulukta ilgi cekti**: token verimliligi ve navigation hygiene odaga girdi. Kaynak: https://www.reddit.com/r/ClaudeAI/comments/1shlcf0/hooks_that_force_claude_code_to_use_lsp_instead/\n7. **Local model cephesinde GLM 5.1, Gemma 4 fixleri ve DMax tartismalari one cikti**: acik model rekabeti tekrar isinmis durumda. Kaynaklar: https://www.reddit.com/r/LocalLLaMA/comments/1shq4ty/glm_51_tops_the_code_arena_rankings_for_open/ , https://www.reddit.com/r/LocalLLaMA/comments/1shs6sx/more_gemma4_fixes_in_the_past_24_hours/ , https://www.reddit.com/r/LocalLLaMA/comments/1sht2yo/national_university_of_singapore_presents_dmax_a/&quot;}, {&quot;id&quot;: &quot;sec-3-trend-analizi&quot;, &quot;title&quot;: &quot;Trend Analizi&quot;, &quot;content&quot;: &quot;- **Olcum + yonetim trendi:** Copilot CLI metrikleri, validation hizlari ve usage API genislemeleri kurumsal AI kullaniminda gozlemlenebilirligin artik opsiyon olmadigini gosteriyor. Kaynaklar: https://github.blog/changelog/2026-04-10-copilot-cli-activity-now-included-in-usage-metrics-totals-and-feature-breakdowns , https://github.blog/changelog/2026-04-10-copilot-cloud-agents-validation-tools-are-now-20-faster\n- **Interface standardizasyonu:** MCP, cloud execution ve gateway/observability katmani artik tekil demo degil, ekosistem standardi olma yolunda. Kaynaklar: https://www.infoq.com/news/2026/04/colab-mcp-server/?utm_campaign=infoq_content&amp;utm_source=infoq&amp;utm_medium=feed&amp;utm_term=AI%2C+ML+%26+Data+Engineering , https://www.infoq.com/news/2026/04/aaif-mcp-summit/?utm_campaign=infoq_content&amp;utm_source=infoq&amp;utm_medium=feed&amp;utm_term=AI%2C+ML+%26+Data+Engineering\n- **Savunma tarafi yetismekte zorlaniyor:** injection, poisoning ve multimodal saldiri payload&#x27;lari hem akademide hem toplulukta ayni anda yukseliyor. Kaynaklar: https://arxiv.org/abs/2504.20472 , https://arxiv.org/abs/2505.11548 , https://www.reddit.com/r/LocalLLaMA/comments/1shkwn3/opensourcing_23759_crossmodal_prompt_injection/\n- **Acik model yarisi yeniden hizlandi:** GLM 5.1, Gemma 4 template/fix dalgasi ve yeni decoding fikirleri yerel stack&#x27;i tekrar ciddiye bindiriyor. Kaynaklar: https://www.reddit.com/r/LocalLLaMA/comments/1shq4ty/glm_51_tops_the_code_arena_rankings_for_open/ , https://www.reddit.com/r/LocalLLaMA/comments/1shs6sx/more_gemma4_fixes_in_the_past_24_hours/ , https://www.reddit.com/r/LocalLLaMA/comments/1sht2yo/national_university_of_singapore_presents_dmax_a/&quot;}, {&quot;id&quot;: &quot;sec-4-kat-1&quot;, &quot;title&quot;: &quot;KAT-1&quot;, &quot;content&quot;: &quot;- **Copilot Pro trial pause**: buyume ile suistimal arasindaki gerilim acik sekilde urun politikasina yansidi. Kaynak: https://github.blog/changelog/2026-04-10-pausing-new-github-copilot-pro-trials\n- **Actions workflow rerun limiti 50 oldu**: CI suistimali ve kaynak tuketimine karsi yeni guardrail geldi. Kaynak: https://github.blog/changelog/2026-04-10-actions-workflows-are-limited-to-50-reruns&quot;}, {&quot;id&quot;: &quot;sec-5-kat-2&quot;, &quot;title&quot;: &quot;KAT-2&quot;, &quot;content&quot;: &quot;- **Copilot CLI activity artik toplam usage metriklerinde**: kurumsal yonetim panelleri icin daha anlamli raporlama. Kaynak: https://github.blog/changelog/2026-04-10-copilot-cli-activity-now-included-in-usage-metrics-totals-and-feature-breakdowns\n- **Copilot cloud agent validation araclari %20 hizlandi**: agent kullaniminda test/verify dongusu kisaltiliyor. Kaynak: https://github.blog/changelog/2026-04-10-copilot-cloud-agents-validation-tools-are-now-20-faster&quot;}, {&quot;id&quot;: &quot;sec-6-kat-3&quot;, &quot;title&quot;: &quot;KAT-3&quot;, &quot;content&quot;: &quot;- **Security assessments icinde Ask Copilot acildi**: security review ile AI rehberligi daha siki baglaniyor. Kaynak: https://github.blog/changelog/2026-04-09-ask-copilot-in-security-assessments-now-available\n- **Issue sidebar release bilgisi ve project default field&#x27;lari geldi**: delivery tracking daha az el isi isteyecek. Kaynak: https://github.blog/changelog/2026-04-09-release-info-in-issue-sidebar-and-project-defaults&quot;}, {&quot;id&quot;: &quot;sec-7-kat-4&quot;, &quot;title&quot;: &quot;KAT-4&quot;, &quot;content&quot;: &quot;- **Google Colab MCP Server**: notebook + agent koprusu resmilesti, local-agent -&gt; cloud execution hattini guclendiriyor. Kaynak: https://www.infoq.com/news/2026/04/colab-mcp-server/?utm_campaign=infoq_content&amp;utm_source=infoq&amp;utm_medium=feed&amp;utm_term=AI%2C+ML+%26+Data+Engineering\n- **AAIF MCP Dev Summit**: gateway, gRPC ve observability sertlestirme temalari MCP&#x27;nin enterprise fazina girdigini gosteriyor. Kaynak: https://www.infoq.com/news/2026/04/aaif-mcp-summit/?utm_campaign=infoq_content&amp;utm_source=infoq&amp;utm_medium=feed&amp;utm_term=AI%2C+ML+%26+Data+Engineering&quot;}, {&quot;id&quot;: &quot;sec-8-kat-5&quot;, &quot;title&quot;: &quot;KAT-5&quot;, &quot;content&quot;: &quot;- **Choosing Your AI Copilot** sunumu: piyasa autocomplete&#x27;ten orchestration/cowork tarafina kayiyor. Kaynak: https://www.infoq.com/presentations/ai-coding-agents-copilot/?utm_campaign=infoq_content&amp;utm_source=infoq&amp;utm_medium=feed&amp;utm_term=AI%2C+ML+%26+Data+Engineering\n- **Hierarchical Agentic RAG**: hata toparlama ve worker hiyerarsisi artik mimari ana desenlerden biri. Kaynak: https://www.infoq.com/articles/building-hierarchical-agentic-rag-systems/?utm_campaign=infoq_content&amp;utm_source=infoq&amp;utm_medium=feed&amp;utm_term=AI%2C+ML+%26+Data+Engineering&quot;}, {&quot;id&quot;: &quot;sec-9-kat-6&quot;, &quot;title&quot;: &quot;KAT-6&quot;, &quot;content&quot;: &quot;- **Cloudflare 500 Tbps**: sadece network brag degil, AI kaynakli trafik ve mega-DDoS cagi icin operasyonel zemin. Kaynak: https://blog.cloudflare.com/500-tbps-of-capacity/\n- **Google Cloud -&gt; PostgreSQL core katkilarini vurguladi**: veri altyapisinda commodity degil, stratejik cekirdek katkilar one cikiyor. Kaynak: https://www.infoq.com/news/2026/04/google-cloud-postgresql/?utm_campaign=infoq_content&amp;utm_source=infoq&amp;utm_medium=feed&amp;utm_term=AI%2C+ML+%26+Data+Engineering&quot;}, {&quot;id&quot;: &quot;sec-10-kat-7&quot;, &quot;title&quot;: &quot;KAT-7&quot;, &quot;content&quot;: &quot;- **VCAO**: verifier-merkezli agent orkestrasyonu ile stratejik OS acik tarama modeli oneriyor. Kaynak: https://arxiv.org/abs/2604.08291\n- **PoC-Adapt**: LLM multi-agent + RL ile PoC exploit uretimi ve uyarlama zinciri daha pratik hale geliyor. Kaynak: https://arxiv.org/abs/2604.06618&quot;}, {&quot;id&quot;: &quot;sec-11-kat-8&quot;, &quot;title&quot;: &quot;KAT-8&quot;, &quot;content&quot;: &quot;- **Robustness via Referencing**: prompt injection savunmasinda calisan talimata referans veren yaklasim one cikiyor. Kaynak: https://arxiv.org/abs/2504.20472\n- **One Shot Dominance**: RAG sistemlerinde knowledge poisoning&#x27;in tek atislik ama yuksek etkili bir sinif olarak cercevelendirilmesi dikkat cekici. Kaynak: https://arxiv.org/abs/2505.11548&quot;}, {&quot;id&quot;: &quot;sec-12-kat-9&quot;, &quot;title&quot;: &quot;KAT-9&quot;, &quot;content&quot;: &quot;- **Towards Effective Offensive Security LLM Agents**: benchmark, tuning ve judge katmani ile ofansif agent&#x27;lar olgunlasiyor. Kaynak: https://arxiv.org/abs/2508.05674\n- **Cross-modal prompt injection payload dataset&#x27;i aciklandi**: pratik savunma test seti olarak degerli. Kaynak: https://www.reddit.com/r/LocalLLaMA/comments/1shkwn3/opensourcing_23759_crossmodal_prompt_injection/&quot;}, {&quot;id&quot;: &quot;sec-13-security&quot;, &quot;title&quot;: &quot;SECURITY&quot;, &quot;content&quot;: &quot;- **Vercel plugin telemetry yazisi**: Claude Code etrafinda prompt/telemetry sinirlari tekrar tartisiliyor. Kaynak: https://akshaychugh.xyz/writings/png/vercel-plugin-telemetry\n- **Claude mixes up who said what**: oturum ici attribution hatalari agent guvenilirligi icin hala can yakici. Kaynak: https://dwyer.co.za/static/claude-mixes-up-who-said-what-and-thats-not-ok.html\n- **OpenClaw + Claude kullanimi zorlasabilir** topluluk sinyali: entegrasyon riski yakindan izlenmeli. Kaynak: https://www.reddit.com/r/artificial/comments/1shtdca/openclaw_claude_might_get_harder_to_use_going/&quot;}, {&quot;id&quot;: &quot;sec-14-regulation&quot;, &quot;title&quot;: &quot;REGULATION&quot;, &quot;content&quot;: &quot;- **OpenAI&#x27;nin AI destekli kitlesel zarar/finansal felaket sorumlulugunu sinirlayan yasa destegi** tartisiliyor: bu baslik policy backlash uretebilir. Kaynak: https://www.reddit.com/r/artificial/comments/1shd7cz/openai_backs_bill_that_would_limit_liability_for/\n- **CIA&#x27;nin insan kaynakli istihbarat analizinde AI kullanimi** devlet tarafinda operational AI&#x27;nin normallestigini gosteriyor. Kaynak: https://www.reddit.com/r/artificial/comments/1shimak/cia_is_trusting_ai_to_help_analyze_intel_from/&quot;}, {&quot;id&quot;: &quot;sec-15-ai-science&quot;, &quot;title&quot;: &quot;AI-SCIENCE&quot;, &quot;content&quot;: &quot;- **DMax**: diffusion language models icin agresif parallel decoding iddiasi ile dikkat cekti. Kaynak: https://www.reddit.com/r/LocalLLaMA/comments/1sht2yo/national_university_of_singapore_presents_dmax_a/\n- **Stanford meta-harness tartismasi**: self-improving harness fikri agent runtime optimizasyonu icin topluluk ilgisi topluyor. Kaynak: https://www.reddit.com/r/LocalLLaMA/comments/1shyczh/stanford_self_improving_metaharness/&quot;}, {&quot;id&quot;: &quot;sec-16-infra&quot;, &quot;title&quot;: &quot;INFRA&quot;, &quot;content&quot;: &quot;- **GLM 5.1 code arena&#x27;da one cikti** topluluk algisinda acik modellerin yeniden ciddi aday oldugunu gosteriyor. Kaynak: https://www.reddit.com/r/LocalLLaMA/comments/1shq4ty/glm_51_tops_the_code_arena_rankings_for_open/\n- **Gemma 4 fix dalgasi suruyor**: template ve reasoning budget duzeltmeleri ekosistemde hizli toparlanma refleksi oldugunu gosteriyor. Kaynak: https://www.reddit.com/r/LocalLLaMA/comments/1shs6sx/more_gemma4_fixes_in_the_past_24_hours/&quot;}, {&quot;id&quot;: &quot;sec-17-safety&quot;, &quot;title&quot;: &quot;SAFETY&quot;, &quot;content&quot;: &quot;- **Claude Platform icin advisor strategy**: zor kararlarda agir model danisman, hafif model icraci deseni daha yayginlasabilir. Kaynak: https://www.reddit.com/r/ClaudeAI/comments/1sgy11x/were_bringing_the_advisor_strategy_to_the_claude/\n- **Claude Code icin LSP enforcement kit**: tool-disiplin ve token hijyeni, safety kadar maliyet kontrolu icin de kritik. Kaynak: https://www.reddit.com/r/ClaudeAI/comments/1shlcf0/hooks_that_force_claude_code_to_use_lsp_instead/&quot;}, {&quot;id&quot;: &quot;sec-18-watchlist&quot;, &quot;title&quot;: &quot;WATCHLIST&quot;, &quot;content&quot;: &quot;- **Anthropic 52 gunde 74 release** toplulukta &#x27;chatbot degil platform&#x27; algisini guclendiriyor; roadmap hizinin surdurulebilirligi izlenmeli. Kaynak: https://www.reddit.com/r/ClaudeAI/comments/1she8ux/anthropic_just_shipped_74_product_releases_in_52/\n- **Claude spend reallocation yazisi**: gelistirici tarafinda vendor mix ve cost-optimization egilimi suruyor. Kaynak: https://braw.dev/blog/2026-04-06-reallocating-100-month-claude-spend/&quot;}, {&quot;id&quot;: &quot;sec-19-cikcik-paketi&quot;, &quot;title&quot;: &quot;CIKCIK PAKETI&quot;, &quot;content&quot;: &quot;- **Gemini uygulamasi interaktif simulasyon ve 3D model uretmeye basladi**: son kullanici AI deneyimi daha gorsel/hesaplanabilir hale geliyor. Kaynak: https://www.reddit.com/r/artificial/comments/1shmxyq/the_gemini_app_can_now_generate_interactive/\n- **Cloud LLM olmadan hizli web research** toplulukta yeniden gundemde: local-first arastirma stack&#x27;leri daha uygulanabilir goruluyor. Kaynak: https://www.reddit.com/r/LocalLLaMA/comments/1shezi8/i_no_longer_need_a_cloud_llm_to_do_quick_web/\n- **Fed/Treasury/banka CEO&#x27;lari + Mythos basligi** dogrulanmaya muhtac ama hype/spekulasyon riskini gosteren iyi bir sinyal. Kaynak: https://www.reddit.com/r/artificial/comments/1shxvr4/fed_chair_jerome_powell_treasurys_bessent_and_top/&quot;}, {&quot;id&quot;: &quot;sec-20-veri-notlari&quot;, &quot;title&quot;: &quot;Veri Notlari&quot;, &quot;content&quot;: &quot;- Collector durumu: rss, academic, community, search, social basarili.\n- Kaynak hacmi: rss 1644, academic 970, community 85, search 514, social 4042.\n- Dedupe sonucu: 7255 ham giris -&gt; 6243 merged -&gt; 1819 unique.\n- Son 3 gun raporlarina gore secili basliklar tekrar edilmedi.&quot;}]}</script>
+  <script src="https://cdn.jsdelivr.net/npm/marked@9.1.6/marked.min.js"></script>
+  <button class="back-to-top" type="button" data-back-top aria-label="Back to top">↑</button>
 </body>
 </html>

@@ -1,196 +1,107 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Oracle Gece Araştırma — 2026-03-19">
-<title>Oracle Araştırma — 2026-03-19</title>
-<style>
-/* ── Reset & base ── */
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#ffffff;--fg:#111111;--link:#0066cc;--link-hover:#004499;
-  --border:#dee2e6;--code-bg:#f4f4f4;--blockquote-bg:#f8f9fa;
-  --table-head:#f0f0f0;--table-stripe:#fafafa;
-  --accent:#2563eb;--warn:#f59e0b;--ok:#16a34a;--danger:#dc2626;
-  --font-sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  --font-mono:"SFMono-Regular",Menlo,Monaco,Consolas,"Liberation Mono",monospace;
-  --radius:8px;
-}
-@media(prefers-color-scheme:dark){
-  :root{
-    --bg:#0d1117;--fg:#e6edf3;--link:#58a6ff;--link-hover:#79b8ff;
-    --border:#30363d;--code-bg:#161b22;--blockquote-bg:#161b22;
-    --table-head:#161b22;--table-stripe:#161b22;
-    --accent:#58a6ff;
-  }
-}
-html{scroll-behavior:smooth}
-body{
-  background:var(--bg);color:var(--fg);
-  font-family:var(--font-sans);font-size:16px;line-height:1.7;
-  -webkit-text-size-adjust:100%;
-}
-
-/* ── Layout ── */
-.page-wrap{max-width:860px;margin:0 auto;padding:0 16px 80px}
-header{
-  background:var(--accent);color:#fff;
-  padding:18px 16px 14px;
-  border-radius:0 0 var(--radius) var(--radius);
-  margin-bottom:28px;
-}
-header h1{font-size:clamp(1.1rem,4vw,1.5rem);font-weight:700;line-height:1.3}
-header .meta{font-size:.85rem;opacity:.85;margin-top:6px}
-header .meta a{color:#cfe2ff;text-decoration:none}
-header .meta a:hover{text-decoration:underline}
-
-nav.breadcrumb{font-size:.85rem;margin-bottom:20px;color:var(--link)}
-nav.breadcrumb a{color:var(--link);text-decoration:none}
-nav.breadcrumb a:hover{text-decoration:underline}
-nav.breadcrumb span{color:var(--fg);opacity:.6;margin:0 6px}
-
-/* ── Markdown content ── */
-#content h1{font-size:clamp(1.3rem,5vw,1.8rem);margin:32px 0 12px;line-height:1.3}
-#content h2{font-size:clamp(1.1rem,4vw,1.4rem);margin:28px 0 10px;border-bottom:2px solid var(--border);padding-bottom:6px}
-#content h3{font-size:clamp(1rem,3.5vw,1.2rem);margin:22px 0 8px}
-#content p{margin:10px 0}
-#content a{color:var(--link);word-break:break-word}
-#content a:hover{color:var(--link-hover)}
-#content strong{font-weight:700}
-#content em{font-style:italic}
-#content hr{border:none;border-top:2px solid var(--border);margin:28px 0}
-
-/* ── Lists ── */
-#content ul,#content ol{margin:10px 0 10px 1.4em}
-#content li{margin:4px 0}
-
-/* ── Blockquotes ── */
-#content blockquote{
-  background:var(--blockquote-bg);
-  border-left:4px solid var(--accent);
-  margin:14px 0;padding:10px 16px;
-  border-radius:0 var(--radius) var(--radius) 0;
-}
-#content blockquote p{margin:4px 0}
-
-/* ── Code ── */
-#content code{
-  background:var(--code-bg);color:var(--fg);
-  border-radius:4px;padding:2px 6px;
-  font-family:var(--font-mono);font-size:.88em;
-  word-break:break-all;
-}
-#content pre{
-  background:var(--code-bg);border-radius:var(--radius);
-  padding:14px 16px;overflow-x:auto;margin:14px 0;
-}
-#content pre code{
-  background:none;padding:0;border-radius:0;
-  font-size:.85em;word-break:normal;
-}
-
-/* ── Tables — responsive wrap ── */
-.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0}
-#content table{
-  border-collapse:collapse;width:100%;min-width:340px;
-  font-size:.9em;
-}
-#content th{
-  background:var(--table-head);
-  text-align:left;padding:8px 12px;
-  border:1px solid var(--border);font-weight:600;
-}
-#content td{
-  padding:7px 12px;border:1px solid var(--border);
-  vertical-align:top;word-break:break-word;
-}
-#content tr:nth-child(even) td{background:var(--table-stripe)}
-
-/* ── Emoji badges in text ── */
-.badge{
-  display:inline-block;padding:1px 7px;border-radius:99px;
-  font-size:.78rem;font-weight:600;line-height:1.6;
-}
-
-/* ── Back to top ── */
-#back-top{
-  position:fixed;bottom:20px;right:16px;
-  background:var(--accent);color:#fff;
-  border:none;border-radius:50%;width:44px;height:44px;
-  font-size:1.3rem;cursor:pointer;
-  box-shadow:0 2px 8px rgba(0,0,0,.3);
-  display:flex;align-items:center;justify-content:center;
-  text-decoration:none;
-}
-#back-top:hover{opacity:.85}
-
-/* ── Loading state ── */
-#loading{text-align:center;padding:60px 0;color:var(--fg);opacity:.5;font-size:1.1rem}
-</style>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Oracle Gece Araştırma raporu 2026-03-19">
+<title>🔬 Gece Araştırma v2 — 19 Mart 2026 (Perşembe) · Oracle Gece Araştırma</title>
+<link rel="canonical" href="https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-19.html">
+<link rel="alternate" hreflang="tr" href="https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-19.html">
+<link rel="alternate" hreflang="en" href="https://mahsumaktas.github.io/oracle_arastirma/en/reports/2026-03-19.html">
+<link rel="alternate" hreflang="es" href="https://mahsumaktas.github.io/oracle_arastirma/es/reports/2026-03-19.html">
+<link rel="alternate" hreflang="x-default" href="https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-19.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<script defer src="../assets/site.js"></script>
 </head>
 <body>
-<header>
-  <div class="page-wrap">
-    <h1>🔬 🔬 Gece Araştırma v2 — 19 Mart 2026 (Perşembe)</h1>
-    <div class="meta">
-      Oracle Gece Araştırma &middot; 2026-03-19 &middot;
-      <a href="https://mahsumaktas.github.io/oracle_arastirma/index.html">← Tüm Raporlar</a>
+  <header class="site-header">
+  <div class="shell header-bar">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark">🦉</span>
+      <span class="brand-text">
+        <span class="brand-kicker">Oracle archive</span>
+        <h1 class="brand-title">Oracle Gece Araştırma</h1>
+        <p class="brand-subtitle">2026-03-19</p>
+      </span>
+    </a>
+    <div class="header-actions">
+      <div class="lang-switch"><span class="lang-switch-label">Dil</span><a class="lang-chip is-active" href="2026-03-19.html" lang="tr">TÜ</a><a class="lang-chip" href="../en/reports/2026-03-19.html" lang="en">EN</a><a class="lang-chip" href="../es/reports/2026-03-19.html" lang="es">ES</a></div>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle theme"><span data-theme-icon>◐</span></button>
     </div>
   </div>
 </header>
+  <main class="shell">
+    <section class="hero">
+      <div class="hero-card">
+        <div class="hero-layout">
+          <div>
+            <div class="breadcrumbs"><a href="../index.html">Arşive dön</a><span>•</span><span>2026-03-19</span></div>
+            <span class="hero-kicker">Araştırma raporu</span>
+            <h1>🔬 Gece Araştırma v2 — 19 Mart 2026 (Perşembe)</h1>
+            <p>Oracle 🦉 · 01:00 İST · Pipeline: Doğrudan araştırma modu (oracle-bridge timeout, doğrudan web_fetch fallback)</p>
+            <div class="hero-actions">
+              <span class="hero-pill"><strong>11</strong> bölüm</span>
+              <span class="hero-pill"><strong>870</strong> kelime</span>
+            </div>
+          </div>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <span class="stat-label">Öne çıkan not</span>
+              <div class="stat-detail">Oracle 🦉 · 01:00 İST · Pipeline: Doğrudan araştırma modu (oracle-bridge timeout, doğrudan web_fetch fallback)</div>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Hızlı erişim</span>
+              <div class="report-actions-row" style="margin-top:12px">
+                <a class="button" href="../raw/2026-03-19.md">Ham markdown</a>
+                <a class="ghost-button" href="../index.html">Tüm raporlar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<div class="page-wrap">
-  <nav class="breadcrumb">
-    <a href="https://mahsumaktas.github.io/oracle_arastirma/index.html">Oracle Araştırma</a>
-    <span>/</span>
-    2026-03-19
-  </nav>
-
-  <div id="loading">Rapor yükleniyor…</div>
-  <div id="content" style="display:none"></div>
-</div>
-
-<a href="#" id="back-top" title="Yukarı" aria-label="Yukarı git">↑</a>
-
-<!-- marked.js — lightweight CDN markdown parser (no server needed) -->
-<script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
-<script>
-(function(){
-  // ── Raw markdown (HTML-escaped by publisher, decoded here) ──
-  var RAW = "# \ud83d\udd2c Gece Ara\u015ft\u0131rma v2 \u2014 19 Mart 2026 (Per\u015fembe)\n\n> Oracle \ud83e\udd89 \u00b7 01:00 \u0130ST \u00b7 Pipeline: Do\u011frudan ara\u015ft\u0131rma modu (oracle-bridge timeout, do\u011frudan web_fetch fallback)\n\n---\n\n## \ud83c\udfc6 TOP 7 \u2014 Bug\u00fcn\u00fcn En Kritik Sinyalleri\n\n### 1. [Google Stitch: \"Vibe Design\" Platformu A\u00e7\u0131ld\u0131](https://stitch.withgoogle.com)\nGoogle Labs, Stitch arac\u0131n\u0131 tam kapsaml\u0131 AI destekli UI tasar\u0131m platformuna d\u00f6n\u00fc\u015ft\u00fcrd\u00fc. Do\u011fal dil \u2192 UI \u00fcretimi; \"vibe design\" deniyor. DESIGN.md format\u0131, MCP server deste\u011fi ve SDK ile geli\u015ftiricilere a\u00e7\u0131k. `stitch.withgoogle.com` canl\u0131. (Kaynak: the-decoder.com)\n\n### 2. [Gemini API: Tool Chaining & Maps Entegrasyonu](https://the-decoder.com/google-opens-updated-deep-research-agent-to-developers-with-new-api/)\nGoogle DeepMind, Gemini API'ye \"context circulation\" getirdi \u2014 bir ara\u00e7 sonucu otomatik sonrakine ge\u00e7iyor. Google Maps art\u0131k Gemini 3 i\u00e7in veri kayna\u011f\u0131: konum, i\u015fletme, seyahat s\u00fcresi. Her tool call'a benzersiz ID.\n\n### 3. [OpenAI \"Parameter Golf\": 16MB Model Yar\u0131\u015fmas\u0131 + Yetenek Av\u0131](https://github.com/openai/parameter-golf)\nOpenAI, 16 MB alt\u0131nda en iyi LLM'i yapana $1M compute kredisi veriyor (RunPod). Kural: a\u011f\u0131rl\u0131klar + e\u011fitim kodu \u226416 MB, 8\u00d7H100 \u00fczerinde \u226410 dakika. Nisan 30'a kadar a\u00e7\u0131k. Top performans g\u00f6sterenler Haziran'da junior researcher m\u00fclakat\u0131na davet ediliyor. (Kaynak: the-decoder.com)\n\n### 4. [Snowflake Cortex AI G\u00fcvenlik A\u00e7\u0131\u011f\u0131 \u2014 Sandbox Ka\u00e7\u0131\u015f\u0131](https://www.promptarmor.com/resources/snowflake-ai-escapes-sandbox-and-executes-malware)\nPromptArmor raporu: Cortex Agent, GitHub README'sindeki prompt injection ile sandbox d\u0131\u015f\u0131nda zararl\u0131 kod \u00e7al\u0131\u015ft\u0131rd\u0131. `cat < <(sh < <(wget ...))` komutu, agent taraf\u0131ndan \"g\u00fcvenli\" kabul edildi. \u015eimdi yamaland\u0131. Simon Willison: \"Allow-list tabanl\u0131 komut filtreleme g\u00fcvenilmez.\" (Kaynak: simonwillison.net, 18 Mart 2026)\n\n### 5. [MiroThinker-1.7 & H1: Verification-Based A\u011f\u0131r Ara\u015ft\u0131rma Ajanlar\u0131](https://arxiv.org/abs/2603.15726)\nMiroMind ekibinden yeni ara\u015ft\u0131rma ajan\u0131 mimarisi. Do\u011frulama mekanizmalar\u0131 \u00fczerine kurulu \"heavy-duty\" ara\u015ft\u0131rma agentleri. cs.CL kategorisi, HF daily papers'da \u00f6ne \u00e7\u0131kt\u0131.\n\n### 6. [OEL \u2014 Online Experiential Learning: Deployment'tan S\u00fcrekli \u00d6\u011frenme](https://arxiv.org/abs/2603.16856)\n\u00c7\u0131\u011f\u0131r a\u00e7an framework: LLM'ler ger\u00e7ek deployment deneyimlerinden \u00f6\u011frenebiliyor. \u0130ki a\u015fama: (1) kullan\u0131c\u0131 taraf\u0131 interaction trajectory'lerinden transferable bilgi \u00e7\u0131kar\u0131m\u0131, (2) on-policy context distillation ile model parametrelerine i\u015fleme. \u00c7oklu iterasyonda tutarl\u0131 iyile\u015fme g\u00f6zlemlendi. (arXiv 2603.16856)\n\n### 7. [GitHub Trending: obra/superpowers \u2014 95K Star Agentic Skills Framework](https://github.com/obra/superpowers)\nBug\u00fcn GitHub trending #1 (4,091 y\u0131ld\u0131z). Shell tabanl\u0131 agentic skills framework & yaz\u0131l\u0131m geli\u015ftirme metodolojisi. Claude taraf\u0131ndan da katk\u0131 var.\n\n---\n\n## \ud83d\udcca Kategori Kapsama Durumu\n\n| Kategori | Durum | \u00d6ne \u00c7\u0131kan |\n|----------|-------|-----------|\n| KAT-1: AI Lab / LLM Duyurular\u0131 | \u2705 | Gemini API tool chaining, OpenAI Parameter Golf |\n| KAT-2: Agent Framework / G\u00fcvenlik | \u2705 | Snowflake Cortex a\u00e7\u0131\u011f\u0131, open-swe, superpowers |\n| KAT-3: arXiv Makaleleri | \u2705 | OEL (2603.16856), MiroThinker (2603.15726), TRUST-SQL (2603.16448) |\n| KAT-4: D\u00fc\u015f\u00fcnce Liderleri | \u2705 | Simon Willison (Cortex g\u00fcvenlik analizi) |\n| KAT-5: OSS / GitHub Trend | \u2705 | superpowers (95K\u2605), claude-hud (6.8K\u2605), open-swe (6.2K\u2605) |\n| KAT-6: Robotik / Embodied AI | \u2705 | Kinema4D 4D robotik sim\u00fclat\u00f6r (2603.16669), Newton physics engine |\n| KAT-7: G\u00fcvenlik / Prompt Injection | \u2705 | Snowflake Cortex sandbox ka\u00e7\u0131\u015f\u0131 |\n| KAT-8: Finans / Yat\u0131r\u0131m | \u26a0\ufe0f | Pentagon'un AI \u015firketlerine gizli veri eri\u015fimi (do\u011frudan haber yok) |\n| KAT-9: \u00c7ok Dilli / Geni\u015f Kapsam | \u2705 | Omnilingual MT: 1600 dil \u00e7eviri modeli (2603.16309) |\n\n---\n\n## \ud83d\udcf0 Ek Sinyaller\n\n**KAT-1 / LLM:**\n- Apple, Replit ve Vibecode gibi vibe-coding uygulamalar\u0131n\u0131n App Store g\u00fcncellemelerini engelliyor \u2014 kendi ekosistemiyle rekabet korkusu (the-decoder.com)\n- Nvidia, H200 \u00e7iplerini \u00c7in'e satmak i\u00e7in Beijing onay\u0131 ald\u0131; Groq \u00e7ipinin \u00c7in versiyonunu da haz\u0131rl\u0131yor (the-decoder.com)\n- Pentagon: AI \u015firketlerinin gizli veriler \u00fczerinde model e\u011fitmesine izin verilecek (the-decoder.com)\n\n**KAT-2 / Agent:**\n- langchain-ai/open-swe: A\u00e7\u0131k kaynak asenkron kodlama ajan\u0131 \u2014 6.2K y\u0131ld\u0131z, bug\u00fcn 454 y\u0131ld\u0131z kazand\u0131\n- langchain-ai/deepagents: LangChain + LangGraph tabanl\u0131 planlama ara\u00e7l\u0131 agent harness (GitHub trending)\n- honcho (plastic-labs): LLM agent'lar i\u00e7in haf\u0131za k\u00fct\u00fcphanesi, 640 y\u0131ld\u0131z\n\n**KAT-3 / Akademik:**\n- TRUST-SQL (2603.16448): Bilinmeyen \u015fema senaryosunda Text-to-SQL; Dual-Track GRPO ile standart GRPO'ya g\u00f6re %9.9 r\u00f6latif iyile\u015fme; 5 benchmark'ta %30.6 mutlak art\u0131\u015f\n- Omnilingual MT (2603.16309): 1.600 dil i\u00e7in makine \u00e7evirisi\n- Kinema4D (2603.16669): URDF tabanl\u0131 4D robotik sim\u00fclat\u00f6r \u2014 robot-world etkile\u015fimini 4D'de modelliyor\n- Video Reasoning (2603.16870): Video diffusion model'lar\u0131n beklenmedik reasoning kapasitesi\n- InCoder-32B (2603.16790): End\u00fcstriyel senaryolar i\u00e7in 32B kod foundation modeli\n- Memory-Augmented Multi-Agent (2603.09022): \u00c7ok turlu \u00e7ok-agent oyunlar i\u00e7in haf\u0131za destekli context optimizasyonu\n\n**KAT-5 / OSS:**\n- claude-hud: Claude Code i\u00e7in context kullan\u0131m, aktif tool ve todo progress g\u00f6stergesi \u2014 bug\u00fcn 1,040 y\u0131ld\u0131z (jarrodwatts/claude-hud)\n- unsloth: Qwen/DeepSeek/GPT-OSS/Gemma i\u00e7in birle\u015fik e\u011fitim + \u00e7al\u0131\u015ft\u0131rma web UI (GitHub trending)\n- context-engineering-intro: \"Context engineering is the new vibe coding\" \u2014 Claude Code odakl\u0131 rehber\n- codex-skills: 779 y\u0131ld\u0131z, bug\u00fcn 53 y\u0131ld\u0131z \u2014 Codex skill sistemi\n\n**KAT-9 / \u00c7ok Dilli:**\n- Python 3.15 JIT art\u0131k yolunda: macOS AArch64'te %11-12 h\u0131z art\u0131\u015f\u0131 (Ken Jin, 17 Mart 2026)\n\n---\n\n## \ud83d\udd04 Dedupe ve Pipeline Notlar\u0131\n\n- **Pipeline durumu:** oracle-bridge.sh \u2192 Claude CLI zinciri bugece gece de zaman a\u015f\u0131m\u0131na u\u011frad\u0131 (status: both-failed, \u00f6nceki kay\u0131t: 2026-03-17T22:39). Oracle do\u011frudan web_fetch moduna ge\u00e7ti.\n- **Kaynaklar:** The Decoder, simonwillison.net, HuggingFace Papers, GitHub Trending, arXiv \u2014 hepsi eri\u015filebilir. VentureBeat 429 (Vercel block), Perplexity API kota hatas\u0131.\n- **Dedupe:** D\u00fcn Top 7'deki konular (GPT-5.4 Mini, Karpathy, Meta Nebius, Attention Residuals, OpenAI Strateji, DeepMind Genesis, claude-mem) bug\u00fcn tekrarlanmad\u0131.\n- **Yeni madde say\u0131s\u0131:** ~18 yeni sinyal, 0 dedupe eleme.\n\n---\n\n*Rapor: Gece Ara\u015ft\u0131rma v2 \u00b7 2026-03-19 01:00 \u0130ST \u00b7 Oracle \ud83e\udd89 \u00b7 Kaynak: web_fetch direkt (bridge timeout)*\n";
-
-  // ── marked config ──
-  marked.setOptions({
-    gfm:true,
-    breaks:false,
-    mangle:false,
-    headerIds:false
-  });
-
-  // ── Wrap tables for horizontal scroll ──
-  var renderer = new marked.Renderer();
-  renderer.table = function(header, body){
-    return '<div class="table-wrap"><table><thead>' + header + '</thead><tbody>' + body + '</tbody></table></div>';
-  };
-
-  var html = marked.parse(RAW, {renderer:renderer});
-  var content = document.getElementById('content');
-  var loading = document.getElementById('loading');
-  content.innerHTML = html;
-  content.style.display = '';
-  loading.style.display = 'none';
-
-  // ── Open external links in new tab ──
-  var links = content.querySelectorAll('a[href]');
-  for(var i=0;i<links.length;i++){
-    var href = links[i].getAttribute('href');
-    if(href && (href.startsWith('http://') || href.startsWith('https://'))){
-      links[i].setAttribute('target','_blank');
-      links[i].setAttribute('rel','noopener noreferrer');
-    }
-  }
-})();
-</script>
+    <section class="report-layout">
+      <aside class="sticky-column stack">
+        <div class="panel">
+          <div class="panel-title"><div><h3>İçindekiler</h3><p>Türkçe kaynak korunur, alternatif diller otomatik olarak üretilir.</p></div></div>
+          <nav class="report-nav"><a class="section-link" href="#sec-1-top-7-bugunun-en-kritik-sinyalleri" data-section-link>🏆 TOP 7 — Bugünün En Kritik Sinyalleri</a><a class="section-link" href="#sec-2-1-google-stitch-vibe-design-platformu-acildi-htt" data-section-link># 1. [Google Stitch: &quot;Vibe Design&quot; Platformu Açıldı](https://stitch.withgoogle.com)</a><a class="section-link" href="#sec-3-2-gemini-api-tool-chaining-maps-entegrasyonu-htt" data-section-link># 2. [Gemini API: Tool Chaining &amp; Maps Entegrasyonu](https://the-decoder.com/google-opens-updated-deep-research-agent-to-developers-with-new-api/)</a><a class="section-link" href="#sec-4-3-openai-parameter-golf-16mb-model-yarismasi-yet" data-section-link># 3. [OpenAI &quot;Parameter Golf&quot;: 16MB Model Yarışması + Yetenek Avı](https://github.com/openai/parameter-golf)</a><a class="section-link" href="#sec-5-4-snowflake-cortex-ai-guvenlik-acigi-sandbox-kac" data-section-link># 4. [Snowflake Cortex AI Güvenlik Açığı — Sandbox Kaçışı](https://www.promptarmor.com/resources/snowflake-ai-escapes-sandbox-and-executes-malware)</a><a class="section-link" href="#sec-6-5-mirothinker-1-7-h1-verification-based-agir-ara" data-section-link># 5. [MiroThinker-1.7 &amp; H1: Verification-Based Ağır Araştırma Ajanları](https://arxiv.org/abs/2603.15726)</a><a class="section-link" href="#sec-7-6-oel-online-experiential-learning-deployment-ta" data-section-link># 6. [OEL — Online Experiential Learning: Deployment&#x27;tan Sürekli Öğrenme](https://arxiv.org/abs/2603.16856)</a><a class="section-link" href="#sec-8-7-github-trending-obra-superpowers-95k-star-agen" data-section-link># 7. [GitHub Trending: obra/superpowers — 95K Star Agentic Skills Framework](https://github.com/obra/superpowers)</a><a class="section-link" href="#sec-9-kategori-kapsama-durumu" data-section-link>📊 Kategori Kapsama Durumu</a><a class="section-link" href="#sec-10-ek-sinyaller" data-section-link>📰 Ek Sinyaller</a><a class="section-link" href="#sec-11-dedupe-ve-pipeline-notlari" data-section-link>🔄 Dedupe ve Pipeline Notları</a></nav>
+        </div>
+        <div class="panel">
+          <div class="panel-title"><div><h3>Hızlı erişim</h3></div></div>
+          <div class="report-tools">
+            <a class="ghost-button" href="../raw/2026-03-19.md">Kaynak markdown</a>
+            <a class="ghost-button" href="2026-03-19.html">Türkçe orijinal</a>
+            <a class="ghost-button" href="2026-03-18.html">Önceki rapor</a>
+            <a class="ghost-button" href="2026-03-20.html">Sonraki rapor</a>
+          </div>
+        </div>
+      </aside>
+      <div class="report-main">
+        <section class="report-summary-card rendered-markdown">
+          <div class="section-head">
+            <div>
+              <div class="section-kicker">Rapor özeti</div>
+              <h2>Rapor özeti</h2>
+            </div>
+          </div>
+          <blockquote><p>Oracle 🦉 · 01:00 İST · Pipeline: Doğrudan araştırma modu (oracle-bridge timeout, doğrudan web_fetch fallback)</p></blockquote>
+        </section>
+        <div data-report-sections></div>
+      </div>
+    </section>
+  </main>
+  <footer class="shell footer">
+    <div class="footer-card">
+      <p>Oracle gece araştırma arşivi, Türkçe asıl içerik korunarak üretilir.</p>
+      <p>2026-04-11 23:10 UTC</p>
+    </div>
+  </footer>
+  <script id="report-data" type="application/json">{&quot;sectionLabel&quot;: &quot;Bölümler&quot;, &quot;sections&quot;: [{&quot;id&quot;: &quot;sec-1-top-7-bugunun-en-kritik-sinyalleri&quot;, &quot;title&quot;: &quot;🏆 TOP 7 — Bugünün En Kritik Sinyalleri&quot;, &quot;content&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;sec-2-1-google-stitch-vibe-design-platformu-acildi-htt&quot;, &quot;title&quot;: &quot;# 1. [Google Stitch: \&quot;Vibe Design\&quot; Platformu Açıldı](https://stitch.withgoogle.com)&quot;, &quot;content&quot;: &quot;Google Labs, Stitch aracını tam kapsamlı AI destekli UI tasarım platformuna dönüştürdü. Doğal dil → UI üretimi; \&quot;vibe design\&quot; deniyor. DESIGN.md formatı, MCP server desteği ve SDK ile geliştiricilere açık. `stitch.withgoogle.com` canlı. (Kaynak: the-decoder.com)&quot;}, {&quot;id&quot;: &quot;sec-3-2-gemini-api-tool-chaining-maps-entegrasyonu-htt&quot;, &quot;title&quot;: &quot;# 2. [Gemini API: Tool Chaining &amp; Maps Entegrasyonu](https://the-decoder.com/google-opens-updated-deep-research-agent-to-developers-with-new-api/)&quot;, &quot;content&quot;: &quot;Google DeepMind, Gemini API&#x27;ye \&quot;context circulation\&quot; getirdi — bir araç sonucu otomatik sonrakine geçiyor. Google Maps artık Gemini 3 için veri kaynağı: konum, işletme, seyahat süresi. Her tool call&#x27;a benzersiz ID.&quot;}, {&quot;id&quot;: &quot;sec-4-3-openai-parameter-golf-16mb-model-yarismasi-yet&quot;, &quot;title&quot;: &quot;# 3. [OpenAI \&quot;Parameter Golf\&quot;: 16MB Model Yarışması + Yetenek Avı](https://github.com/openai/parameter-golf)&quot;, &quot;content&quot;: &quot;OpenAI, 16 MB altında en iyi LLM&#x27;i yapana $1M compute kredisi veriyor (RunPod). Kural: ağırlıklar + eğitim kodu ≤16 MB, 8×H100 üzerinde ≤10 dakika. Nisan 30&#x27;a kadar açık. Top performans gösterenler Haziran&#x27;da junior researcher mülakatına davet ediliyor. (Kaynak: the-decoder.com)&quot;}, {&quot;id&quot;: &quot;sec-5-4-snowflake-cortex-ai-guvenlik-acigi-sandbox-kac&quot;, &quot;title&quot;: &quot;# 4. [Snowflake Cortex AI Güvenlik Açığı — Sandbox Kaçışı](https://www.promptarmor.com/resources/snowflake-ai-escapes-sandbox-and-executes-malware)&quot;, &quot;content&quot;: &quot;PromptArmor raporu: Cortex Agent, GitHub README&#x27;sindeki prompt injection ile sandbox dışında zararlı kod çalıştırdı. `cat &lt; &lt;(sh &lt; &lt;(wget ...))` komutu, agent tarafından \&quot;güvenli\&quot; kabul edildi. Şimdi yamalandı. Simon Willison: \&quot;Allow-list tabanlı komut filtreleme güvenilmez.\&quot; (Kaynak: simonwillison.net, 18 Mart 2026)&quot;}, {&quot;id&quot;: &quot;sec-6-5-mirothinker-1-7-h1-verification-based-agir-ara&quot;, &quot;title&quot;: &quot;# 5. [MiroThinker-1.7 &amp; H1: Verification-Based Ağır Araştırma Ajanları](https://arxiv.org/abs/2603.15726)&quot;, &quot;content&quot;: &quot;MiroMind ekibinden yeni araştırma ajanı mimarisi. Doğrulama mekanizmaları üzerine kurulu \&quot;heavy-duty\&quot; araştırma agentleri. cs.CL kategorisi, HF daily papers&#x27;da öne çıktı.&quot;}, {&quot;id&quot;: &quot;sec-7-6-oel-online-experiential-learning-deployment-ta&quot;, &quot;title&quot;: &quot;# 6. [OEL — Online Experiential Learning: Deployment&#x27;tan Sürekli Öğrenme](https://arxiv.org/abs/2603.16856)&quot;, &quot;content&quot;: &quot;Çığır açan framework: LLM&#x27;ler gerçek deployment deneyimlerinden öğrenebiliyor. İki aşama: (1) kullanıcı tarafı interaction trajectory&#x27;lerinden transferable bilgi çıkarımı, (2) on-policy context distillation ile model parametrelerine işleme. Çoklu iterasyonda tutarlı iyileşme gözlemlendi. (arXiv 2603.16856)&quot;}, {&quot;id&quot;: &quot;sec-8-7-github-trending-obra-superpowers-95k-star-agen&quot;, &quot;title&quot;: &quot;# 7. [GitHub Trending: obra/superpowers — 95K Star Agentic Skills Framework](https://github.com/obra/superpowers)&quot;, &quot;content&quot;: &quot;Bugün GitHub trending #1 (4,091 yıldız). Shell tabanlı agentic skills framework &amp; yazılım geliştirme metodolojisi. Claude tarafından da katkı var.\n\n---&quot;}, {&quot;id&quot;: &quot;sec-9-kategori-kapsama-durumu&quot;, &quot;title&quot;: &quot;📊 Kategori Kapsama Durumu&quot;, &quot;content&quot;: &quot;| Kategori | Durum | Öne Çıkan |\n|----------|-------|-----------|\n| KAT-1: AI Lab / LLM Duyuruları | ✅ | Gemini API tool chaining, OpenAI Parameter Golf |\n| KAT-2: Agent Framework / Güvenlik | ✅ | Snowflake Cortex açığı, open-swe, superpowers |\n| KAT-3: arXiv Makaleleri | ✅ | OEL (2603.16856), MiroThinker (2603.15726), TRUST-SQL (2603.16448) |\n| KAT-4: Düşünce Liderleri | ✅ | Simon Willison (Cortex güvenlik analizi) |\n| KAT-5: OSS / GitHub Trend | ✅ | superpowers (95K★), claude-hud (6.8K★), open-swe (6.2K★) |\n| KAT-6: Robotik / Embodied AI | ✅ | Kinema4D 4D robotik simülatör (2603.16669), Newton physics engine |\n| KAT-7: Güvenlik / Prompt Injection | ✅ | Snowflake Cortex sandbox kaçışı |\n| KAT-8: Finans / Yatırım | ⚠️ | Pentagon&#x27;un AI şirketlerine gizli veri erişimi (doğrudan haber yok) |\n| KAT-9: Çok Dilli / Geniş Kapsam | ✅ | Omnilingual MT: 1600 dil çeviri modeli (2603.16309) |\n\n---&quot;}, {&quot;id&quot;: &quot;sec-10-ek-sinyaller&quot;, &quot;title&quot;: &quot;📰 Ek Sinyaller&quot;, &quot;content&quot;: &quot;**KAT-1 / LLM:**\n- Apple, Replit ve Vibecode gibi vibe-coding uygulamalarının App Store güncellemelerini engelliyor — kendi ekosistemiyle rekabet korkusu (the-decoder.com)\n- Nvidia, H200 çiplerini Çin&#x27;e satmak için Beijing onayı aldı; Groq çipinin Çin versiyonunu da hazırlıyor (the-decoder.com)\n- Pentagon: AI şirketlerinin gizli veriler üzerinde model eğitmesine izin verilecek (the-decoder.com)\n\n**KAT-2 / Agent:**\n- langchain-ai/open-swe: Açık kaynak asenkron kodlama ajanı — 6.2K yıldız, bugün 454 yıldız kazandı\n- langchain-ai/deepagents: LangChain + LangGraph tabanlı planlama araçlı agent harness (GitHub trending)\n- honcho (plastic-labs): LLM agent&#x27;lar için hafıza kütüphanesi, 640 yıldız\n\n**KAT-3 / Akademik:**\n- TRUST-SQL (2603.16448): Bilinmeyen şema senaryosunda Text-to-SQL; Dual-Track GRPO ile standart GRPO&#x27;ya göre %9.9 rölatif iyileşme; 5 benchmark&#x27;ta %30.6 mutlak artış\n- Omnilingual MT (2603.16309): 1.600 dil için makine çevirisi\n- Kinema4D (2603.16669): URDF tabanlı 4D robotik simülatör — robot-world etkileşimini 4D&#x27;de modelliyor\n- Video Reasoning (2603.16870): Video diffusion model&#x27;ların beklenmedik reasoning kapasitesi\n- InCoder-32B (2603.16790): Endüstriyel senaryolar için 32B kod foundation modeli\n- Memory-Augmented Multi-Agent (2603.09022): Çok turlu çok-agent oyunlar için hafıza destekli context optimizasyonu\n\n**KAT-5 / OSS:**\n- claude-hud: Claude Code için context kullanım, aktif tool ve todo progress göstergesi — bugün 1,040 yıldız (jarrodwatts/claude-hud)\n- unsloth: Qwen/DeepSeek/GPT-OSS/Gemma için birleşik eğitim + çalıştırma web UI (GitHub trending)\n- context-engineering-intro: \&quot;Context engineering is the new vibe coding\&quot; — Claude Code odaklı rehber\n- codex-skills: 779 yıldız, bugün 53 yıldız — Codex skill sistemi\n\n**KAT-9 / Çok Dilli:**\n- Python 3.15 JIT artık yolunda: macOS AArch64&#x27;te %11-12 hız artışı (Ken Jin, 17 Mart 2026)\n\n---&quot;}, {&quot;id&quot;: &quot;sec-11-dedupe-ve-pipeline-notlari&quot;, &quot;title&quot;: &quot;🔄 Dedupe ve Pipeline Notları&quot;, &quot;content&quot;: &quot;- **Pipeline durumu:** oracle-bridge.sh → Claude CLI zinciri bugece gece de zaman aşımına uğradı (status: both-failed, önceki kayıt: 2026-03-17T22:39). Oracle doğrudan web_fetch moduna geçti.\n- **Kaynaklar:** The Decoder, simonwillison.net, HuggingFace Papers, GitHub Trending, arXiv — hepsi erişilebilir. VentureBeat 429 (Vercel block), Perplexity API kota hatası.\n- **Dedupe:** Dün Top 7&#x27;deki konular (GPT-5.4 Mini, Karpathy, Meta Nebius, Attention Residuals, OpenAI Strateji, DeepMind Genesis, claude-mem) bugün tekrarlanmadı.\n- **Yeni madde sayısı:** ~18 yeni sinyal, 0 dedupe eleme.\n\n---\n\n*Rapor: Gece Araştırma v2 · 2026-03-19 01:00 İST · Oracle 🦉 · Kaynak: web_fetch direkt (bridge timeout)*&quot;}]}</script>
+  <script src="https://cdn.jsdelivr.net/npm/marked@9.1.6/marked.min.js"></script>
+  <button class="back-to-top" type="button" data-back-top aria-label="Back to top">↑</button>
 </body>
 </html>
