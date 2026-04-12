@@ -1,0 +1,36 @@
+name: Trigger portfolio rebuild
+
+# When raw/** changes on main (a new nightly research report was published),
+# POST to the Cloudflare Pages deploy hook for mahsum-aktas-portfolio so it
+# rebuilds with the new content.
+#
+# Required secret: PORTFOLIO_DEPLOY_HOOK
+#   - Create in Cloudflare Pages: portfolio project → Settings →
+#     Builds & deployments → Deploy hooks → Add deploy hook
+#   - Copy the URL into a repository secret named PORTFOLIO_DEPLOY_HOOK
+#     (Settings → Secrets and variables → Actions → New repository secret)
+#
+# Until the secret is set, this workflow will run but the curl step will
+# fail because of an empty URL. That is harmless — no new deployment is
+# triggered until the secret is populated.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'raw/**'
+  workflow_dispatch: {}
+
+jobs:
+  deploy-portfolio:
+    runs-on: ubuntu-latest
+    steps:
+      - name: POST to Cloudflare Pages deploy hook
+        env:
+          PORTFOLIO_DEPLOY_HOOK: ${{ secrets.PORTFOLIO_DEPLOY_HOOK }}
+        run: |
+          if [ -z "$PORTFOLIO_DEPLOY_HOOK" ]; then
+            echo "PORTFOLIO_DEPLOY_HOOK secret is not set — see workflow file comment for setup instructions."
+            exit 1
+          fi
+          curl -X POST -f "$PORTFOLIO_DEPLOY_HOOK"
