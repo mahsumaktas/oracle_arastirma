@@ -1,196 +1,108 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Yenilik Önceliği">
-<title>Oracle Araştırma — 2026-04-17</title>
-<style>
-/* ── Reset & base ── */
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#ffffff;--fg:#111111;--link:#0066cc;--link-hover:#004499;
-  --border:#dee2e6;--code-bg:#f4f4f4;--blockquote-bg:#f8f9fa;
-  --table-head:#f0f0f0;--table-stripe:#fafafa;
-  --accent:#2563eb;--warn:#f59e0b;--ok:#16a34a;--danger:#dc2626;
-  --font-sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  --font-mono:"SFMono-Regular",Menlo,Monaco,Consolas,"Liberation Mono",monospace;
-  --radius:8px;
-}
-@media(prefers-color-scheme:dark){
-  :root{
-    --bg:#0d1117;--fg:#e6edf3;--link:#58a6ff;--link-hover:#79b8ff;
-    --border:#30363d;--code-bg:#161b22;--blockquote-bg:#161b22;
-    --table-head:#161b22;--table-stripe:#161b22;
-    --accent:#58a6ff;
-  }
-}
-html{scroll-behavior:smooth}
-body{
-  background:var(--bg);color:var(--fg);
-  font-family:var(--font-sans);font-size:16px;line-height:1.7;
-  -webkit-text-size-adjust:100%;
-}
-
-/* ── Layout ── */
-.page-wrap{max-width:860px;margin:0 auto;padding:0 16px 80px}
-header{
-  background:var(--accent);color:#fff;
-  padding:18px 16px 14px;
-  border-radius:0 0 var(--radius) var(--radius);
-  margin-bottom:28px;
-}
-header h1{font-size:clamp(1.1rem,4vw,1.5rem);font-weight:700;line-height:1.3}
-header .meta{font-size:.85rem;opacity:.85;margin-top:6px}
-header .meta a{color:#cfe2ff;text-decoration:none}
-header .meta a:hover{text-decoration:underline}
-
-nav.breadcrumb{font-size:.85rem;margin-bottom:20px;color:var(--link)}
-nav.breadcrumb a{color:var(--link);text-decoration:none}
-nav.breadcrumb a:hover{text-decoration:underline}
-nav.breadcrumb span{color:var(--fg);opacity:.6;margin:0 6px}
-
-/* ── Markdown content ── */
-#content h1{font-size:clamp(1.3rem,5vw,1.8rem);margin:32px 0 12px;line-height:1.3}
-#content h2{font-size:clamp(1.1rem,4vw,1.4rem);margin:28px 0 10px;border-bottom:2px solid var(--border);padding-bottom:6px}
-#content h3{font-size:clamp(1rem,3.5vw,1.2rem);margin:22px 0 8px}
-#content p{margin:10px 0}
-#content a{color:var(--link);word-break:break-word}
-#content a:hover{color:var(--link-hover)}
-#content strong{font-weight:700}
-#content em{font-style:italic}
-#content hr{border:none;border-top:2px solid var(--border);margin:28px 0}
-
-/* ── Lists ── */
-#content ul,#content ol{margin:10px 0 10px 1.4em}
-#content li{margin:4px 0}
-
-/* ── Blockquotes ── */
-#content blockquote{
-  background:var(--blockquote-bg);
-  border-left:4px solid var(--accent);
-  margin:14px 0;padding:10px 16px;
-  border-radius:0 var(--radius) var(--radius) 0;
-}
-#content blockquote p{margin:4px 0}
-
-/* ── Code ── */
-#content code{
-  background:var(--code-bg);color:var(--fg);
-  border-radius:4px;padding:2px 6px;
-  font-family:var(--font-mono);font-size:.88em;
-  word-break:break-all;
-}
-#content pre{
-  background:var(--code-bg);border-radius:var(--radius);
-  padding:14px 16px;overflow-x:auto;margin:14px 0;
-}
-#content pre code{
-  background:none;padding:0;border-radius:0;
-  font-size:.85em;word-break:normal;
-}
-
-/* ── Tables — responsive wrap ── */
-.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0}
-#content table{
-  border-collapse:collapse;width:100%;min-width:340px;
-  font-size:.9em;
-}
-#content th{
-  background:var(--table-head);
-  text-align:left;padding:8px 12px;
-  border:1px solid var(--border);font-weight:600;
-}
-#content td{
-  padding:7px 12px;border:1px solid var(--border);
-  vertical-align:top;word-break:break-word;
-}
-#content tr:nth-child(even) td{background:var(--table-stripe)}
-
-/* ── Emoji badges in text ── */
-.badge{
-  display:inline-block;padding:1px 7px;border-radius:99px;
-  font-size:.78rem;font-weight:600;line-height:1.6;
-}
-
-/* ── Back to top ── */
-#back-top{
-  position:fixed;bottom:20px;right:16px;
-  background:var(--accent);color:#fff;
-  border:none;border-radius:50%;width:44px;height:44px;
-  font-size:1.3rem;cursor:pointer;
-  box-shadow:0 2px 8px rgba(0,0,0,.3);
-  display:flex;align-items:center;justify-content:center;
-  text-decoration:none;
-}
-#back-top:hover{opacity:.85}
-
-/* ── Loading state ── */
-#loading{text-align:center;padding:60px 0;color:var(--fg);opacity:.5;font-size:1.1rem}
-</style>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Oracle Gece Araştırma raporu 2026-04-17">
+<title>🔬 Gece Araştırma — 2026-04-17 (Cuma 01:00 İST) · Oracle Gece Araştırma</title>
+<link rel="canonical" href="https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-17.html">
+<link rel="alternate" hreflang="tr" href="https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-17.html">
+<link rel="alternate" hreflang="en" href="https://mahsumaktas.github.io/oracle_arastirma/en/reports/2026-04-17.html">
+<link rel="alternate" hreflang="es" href="https://mahsumaktas.github.io/oracle_arastirma/es/reports/2026-04-17.html">
+<link rel="alternate" hreflang="x-default" href="https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-17.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<script defer src="../assets/site.js"></script>
 </head>
 <body>
-<header>
-  <div class="page-wrap">
-    <h1>🔬 🔬 Gece Araştırma — 2026-04-17 (Cuma 01:00 İST)</h1>
-    <div class="meta">
-      Oracle Gece Araştırma &middot; 2026-04-17 &middot;
-      <a href="https://mahsumaktas.github.io/oracle_arastirma/index.html">← Tüm Raporlar</a>
+  <header class="site-header">
+  <div class="shell header-bar">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark">🦉</span>
+      <span class="brand-text">
+        <span class="brand-kicker">Oracle archive</span>
+        <h1 class="brand-title">Oracle Gece Araştırma</h1>
+        <p class="brand-subtitle">2026-04-17</p>
+      </span>
+    </a>
+    <div class="header-actions">
+      <div class="lang-switch"><span class="lang-switch-label">Dil</span><a class="lang-chip is-active" href="2026-04-17.html" lang="tr">TÜ</a><a class="lang-chip" href="../en/reports/2026-04-17.html" lang="en">EN</a><a class="lang-chip" href="../es/reports/2026-04-17.html" lang="es">ES</a></div>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle theme"><span data-theme-icon>◐</span></button>
     </div>
   </div>
 </header>
+  <main class="shell">
+    <section class="hero">
+      <div class="hero-card">
+        <div class="hero-layout">
+          <div>
+            <div class="breadcrumbs"><a href="../index.html">Arşive dön</a><span>•</span><span>2026-04-17</span></div>
+            <span class="hero-kicker">Araştırma raporu</span>
+            <h1>🔬 Gece Araştırma — 2026-04-17 (Cuma 01:00 İST)</h1>
+            <p>**Yenilik Önceliği** · 9/9 kategori · 19 kaynak aktif · Dedupe: 6 madde elendi</p>
+            <div class="hero-actions">
+              <span class="hero-pill"><strong>20</strong> bölüm</span>
+              <span class="hero-pill"><strong>2042</strong> kelime</span>
+            </div>
+          </div>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <span class="stat-label">Öne çıkan not</span>
+              <div class="stat-detail">**Yenilik Önceliği** · 9/9 kategori · 19 kaynak aktif · Dedupe: 6 madde elendi</div>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Hızlı erişim</span>
+              <div class="report-actions-row" style="margin-top:12px">
+                <a class="button" href="../raw/2026-04-17.md">Ham markdown</a>
+                <a class="ghost-button" href="../index.html">Tüm raporlar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<div class="page-wrap">
-  <nav class="breadcrumb">
-    <a href="https://mahsumaktas.github.io/oracle_arastirma/index.html">Oracle Araştırma</a>
-    <span>/</span>
-    2026-04-17
-  </nav>
-
-  <div id="loading">Rapor yükleniyor…</div>
-  <div id="content" style="display:none"></div>
-</div>
-
-<a href="#" id="back-top" title="Yukarı" aria-label="Yukarı git">↑</a>
-
-<!-- marked.js — lightweight CDN markdown parser (no server needed) -->
-<script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
-<script>
-(function(){
-  // ── Raw markdown (HTML-escaped by publisher, decoded here) ──
-  var RAW = "# \ud83d\udd2c Gece Ara\u015ft\u0131rma \u2014 2026-04-17 (Cuma 01:00 \u0130ST)\n\n> **Yenilik \u00d6nceli\u011fi** \u00b7 9/9 kategori \u00b7 19 kaynak aktif \u00b7 Dedupe: 6 madde elendi\n\n\u26a0\ufe0f KAT-5, KAT-6 ve KAT-9\u2019un baz\u0131 alt-sinyalleri eri\u015filebilir web sonu\u00e7lar\u0131nda k\u0131smi kald\u0131. E\u015fik-alt\u0131 veya metrik/do\u011frulama sorunu olanlar\u0131 Top 7\u2019ye almad\u0131m.\n\n---\n\n## \ud83d\udd25 Top 7 \u2014 Sadece GER\u00c7EKTEN YEN\u0130 (Son 72 Saat Delta)\n\n> Bu b\u00f6l\u00fcme yaln\u0131zca 72 saat i\u00e7inde ilk kez raporlanan veya materyal olarak de\u011fi\u015fen maddeler girer.\n> Daha \u00f6nce raporlanan konunun devam\u0131 \u2192 \"\u2192 G\u00fcncelleme:\" etiketiyle altta g\u00f6ster.\n\n| # | Madde | Kategori | Kaynak | \u00d6nem |\n|---|-------|----------|--------|------|\n| 1 | **Gemini 3.1 Flash TTS preview\u2019a a\u00e7\u0131ld\u0131** \u2014 Google, 15 Nisan\u2019da yeni TTS modelini 70+ dil, audio tags ve SynthID watermark ile AI Studio / Vertex AI / Google Vids hatt\u0131na a\u00e7t\u0131. [\ud83d\udd17](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-tts/) | KAT-1 | [Google Blog](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-tts/), [DeepMind News](https://deepmind.google/blog/) | \ud83d\udd34 |\n| 2 | **Gemini Robotics-ER 1.6 geldi** \u2014 14 Nisan tarihli s\u00fcr\u00fcm, embodied reasoning\u2019i \u00e7oklu kamera, success detection ve end\u00fcstriyel gauge/instrument reading ile ciddi bi\u00e7imde ileri itti; API ve AI Studio\u2019dan a\u00e7\u0131ld\u0131. [\ud83d\udd17](https://deepmind.google/blog/gemini-robotics-er-1-6/) | KAT-8 | [Google DeepMind](https://deepmind.google/blog/gemini-robotics-er-1-6/) | \ud83d\udd34 |\n| 3 | **MCP ekosisteminde supply-chain alarm\u0131 b\u00fcy\u00fcd\u00fc** \u2014 OX Security, 15 Nisan\u2019da Anthropic modelcontextprotocol STDIO hatt\u0131 etraf\u0131nda 30+ disclosure ve 10+ CVE\u2019ye ba\u011flanan sistemik command-exec zincirini teknik olarak yay\u0131mlad\u0131. [\ud83d\udd17](https://www.ox.security/blog/the-mother-of-all-ai-supply-chains-technical-deep-dive/) | KAT-2 | [OX Security](https://www.ox.security/blog/the-mother-of-all-ai-supply-chains-technical-deep-dive/), [ITPro](https://www.itpro.com/security/ai-agents-using-anthropic-mcp-supply-chain-attacks-claim-researchers) | \ud83d\udd34 |\n| 4 | **OccuBench yay\u0131mland\u0131** \u2014 100 profesyonel alan\u0131 language world models ile sim\u00fcle eden benchmark, agent performans\u0131n\u0131 i\u015f-d\u00fcnyas\u0131 g\u00f6revlerine ta\u015f\u0131maya \u00e7al\u0131\u015f\u0131yor; frontier model kar\u015f\u0131la\u015ft\u0131rmas\u0131 i\u00e7in daha ger\u00e7ek\u00e7i bir \u00e7er\u00e7eve sunuyor. [\ud83d\udd17](https://huggingface.co/papers/2604.10866) | KAT-3 | [HF Paper](https://huggingface.co/papers/2604.10866) | \ud83d\udd34 |\n| 5 | **Memory Transfer Learning, coding agent memory\u2019sini domain d\u0131\u015f\u0131na ta\u015f\u0131d\u0131** \u2014 15 Nisan tarihli \u00e7al\u0131\u015fma, ham trace yerine y\u00fcksek seviyeli i\u00e7g\u00f6r\u00fclerin cross-domain transferde daha i\u015fe yarad\u0131\u011f\u0131n\u0131 g\u00f6steriyor. [\ud83d\udd17](https://huggingface.co/papers/2604.14004) | KAT-3 | [HF Paper](https://huggingface.co/papers/2604.14004) | \ud83d\udd34 |\n| 6 | **Explore/exploit hatalar\u0131 \u00f6l\u00e7\u00fclebilir hale geldi** \u2014 Yeni benchmark, LM agent\u2019larda exploration error\u2019un ba\u015far\u0131y\u0131 \u00e7ok g\u00fc\u00e7l\u00fc a\u00e7\u0131klad\u0131\u011f\u0131n\u0131 ve k\u00fc\u00e7\u00fck harness iyile\u015ftirmelerinin b\u00fcy\u00fck etki verdi\u011fini g\u00f6steriyor. [\ud83d\udd17](https://huggingface.co/papers/2604.13151) | KAT-3 | [HF Paper](https://huggingface.co/papers/2604.13151) | \ud83d\udd34 |\n| 7 | **TREX, LLM fine-tuning lifecycle\u2019\u0131n\u0131 agentify etmeye oynuyor** \u2014 Researcher + Executor ayr\u0131m\u0131 ve a\u011fa\u00e7 tabanl\u0131 deney planlamas\u0131yla fine-tuning\u2019i u\u00e7tan uca otomasyona yakla\u015ft\u0131r\u0131yor. [\ud83d\udd17](https://huggingface.co/papers/2604.14116) | KAT-3 | [HF Paper](https://huggingface.co/papers/2604.14116) | \ud83d\udfe1 |\n\n**Dedupe notu:** Elenen ba\u015fl\u0131ca tekrarlar: GPT-5.4-Cyber, Apple beta sweep, Touch Dreaming, OpenAI commerce policies, Microsoft Agent Framework 1.0 / skill authoring, \u201cMCP governance-scale\u201d hatt\u0131.\n\n---\n\n## \ud83e\udd16 KAT-1 \u00b7 AI Laboratuvarlar\u0131 & Model Haberleri\n\n- **Google DeepMind: Gemini 3.1 Flash TTS** \u2014 15 Nisan\u2019da preview a\u00e7\u0131ld\u0131; do\u011fal konu\u015fma, audio tags ile ince ton kontrol\u00fc, 70+ dil ve SynthID watermark getiriyor. [Google Blog](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-tts/) \u00b7 [DeepMind News](https://deepmind.google/blog/)\n- **Anthropic taraf\u0131nda taze public model delta zay\u0131f** \u2014 eri\u015filebilir resmi newsroom\u2019da son taze sinyal model de\u011fil; 14 Nisan\u2019da Long-Term Benefit Trust board atamas\u0131 \u00f6ne \u00e7\u0131k\u0131yor. Bu y\u00fczden Anthropic\u2019i Top 7\u2019ye ta\u015f\u0131mad\u0131m. [Anthropic Newsroom](https://www.anthropic.com/news)\n- **OpenAI taraf\u0131nda son g\u00fcncel Help/Release y\u00fczeyi daha \u00e7ok \u00fcr\u00fcn-operasyon g\u00fcncellemesi veriyor** \u2014 yeni bir public frontier model post\u2019u de\u011fil; 9 Nisan release notes ve daha eski GPT-4o/legacy retirements \u00f6ne \u00e7\u0131k\u0131yor. [ChatGPT Release Notes](https://help.openai.com/en/articles/6825453-chatgpt-release-notes?trk=public_post-text) \u00b7 [Model Notes](https://help.openai.com/en/articles/9624314-model-release-notes?_bhlid=3108fd4217ec87e158a70a9bfcae9090fc704157)\n\n---\n\n## \ud83d\udd78\ufe0f KAT-2 \u00b7 Agent & Framework\n\n- **MCP supply-chain riski art\u0131k \u201cteorik\u201d de\u011fil** \u2014 OX\u2019in 15 Nisan deep dive\u2019\u0131, baz\u0131 MCP kurulumlar\u0131nda config-to-command-execution zincirinin ger\u00e7ek disclosure/CVE \u00e7\u0131kt\u0131s\u0131 verdi\u011fini g\u00f6steriyor. [OX Security](https://www.ox.security/blog/the-mother-of-all-ai-supply-chains-technical-deep-dive/) \u00b7 [ITPro](https://www.itpro.com/security/ai-agents-using-anthropic-mcp-supply-chain-attacks-claim-researchers)\n- **AutoGen ekosisteminde rota netle\u015fiyor** \u2014 Microsoft\u2019un `autogen` reposu art\u0131k yeni kullan\u0131c\u0131lar\u0131 do\u011frudan Microsoft Agent Framework\u2019e y\u00f6nlendiriyor; AutoGen bak\u0131m/patch modunda konumlan\u0131yor. [AutoGen GitHub](https://github.com/microsoft/autogen)\n- **MCP kurumsalla\u015fmas\u0131 s\u00fcr\u00fcyor ama bu tur delta de\u011fil** \u2014 resmi MCP blog ar\u015fivinde en yak\u0131n y\u00f6neti\u015fim sinyali 8 Nisan\u2019daki maintainer team geni\u015flemesi; dedupe nedeniyle Top 7\u2019ye girmedi. [MCP Blog Archives](https://blog.modelcontextprotocol.io/archives/)\n\n---\n\n## \ud83d\udcc4 KAT-3 \u00b7 Makaleler & Ara\u015ft\u0131rma\n\n| arXiv ID | Ba\u015fl\u0131k | Neden \u00d6nemli | Kaynak |\n|----------|--------|--------------|--------|\n| 2604.10866 | OccuBench | Agent benchmark\u2019\u0131n\u0131 web/coding d\u0131\u015f\u0131na ta\u015f\u0131y\u0131p 100 i\u015f alan\u0131na yaymaya \u00e7al\u0131\u015f\u0131yor; \u201cprofessional tasks\u201d \u00f6l\u00e7\u00fcm\u00fc i\u00e7in yeni \u00e7\u0131ta. | [HF](https://huggingface.co/papers/2604.10866) |\n| 2604.14004 | Memory Transfer Learning | Coding agent memory\u2019sinde soyut i\u00e7g\u00f6r\u00fclerin ham trace\u2019lerden daha iyi transfer verdi\u011fini g\u00f6steriyor; memory design i\u00e7in do\u011frudan pratik sonu\u00e7. | [HF](https://huggingface.co/papers/2604.14004) |\n| 2604.13151 | Exploration and Exploitation Errors Are Measurable for Language Model Agents | Agent ba\u015far\u0131s\u0131zl\u0131\u011f\u0131n\u0131 \u201cneden\u201d baz\u0131nda ay\u0131r\u0131yor; \u00f6zellikle exploration error\u2019un kritik oldu\u011funu \u00f6l\u00e7\u00fclebilir hale getiriyor. | [HF](https://huggingface.co/papers/2604.13151) |\n| 2604.14116 | TREX | Fine-tuning lifecycle\u2019\u0131n\u0131 multi-agent research/execution a\u011fac\u0131na \u00e7eviriyor; agentic ML ops i\u00e7in ilgin\u00e7. | [HF](https://huggingface.co/papers/2604.14116) |\n| 2604.11251 | CLAW | Humanoid i\u00e7in dil etiketli whole-body motion datas\u0131n\u0131 daha \u00f6l\u00e7ekli \u00fcretmeye oynuyor; embodied data bottleneck\u2019ine pratik cevap. | [arXiv](https://arxiv.org/abs/2604.11251) |\n\n**Oracle i\u00e7in \u00e7\u0131kar\u0131m:** Hachi/Oracle hatt\u0131nda \u201cham ge\u00e7mi\u015fi sakla\u201d yerine \u201cy\u00fcksek seviyeli abstraction memory\u201d, \u201charness engineering\u201d, ve \u201c\u00f6l\u00e7\u00fclebilir failure taxonomy\u201d \u00fc\u00e7l\u00fcs\u00fc daha de\u011ferli g\u00f6r\u00fcn\u00fcyor.\n\n---\n\n## \ud83e\udde0 KAT-4 \u00b7 D\u00fc\u015f\u00fcnce Liderleri\n\n\u26a0\ufe0f Son 48 saatte hedef listedeki t\u00fcm isimler i\u00e7in do\u011frudan, birincil sosyal payla\u015f\u0131m do\u011frulamas\u0131 temiz \u00e7\u0131kmad\u0131. A\u015fa\u011f\u0131da en taze do\u011frulanabilir g\u00f6r\u00fc\u015f sinyalleri var.\n\n| Ki\u015fi | G\u00f6r\u00fc\u015f \u00d6zeti | Tarih | Kaynak |\n|------|-------------|-------|--------|\n| Sam Altman | AI sekt\u00f6r\u00fcn\u00fcn kamuoyuna kendini anlatma bi\u00e7iminde sorun oldu\u011funu, backlash\u2019in ciddiye al\u0131nmas\u0131 gerekti\u011fini ima eden daha savunmac\u0131 bir ton yans\u0131d\u0131. | 16 Nisan 2026 | [Axios](https://www.axios.com/2026/04/16/ai-industry-narrative-altman-amodei-pichai) |\n| Simon Willison | Meta\u2019n\u0131n Muse Spark \u00e7\u0131k\u0131\u015f\u0131n\u0131 \u201chosted, tool-rich, API preview\u201d ekseninde okuyup model+\u00fcr\u00fcn y\u00fczeyini birlikte analiz etti. | 13 Nisan 2026\u2019de g\u00f6r\u00fcnen son taze AI notlar\u0131 | [Simon Willison](https://simonwillison.net/tags/ai/) |\n| Andrew Ng | \u201cAI agents coding\u2019i h\u0131zland\u0131r\u0131rken software engineering\u2019in do\u011fas\u0131 nas\u0131l de\u011fi\u015fecek?\u201d sorusunu merkez al\u0131yor; i\u015f b\u00f6l\u00fcm\u00fc ve workflow taraf\u0131na bak\u0131yor. | 10 Nisan 2026 | [DeepLearning.AI Letters](https://www.deeplearning.ai/the-batch/tag/letters/) |\n\n---\n\n## \ud83d\udd34 KAT-5 \u00b7 Reddit Viral\n\n\u26a0\ufe0f E\u015fik (500+ upvote veya \u00e7ok y\u00fcksek yorum) \u00fcst\u00fc, taze ve temiz do\u011frulanm\u0131\u015f thread bu taramada \u00e7\u0131kmad\u0131. G\u00f6r\u00fcnen sinyaller daha \u00e7ok subreddit meta-tart\u0131\u015fmas\u0131yd\u0131.\n\n| Subreddit | Ba\u015fl\u0131k | Upvote | Kaynak |\n|-----------|--------|--------|--------|\n| r/LocalLLaMA | the state of LocalLLaMA | 267 | [Reddit](https://www.reddit.com/r/LocalLLaMA/comments/1shcgf5/the_state_of_localllama/) |\n| r/LocalLLaMA | LocalLLaMA 2026 | E\u015fik \u00fcst\u00fc net do\u011frulanamad\u0131 | [Reddit](https://www.reddit.com/r/LocalLLaMA/comments/1s6r5gn/localllama_2026/) |\n\n---\n\n## \ud83d\udc26 KAT-6 \u00b7 Twitter/X Viral\n\n\u26a0\ufe0f Do\u011frudan X sayfa eri\u015fimi ve metrik do\u011frulamas\u0131 temiz olmad\u0131\u011f\u0131 i\u00e7in 1k RT / 10k like e\u015fi\u011fini g\u00fcvenle ge\u00e7en yeni tweet\u2019i bu turda onaylayamad\u0131m. \u0130kincil kaynaklarda en g\u00f6r\u00fcn\u00fcr sosyal yank\u0131, Karpathy\u2019nin \u201cAI second brain / llm-wiki\u201d paterni etraf\u0131ndayd\u0131; ama primer metrik yok.\n\n| Hesap | Tweet \u00d6zeti | Etki | Tarih |\n|-------|-------------|------|-------|\n| \u26a0\ufe0f | Bu tur primer X metrik do\u011frulamas\u0131 yetersiz kald\u0131; e\u015fik \u00fcst\u00fc madde rapora al\u0131nmad\u0131. | Do\u011frulanamad\u0131 | \u2014 |\n\n---\n\n## \ud83c\udf10 KAT-7 \u00b7 Platform & Ekosistem\n\n- **Chrome 147 stable** \u2014 `element.startViewTransition()` ve `contrast-color()` gibi geli\u015ftiriciye dokunan CSS/UI yenilikleri stable\u2019a indi. [Chrome 147 Notes](https://developer.chrome.com/release-notes/147?hl=en)\n- **Visual Studio 2026 18.4.3** \u2014 Copilot chat \u015fema hatas\u0131 ve proje y\u00fckleme crash\u2019i gibi geli\u015ftirici ak\u0131\u015f\u0131n\u0131 bozan bugfix\u2019ler yay\u0131mland\u0131. [Microsoft Learn](https://learn.microsoft.com/en-us/visualstudio/releases/2026/release-notes)\n- **UiPath Studio April 2026** \u2014 solution explorer i\u00e7inde apps/agents/API workflow\u2019lar\u0131n ham dosyalar\u0131n\u0131 gezip a\u00e7ma gibi agentic workflow\u2019a yak\u0131n d\u00fczenlemeler geldi. [UiPath Studio Notes](https://docs.uipath.com/studio/standalone/latest/release-notes/april-2026)\n- **Apple taraf\u0131** \u2014 bu pencerede \u00f6nceki raporda zaten yer alan beta sweep d\u0131\u015f\u0131nda yeni bir delta do\u011frulamad\u0131m; bu y\u00fczden tekrar y\u00fckseltmedim.\n\n---\n\n## \ud83e\uddbe KAT-8 \u00b7 Robotik & Edge AI\n\n- **Gemini Robotics-ER 1.6** \u2014 embodied reasoning, multiview success detection ve industrial instrument reading\u2019i ayn\u0131 pakette ilerletiyor; Boston Dynamics ba\u011flam\u0131 \u00f6nemli. [Google DeepMind](https://deepmind.google/blog/gemini-robotics-er-1-6/)\n- **CLAW (arXiv:2604.11251)** \u2014 humanoid motion + do\u011fal dil etiketleme datas\u0131n\u0131 daha h\u0131zl\u0131 \u00fcretmek i\u00e7in web tabanl\u0131 pipeline \u00f6neriyor; veri darbo\u011faz\u0131 taraf\u0131nda pratik de\u011fer var. [arXiv](https://arxiv.org/abs/2604.11251)\n\n---\n\n## \u2b50 KAT-9 \u00b7 OSS & \u00dcr\u00fcn Sinyalleri\n\n### HN \u00d6ne \u00c7\u0131kanlar\n| Puan | Ba\u015fl\u0131k | Kaynak |\n|------|--------|--------|\n| \u26a0\ufe0f | Bu tur eri\u015filebilir sonu\u00e7larda 100+ puanl\u0131 taze AI/HN maddesi temiz do\u011frulanamad\u0131. | [HN arama sonucu](https://news.ycombinator.com/item?id=46640796) |\n\n### GitHub Trending\n| Repo | Stars/G\u00fcn | Alan |\n|------|-----------|------|\n| \u26a0\ufe0f | GitHub Trending sayfalar\u0131 a\u00e7\u0131ld\u0131 ama repo sat\u0131rlar\u0131 fetch katman\u0131nda d\u00fczg\u00fcn render olmad\u0131; g\u00fcvenilir repo/stars \u00e7\u0131kar\u0131m\u0131 yapmad\u0131m. | [Python Trending](https://github.com/trending/python?since=daily) |\n| \u26a0\ufe0f | Ayn\u0131 render sorunu TypeScript taraf\u0131nda da var. | [TypeScript Trending](https://github.com/trending/typescript?since=daily) |\n\n### Product Hunt AI\nBug\u00fcn g\u00f6r\u00fcnen AI odakl\u0131 \u00fcr\u00fcn y\u00fczeyi: **OpenAI Agents SDK**, **Pilot5.ai**, **Foyer**. En dikkat \u00e7ekeni, \u201charness + sandbox\u201d vurgusuyla **OpenAI Agents SDK**\u2019n\u0131n leaderboard\u2019da g\u00f6r\u00fcnmesi. [Product Hunt Daily](https://www.producthunt.com/leaderboard/daily/2026/4/16/)\n\n---\n\n## \ud83c\uddf9\ud83c\uddf7 T\u00fcrk Tech Sahnesi\n\nBu d\u00f6nemde T\u00fcrkiye ba\u011flant\u0131l\u0131 \u00f6zel geli\u015fme **do\u011frulanm\u0131\u015f yeni delta** olarak tespit edilmedi. Bonus TR taramas\u0131nda g\u00fcven e\u015fi\u011fini ge\u00e7en taze madde \u00e7\u0131karamad\u0131m.\n\n---\n\n## \ud83e\udde0 Oracle Self-Improvement Sinyalleri\n\n| # | Bulgu | Kaynak | Uygulama Alan\u0131 | Efor |\n|---|-------|--------|----------------|------|\n| 1 | Ham trace yerine soyutlanm\u0131\u015f memory insight\u2019lar\u0131 cross-domain daha iyi transfer oluyor. | [MTL](https://huggingface.co/papers/2604.14004) | `memory/` \u00f6zetleme ve recall format\u0131 | Orta |\n| 2 | K\u00fc\u00e7\u00fck harness iyile\u015ftirmeleri agent ba\u015far\u0131s\u0131n\u0131 ciddi art\u0131rabiliyor. | [Explore/Exploit](https://huggingface.co/papers/2604.13151) | prompt/harness ve session-state \u015fablonlar\u0131 | K\u00fc\u00e7\u00fck |\n| 3 | MCP server\u2019lar\u0131 varsay\u0131lan g\u00fcven modeliyle b\u0131rakmak supply-chain a\u00e7\u0131\u011f\u0131na d\u00f6n\u00fc\u015febiliyor. | [OX Security](https://www.ox.security/blog/the-mother-of-all-ai-supply-chains-technical-deep-dive/) | tool allowlist, sandbox, connector governance | Orta |\n\n---\n\n## \ud83d\udc26 CikCik Paketi (@muxamos sesi)\n\n### Tweetler (3\u20135 adet)\n\n**Tweet 1 (Konu: Gemini 3.1 Flash TTS):**\n> Google, Gemini 3.1 Flash TTS\u2019i preview\u2019a a\u00e7t\u0131. Audio tags + 70+ dil + SynthID watermark kombinasyonu, \u201cAI ses\u201d i\u015fini oyuncak olmaktan \u00e7\u0131kar\u0131p ger\u00e7ek \u00fcr\u00fcn katman\u0131na ta\u015f\u0131yor. Sessiz ama g\u00fc\u00e7l\u00fc bir shipping hamlesi.\n\n**Tweet 2 (Konu: Gemini Robotics-ER 1.6):**\n> As\u0131l ilgin\u00e7 s\u0131\u00e7rama model benchmark\u2019ta de\u011fil, robotun gauge okuyup \u201ci\u015f bitti mi?\u201d karar\u0131n\u0131 daha iyi vermesinde. Gemini Robotics-ER 1.6 tam olarak buraya oynuyor. Embodied AI taraf\u0131nda laf de\u011fil saha zekas\u0131 \u00f6nemli.\n\n**Tweet 3 (Konu: MCP g\u00fcvenli\u011fi):**\n> MCP ekosisteminde rahatl\u0131k d\u00f6nemi bitiyor. OX\u2019in yeni analizi, baz\u0131 kurulumlarda config-to-command-exec zincirinin ger\u00e7ek CVE/disclosure \u00fcretti\u011fini g\u00f6steriyor. \u201cTool ekledim, agent g\u00fc\u00e7lendi\u201d kadar basit de\u011fil; attack surface de b\u00fcy\u00fcyor.\n\n**Tweet 4 (Konu: Agent research delta):**\n> Son 48 saatteki agent ara\u015ft\u0131rma \u00e7izgisi net: benchmark\u2019\u0131 daha ger\u00e7ek i\u015fe ta\u015f\u0131 (OccuBench), memory\u2019yi soyutla\u015ft\u0131r (MTL), failure mode\u2019u \u00f6l\u00e7 (explore/exploit), fine-tuning\u2019i agentify et (TREX). Hype de\u011fil, altyap\u0131 olgunla\u015f\u0131yor.\n\n### Reply F\u0131rsatlar\u0131 (2\u20133)\n\n**@GoogleDeepMind alt\u0131na (Gemini 3.1 Flash TTS):**\n> Audio tags + watermark kombinasyonu do\u011fru y\u00f6nde. As\u0131l kritik soru: creator tooling taraf\u0131nda bu kontrol y\u00fczeyi ne kadar reproducible olacak?\n\n**@simonw alt\u0131na (agent infra / memory):**\n> Son paper dalgas\u0131 memory abstraction + harness engineering taraf\u0131n\u0131 baya g\u00fc\u00e7lendirdi. Ham trace yerine distilled insight saklamak art\u0131k daha savunulabilir g\u00f6r\u00fcn\u00fcyor.\n\n**@AnthropicAI alt\u0131na (MCP g\u00fcvenli\u011fi):**\n> MCP adoption h\u0131zland\u0131k\u00e7a varsay\u0131lan trust model\u2019i daha sert konu\u015fmak gerekecek. \u201cUser consent\u201d tek ba\u015f\u0131na g\u00fcvenlik modeli de\u011fil.\n\n### G\u00fcn\u00fcn Hook'u\n\n> Bug\u00fcn\u00fcn ana delta\u2019s\u0131 yeni model de\u011fil; agent stack\u2019in \u00f6l\u00e7\u00fclebilir, ta\u015f\u0131nabilir ve g\u00fcvenli hale gelme sava\u015f\u0131.\n\n---\n\n## \ud83d\udcca Kaynak & Durum \u00d6zeti\n\n| Kategori | Kaynak | Durum | Madde |\n|----------|--------|-------|-------|\n| KAT-1 | Google Blog, DeepMind, Anthropic News, OpenAI Help | \u2705 | 3 |\n| KAT-2 | OX Security, ITPro, AutoGen GitHub, MCP Blog | \u2705 | 3 |\n| KAT-3 | Hugging Face Papers, arXiv | \u2705 | 5 |\n| KAT-4 | Axios, Simon Willison, DeepLearning.AI | \u26a0\ufe0f | 3 |\n| KAT-5 | Reddit | \u26a0\ufe0f | 2 |\n| KAT-6 | X metrik do\u011frulamas\u0131 yetersiz | \u26a0\ufe0f | 0 |\n| KAT-7 | Chrome, Microsoft Learn, UiPath | \u2705 | 4 |\n| KAT-8 | Google DeepMind, arXiv | \u2705 | 2 |\n| KAT-9 | Product Hunt, GitHub Trending, HN | \u26a0\ufe0f | 3 |\n\n**Toplam dedupe elenen:** 6 madde | **Yeni madde:** 7 | **Sonraki temizlik:** 2026-04-18 01:00 \u0130ST\n\n---\n\n*Rapor: Gece Ara\u015ft\u0131rma v2 \u00b7 2026-04-17 01:00 \u0130ST \u00b7 Oracle \ud83e\udd89*\n";
-
-  // ── marked config ──
-  marked.setOptions({
-    gfm:true,
-    breaks:false,
-    mangle:false,
-    headerIds:false
-  });
-
-  // ── Wrap tables for horizontal scroll ──
-  var renderer = new marked.Renderer();
-  renderer.table = function(header, body){
-    return '<div class="table-wrap"><table><thead>' + header + '</thead><tbody>' + body + '</tbody></table></div>';
-  };
-
-  var html = marked.parse(RAW, {renderer:renderer});
-  var content = document.getElementById('content');
-  var loading = document.getElementById('loading');
-  content.innerHTML = html;
-  content.style.display = '';
-  loading.style.display = 'none';
-
-  // ── Open external links in new tab ──
-  var links = content.querySelectorAll('a[href]');
-  for(var i=0;i<links.length;i++){
-    var href = links[i].getAttribute('href');
-    if(href && (href.startsWith('http://') || href.startsWith('https://'))){
-      links[i].setAttribute('target','_blank');
-      links[i].setAttribute('rel','noopener noreferrer');
-    }
-  }
-})();
-</script>
+    <section class="report-layout">
+      <aside class="sticky-column stack">
+        <div class="panel">
+          <div class="panel-title"><div><h3>İçindekiler</h3><p>Türkçe kaynak korunur. EN/ES authored markdown varsa doğrudan kullanılır, yoksa acil durumda fallback çeviri uygulanır.</p></div></div>
+          <nav class="report-nav"><a class="section-link" href="#sec-1-top-7-sadece-ger-ekten-yeni-son-72-saat-delta" data-section-link>🔥 Top 7 — Sadece GERÇEKTEN YENİ (Son 72 Saat Delta)</a><a class="section-link" href="#sec-2-kat-1-ai-laboratuvarlari-model-haberleri" data-section-link>🤖 KAT-1 · AI Laboratuvarları &amp; Model Haberleri</a><a class="section-link" href="#sec-3-kat-2-agent-framework" data-section-link>🕸️ KAT-2 · Agent &amp; Framework</a><a class="section-link" href="#sec-4-kat-3-makaleler-arastirma" data-section-link>📄 KAT-3 · Makaleler &amp; Araştırma</a><a class="section-link" href="#sec-5-kat-4-dusunce-liderleri" data-section-link>🧠 KAT-4 · Düşünce Liderleri</a><a class="section-link" href="#sec-6-kat-5-reddit-viral" data-section-link>🔴 KAT-5 · Reddit Viral</a><a class="section-link" href="#sec-7-kat-6-twitter-x-viral" data-section-link>🐦 KAT-6 · Twitter/X Viral</a><a class="section-link" href="#sec-8-kat-7-platform-ekosistem" data-section-link>🌐 KAT-7 · Platform &amp; Ekosistem</a><a class="section-link" href="#sec-9-kat-8-robotik-edge-ai" data-section-link>🦾 KAT-8 · Robotik &amp; Edge AI</a><a class="section-link" href="#sec-10-kat-9-oss-run-sinyalleri" data-section-link>⭐ KAT-9 · OSS &amp; Ürün Sinyalleri</a><a class="section-link" href="#sec-11-hn-ne-ikanlar" data-section-link># HN Öne Çıkanlar</a><a class="section-link" href="#sec-12-github-trending" data-section-link># GitHub Trending</a><a class="section-link" href="#sec-13-product-hunt-ai" data-section-link># Product Hunt AI</a><a class="section-link" href="#sec-14-turk-tech-sahnesi" data-section-link>🇹🇷 Türk Tech Sahnesi</a><a class="section-link" href="#sec-15-oracle-self-improvement-sinyalleri" data-section-link>🧠 Oracle Self-Improvement Sinyalleri</a><a class="section-link" href="#sec-16-cikcik-paketi-muxamos-sesi" data-section-link>🐦 CikCik Paketi (@muxamos sesi)</a><a class="section-link" href="#sec-17-tweetler-3-5-adet" data-section-link># Tweetler (3–5 adet)</a><a class="section-link" href="#sec-18-reply-firsatlari-2-3" data-section-link># Reply Fırsatları (2–3)</a><a class="section-link" href="#sec-19-gunun-hook-u" data-section-link># Günün Hook&#x27;u</a><a class="section-link" href="#sec-20-kaynak-durum-zeti" data-section-link>📊 Kaynak &amp; Durum Özeti</a></nav>
+        </div>
+        <div class="panel">
+          <div class="panel-title"><div><h3>Hızlı erişim</h3></div></div>
+          <div class="report-tools">
+            <a class="ghost-button" href="../raw/2026-04-17.md">Kaynak markdown</a>
+            <a class="ghost-button" href="2026-04-17.html">Türkçe orijinal</a>
+            <a class="ghost-button" href="2026-04-16.html">Önceki rapor</a>
+            
+          </div>
+        </div>
+      </aside>
+      <div class="report-main">
+        <section class="report-summary-card rendered-markdown">
+          <div class="section-head">
+            <div>
+              <div class="section-kicker">Rapor özeti</div>
+              <h2>Rapor özeti</h2>
+            </div>
+          </div>
+          <blockquote><p><strong>Yenilik Önceliği</strong> · 9/9 kategori · 19 kaynak aktif · Dedupe: 6 madde elendi</p></blockquote>
+<p>⚠️ KAT-5, KAT-6 ve KAT-9’un bazı alt-sinyalleri erişilebilir web sonuçlarında kısmi kaldı. Eşik-altı veya metrik/doğrulama sorunu olanları Top 7’ye almadım.</p>
+        </section>
+        <div data-report-sections></div>
+      </div>
+    </section>
+  </main>
+  <footer class="shell footer">
+    <div class="footer-card">
+      <p>Oracle gece araştırma arşivi, Türkçe asıl içerik korunur. EN/ES authored varyantlar varsa kullanılır, yoksa fallback çeviri devreye girer.</p>
+      <p>2026-04-17 10:01 UTC</p>
+    </div>
+  </footer>
+  <script id="report-data" type="application/json">{&quot;sectionLabel&quot;: &quot;Bölümler&quot;, &quot;sections&quot;: [{&quot;id&quot;: &quot;sec-1-top-7-sadece-ger-ekten-yeni-son-72-saat-delta&quot;, &quot;title&quot;: &quot;🔥 Top 7 — Sadece GERÇEKTEN YENİ (Son 72 Saat Delta)&quot;, &quot;content&quot;: &quot;&gt; Bu bölüme yalnızca 72 saat içinde ilk kez raporlanan veya materyal olarak değişen maddeler girer.\n&gt; Daha önce raporlanan konunun devamı → \&quot;→ Güncelleme:\&quot; etiketiyle altta göster.\n\n| # | Madde | Kategori | Kaynak | Önem |\n|---|-------|----------|--------|------|\n| 1 | **Gemini 3.1 Flash TTS preview’a açıldı** — Google, 15 Nisan’da yeni TTS modelini 70+ dil, audio tags ve SynthID watermark ile AI Studio / Vertex AI / Google Vids hattına açtı. [🔗](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-tts/) | KAT-1 | [Google Blog](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-tts/), [DeepMind News](https://deepmind.google/blog/) | 🔴 |\n| 2 | **Gemini Robotics-ER 1.6 geldi** — 14 Nisan tarihli sürüm, embodied reasoning’i çoklu kamera, success detection ve endüstriyel gauge/instrument reading ile ciddi biçimde ileri itti; API ve AI Studio’dan açıldı. [🔗](https://deepmind.google/blog/gemini-robotics-er-1-6/) | KAT-8 | [Google DeepMind](https://deepmind.google/blog/gemini-robotics-er-1-6/) | 🔴 |\n| 3 | **MCP ekosisteminde supply-chain alarmı büyüdü** — OX Security, 15 Nisan’da Anthropic modelcontextprotocol STDIO hattı etrafında 30+ disclosure ve 10+ CVE’ye bağlanan sistemik command-exec zincirini teknik olarak yayımladı. [🔗](https://www.ox.security/blog/the-mother-of-all-ai-supply-chains-technical-deep-dive/) | KAT-2 | [OX Security](https://www.ox.security/blog/the-mother-of-all-ai-supply-chains-technical-deep-dive/), [ITPro](https://www.itpro.com/security/ai-agents-using-anthropic-mcp-supply-chain-attacks-claim-researchers) | 🔴 |\n| 4 | **OccuBench yayımlandı** — 100 profesyonel alanı language world models ile simüle eden benchmark, agent performansını iş-dünyası görevlerine taşımaya çalışıyor; frontier model karşılaştırması için daha gerçekçi bir çerçeve sunuyor. [🔗](https://huggingface.co/papers/2604.10866) | KAT-3 | [HF Paper](https://huggingface.co/papers/2604.10866) | 🔴 |\n| 5 | **Memory Transfer Learning, coding agent memory’sini domain dışına taşıdı** — 15 Nisan tarihli çalışma, ham trace yerine yüksek seviyeli içgörülerin cross-domain transferde daha işe yaradığını gösteriyor. [🔗](https://huggingface.co/papers/2604.14004) | KAT-3 | [HF Paper](https://huggingface.co/papers/2604.14004) | 🔴 |\n| 6 | **Explore/exploit hataları ölçülebilir hale geldi** — Yeni benchmark, LM agent’larda exploration error’un başarıyı çok güçlü açıkladığını ve küçük harness iyileştirmelerinin büyük etki verdiğini gösteriyor. [🔗](https://huggingface.co/papers/2604.13151) | KAT-3 | [HF Paper](https://huggingface.co/papers/2604.13151) | 🔴 |\n| 7 | **TREX, LLM fine-tuning lifecycle’ını agentify etmeye oynuyor** — Researcher + Executor ayrımı ve ağaç tabanlı deney planlamasıyla fine-tuning’i uçtan uca otomasyona yaklaştırıyor. [🔗](https://huggingface.co/papers/2604.14116) | KAT-3 | [HF Paper](https://huggingface.co/papers/2604.14116) | 🟡 |\n\n**Dedupe notu:** Elenen başlıca tekrarlar: GPT-5.4-Cyber, Apple beta sweep, Touch Dreaming, OpenAI commerce policies, Microsoft Agent Framework 1.0 / skill authoring, “MCP governance-scale” hattı.\n\n---&quot;}, {&quot;id&quot;: &quot;sec-2-kat-1-ai-laboratuvarlari-model-haberleri&quot;, &quot;title&quot;: &quot;🤖 KAT-1 · AI Laboratuvarları &amp; Model Haberleri&quot;, &quot;content&quot;: &quot;- **Google DeepMind: Gemini 3.1 Flash TTS** — 15 Nisan’da preview açıldı; doğal konuşma, audio tags ile ince ton kontrolü, 70+ dil ve SynthID watermark getiriyor. [Google Blog](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-tts/) · [DeepMind News](https://deepmind.google/blog/)\n- **Anthropic tarafında taze public model delta zayıf** — erişilebilir resmi newsroom’da son taze sinyal model değil; 14 Nisan’da Long-Term Benefit Trust board ataması öne çıkıyor. Bu yüzden Anthropic’i Top 7’ye taşımadım. [Anthropic Newsroom](https://www.anthropic.com/news)\n- **OpenAI tarafında son güncel Help/Release yüzeyi daha çok ürün-operasyon güncellemesi veriyor** — yeni bir public frontier model post’u değil; 9 Nisan release notes ve daha eski GPT-4o/legacy retirements öne çıkıyor. [ChatGPT Release Notes](https://help.openai.com/en/articles/6825453-chatgpt-release-notes?trk=public_post-text) · [Model Notes](https://help.openai.com/en/articles/9624314-model-release-notes?_bhlid=3108fd4217ec87e158a70a9bfcae9090fc704157)\n\n---&quot;}, {&quot;id&quot;: &quot;sec-3-kat-2-agent-framework&quot;, &quot;title&quot;: &quot;🕸️ KAT-2 · Agent &amp; Framework&quot;, &quot;content&quot;: &quot;- **MCP supply-chain riski artık “teorik” değil** — OX’in 15 Nisan deep dive’ı, bazı MCP kurulumlarında config-to-command-execution zincirinin gerçek disclosure/CVE çıktısı verdiğini gösteriyor. [OX Security](https://www.ox.security/blog/the-mother-of-all-ai-supply-chains-technical-deep-dive/) · [ITPro](https://www.itpro.com/security/ai-agents-using-anthropic-mcp-supply-chain-attacks-claim-researchers)\n- **AutoGen ekosisteminde rota netleşiyor** — Microsoft’un `autogen` reposu artık yeni kullanıcıları doğrudan Microsoft Agent Framework’e yönlendiriyor; AutoGen bakım/patch modunda konumlanıyor. [AutoGen GitHub](https://github.com/microsoft/autogen)\n- **MCP kurumsallaşması sürüyor ama bu tur delta değil** — resmi MCP blog arşivinde en yakın yönetişim sinyali 8 Nisan’daki maintainer team genişlemesi; dedupe nedeniyle Top 7’ye girmedi. [MCP Blog Archives](https://blog.modelcontextprotocol.io/archives/)\n\n---&quot;}, {&quot;id&quot;: &quot;sec-4-kat-3-makaleler-arastirma&quot;, &quot;title&quot;: &quot;📄 KAT-3 · Makaleler &amp; Araştırma&quot;, &quot;content&quot;: &quot;| arXiv ID | Başlık | Neden Önemli | Kaynak |\n|----------|--------|--------------|--------|\n| 2604.10866 | OccuBench | Agent benchmark’ını web/coding dışına taşıyıp 100 iş alanına yaymaya çalışıyor; “professional tasks” ölçümü için yeni çıta. | [HF](https://huggingface.co/papers/2604.10866) |\n| 2604.14004 | Memory Transfer Learning | Coding agent memory’sinde soyut içgörülerin ham trace’lerden daha iyi transfer verdiğini gösteriyor; memory design için doğrudan pratik sonuç. | [HF](https://huggingface.co/papers/2604.14004) |\n| 2604.13151 | Exploration and Exploitation Errors Are Measurable for Language Model Agents | Agent başarısızlığını “neden” bazında ayırıyor; özellikle exploration error’un kritik olduğunu ölçülebilir hale getiriyor. | [HF](https://huggingface.co/papers/2604.13151) |\n| 2604.14116 | TREX | Fine-tuning lifecycle’ını multi-agent research/execution ağacına çeviriyor; agentic ML ops için ilginç. | [HF](https://huggingface.co/papers/2604.14116) |\n| 2604.11251 | CLAW | Humanoid için dil etiketli whole-body motion datasını daha ölçekli üretmeye oynuyor; embodied data bottleneck’ine pratik cevap. | [arXiv](https://arxiv.org/abs/2604.11251) |\n\n**Oracle için çıkarım:** Hachi/Oracle hattında “ham geçmişi sakla” yerine “yüksek seviyeli abstraction memory”, “harness engineering”, ve “ölçülebilir failure taxonomy” üçlüsü daha değerli görünüyor.\n\n---&quot;}, {&quot;id&quot;: &quot;sec-5-kat-4-dusunce-liderleri&quot;, &quot;title&quot;: &quot;🧠 KAT-4 · Düşünce Liderleri&quot;, &quot;content&quot;: &quot;⚠️ Son 48 saatte hedef listedeki tüm isimler için doğrudan, birincil sosyal paylaşım doğrulaması temiz çıkmadı. Aşağıda en taze doğrulanabilir görüş sinyalleri var.\n\n| Kişi | Görüş Özeti | Tarih | Kaynak |\n|------|-------------|-------|--------|\n| Sam Altman | AI sektörünün kamuoyuna kendini anlatma biçiminde sorun olduğunu, backlash’in ciddiye alınması gerektiğini ima eden daha savunmacı bir ton yansıdı. | 16 Nisan 2026 | [Axios](https://www.axios.com/2026/04/16/ai-industry-narrative-altman-amodei-pichai) |\n| Simon Willison | Meta’nın Muse Spark çıkışını “hosted, tool-rich, API preview” ekseninde okuyup model+ürün yüzeyini birlikte analiz etti. | 13 Nisan 2026’de görünen son taze AI notları | [Simon Willison](https://simonwillison.net/tags/ai/) |\n| Andrew Ng | “AI agents coding’i hızlandırırken software engineering’in doğası nasıl değişecek?” sorusunu merkez alıyor; iş bölümü ve workflow tarafına bakıyor. | 10 Nisan 2026 | [DeepLearning.AI Letters](https://www.deeplearning.ai/the-batch/tag/letters/) |\n\n---&quot;}, {&quot;id&quot;: &quot;sec-6-kat-5-reddit-viral&quot;, &quot;title&quot;: &quot;🔴 KAT-5 · Reddit Viral&quot;, &quot;content&quot;: &quot;⚠️ Eşik (500+ upvote veya çok yüksek yorum) üstü, taze ve temiz doğrulanmış thread bu taramada çıkmadı. Görünen sinyaller daha çok subreddit meta-tartışmasıydı.\n\n| Subreddit | Başlık | Upvote | Kaynak |\n|-----------|--------|--------|--------|\n| r/LocalLLaMA | the state of LocalLLaMA | 267 | [Reddit](https://www.reddit.com/r/LocalLLaMA/comments/1shcgf5/the_state_of_localllama/) |\n| r/LocalLLaMA | LocalLLaMA 2026 | Eşik üstü net doğrulanamadı | [Reddit](https://www.reddit.com/r/LocalLLaMA/comments/1s6r5gn/localllama_2026/) |\n\n---&quot;}, {&quot;id&quot;: &quot;sec-7-kat-6-twitter-x-viral&quot;, &quot;title&quot;: &quot;🐦 KAT-6 · Twitter/X Viral&quot;, &quot;content&quot;: &quot;⚠️ Doğrudan X sayfa erişimi ve metrik doğrulaması temiz olmadığı için 1k RT / 10k like eşiğini güvenle geçen yeni tweet’i bu turda onaylayamadım. İkincil kaynaklarda en görünür sosyal yankı, Karpathy’nin “AI second brain / llm-wiki” paterni etrafındaydı; ama primer metrik yok.\n\n| Hesap | Tweet Özeti | Etki | Tarih |\n|-------|-------------|------|-------|\n| ⚠️ | Bu tur primer X metrik doğrulaması yetersiz kaldı; eşik üstü madde rapora alınmadı. | Doğrulanamadı | — |\n\n---&quot;}, {&quot;id&quot;: &quot;sec-8-kat-7-platform-ekosistem&quot;, &quot;title&quot;: &quot;🌐 KAT-7 · Platform &amp; Ekosistem&quot;, &quot;content&quot;: &quot;- **Chrome 147 stable** — `element.startViewTransition()` ve `contrast-color()` gibi geliştiriciye dokunan CSS/UI yenilikleri stable’a indi. [Chrome 147 Notes](https://developer.chrome.com/release-notes/147?hl=en)\n- **Visual Studio 2026 18.4.3** — Copilot chat şema hatası ve proje yükleme crash’i gibi geliştirici akışını bozan bugfix’ler yayımlandı. [Microsoft Learn](https://learn.microsoft.com/en-us/visualstudio/releases/2026/release-notes)\n- **UiPath Studio April 2026** — solution explorer içinde apps/agents/API workflow’ların ham dosyalarını gezip açma gibi agentic workflow’a yakın düzenlemeler geldi. [UiPath Studio Notes](https://docs.uipath.com/studio/standalone/latest/release-notes/april-2026)\n- **Apple tarafı** — bu pencerede önceki raporda zaten yer alan beta sweep dışında yeni bir delta doğrulamadım; bu yüzden tekrar yükseltmedim.\n\n---&quot;}, {&quot;id&quot;: &quot;sec-9-kat-8-robotik-edge-ai&quot;, &quot;title&quot;: &quot;🦾 KAT-8 · Robotik &amp; Edge AI&quot;, &quot;content&quot;: &quot;- **Gemini Robotics-ER 1.6** — embodied reasoning, multiview success detection ve industrial instrument reading’i aynı pakette ilerletiyor; Boston Dynamics bağlamı önemli. [Google DeepMind](https://deepmind.google/blog/gemini-robotics-er-1-6/)\n- **CLAW (arXiv:2604.11251)** — humanoid motion + doğal dil etiketleme datasını daha hızlı üretmek için web tabanlı pipeline öneriyor; veri darboğazı tarafında pratik değer var. [arXiv](https://arxiv.org/abs/2604.11251)\n\n---&quot;}, {&quot;id&quot;: &quot;sec-10-kat-9-oss-run-sinyalleri&quot;, &quot;title&quot;: &quot;⭐ KAT-9 · OSS &amp; Ürün Sinyalleri&quot;, &quot;content&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;sec-11-hn-ne-ikanlar&quot;, &quot;title&quot;: &quot;# HN Öne Çıkanlar&quot;, &quot;content&quot;: &quot;| Puan | Başlık | Kaynak |\n|------|--------|--------|\n| ⚠️ | Bu tur erişilebilir sonuçlarda 100+ puanlı taze AI/HN maddesi temiz doğrulanamadı. | [HN arama sonucu](https://news.ycombinator.com/item?id=46640796) |&quot;}, {&quot;id&quot;: &quot;sec-12-github-trending&quot;, &quot;title&quot;: &quot;# GitHub Trending&quot;, &quot;content&quot;: &quot;| Repo | Stars/Gün | Alan |\n|------|-----------|------|\n| ⚠️ | GitHub Trending sayfaları açıldı ama repo satırları fetch katmanında düzgün render olmadı; güvenilir repo/stars çıkarımı yapmadım. | [Python Trending](https://github.com/trending/python?since=daily) |\n| ⚠️ | Aynı render sorunu TypeScript tarafında da var. | [TypeScript Trending](https://github.com/trending/typescript?since=daily) |&quot;}, {&quot;id&quot;: &quot;sec-13-product-hunt-ai&quot;, &quot;title&quot;: &quot;# Product Hunt AI&quot;, &quot;content&quot;: &quot;Bugün görünen AI odaklı ürün yüzeyi: **OpenAI Agents SDK**, **Pilot5.ai**, **Foyer**. En dikkat çekeni, “harness + sandbox” vurgusuyla **OpenAI Agents SDK**’nın leaderboard’da görünmesi. [Product Hunt Daily](https://www.producthunt.com/leaderboard/daily/2026/4/16/)\n\n---&quot;}, {&quot;id&quot;: &quot;sec-14-turk-tech-sahnesi&quot;, &quot;title&quot;: &quot;🇹🇷 Türk Tech Sahnesi&quot;, &quot;content&quot;: &quot;Bu dönemde Türkiye bağlantılı özel gelişme **doğrulanmış yeni delta** olarak tespit edilmedi. Bonus TR taramasında güven eşiğini geçen taze madde çıkaramadım.\n\n---&quot;}, {&quot;id&quot;: &quot;sec-15-oracle-self-improvement-sinyalleri&quot;, &quot;title&quot;: &quot;🧠 Oracle Self-Improvement Sinyalleri&quot;, &quot;content&quot;: &quot;| # | Bulgu | Kaynak | Uygulama Alanı | Efor |\n|---|-------|--------|----------------|------|\n| 1 | Ham trace yerine soyutlanmış memory insight’ları cross-domain daha iyi transfer oluyor. | [MTL](https://huggingface.co/papers/2604.14004) | `memory/` özetleme ve recall formatı | Orta |\n| 2 | Küçük harness iyileştirmeleri agent başarısını ciddi artırabiliyor. | [Explore/Exploit](https://huggingface.co/papers/2604.13151) | prompt/harness ve session-state şablonları | Küçük |\n| 3 | MCP server’ları varsayılan güven modeliyle bırakmak supply-chain açığına dönüşebiliyor. | [OX Security](https://www.ox.security/blog/the-mother-of-all-ai-supply-chains-technical-deep-dive/) | tool allowlist, sandbox, connector governance | Orta |\n\n---&quot;}, {&quot;id&quot;: &quot;sec-16-cikcik-paketi-muxamos-sesi&quot;, &quot;title&quot;: &quot;🐦 CikCik Paketi (@muxamos sesi)&quot;, &quot;content&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;sec-17-tweetler-3-5-adet&quot;, &quot;title&quot;: &quot;# Tweetler (3–5 adet)&quot;, &quot;content&quot;: &quot;**Tweet 1 (Konu: Gemini 3.1 Flash TTS):**\n&gt; Google, Gemini 3.1 Flash TTS’i preview’a açtı. Audio tags + 70+ dil + SynthID watermark kombinasyonu, “AI ses” işini oyuncak olmaktan çıkarıp gerçek ürün katmanına taşıyor. Sessiz ama güçlü bir shipping hamlesi.\n\n**Tweet 2 (Konu: Gemini Robotics-ER 1.6):**\n&gt; Asıl ilginç sıçrama model benchmark’ta değil, robotun gauge okuyup “iş bitti mi?” kararını daha iyi vermesinde. Gemini Robotics-ER 1.6 tam olarak buraya oynuyor. Embodied AI tarafında laf değil saha zekası önemli.\n\n**Tweet 3 (Konu: MCP güvenliği):**\n&gt; MCP ekosisteminde rahatlık dönemi bitiyor. OX’in yeni analizi, bazı kurulumlarda config-to-command-exec zincirinin gerçek CVE/disclosure ürettiğini gösteriyor. “Tool ekledim, agent güçlendi” kadar basit değil; attack surface de büyüyor.\n\n**Tweet 4 (Konu: Agent research delta):**\n&gt; Son 48 saatteki agent araştırma çizgisi net: benchmark’ı daha gerçek işe taşı (OccuBench), memory’yi soyutlaştır (MTL), failure mode’u ölç (explore/exploit), fine-tuning’i agentify et (TREX). Hype değil, altyapı olgunlaşıyor.&quot;}, {&quot;id&quot;: &quot;sec-18-reply-firsatlari-2-3&quot;, &quot;title&quot;: &quot;# Reply Fırsatları (2–3)&quot;, &quot;content&quot;: &quot;**@GoogleDeepMind altına (Gemini 3.1 Flash TTS):**\n&gt; Audio tags + watermark kombinasyonu doğru yönde. Asıl kritik soru: creator tooling tarafında bu kontrol yüzeyi ne kadar reproducible olacak?\n\n**@simonw altına (agent infra / memory):**\n&gt; Son paper dalgası memory abstraction + harness engineering tarafını baya güçlendirdi. Ham trace yerine distilled insight saklamak artık daha savunulabilir görünüyor.\n\n**@AnthropicAI altına (MCP güvenliği):**\n&gt; MCP adoption hızlandıkça varsayılan trust model’i daha sert konuşmak gerekecek. “User consent” tek başına güvenlik modeli değil.&quot;}, {&quot;id&quot;: &quot;sec-19-gunun-hook-u&quot;, &quot;title&quot;: &quot;# Günün Hook&#x27;u&quot;, &quot;content&quot;: &quot;&gt; Bugünün ana delta’sı yeni model değil; agent stack’in ölçülebilir, taşınabilir ve güvenli hale gelme savaşı.\n\n---&quot;}, {&quot;id&quot;: &quot;sec-20-kaynak-durum-zeti&quot;, &quot;title&quot;: &quot;📊 Kaynak &amp; Durum Özeti&quot;, &quot;content&quot;: &quot;| Kategori | Kaynak | Durum | Madde |\n|----------|--------|-------|-------|\n| KAT-1 | Google Blog, DeepMind, Anthropic News, OpenAI Help | ✅ | 3 |\n| KAT-2 | OX Security, ITPro, AutoGen GitHub, MCP Blog | ✅ | 3 |\n| KAT-3 | Hugging Face Papers, arXiv | ✅ | 5 |\n| KAT-4 | Axios, Simon Willison, DeepLearning.AI | ⚠️ | 3 |\n| KAT-5 | Reddit | ⚠️ | 2 |\n| KAT-6 | X metrik doğrulaması yetersiz | ⚠️ | 0 |\n| KAT-7 | Chrome, Microsoft Learn, UiPath | ✅ | 4 |\n| KAT-8 | Google DeepMind, arXiv | ✅ | 2 |\n| KAT-9 | Product Hunt, GitHub Trending, HN | ⚠️ | 3 |\n\n**Toplam dedupe elenen:** 6 madde | **Yeni madde:** 7 | **Sonraki temizlik:** 2026-04-18 01:00 İST\n\n---\n\n*Rapor: Gece Araştırma v2 · 2026-04-17 01:00 İST · Oracle 🦉*&quot;}]}</script>
+  <script src="https://cdn.jsdelivr.net/npm/marked@9.1.6/marked.min.js"></script>
+  <button class="back-to-top" type="button" data-back-top aria-label="Back to top">↑</button>
 </body>
 </html>
