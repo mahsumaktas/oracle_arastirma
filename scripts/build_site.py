@@ -1452,6 +1452,17 @@ def base_head(lang: str, title: str, description: str, canonical_rel: str, alter
 """.strip()
 
 
+def json_script_payload(data: object) -> str:
+    return (
+        json.dumps(data, ensure_ascii=False)
+        .replace("<", "\\u003C")
+        .replace(">", "\\u003E")
+        .replace("&", "\\u0026")
+        .replace("\u2028", "\\u2028")
+        .replace("\u2029", "\\u2029")
+    )
+
+
 def render_index_page(lang: str, reports_by_lang: Dict[str, List[Report]], generated_at: str) -> str:
     labels = LANGS[lang]
     reports = reports_by_lang[lang]
@@ -1674,7 +1685,7 @@ def render_report_page(lang: str, report: Report, reports_by_lang: Dict[str, Lis
       <p>{html.escape(generated_at)}</p>
     </div>
   </footer>
-  <script id=\"report-data\" type=\"application/json\">{html.escape(json.dumps(payload, ensure_ascii=False))}</script>
+  <script id=\"report-data\" type=\"application/json\">{json_script_payload(payload)}</script>
   <script src=\"https://cdn.jsdelivr.net/npm/marked@9.1.6/marked.min.js\"></script>
   <button class=\"back-to-top\" type=\"button\" data-back-top aria-label=\"Back to top\">↑</button>
 </body>
@@ -2155,7 +2166,7 @@ def render_collection_entry_page(lang: str, collection: str, report: Report, rep
       <p>{html.escape(generated_at)}</p>
     </div>
   </footer>
-  <script id=\"report-data\" type=\"application/json\">{html.escape(json.dumps(payload, ensure_ascii=False))}</script>
+  <script id=\"report-data\" type=\"application/json\">{json_script_payload(payload)}</script>
   <script src=\"https://cdn.jsdelivr.net/npm/marked@9.1.6/marked.min.js\"></script>
   <button class=\"back-to-top\" type=\"button\" data-back-top aria-label=\"Back to top\">↑</button>
 </body>
