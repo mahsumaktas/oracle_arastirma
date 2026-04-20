@@ -1,196 +1,108 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Yenilik Önceliği">
-<title>Oracle Araştırma — 2026-04-20</title>
-<style>
-/* ── Reset & base ── */
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#ffffff;--fg:#111111;--link:#0066cc;--link-hover:#004499;
-  --border:#dee2e6;--code-bg:#f4f4f4;--blockquote-bg:#f8f9fa;
-  --table-head:#f0f0f0;--table-stripe:#fafafa;
-  --accent:#2563eb;--warn:#f59e0b;--ok:#16a34a;--danger:#dc2626;
-  --font-sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  --font-mono:"SFMono-Regular",Menlo,Monaco,Consolas,"Liberation Mono",monospace;
-  --radius:8px;
-}
-@media(prefers-color-scheme:dark){
-  :root{
-    --bg:#0d1117;--fg:#e6edf3;--link:#58a6ff;--link-hover:#79b8ff;
-    --border:#30363d;--code-bg:#161b22;--blockquote-bg:#161b22;
-    --table-head:#161b22;--table-stripe:#161b22;
-    --accent:#58a6ff;
-  }
-}
-html{scroll-behavior:smooth}
-body{
-  background:var(--bg);color:var(--fg);
-  font-family:var(--font-sans);font-size:16px;line-height:1.7;
-  -webkit-text-size-adjust:100%;
-}
-
-/* ── Layout ── */
-.page-wrap{max-width:860px;margin:0 auto;padding:0 16px 80px}
-header{
-  background:var(--accent);color:#fff;
-  padding:18px 16px 14px;
-  border-radius:0 0 var(--radius) var(--radius);
-  margin-bottom:28px;
-}
-header h1{font-size:clamp(1.1rem,4vw,1.5rem);font-weight:700;line-height:1.3}
-header .meta{font-size:.85rem;opacity:.85;margin-top:6px}
-header .meta a{color:#cfe2ff;text-decoration:none}
-header .meta a:hover{text-decoration:underline}
-
-nav.breadcrumb{font-size:.85rem;margin-bottom:20px;color:var(--link)}
-nav.breadcrumb a{color:var(--link);text-decoration:none}
-nav.breadcrumb a:hover{text-decoration:underline}
-nav.breadcrumb span{color:var(--fg);opacity:.6;margin:0 6px}
-
-/* ── Markdown content ── */
-#content h1{font-size:clamp(1.3rem,5vw,1.8rem);margin:32px 0 12px;line-height:1.3}
-#content h2{font-size:clamp(1.1rem,4vw,1.4rem);margin:28px 0 10px;border-bottom:2px solid var(--border);padding-bottom:6px}
-#content h3{font-size:clamp(1rem,3.5vw,1.2rem);margin:22px 0 8px}
-#content p{margin:10px 0}
-#content a{color:var(--link);word-break:break-word}
-#content a:hover{color:var(--link-hover)}
-#content strong{font-weight:700}
-#content em{font-style:italic}
-#content hr{border:none;border-top:2px solid var(--border);margin:28px 0}
-
-/* ── Lists ── */
-#content ul,#content ol{margin:10px 0 10px 1.4em}
-#content li{margin:4px 0}
-
-/* ── Blockquotes ── */
-#content blockquote{
-  background:var(--blockquote-bg);
-  border-left:4px solid var(--accent);
-  margin:14px 0;padding:10px 16px;
-  border-radius:0 var(--radius) var(--radius) 0;
-}
-#content blockquote p{margin:4px 0}
-
-/* ── Code ── */
-#content code{
-  background:var(--code-bg);color:var(--fg);
-  border-radius:4px;padding:2px 6px;
-  font-family:var(--font-mono);font-size:.88em;
-  word-break:break-all;
-}
-#content pre{
-  background:var(--code-bg);border-radius:var(--radius);
-  padding:14px 16px;overflow-x:auto;margin:14px 0;
-}
-#content pre code{
-  background:none;padding:0;border-radius:0;
-  font-size:.85em;word-break:normal;
-}
-
-/* ── Tables — responsive wrap ── */
-.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0}
-#content table{
-  border-collapse:collapse;width:100%;min-width:340px;
-  font-size:.9em;
-}
-#content th{
-  background:var(--table-head);
-  text-align:left;padding:8px 12px;
-  border:1px solid var(--border);font-weight:600;
-}
-#content td{
-  padding:7px 12px;border:1px solid var(--border);
-  vertical-align:top;word-break:break-word;
-}
-#content tr:nth-child(even) td{background:var(--table-stripe)}
-
-/* ── Emoji badges in text ── */
-.badge{
-  display:inline-block;padding:1px 7px;border-radius:99px;
-  font-size:.78rem;font-weight:600;line-height:1.6;
-}
-
-/* ── Back to top ── */
-#back-top{
-  position:fixed;bottom:20px;right:16px;
-  background:var(--accent);color:#fff;
-  border:none;border-radius:50%;width:44px;height:44px;
-  font-size:1.3rem;cursor:pointer;
-  box-shadow:0 2px 8px rgba(0,0,0,.3);
-  display:flex;align-items:center;justify-content:center;
-  text-decoration:none;
-}
-#back-top:hover{opacity:.85}
-
-/* ── Loading state ── */
-#loading{text-align:center;padding:60px 0;color:var(--fg);opacity:.5;font-size:1.1rem}
-</style>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Oracle Gece Araştırma raporu 2026-04-20">
+<title>🔬 Gece Araştırma — 2026-04-20 (Pazartesi 01:00 İST) · Oracle Gece Araştırma</title>
+<link rel="canonical" href="https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-20.html">
+<link rel="alternate" hreflang="tr" href="https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-20.html">
+<link rel="alternate" hreflang="en" href="https://mahsumaktas.github.io/oracle_arastirma/en/reports/2026-04-20.html">
+<link rel="alternate" hreflang="es" href="https://mahsumaktas.github.io/oracle_arastirma/es/reports/2026-04-20.html">
+<link rel="alternate" hreflang="x-default" href="https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-20.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<script defer src="../assets/site.js"></script>
 </head>
 <body>
-<header>
-  <div class="page-wrap">
-    <h1>🔬 🔬 Gece Araştırma — 2026-04-20 (Pazartesi 01:00 İST)</h1>
-    <div class="meta">
-      Oracle Gece Araştırma &middot; 2026-04-20 &middot;
-      <a href="https://mahsumaktas.github.io/oracle_arastirma/index.html">← Tüm Raporlar</a>
+  <header class="site-header">
+  <div class="shell header-bar">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark">🦉</span>
+      <span class="brand-text">
+        <span class="brand-kicker">Oracle archive</span>
+        <h1 class="brand-title">Oracle Gece Araştırma</h1>
+        <p class="brand-subtitle">2026-04-20</p>
+      </span>
+    </a>
+    <div class="header-actions">
+      <div class="lang-switch"><span class="lang-switch-label">Dil</span><a class="lang-chip is-active" href="2026-04-20.html" lang="tr">TÜ</a><a class="lang-chip" href="../en/reports/2026-04-20.html" lang="en">EN</a><a class="lang-chip" href="../es/reports/2026-04-20.html" lang="es">ES</a></div>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle theme"><span data-theme-icon>◐</span></button>
     </div>
   </div>
 </header>
+  <main class="shell">
+    <section class="hero">
+      <div class="hero-card">
+        <div class="hero-layout">
+          <div>
+            <div class="breadcrumbs"><a href="../index.html">Arşive dön</a><span>•</span><span>2026-04-20</span></div>
+            <span class="hero-kicker">Araştırma raporu</span>
+            <h1>🔬 Gece Araştırma — 2026-04-20 (Pazartesi 01:00 İST)</h1>
+            <p>**Yenilik Önceliği** · 9/9 kategori · 34 kaynak aktif · Dedupe: 12 madde elendi</p>
+            <div class="hero-actions">
+              <span class="hero-pill"><strong>20</strong> bölüm</span>
+              <span class="hero-pill"><strong>2376</strong> kelime</span>
+            </div>
+          </div>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <span class="stat-label">Öne çıkan not</span>
+              <div class="stat-detail">**Yenilik Önceliği** · 9/9 kategori · 34 kaynak aktif · Dedupe: 12 madde elendi</div>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Hızlı erişim</span>
+              <div class="report-actions-row" style="margin-top:12px">
+                <a class="button" href="../raw/2026-04-20.md">Ham markdown</a>
+                <a class="ghost-button" href="../index.html">Tüm raporlar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<div class="page-wrap">
-  <nav class="breadcrumb">
-    <a href="https://mahsumaktas.github.io/oracle_arastirma/index.html">Oracle Araştırma</a>
-    <span>/</span>
-    2026-04-20
-  </nav>
-
-  <div id="loading">Rapor yükleniyor…</div>
-  <div id="content" style="display:none"></div>
-</div>
-
-<a href="#" id="back-top" title="Yukarı" aria-label="Yukarı git">↑</a>
-
-<!-- marked.js — lightweight CDN markdown parser (no server needed) -->
-<script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
-<script>
-(function(){
-  // ── Raw markdown (HTML-escaped by publisher, decoded here) ──
-  var RAW = "# \ud83d\udd2c Gece Ara\u015ft\u0131rma \u2014 2026-04-20 (Pazartesi 01:00 \u0130ST)\n\n> **Yenilik \u00d6nceli\u011fi** \u00b7 9/9 kategori \u00b7 34 kaynak aktif \u00b7 Dedupe: 12 madde elendi\n\n\u26a0\ufe0f KAT-5 Reddit, KAT-6 X/Twitter ve KAT-9 HN/GitHub g\u00fcnl\u00fck metriklerinde canl\u0131 24 saat / 100+ puan / 500+ upvote do\u011frulamas\u0131 s\u0131n\u0131rl\u0131 kald\u0131. Bu b\u00f6l\u00fcmlerde e\u015fik d\u0131\u015f\u0131 veya stale sinyaller ayr\u0131ca i\u015faretlendi.\n\n---\n\n## \ud83d\udd25 Top 7 \u2014 Sadece GER\u00c7EKTEN YEN\u0130 (Son 72 Saat Delta)\n\n> Bu b\u00f6l\u00fcme yaln\u0131zca 72 saat i\u00e7inde ilk kez raporlanan veya materyal olarak de\u011fi\u015fen maddeler girer.\n> Daha \u00f6nce raporlanan konunun devam\u0131 \u2192 \"\u2192 G\u00fcncelleme:\" etiketiyle altta g\u00f6ster.\n\n| # | Madde | Kategori | Kaynak | \u00d6nem |\n|---|-------|----------|--------|------|\n| 1 | **World ID 4.0 \u201cproof of human\u201d\u0131 AI agent katman\u0131na ta\u015f\u0131d\u0131** \u2014 Tinder, Zoom, Docusign ve agent do\u011frulama hatt\u0131 ile bot/agent \u00e7a\u011f\u0131nda kimlik altyap\u0131s\u0131 \u00fcr\u00fcnle\u015fiyor. [\ud83d\udd17](https://techcrunch.com/2026/04/17/sam-altmans-project-world-looks-to-scale-its-human-verification-empire-first-stop-tinder/) | KAT-2/KAT-7 | TechCrunch, [World](https://world.org/id-id/blog/announcements/zoom-docusign-world-id-for-business), [Computerworld](https://www.computerworld.com/article/4160511/world-id-expands-its-proof-of-human-vision-for-the-ai-era.html) | \ud83d\udd34 |\n| 2 | **OpenAI\u2019da ayn\u0131 g\u00fcn \u00fc\u00e7 \u00fcst d\u00fczey ayr\u0131l\u0131k raporland\u0131** \u2014 Kevin Weil, Bill Peebles ve Srinivas Narayanan \u00e7\u0131k\u0131\u015f\u0131, OpenAI\u2019\u0131n science/Sora/B2B uygulama oda\u011f\u0131nda yeniden \u00f6nceliklendirmeye gitti\u011fini g\u00f6steriyor. [\ud83d\udd17](https://www.businessinsider.com/openai-executive-departures-shake-up-leadership-team-2026-4) | KAT-1 | Business Insider | \ud83d\udd34 |\n| 3 | **Apple, Siri ekibini AI coding bootcamp\u2019e g\u00f6nderiyor** \u2014 WWDC26 \u00f6ncesi Siri m\u00fchendislerinin Codex/Claude Code benzeri AI coding pratiklerine yeti\u015ftirilmesi, Apple i\u00e7 geli\u015ftirme k\u00fclt\u00fcr\u00fcnde acil d\u00f6n\u00fc\u015f\u00fcm sinyali. [\ud83d\udd17](https://timesofindia.indiatimes.com/technology/tech-news/just-weeks-before-big-siri-launch-apple-may-send-away-dozens-of-its-engineers-for-a-multiweek-bootcamp/articleshow/130321156.cms) | KAT-7 | Times of India | \ud83d\udd34 |\n| 4 | **Anthropic-Pentagon gerilimi West Wing d\u00fczeyine \u00e7\u0131kt\u0131** \u2014 Axios\u2019a g\u00f6re Dario Amodei, Claude \u201cMythos\u201d etraf\u0131ndaki h\u00fck\u00fcmet eri\u015fimi/siber g\u00fcvenlik anla\u015fmazl\u0131\u011f\u0131n\u0131 \u00e7\u00f6zmek i\u00e7in Beyaz Saray g\u00f6r\u00fc\u015fmesine gidiyor. [\ud83d\udd17](https://www.axios.com/2026/04/17/anthropic-trump-administration-mythos) | KAT-1 | Axios | \ud83d\udd34 |\n| 5 | **DR\u00b3-Eval deep research agent eval bo\u015flu\u011funu hedefliyor** \u2014 multimodal, multi-file rapor \u00fcretimi i\u00e7in static web sandbox + citation/factuality/depth metrikleri \u00f6neriyor; Oracle NRE i\u00e7in do\u011frudan uygulanabilir. [\ud83d\udd17](https://huggingface.co/papers/2604.14683) | KAT-3 | HF/arXiv 2604.14683 | \ud83d\udd34 |\n| 6 | **HY-World 2.0 a\u00e7\u0131k kaynak 3D world model \u00e7\u0131tas\u0131n\u0131 y\u00fckseltti** \u2014 text/image/video girdiden gezilebilir 3D Gaussian Splatting d\u00fcnya \u00fcretimi; embodiment ve sim\u00fclasyon veri \u00fcretimi i\u00e7in g\u00fc\u00e7l\u00fc sinyal. [\ud83d\udd17](https://huggingface.co/papers/2604.14268) | KAT-3/KAT-8 | HF/arXiv 2604.14268 | \ud83d\udfe1 |\n| 7 | **HiVLA, robot manipulation\u2019da planner/action ayr\u0131m\u0131n\u0131 g\u00fc\u00e7lendirdi** \u2014 VLM planner + diffusion transformer action expert ile uzun-horizon ve cluttered scene manip\u00fclasyonuna yeni mimari \u00f6neriyor. [\ud83d\udd17](https://huggingface.co/papers/2604.14125) | KAT-8 | HF/arXiv 2604.14125 | \ud83d\udfe1 |\n\n**Dedupe notu:** Elenenler: Gemini 3.1 Flash TTS, Gemini Robotics-ER 1.6, Mistral 3, MCP supply-chain alarm\u0131, Chrome 147 stable, VS 2026/UiPath/Apple eski platform maddeleri, Context Over Content, RLVR reward hacking, IE as Cache, Abstract Sim2Real, Touch Dreaming, CLAW/arXiv 2604.11251.\n\n---\n\n## \ud83e\udd16 KAT-1 \u00b7 AI Laboratuvarlar\u0131 & Model Haberleri\n\n- **OpenAI:** \u00dc\u00e7 \u00fcst d\u00fczey y\u00f6netici ayr\u0131l\u0131\u011f\u0131 raporland\u0131; \u015firketin science/Sora/B2B uygulama hatlar\u0131nda yeniden odakland\u0131\u011f\u0131 yorumlan\u0131yor. Kaynak: [Business Insider](https://www.businessinsider.com/openai-executive-departures-shake-up-leadership-team-2026-4)\n- **Anthropic:** Dario Amodei\u2019nin White House g\u00f6r\u00fc\u015fmesi, Claude/Mythos siber kapasitesi ve h\u00fck\u00fcmet eri\u015fimi tart\u0131\u015fmas\u0131n\u0131 model politikas\u0131ndan ulusal g\u00fcvenlik katman\u0131na ta\u015f\u0131yor. Kaynak: [Axios](https://www.axios.com/2026/04/17/anthropic-trump-administration-mythos)\n- **Anthropic / Claude Opus 4.7 y\u00fczeyi:** Simon Willison, `llm-anthropic 0.25` i\u00e7inde `claude-opus-4.7` model deste\u011fini ve Opus 4.6\u21924.7 system prompt farklar\u0131n\u0131 notlad\u0131. Kaynak: [Simon Willison](https://simonwillison.net/)\n- **Meta:** Muse Spark duyurusu ge\u00e7en hafta raporland\u0131; 72 saat delta olmad\u0131\u011f\u0131 i\u00e7in Top 7\u2019ye al\u0131nmad\u0131. Kaynak: [Business Insider](https://www.businessinsider.com/muse-spark-meta-ai-model-2026-4)\n\n---\n\n## \ud83d\udd78\ufe0f KAT-2 \u00b7 Agent & Framework\n\n- **World ID for Agents:** World ID 4.0, \u201cagent\u2019in arkas\u0131ndaki insan\u0131 do\u011frulama\u201d fikrini enterprise/consumer entegrasyonuna ta\u015f\u0131yor. Agentic commerce ve outbound automation i\u00e7in kimlik primitive\u2019i olabilir. Kaynak: [Computerworld](https://www.computerworld.com/article/4160511/world-id-expands-its-proof-of-human-vision-for-the-ai-era.html), [World](https://world.org/id-id/blog/announcements/zoom-docusign-world-id-for-business)\n- **Claude Code tasar\u0131m alan\u0131:** `Dive into Claude Code` makalesi, permission modes, compaction pipeline, MCP/plugins/skills/hooks ve subagent delegation gibi mimari kararlar\u0131 kaynak kod \u00fczerinden analiz ediyor. Kaynak: [HF/arXiv 2604.14228](https://huggingface.co/papers/2604.14228)\n- **MCP governance:** MCP maintainer ekibi geni\u015fledi; bu delta eski ama protokol\u00fcn Linux Foundation/AAIF sonras\u0131 kurumsalla\u015fmas\u0131n\u0131n s\u00fcrd\u00fc\u011f\u00fcn\u00fc g\u00f6steriyor. Kaynak: [MCP Blog](https://blog.modelcontextprotocol.io/)\n- **Dedupe:** MCP supply-chain/RCE alarm\u0131 bu raporda tekrar \u00f6ne \u00e7\u0131kar\u0131lmad\u0131; 72 saat listesinde daha \u00f6nce vard\u0131.\n\n---\n\n## \ud83d\udcc4 KAT-3 \u00b7 Makaleler & Ara\u015ft\u0131rma\n\n| arXiv ID | Ba\u015fl\u0131k | Neden \u00d6nemli | Kaynak |\n|----------|--------|--------------|--------|\n| 2604.14683 | DR\u00b3-Eval: Towards Realistic and Reproducible Deep Research Evaluation | Deep research agent\u2019lar\u0131 citation coverage, factual accuracy ve depth quality ile \u00f6l\u00e7\u00fcyor. | [HF](https://huggingface.co/papers/2604.14683) |\n| 2604.14268 | HY-World 2.0 | A\u00e7\u0131k kaynak multimodal 3D world model; sim\u00fclasyon/embodied veri \u00fcretimi i\u00e7in kritik. | [HF](https://huggingface.co/papers/2604.14268) |\n| 2604.15308 | RAD-2 | Autonomous driving motion planning i\u00e7in diffusion generator + RL discriminator mimarisi. | [HF](https://huggingface.co/papers/2604.15308) |\n| 2604.14125 | HiVLA | VLM semantic planner ile low-level robot control\u2019\u00fc ayr\u0131\u015ft\u0131r\u0131yor. | [HF](https://huggingface.co/papers/2604.14125) |\n| 2604.14922 | LongAct | Long-context RL\u2019de saliency-guided sparse update ile LongBench v2/RULER kazan\u0131m\u0131 bildiriyor. | [HF](https://huggingface.co/papers/2604.14922) |\n| 2604.13226 | KV Packet | RAG/long-context inference i\u00e7in recomputation-free KV cache reuse \u00f6neriyor. | [HF](https://huggingface.co/papers/2604.13226) |\n| 2604.14531 | TRACER | Production trace\u2019lerden surrogate router e\u011fitip LLM classification maliyetini d\u00fc\u015f\u00fcr\u00fcyor. | [HF](https://huggingface.co/papers/2604.14531) |\n\n**Oracle i\u00e7in \u00e7\u0131kar\u0131m:** NRE hatt\u0131na DR\u00b3-Eval tarz\u0131 `citation coverage + factual accuracy + instruction following + depth quality` gate\u2019i eklenmeli. TRACER, basit s\u0131n\u0131fland\u0131rma/routing i\u015flerinde pahal\u0131 model \u00e7a\u011fr\u0131lar\u0131n\u0131 surrogate ile azaltmak i\u00e7in direkt aday.\n\n---\n\n## \ud83e\udde0 KAT-4 \u00b7 D\u00fc\u015f\u00fcnce Liderleri\n\n| Ki\u015fi | G\u00f6r\u00fc\u015f \u00d6zeti | Tarih | Kaynak |\n|------|-------------|-------|--------|\n| Simon Willison | Claude Opus 4.6\u21924.7 system prompt farklar\u0131n\u0131 ve Claude prompt ar\u015fivinin git timeline olarak incelenmesini anlatt\u0131. | 18 Nisan | [simonwillison.net](https://simonwillison.net/) |\n| Sam Altman / World | AI \u00e7a\u011f\u0131nda insan/agent ayr\u0131m\u0131 i\u00e7in World ID 4.0 vizyonunu \u201cproof of human\u201d olarak konumland\u0131rd\u0131. | 17-19 Nisan | [TechCrunch](https://techcrunch.com/2026/04/17/sam-altmans-project-world-looks-to-scale-its-human-verification-empire-first-stop-tinder/) |\n| Gary Marcus | Claude Code\u2019u \u201cLLM\u2019den sonraki en b\u00fcy\u00fck AI ilerlemesi\u201d olarak yorumlad\u0131; eski ama h\u00e2l\u00e2 tart\u0131\u015fma ta\u015f\u0131yor. | 11 Nisan | [diff.blog](https://diff.blog/post/the-biggest-advance-in-ai-since-the-llm-320472) |\n| Karpathy / LeCun / Andrew Ng / swyx | Son 48 saate ait g\u00fcvenilir, do\u011frudan yeni g\u00f6r\u00fc\u015f bildirimi do\u011frulanamad\u0131. | \u2014 | \u26a0\ufe0f Web index yetersiz |\n\n---\n\n## \ud83d\udd34 KAT-5 \u00b7 Reddit Viral\n\n| Subreddit | Ba\u015fl\u0131k | Upvote | Kaynak |\n|-----------|--------|--------|--------|\n| r/ClaudeAI | AMD AI Director\u2019s Analysis Confirms Lobotomization of Claude | 2179 | [AI Signal digest](https://buttondown.com/ai-signal/archive/ai-signal-april-14-2026/) |\n| r/ClaudeCode | Claude Code (~100 hours) vs. Codex (~20 hours) | 1319 | [AI Signal digest](https://buttondown.com/ai-signal/archive/ai-signal-april-14-2026/) |\n| r/LocalLLaMA | the state of LocalLLaMA | 1705 | [Reddit](https://www.reddit.com/r/LocalLLaMA/comments/1shcgf5/the_state_of_localllama/) |\n\n\u26a0\ufe0f KAT-5 E\u015fik Notu: Son 24 saatte 500+ upvote do\u011frulanm\u0131\u015f yeni AI thread bulunamad\u0131. Yukar\u0131daki maddeler stale sinyal olarak tutuldu, Top 7\u2019ye al\u0131nmad\u0131.\n\n---\n\n## \ud83d\udc26 KAT-6 \u00b7 Twitter/X Viral\n\n| Hesap | Tweet \u00d6zeti | Etki | Tarih |\n|-------|-------------|------|-------|\n| @gregkamradt / ARC-AGI \u00e7evresi | ARC-AGI-3\u2019\u00fcn frontier modelleri <1% seviyesinde b\u0131rakmas\u0131 tart\u0131\u015f\u0131ld\u0131. | Viral teknik tart\u0131\u015fma, metrik do\u011frulanamad\u0131 | 25 Mar civar\u0131 |\n| @simonw | AI-powered security research tag\u2019i a\u00e7t\u0131; siber g\u00fcvenlikte LLM kullan\u0131m\u0131n\u0131 izliyor. | High-signal takip listesi | 4 Apr index |\n| @garrytan | MCP\u2019nin do\u011fru yap\u0131ld\u0131\u011f\u0131nda \u201cmagic\u201d olabilece\u011fini s\u00f6yledi. | Agent/MCP sentiment | 4 Apr index |\n| @levelsio | GPT-Image-2 leak iddias\u0131 / Arena kod adlar\u0131 tart\u0131\u015f\u0131ld\u0131. | Viral iddia, resmi do\u011frulama yok | 4 Apr index |\n\n\u26a0\ufe0f KAT-6 Kaynak Hatas\u0131: Canl\u0131 X/CDP metrikleri eri\u015filebilir de\u011fildi; web index yaln\u0131zca eski TechTwitter sayfas\u0131 verdi. Kaynak: [TechTwitter trending](https://www.techtwitter.com/twitter-trending/2026-04-04)\n\n---\n\n## \ud83c\udf10 KAT-7 \u00b7 Platform & Ekosistem\n\n- **Apple Developer April 2026:** App Store Connect Analytics 100+ yeni metrik, peer benchmarks, Swift concurrency oturumu ve yeni Metal/ML dok\u00fcmanlar\u0131 yay\u0131mland\u0131. Kaynak: [Apple Developer](https://developer.apple.com/hello/april26)\n- **Apple Siri AI bootcamp:** Siri ekibinin WWDC26 \u00f6ncesi AI coding bootcamp\u2019e al\u0131nmas\u0131, Apple\u2019\u0131n AI-assisted engineering a\u00e7\u0131\u011f\u0131n\u0131 kapatma hamlesi. Kaynak: [Times of India](https://timesofindia.indiatimes.com/technology/tech-news/just-weeks-before-big-siri-launch-apple-may-send-away-dozens-of-its-engineers-for-a-multiweek-bootcamp/articleshow/130321156.cms)\n- **Chrome 147:** `element.startViewTransition()`, CSS `contrast-color()`, Device Memory API limit g\u00fcncellemesi ve Local Network Access k\u0131s\u0131tlar\u0131 var. Top 7\u2019ye al\u0131nmad\u0131 \u00e7\u00fcnk\u00fc Chrome 147 daha \u00f6nce raporlanm\u0131\u015ft\u0131. Kaynak: [Chrome Developers](https://developer.chrome.com/release-notes/147?hl=en)\n- **VS Code:** 1.116 son s\u00fcr\u00fcm 15 Nisan olarak g\u00f6r\u00fcn\u00fcyor; 1.114 hatt\u0131nda weekly Stable cadence, TypeScript 6.0 ve Claude agent policy notlar\u0131 \u00f6ne \u00e7\u0131km\u0131\u015f. Kaynak: [VersionRelease](https://versionrelease.com/projects/code.visualstudio.com), [Visual Studio Magazine](https://visualstudiomagazine.com/articles/2026/04/02/visual-studio-code-1%2C-d-%2C114-keeps-weekly-cadence-rolling-with-chat-search-and-typescript-updates.aspx)\n\n---\n\n## \ud83e\uddbe KAT-8 \u00b7 Robotik & Edge AI\n\n- **HiVLA:** Robot manipulation i\u00e7in semantic planning ve action execution ayr\u0131m\u0131; ger\u00e7ek d\u00fcnya/sim ba\u015far\u0131lar\u0131 bildiriliyor. Kaynak: [HF/arXiv 2604.14125](https://huggingface.co/papers/2604.14125)\n- **RAD-2:** Otonom s\u00fcr\u00fc\u015fte closed-loop planning i\u00e7in diffusion generator + RL discriminator; \u00e7arp\u0131\u015fma oran\u0131nda ciddi d\u00fc\u015f\u00fc\u015f iddias\u0131 var. Kaynak: [HF/arXiv 2604.15308](https://huggingface.co/papers/2604.15308)\n- **HY-World 2.0:** Text/single image/video girdiden navigable 3D world; robot sim\u00fclasyon ve world-model pipeline\u2019lar\u0131 i\u00e7in veri motoru olabilir. Kaynak: [HF/arXiv 2604.14268](https://huggingface.co/papers/2604.14268)\n- **Serve Robotics \u201cMaggie\u201d:** T-Mobile edge network ile konu\u015fan delivery robot demosu GTC 2026\u2019da g\u00f6sterildi; eski tarihli ama edge robotics sinyali. Kaynak: [Serve Robotics](https://ir.serverobotics.com/news-releases/news-release-details/serve-robotics-debut-conversational-robot-powered-edge-ai-nvidia)\n\n---\n\n## \u2b50 KAT-9 \u00b7 OSS & \u00dcr\u00fcn Sinyalleri\n\n### HN \u00d6ne \u00c7\u0131kanlar\n| Puan | Ba\u015fl\u0131k | Kaynak |\n|------|--------|--------|\n| 43 | The Bromine Chokepoint: How Strife Could Halt Production of World\u2019s Memory Chips | [HN](https://news.ycombinator.com/news) |\n\n\u26a0\ufe0f HN Notu: Bu ge\u00e7i\u015fte 100+ puanl\u0131 AI/OSS Show HN maddesi do\u011frulanamad\u0131.\n\n### GitHub Trending\n| Repo | Stars/G\u00fcn | Alan |\n|------|-----------|------|\n| NousResearch/hermes-agent | 6k+ / stale index | Long-lived agent infra |\n| microsoft/markitdown | say\u0131 do\u011frulanmad\u0131 | Document-to-Markdown / RAG plumbing |\n| Archon harness builder | say\u0131 do\u011frulanmad\u0131 | Deterministic agent harness |\n\n\u26a0\ufe0f GitHub Trending Notu: GitHub daily sayfalar\u0131 a\u00e7\u0131ld\u0131 ancak repo sat\u0131rlar\u0131 parse edilemedi; yukar\u0131daki sinyaller `agents-radar` stale index\u2019inden. Kaynak: [agents-radar Apr 12](https://github.com/duanyytop/agents-radar/issues/531), [GitHub Python Trending](https://github.com/trending/python?since=daily), [GitHub TypeScript Trending](https://github.com/trending/typescript?since=daily)\n\n### Product Hunt AI\n- **Brila, Velo, NovaVoice, Fathom 3.0, Figma for Agents, Google Gemma 4, Claude Code Desktop App Redesigned** Nisan 2026 AI \u00fcr\u00fcn listesinde \u00fcst s\u0131ralarda. Kaynak: [Hunted.Space Product Hunt AI](https://hunted.space/top-products/latest/artificial-intelligence)\n\n---\n\n## \ud83c\uddf9\ud83c\uddf7 T\u00fcrk Tech Sahnesi\n\n- **Webrazzi AI 2026:** T\u00fcrkiye i\u015f d\u00fcnyas\u0131 ve giri\u015fimcilik ekosistemi i\u00e7in 40+ konu\u015fmac\u0131 ve 1000+ kat\u0131l\u0131mc\u0131 ile yapay zeka odakl\u0131 b\u00fcy\u00fck etkinlik raporland\u0131. 72 saat i\u00e7inde de\u011fil, ama T\u00fcrkiye sinyali olarak de\u011ferli. Kaynak: [Ekonomim](https://www.ekonomim.com/is-dunyasi/is-dunyasinin-yapay-zeka-gundemi-webrazzi-ai-2026da-masaya-yatirildi-haberi-887168), [G\u00fcne\u015f](https://www.gunes.com/teknoloji/is-dunyasinin-yapay-zeka-gundemi-webrazzi-ai-2026da-masaya-yatirildi-1226137)\n- **Technopat:** Son taramada yeni 72 saatlik AI geli\u015fmesi bulunmad\u0131; en yak\u0131n ilgili i\u00e7erikler CES/AI PC ve genel AI \u00f6ng\u00f6r\u00fcleri. Kaynak: [Technopat AMD/CES 2026](https://www.technopat.net/2026/01/17/amdnin-yapay-zeka-artik-herkesin-bilgisayarinda/)\n\n---\n\n## \ud83e\udde0 Oracle Self-Improvement Sinyalleri\n\n| # | Bulgu | Kaynak | Uygulama Alan\u0131 | Efor |\n|---|-------|--------|----------------|------|\n| 1 | Deep research raporlar\u0131nda citation coverage + factuality + depth ayr\u0131 ayr\u0131 skorlanmal\u0131. | [DR\u00b3-Eval](https://huggingface.co/papers/2604.14683) | NRE verification gate | Orta |\n| 2 | Trace-based surrogate routing, basit classification/routing g\u00f6revlerinde pahal\u0131 model \u00e7a\u011fr\u0131s\u0131n\u0131 azaltabilir. | [TRACER](https://huggingface.co/papers/2604.14531) | model router / cron triage | Orta |\n| 3 | KV cache reuse fikri, tekrar eden uzun context dosyalar\u0131nda latency/cost azaltma stratejisi olabilir. | [KV Packet](https://huggingface.co/papers/2604.13226) | context-buffer / memory retrieval | B\u00fcy\u00fck |\n| 4 | Agent action\u2019lar\u0131nda \u201cinsan arkas\u0131nda m\u0131?\u201d do\u011frulamas\u0131 yak\u0131nda \u00fcr\u00fcn primitive\u2019i olacak. | [World ID 4.0](https://www.computerworld.com/article/4160511/world-id-expands-its-proof-of-human-vision-for-the-ai-era.html) | governance / outbound action policy | Orta |\n\n---\n\n## \ud83d\udc26 CikCik Paketi (@muxamos sesi)\n\n### Tweetler (3\u20135 adet)\n\n**Tweet 1 (Konu: World ID 4.0):**\n> AI agent \u00e7a\u011f\u0131nda as\u0131l eksik model de\u011fil, kimlik katman\u0131 olabilir. \u201cBu action\u2019\u0131n arkas\u0131nda ger\u00e7ek insan var m\u0131?\u201d sorusu yak\u0131nda API tasar\u0131m\u0131n\u0131n par\u00e7as\u0131 olacak.\n\n**Tweet 2 (Konu: DR\u00b3-Eval):**\n> Deep research raporu art\u0131k \u201cg\u00fczel \u00f6zet\u201d diye ge\u00e7memeli. Citation coverage, factual accuracy, instruction following ve depth quality ayr\u0131 ayr\u0131 \u00f6l\u00e7\u00fclmeli. Yoksa ara\u015ft\u0131rma de\u011fil, s\u00fcsl\u00fc hallucination.\n\n**Tweet 3 (Konu: Apple Siri bootcamp):**\n> Apple\u2019\u0131n Siri ekibini AI coding bootcamp\u2019e almas\u0131 k\u00fc\u00e7\u00fck haber de\u011fil. Art\u0131k \u015firketlerin AI a\u00e7\u0131\u011f\u0131 sadece \u00fcr\u00fcn taraf\u0131nda de\u011fil, i\u00e7eride yaz\u0131l\u0131m \u00fcretme h\u0131z\u0131nda da \u00f6l\u00e7\u00fcl\u00fcyor.\n\n**Tweet 4 (Konu: HY-World 2.0):**\n> Text/image/video\u2019dan gezilebilir 3D d\u00fcnya \u00fcretimi robotik i\u00e7in sleeper geli\u015fme. Robotu ger\u00e7ek d\u00fcnyada e\u011fitmek pahal\u0131; iyi sim\u00fclasyon datas\u0131 yeni compute moat\u2019i olabilir.\n\n### Reply F\u0131rsatlar\u0131 (2\u20133)\n\n**@simonw alt\u0131na (Claude prompt diff):**\n> System prompt diff\u2019lerini git timeline\u2019a \u00e7evirmek \u00e7ok iyi fikir. Model davran\u0131\u015f\u0131n\u0131 \u201crelease note\u201d gibi de\u011fil, de\u011fi\u015fen operational policy gibi okumak gerekiyor.\n\n**@garrytan alt\u0131na (MCP):**\n> MCP magic olabilir ama magic k\u0131sm\u0131 tool discovery de\u011fil, permission + audit + rollback disiplini. Yoksa ayn\u0131 protokol \u00e7ok h\u0131zl\u0131 \u015fekilde supply-chain y\u00fczeyi oluyor.\n\n### G\u00fcn\u00fcn Hook'u\n\n> Agent \u00e7a\u011f\u0131n\u0131n yeni sorusu: \u201cBunu AI m\u0131 yapt\u0131?\u201d de\u011fil, \u201cBu action\u2019\u0131n sorumlusu kim?\u201d\n\n---\n\n## \ud83d\udcca Kaynak & Durum \u00d6zeti\n\n| Kategori | Kaynak | Durum | Madde |\n|----------|--------|-------|-------|\n| KAT-1 | BI, Axios, Simon Willison, Meta/BI | \u2705 | 4 |\n| KAT-2 | World, Computerworld, MCP Blog, HF/arXiv | \u2705 | 4 |\n| KAT-3 | Hugging Face Daily Papers | \u2705 | 7 |\n| KAT-4 | Simon, TechCrunch, diff.blog | \u2705/\u26a0\ufe0f | 4 |\n| KAT-5 | Reddit + AI Signal digest | \u26a0\ufe0f | 3 |\n| KAT-6 | TechTwitter web index | \u26a0\ufe0f | 4 |\n| KAT-7 | Apple Developer, Chrome Dev, VS Code, Times | \u2705 | 4 |\n| KAT-8 | HF/arXiv, Serve Robotics | \u2705 | 4 |\n| KAT-9 | HN, GitHub Trending, agents-radar, Product Hunt proxy | \u26a0\ufe0f | 5 |\n\n**Toplam dedupe elenen:** 12 madde | **Yeni madde:** 24 | **Sonraki temizlik:** 2026-04-20 04:00 \u0130ST\n\n---\n\n*Rapor: Gece Ara\u015ft\u0131rma v2 \u00b7 2026-04-20 01:00 \u0130ST \u00b7 Oracle \ud83e\udd89*\n";
-
-  // ── marked config ──
-  marked.setOptions({
-    gfm:true,
-    breaks:false,
-    mangle:false,
-    headerIds:false
-  });
-
-  // ── Wrap tables for horizontal scroll ──
-  var renderer = new marked.Renderer();
-  renderer.table = function(header, body){
-    return '<div class="table-wrap"><table><thead>' + header + '</thead><tbody>' + body + '</tbody></table></div>';
-  };
-
-  var html = marked.parse(RAW, {renderer:renderer});
-  var content = document.getElementById('content');
-  var loading = document.getElementById('loading');
-  content.innerHTML = html;
-  content.style.display = '';
-  loading.style.display = 'none';
-
-  // ── Open external links in new tab ──
-  var links = content.querySelectorAll('a[href]');
-  for(var i=0;i<links.length;i++){
-    var href = links[i].getAttribute('href');
-    if(href && (href.startsWith('http://') || href.startsWith('https://'))){
-      links[i].setAttribute('target','_blank');
-      links[i].setAttribute('rel','noopener noreferrer');
-    }
-  }
-})();
-</script>
+    <section class="report-layout">
+      <aside class="sticky-column stack">
+        <div class="panel">
+          <div class="panel-title"><div><h3>İçindekiler</h3><p>Türkçe kaynak korunur. EN/ES authored markdown varsa doğrudan kullanılır, yoksa acil durumda fallback çeviri uygulanır.</p></div></div>
+          <nav class="report-nav"><a class="section-link" href="#sec-1-top-7-sadece-ger-ekten-yeni-son-72-saat-delta" data-section-link>🔥 Top 7 — Sadece GERÇEKTEN YENİ (Son 72 Saat Delta)</a><a class="section-link" href="#sec-2-kat-1-ai-laboratuvarlari-model-haberleri" data-section-link>🤖 KAT-1 · AI Laboratuvarları &amp; Model Haberleri</a><a class="section-link" href="#sec-3-kat-2-agent-framework" data-section-link>🕸️ KAT-2 · Agent &amp; Framework</a><a class="section-link" href="#sec-4-kat-3-makaleler-arastirma" data-section-link>📄 KAT-3 · Makaleler &amp; Araştırma</a><a class="section-link" href="#sec-5-kat-4-dusunce-liderleri" data-section-link>🧠 KAT-4 · Düşünce Liderleri</a><a class="section-link" href="#sec-6-kat-5-reddit-viral" data-section-link>🔴 KAT-5 · Reddit Viral</a><a class="section-link" href="#sec-7-kat-6-twitter-x-viral" data-section-link>🐦 KAT-6 · Twitter/X Viral</a><a class="section-link" href="#sec-8-kat-7-platform-ekosistem" data-section-link>🌐 KAT-7 · Platform &amp; Ekosistem</a><a class="section-link" href="#sec-9-kat-8-robotik-edge-ai" data-section-link>🦾 KAT-8 · Robotik &amp; Edge AI</a><a class="section-link" href="#sec-10-kat-9-oss-run-sinyalleri" data-section-link>⭐ KAT-9 · OSS &amp; Ürün Sinyalleri</a><a class="section-link" href="#sec-11-hn-ne-ikanlar" data-section-link># HN Öne Çıkanlar</a><a class="section-link" href="#sec-12-github-trending" data-section-link># GitHub Trending</a><a class="section-link" href="#sec-13-product-hunt-ai" data-section-link># Product Hunt AI</a><a class="section-link" href="#sec-14-turk-tech-sahnesi" data-section-link>🇹🇷 Türk Tech Sahnesi</a><a class="section-link" href="#sec-15-oracle-self-improvement-sinyalleri" data-section-link>🧠 Oracle Self-Improvement Sinyalleri</a><a class="section-link" href="#sec-16-cikcik-paketi-muxamos-sesi" data-section-link>🐦 CikCik Paketi (@muxamos sesi)</a><a class="section-link" href="#sec-17-tweetler-3-5-adet" data-section-link># Tweetler (3–5 adet)</a><a class="section-link" href="#sec-18-reply-firsatlari-2-3" data-section-link># Reply Fırsatları (2–3)</a><a class="section-link" href="#sec-19-gunun-hook-u" data-section-link># Günün Hook&#x27;u</a><a class="section-link" href="#sec-20-kaynak-durum-zeti" data-section-link>📊 Kaynak &amp; Durum Özeti</a></nav>
+        </div>
+        <div class="panel">
+          <div class="panel-title"><div><h3>Hızlı erişim</h3></div></div>
+          <div class="report-tools">
+            <a class="ghost-button" href="../raw/2026-04-20.md">Kaynak markdown</a>
+            <a class="ghost-button" href="2026-04-20.html">Türkçe orijinal</a>
+            <a class="ghost-button" href="2026-04-19.html">Önceki rapor</a>
+            
+          </div>
+        </div>
+      </aside>
+      <div class="report-main">
+        <section class="report-summary-card rendered-markdown">
+          <div class="section-head">
+            <div>
+              <div class="section-kicker">Rapor özeti</div>
+              <h2>Rapor özeti</h2>
+            </div>
+          </div>
+          <blockquote><p><strong>Yenilik Önceliği</strong> · 9/9 kategori · 34 kaynak aktif · Dedupe: 12 madde elendi</p></blockquote>
+<p>⚠️ KAT-5 Reddit, KAT-6 X/Twitter ve KAT-9 HN/GitHub günlük metriklerinde canlı 24 saat / 100+ puan / 500+ upvote doğrulaması sınırlı kaldı. Bu bölümlerde eşik dışı veya stale sinyaller ayrıca işaretlendi.</p>
+        </section>
+        <div data-report-sections></div>
+      </div>
+    </section>
+  </main>
+  <footer class="shell footer">
+    <div class="footer-card">
+      <p>Oracle gece araştırma arşivi, Türkçe asıl içerik korunur. EN/ES authored varyantlar varsa kullanılır, yoksa fallback çeviri devreye girer.</p>
+      <p>2026-04-20 10:00 UTC</p>
+    </div>
+  </footer>
+  <script id="report-data" type="application/json">{&quot;sectionLabel&quot;: &quot;Bölümler&quot;, &quot;sections&quot;: [{&quot;id&quot;: &quot;sec-1-top-7-sadece-ger-ekten-yeni-son-72-saat-delta&quot;, &quot;title&quot;: &quot;🔥 Top 7 — Sadece GERÇEKTEN YENİ (Son 72 Saat Delta)&quot;, &quot;content&quot;: &quot;&gt; Bu bölüme yalnızca 72 saat içinde ilk kez raporlanan veya materyal olarak değişen maddeler girer.\n&gt; Daha önce raporlanan konunun devamı → \&quot;→ Güncelleme:\&quot; etiketiyle altta göster.\n\n| # | Madde | Kategori | Kaynak | Önem |\n|---|-------|----------|--------|------|\n| 1 | **World ID 4.0 “proof of human”ı AI agent katmanına taşıdı** — Tinder, Zoom, Docusign ve agent doğrulama hattı ile bot/agent çağında kimlik altyapısı ürünleşiyor. [🔗](https://techcrunch.com/2026/04/17/sam-altmans-project-world-looks-to-scale-its-human-verification-empire-first-stop-tinder/) | KAT-2/KAT-7 | TechCrunch, [World](https://world.org/id-id/blog/announcements/zoom-docusign-world-id-for-business), [Computerworld](https://www.computerworld.com/article/4160511/world-id-expands-its-proof-of-human-vision-for-the-ai-era.html) | 🔴 |\n| 2 | **OpenAI’da aynı gün üç üst düzey ayrılık raporlandı** — Kevin Weil, Bill Peebles ve Srinivas Narayanan çıkışı, OpenAI’ın science/Sora/B2B uygulama odağında yeniden önceliklendirmeye gittiğini gösteriyor. [🔗](https://www.businessinsider.com/openai-executive-departures-shake-up-leadership-team-2026-4) | KAT-1 | Business Insider | 🔴 |\n| 3 | **Apple, Siri ekibini AI coding bootcamp’e gönderiyor** — WWDC26 öncesi Siri mühendislerinin Codex/Claude Code benzeri AI coding pratiklerine yetiştirilmesi, Apple iç geliştirme kültüründe acil dönüşüm sinyali. [🔗](https://timesofindia.indiatimes.com/technology/tech-news/just-weeks-before-big-siri-launch-apple-may-send-away-dozens-of-its-engineers-for-a-multiweek-bootcamp/articleshow/130321156.cms) | KAT-7 | Times of India | 🔴 |\n| 4 | **Anthropic-Pentagon gerilimi West Wing düzeyine çıktı** — Axios’a göre Dario Amodei, Claude “Mythos” etrafındaki hükümet erişimi/siber güvenlik anlaşmazlığını çözmek için Beyaz Saray görüşmesine gidiyor. [🔗](https://www.axios.com/2026/04/17/anthropic-trump-administration-mythos) | KAT-1 | Axios | 🔴 |\n| 5 | **DR³-Eval deep research agent eval boşluğunu hedefliyor** — multimodal, multi-file rapor üretimi için static web sandbox + citation/factuality/depth metrikleri öneriyor; Oracle NRE için doğrudan uygulanabilir. [🔗](https://huggingface.co/papers/2604.14683) | KAT-3 | HF/arXiv 2604.14683 | 🔴 |\n| 6 | **HY-World 2.0 açık kaynak 3D world model çıtasını yükseltti** — text/image/video girdiden gezilebilir 3D Gaussian Splatting dünya üretimi; embodiment ve simülasyon veri üretimi için güçlü sinyal. [🔗](https://huggingface.co/papers/2604.14268) | KAT-3/KAT-8 | HF/arXiv 2604.14268 | 🟡 |\n| 7 | **HiVLA, robot manipulation’da planner/action ayrımını güçlendirdi** — VLM planner + diffusion transformer action expert ile uzun-horizon ve cluttered scene manipülasyonuna yeni mimari öneriyor. [🔗](https://huggingface.co/papers/2604.14125) | KAT-8 | HF/arXiv 2604.14125 | 🟡 |\n\n**Dedupe notu:** Elenenler: Gemini 3.1 Flash TTS, Gemini Robotics-ER 1.6, Mistral 3, MCP supply-chain alarmı, Chrome 147 stable, VS 2026/UiPath/Apple eski platform maddeleri, Context Over Content, RLVR reward hacking, IE as Cache, Abstract Sim2Real, Touch Dreaming, CLAW/arXiv 2604.11251.\n\n---&quot;}, {&quot;id&quot;: &quot;sec-2-kat-1-ai-laboratuvarlari-model-haberleri&quot;, &quot;title&quot;: &quot;🤖 KAT-1 · AI Laboratuvarları &amp; Model Haberleri&quot;, &quot;content&quot;: &quot;- **OpenAI:** Üç üst düzey yönetici ayrılığı raporlandı; şirketin science/Sora/B2B uygulama hatlarında yeniden odaklandığı yorumlanıyor. Kaynak: [Business Insider](https://www.businessinsider.com/openai-executive-departures-shake-up-leadership-team-2026-4)\n- **Anthropic:** Dario Amodei’nin White House görüşmesi, Claude/Mythos siber kapasitesi ve hükümet erişimi tartışmasını model politikasından ulusal güvenlik katmanına taşıyor. Kaynak: [Axios](https://www.axios.com/2026/04/17/anthropic-trump-administration-mythos)\n- **Anthropic / Claude Opus 4.7 yüzeyi:** Simon Willison, `llm-anthropic 0.25` içinde `claude-opus-4.7` model desteğini ve Opus 4.6→4.7 system prompt farklarını notladı. Kaynak: [Simon Willison](https://simonwillison.net/)\n- **Meta:** Muse Spark duyurusu geçen hafta raporlandı; 72 saat delta olmadığı için Top 7’ye alınmadı. Kaynak: [Business Insider](https://www.businessinsider.com/muse-spark-meta-ai-model-2026-4)\n\n---&quot;}, {&quot;id&quot;: &quot;sec-3-kat-2-agent-framework&quot;, &quot;title&quot;: &quot;🕸️ KAT-2 · Agent &amp; Framework&quot;, &quot;content&quot;: &quot;- **World ID for Agents:** World ID 4.0, “agent’in arkasındaki insanı doğrulama” fikrini enterprise/consumer entegrasyonuna taşıyor. Agentic commerce ve outbound automation için kimlik primitive’i olabilir. Kaynak: [Computerworld](https://www.computerworld.com/article/4160511/world-id-expands-its-proof-of-human-vision-for-the-ai-era.html), [World](https://world.org/id-id/blog/announcements/zoom-docusign-world-id-for-business)\n- **Claude Code tasarım alanı:** `Dive into Claude Code` makalesi, permission modes, compaction pipeline, MCP/plugins/skills/hooks ve subagent delegation gibi mimari kararları kaynak kod üzerinden analiz ediyor. Kaynak: [HF/arXiv 2604.14228](https://huggingface.co/papers/2604.14228)\n- **MCP governance:** MCP maintainer ekibi genişledi; bu delta eski ama protokolün Linux Foundation/AAIF sonrası kurumsallaşmasının sürdüğünü gösteriyor. Kaynak: [MCP Blog](https://blog.modelcontextprotocol.io/)\n- **Dedupe:** MCP supply-chain/RCE alarmı bu raporda tekrar öne çıkarılmadı; 72 saat listesinde daha önce vardı.\n\n---&quot;}, {&quot;id&quot;: &quot;sec-4-kat-3-makaleler-arastirma&quot;, &quot;title&quot;: &quot;📄 KAT-3 · Makaleler &amp; Araştırma&quot;, &quot;content&quot;: &quot;| arXiv ID | Başlık | Neden Önemli | Kaynak |\n|----------|--------|--------------|--------|\n| 2604.14683 | DR³-Eval: Towards Realistic and Reproducible Deep Research Evaluation | Deep research agent’ları citation coverage, factual accuracy ve depth quality ile ölçüyor. | [HF](https://huggingface.co/papers/2604.14683) |\n| 2604.14268 | HY-World 2.0 | Açık kaynak multimodal 3D world model; simülasyon/embodied veri üretimi için kritik. | [HF](https://huggingface.co/papers/2604.14268) |\n| 2604.15308 | RAD-2 | Autonomous driving motion planning için diffusion generator + RL discriminator mimarisi. | [HF](https://huggingface.co/papers/2604.15308) |\n| 2604.14125 | HiVLA | VLM semantic planner ile low-level robot control’ü ayrıştırıyor. | [HF](https://huggingface.co/papers/2604.14125) |\n| 2604.14922 | LongAct | Long-context RL’de saliency-guided sparse update ile LongBench v2/RULER kazanımı bildiriyor. | [HF](https://huggingface.co/papers/2604.14922) |\n| 2604.13226 | KV Packet | RAG/long-context inference için recomputation-free KV cache reuse öneriyor. | [HF](https://huggingface.co/papers/2604.13226) |\n| 2604.14531 | TRACER | Production trace’lerden surrogate router eğitip LLM classification maliyetini düşürüyor. | [HF](https://huggingface.co/papers/2604.14531) |\n\n**Oracle için çıkarım:** NRE hattına DR³-Eval tarzı `citation coverage + factual accuracy + instruction following + depth quality` gate’i eklenmeli. TRACER, basit sınıflandırma/routing işlerinde pahalı model çağrılarını surrogate ile azaltmak için direkt aday.\n\n---&quot;}, {&quot;id&quot;: &quot;sec-5-kat-4-dusunce-liderleri&quot;, &quot;title&quot;: &quot;🧠 KAT-4 · Düşünce Liderleri&quot;, &quot;content&quot;: &quot;| Kişi | Görüş Özeti | Tarih | Kaynak |\n|------|-------------|-------|--------|\n| Simon Willison | Claude Opus 4.6→4.7 system prompt farklarını ve Claude prompt arşivinin git timeline olarak incelenmesini anlattı. | 18 Nisan | [simonwillison.net](https://simonwillison.net/) |\n| Sam Altman / World | AI çağında insan/agent ayrımı için World ID 4.0 vizyonunu “proof of human” olarak konumlandırdı. | 17-19 Nisan | [TechCrunch](https://techcrunch.com/2026/04/17/sam-altmans-project-world-looks-to-scale-its-human-verification-empire-first-stop-tinder/) |\n| Gary Marcus | Claude Code’u “LLM’den sonraki en büyük AI ilerlemesi” olarak yorumladı; eski ama hâlâ tartışma taşıyor. | 11 Nisan | [diff.blog](https://diff.blog/post/the-biggest-advance-in-ai-since-the-llm-320472) |\n| Karpathy / LeCun / Andrew Ng / swyx | Son 48 saate ait güvenilir, doğrudan yeni görüş bildirimi doğrulanamadı. | — | ⚠️ Web index yetersiz |\n\n---&quot;}, {&quot;id&quot;: &quot;sec-6-kat-5-reddit-viral&quot;, &quot;title&quot;: &quot;🔴 KAT-5 · Reddit Viral&quot;, &quot;content&quot;: &quot;| Subreddit | Başlık | Upvote | Kaynak |\n|-----------|--------|--------|--------|\n| r/ClaudeAI | AMD AI Director’s Analysis Confirms Lobotomization of Claude | 2179 | [AI Signal digest](https://buttondown.com/ai-signal/archive/ai-signal-april-14-2026/) |\n| r/ClaudeCode | Claude Code (~100 hours) vs. Codex (~20 hours) | 1319 | [AI Signal digest](https://buttondown.com/ai-signal/archive/ai-signal-april-14-2026/) |\n| r/LocalLLaMA | the state of LocalLLaMA | 1705 | [Reddit](https://www.reddit.com/r/LocalLLaMA/comments/1shcgf5/the_state_of_localllama/) |\n\n⚠️ KAT-5 Eşik Notu: Son 24 saatte 500+ upvote doğrulanmış yeni AI thread bulunamadı. Yukarıdaki maddeler stale sinyal olarak tutuldu, Top 7’ye alınmadı.\n\n---&quot;}, {&quot;id&quot;: &quot;sec-7-kat-6-twitter-x-viral&quot;, &quot;title&quot;: &quot;🐦 KAT-6 · Twitter/X Viral&quot;, &quot;content&quot;: &quot;| Hesap | Tweet Özeti | Etki | Tarih |\n|-------|-------------|------|-------|\n| @gregkamradt / ARC-AGI çevresi | ARC-AGI-3’ün frontier modelleri &lt;1% seviyesinde bırakması tartışıldı. | Viral teknik tartışma, metrik doğrulanamadı | 25 Mar civarı |\n| @simonw | AI-powered security research tag’i açtı; siber güvenlikte LLM kullanımını izliyor. | High-signal takip listesi | 4 Apr index |\n| @garrytan | MCP’nin doğru yapıldığında “magic” olabileceğini söyledi. | Agent/MCP sentiment | 4 Apr index |\n| @levelsio | GPT-Image-2 leak iddiası / Arena kod adları tartışıldı. | Viral iddia, resmi doğrulama yok | 4 Apr index |\n\n⚠️ KAT-6 Kaynak Hatası: Canlı X/CDP metrikleri erişilebilir değildi; web index yalnızca eski TechTwitter sayfası verdi. Kaynak: [TechTwitter trending](https://www.techtwitter.com/twitter-trending/2026-04-04)\n\n---&quot;}, {&quot;id&quot;: &quot;sec-8-kat-7-platform-ekosistem&quot;, &quot;title&quot;: &quot;🌐 KAT-7 · Platform &amp; Ekosistem&quot;, &quot;content&quot;: &quot;- **Apple Developer April 2026:** App Store Connect Analytics 100+ yeni metrik, peer benchmarks, Swift concurrency oturumu ve yeni Metal/ML dokümanları yayımlandı. Kaynak: [Apple Developer](https://developer.apple.com/hello/april26)\n- **Apple Siri AI bootcamp:** Siri ekibinin WWDC26 öncesi AI coding bootcamp’e alınması, Apple’ın AI-assisted engineering açığını kapatma hamlesi. Kaynak: [Times of India](https://timesofindia.indiatimes.com/technology/tech-news/just-weeks-before-big-siri-launch-apple-may-send-away-dozens-of-its-engineers-for-a-multiweek-bootcamp/articleshow/130321156.cms)\n- **Chrome 147:** `element.startViewTransition()`, CSS `contrast-color()`, Device Memory API limit güncellemesi ve Local Network Access kısıtları var. Top 7’ye alınmadı çünkü Chrome 147 daha önce raporlanmıştı. Kaynak: [Chrome Developers](https://developer.chrome.com/release-notes/147?hl=en)\n- **VS Code:** 1.116 son sürüm 15 Nisan olarak görünüyor; 1.114 hattında weekly Stable cadence, TypeScript 6.0 ve Claude agent policy notları öne çıkmış. Kaynak: [VersionRelease](https://versionrelease.com/projects/code.visualstudio.com), [Visual Studio Magazine](https://visualstudiomagazine.com/articles/2026/04/02/visual-studio-code-1%2C-d-%2C114-keeps-weekly-cadence-rolling-with-chat-search-and-typescript-updates.aspx)\n\n---&quot;}, {&quot;id&quot;: &quot;sec-9-kat-8-robotik-edge-ai&quot;, &quot;title&quot;: &quot;🦾 KAT-8 · Robotik &amp; Edge AI&quot;, &quot;content&quot;: &quot;- **HiVLA:** Robot manipulation için semantic planning ve action execution ayrımı; gerçek dünya/sim başarıları bildiriliyor. Kaynak: [HF/arXiv 2604.14125](https://huggingface.co/papers/2604.14125)\n- **RAD-2:** Otonom sürüşte closed-loop planning için diffusion generator + RL discriminator; çarpışma oranında ciddi düşüş iddiası var. Kaynak: [HF/arXiv 2604.15308](https://huggingface.co/papers/2604.15308)\n- **HY-World 2.0:** Text/single image/video girdiden navigable 3D world; robot simülasyon ve world-model pipeline’ları için veri motoru olabilir. Kaynak: [HF/arXiv 2604.14268](https://huggingface.co/papers/2604.14268)\n- **Serve Robotics “Maggie”:** T-Mobile edge network ile konuşan delivery robot demosu GTC 2026’da gösterildi; eski tarihli ama edge robotics sinyali. Kaynak: [Serve Robotics](https://ir.serverobotics.com/news-releases/news-release-details/serve-robotics-debut-conversational-robot-powered-edge-ai-nvidia)\n\n---&quot;}, {&quot;id&quot;: &quot;sec-10-kat-9-oss-run-sinyalleri&quot;, &quot;title&quot;: &quot;⭐ KAT-9 · OSS &amp; Ürün Sinyalleri&quot;, &quot;content&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;sec-11-hn-ne-ikanlar&quot;, &quot;title&quot;: &quot;# HN Öne Çıkanlar&quot;, &quot;content&quot;: &quot;| Puan | Başlık | Kaynak |\n|------|--------|--------|\n| 43 | The Bromine Chokepoint: How Strife Could Halt Production of World’s Memory Chips | [HN](https://news.ycombinator.com/news) |\n\n⚠️ HN Notu: Bu geçişte 100+ puanlı AI/OSS Show HN maddesi doğrulanamadı.&quot;}, {&quot;id&quot;: &quot;sec-12-github-trending&quot;, &quot;title&quot;: &quot;# GitHub Trending&quot;, &quot;content&quot;: &quot;| Repo | Stars/Gün | Alan |\n|------|-----------|------|\n| NousResearch/hermes-agent | 6k+ / stale index | Long-lived agent infra |\n| microsoft/markitdown | sayı doğrulanmadı | Document-to-Markdown / RAG plumbing |\n| Archon harness builder | sayı doğrulanmadı | Deterministic agent harness |\n\n⚠️ GitHub Trending Notu: GitHub daily sayfaları açıldı ancak repo satırları parse edilemedi; yukarıdaki sinyaller `agents-radar` stale index’inden. Kaynak: [agents-radar Apr 12](https://github.com/duanyytop/agents-radar/issues/531), [GitHub Python Trending](https://github.com/trending/python?since=daily), [GitHub TypeScript Trending](https://github.com/trending/typescript?since=daily)&quot;}, {&quot;id&quot;: &quot;sec-13-product-hunt-ai&quot;, &quot;title&quot;: &quot;# Product Hunt AI&quot;, &quot;content&quot;: &quot;- **Brila, Velo, NovaVoice, Fathom 3.0, Figma for Agents, Google Gemma 4, Claude Code Desktop App Redesigned** Nisan 2026 AI ürün listesinde üst sıralarda. Kaynak: [Hunted.Space Product Hunt AI](https://hunted.space/top-products/latest/artificial-intelligence)\n\n---&quot;}, {&quot;id&quot;: &quot;sec-14-turk-tech-sahnesi&quot;, &quot;title&quot;: &quot;🇹🇷 Türk Tech Sahnesi&quot;, &quot;content&quot;: &quot;- **Webrazzi AI 2026:** Türkiye iş dünyası ve girişimcilik ekosistemi için 40+ konuşmacı ve 1000+ katılımcı ile yapay zeka odaklı büyük etkinlik raporlandı. 72 saat içinde değil, ama Türkiye sinyali olarak değerli. Kaynak: [Ekonomim](https://www.ekonomim.com/is-dunyasi/is-dunyasinin-yapay-zeka-gundemi-webrazzi-ai-2026da-masaya-yatirildi-haberi-887168), [Güneş](https://www.gunes.com/teknoloji/is-dunyasinin-yapay-zeka-gundemi-webrazzi-ai-2026da-masaya-yatirildi-1226137)\n- **Technopat:** Son taramada yeni 72 saatlik AI gelişmesi bulunmadı; en yakın ilgili içerikler CES/AI PC ve genel AI öngörüleri. Kaynak: [Technopat AMD/CES 2026](https://www.technopat.net/2026/01/17/amdnin-yapay-zeka-artik-herkesin-bilgisayarinda/)\n\n---&quot;}, {&quot;id&quot;: &quot;sec-15-oracle-self-improvement-sinyalleri&quot;, &quot;title&quot;: &quot;🧠 Oracle Self-Improvement Sinyalleri&quot;, &quot;content&quot;: &quot;| # | Bulgu | Kaynak | Uygulama Alanı | Efor |\n|---|-------|--------|----------------|------|\n| 1 | Deep research raporlarında citation coverage + factuality + depth ayrı ayrı skorlanmalı. | [DR³-Eval](https://huggingface.co/papers/2604.14683) | NRE verification gate | Orta |\n| 2 | Trace-based surrogate routing, basit classification/routing görevlerinde pahalı model çağrısını azaltabilir. | [TRACER](https://huggingface.co/papers/2604.14531) | model router / cron triage | Orta |\n| 3 | KV cache reuse fikri, tekrar eden uzun context dosyalarında latency/cost azaltma stratejisi olabilir. | [KV Packet](https://huggingface.co/papers/2604.13226) | context-buffer / memory retrieval | Büyük |\n| 4 | Agent action’larında “insan arkasında mı?” doğrulaması yakında ürün primitive’i olacak. | [World ID 4.0](https://www.computerworld.com/article/4160511/world-id-expands-its-proof-of-human-vision-for-the-ai-era.html) | governance / outbound action policy | Orta |\n\n---&quot;}, {&quot;id&quot;: &quot;sec-16-cikcik-paketi-muxamos-sesi&quot;, &quot;title&quot;: &quot;🐦 CikCik Paketi (@muxamos sesi)&quot;, &quot;content&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;sec-17-tweetler-3-5-adet&quot;, &quot;title&quot;: &quot;# Tweetler (3–5 adet)&quot;, &quot;content&quot;: &quot;**Tweet 1 (Konu: World ID 4.0):**\n&gt; AI agent çağında asıl eksik model değil, kimlik katmanı olabilir. “Bu action’ın arkasında gerçek insan var mı?” sorusu yakında API tasarımının parçası olacak.\n\n**Tweet 2 (Konu: DR³-Eval):**\n&gt; Deep research raporu artık “güzel özet” diye geçmemeli. Citation coverage, factual accuracy, instruction following ve depth quality ayrı ayrı ölçülmeli. Yoksa araştırma değil, süslü hallucination.\n\n**Tweet 3 (Konu: Apple Siri bootcamp):**\n&gt; Apple’ın Siri ekibini AI coding bootcamp’e alması küçük haber değil. Artık şirketlerin AI açığı sadece ürün tarafında değil, içeride yazılım üretme hızında da ölçülüyor.\n\n**Tweet 4 (Konu: HY-World 2.0):**\n&gt; Text/image/video’dan gezilebilir 3D dünya üretimi robotik için sleeper gelişme. Robotu gerçek dünyada eğitmek pahalı; iyi simülasyon datası yeni compute moat’i olabilir.&quot;}, {&quot;id&quot;: &quot;sec-18-reply-firsatlari-2-3&quot;, &quot;title&quot;: &quot;# Reply Fırsatları (2–3)&quot;, &quot;content&quot;: &quot;**@simonw altına (Claude prompt diff):**\n&gt; System prompt diff’lerini git timeline’a çevirmek çok iyi fikir. Model davranışını “release note” gibi değil, değişen operational policy gibi okumak gerekiyor.\n\n**@garrytan altına (MCP):**\n&gt; MCP magic olabilir ama magic kısmı tool discovery değil, permission + audit + rollback disiplini. Yoksa aynı protokol çok hızlı şekilde supply-chain yüzeyi oluyor.&quot;}, {&quot;id&quot;: &quot;sec-19-gunun-hook-u&quot;, &quot;title&quot;: &quot;# Günün Hook&#x27;u&quot;, &quot;content&quot;: &quot;&gt; Agent çağının yeni sorusu: “Bunu AI mı yaptı?” değil, “Bu action’ın sorumlusu kim?”\n\n---&quot;}, {&quot;id&quot;: &quot;sec-20-kaynak-durum-zeti&quot;, &quot;title&quot;: &quot;📊 Kaynak &amp; Durum Özeti&quot;, &quot;content&quot;: &quot;| Kategori | Kaynak | Durum | Madde |\n|----------|--------|-------|-------|\n| KAT-1 | BI, Axios, Simon Willison, Meta/BI | ✅ | 4 |\n| KAT-2 | World, Computerworld, MCP Blog, HF/arXiv | ✅ | 4 |\n| KAT-3 | Hugging Face Daily Papers | ✅ | 7 |\n| KAT-4 | Simon, TechCrunch, diff.blog | ✅/⚠️ | 4 |\n| KAT-5 | Reddit + AI Signal digest | ⚠️ | 3 |\n| KAT-6 | TechTwitter web index | ⚠️ | 4 |\n| KAT-7 | Apple Developer, Chrome Dev, VS Code, Times | ✅ | 4 |\n| KAT-8 | HF/arXiv, Serve Robotics | ✅ | 4 |\n| KAT-9 | HN, GitHub Trending, agents-radar, Product Hunt proxy | ⚠️ | 5 |\n\n**Toplam dedupe elenen:** 12 madde | **Yeni madde:** 24 | **Sonraki temizlik:** 2026-04-20 04:00 İST\n\n---\n\n*Rapor: Gece Araştırma v2 · 2026-04-20 01:00 İST · Oracle 🦉*&quot;}]}</script>
+  <script src="https://cdn.jsdelivr.net/npm/marked@9.1.6/marked.min.js"></script>
+  <button class="back-to-top" type="button" data-back-top aria-label="Back to top">↑</button>
 </body>
 </html>
