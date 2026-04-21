@@ -51,57 +51,23 @@
     });
   }
 
-  var reportPayload = document.getElementById('report-data');
-  if (reportPayload && window.marked) {
-    var data = JSON.parse(reportPayload.textContent);
-    var container = document.querySelector('[data-report-sections]');
-    if (container) {
-      marked.setOptions({ gfm: true, breaks: false, mangle: false, headerIds: false });
-      var renderer = new marked.Renderer();
-      renderer.table = function (header, body) {
-        return '<div class="table-wrap"><table><thead>' + header + '</thead><tbody>' + body + '</tbody></table></div>';
-      };
-      container.innerHTML = data.sections.map(function (section, index) {
-        return [
-          '<section class="report-section" id="' + section.id + '">',
-          '<div class="section-head">',
-          '<div>',
-          '<div class="section-kicker">' + data.sectionLabel + ' ' + String(index + 1).padStart(2, '0') + '</div>',
-          '<h2>' + escapeHtml(section.title) + '</h2>',
-          '</div>',
-          '<a class="ghost-button" href="#' + section.id + '">#</a>',
-          '</div>',
-          '<div class="rendered-markdown">' + marked.parse(section.content, { renderer: renderer }) + '</div>',
-          '</section>'
-        ].join('');
-      }).join('');
-    }
-
-    var sectionLinks = Array.prototype.slice.call(document.querySelectorAll('[data-section-link]'));
-    if (sectionLinks.length) {
-      var ids = sectionLinks.map(function (link) { return link.getAttribute('href').replace('#', ''); });
-      var observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (!entry.isIntersecting) return;
-          var id = entry.target.getAttribute('id');
-          sectionLinks.forEach(function (link) {
-            link.classList.toggle('is-active', link.getAttribute('href') === '#' + id);
-          });
+  var sectionLinks = Array.prototype.slice.call(document.querySelectorAll('[data-section-link]'));
+  if (sectionLinks.length && 'IntersectionObserver' in window) {
+    var ids = sectionLinks.map(function (link) {
+      return (link.getAttribute('href') || '').replace('#', '');
+    }).filter(Boolean);
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var id = entry.target.getAttribute('id');
+        sectionLinks.forEach(function (link) {
+          link.classList.toggle('is-active', link.getAttribute('href') === '#' + id);
         });
-      }, { rootMargin: '-30% 0px -55% 0px', threshold: 0 });
-      ids.forEach(function (id) {
-        var node = document.getElementById(id);
-        if (node) observer.observe(node);
       });
-    }
-  }
-
-  function escapeHtml(input) {
-    return String(input)
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
+    }, { rootMargin: '-30% 0px -55% 0px', threshold: 0 });
+    ids.forEach(function (id) {
+      var node = document.getElementById(id);
+      if (node) observer.observe(node);
+    });
   }
 })();

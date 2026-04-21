@@ -970,58 +970,24 @@ JS = """
     });
   }
 
-  var reportPayload = document.getElementById('report-data');
-  if (reportPayload && window.marked) {
-    var data = JSON.parse(reportPayload.textContent);
-    var container = document.querySelector('[data-report-sections]');
-    if (container) {
-      marked.setOptions({ gfm: true, breaks: false, mangle: false, headerIds: false });
-      var renderer = new marked.Renderer();
-      renderer.table = function (header, body) {
-        return '<div class="table-wrap"><table><thead>' + header + '</thead><tbody>' + body + '</tbody></table></div>';
-      };
-      container.innerHTML = data.sections.map(function (section, index) {
-        return [
-          '<section class="report-section" id="' + section.id + '">',
-          '<div class="section-head">',
-          '<div>',
-          '<div class="section-kicker">' + data.sectionLabel + ' ' + String(index + 1).padStart(2, '0') + '</div>',
-          '<h2>' + escapeHtml(section.title) + '</h2>',
-          '</div>',
-          '<a class="ghost-button" href="#' + section.id + '">#</a>',
-          '</div>',
-          '<div class="rendered-markdown">' + marked.parse(section.content, { renderer: renderer }) + '</div>',
-          '</section>'
-        ].join('');
-      }).join('');
-    }
-
-    var sectionLinks = Array.prototype.slice.call(document.querySelectorAll('[data-section-link]'));
-    if (sectionLinks.length) {
-      var ids = sectionLinks.map(function (link) { return link.getAttribute('href').replace('#', ''); });
-      var observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (!entry.isIntersecting) return;
-          var id = entry.target.getAttribute('id');
-          sectionLinks.forEach(function (link) {
-            link.classList.toggle('is-active', link.getAttribute('href') === '#' + id);
-          });
+  var sectionLinks = Array.prototype.slice.call(document.querySelectorAll('[data-section-link]'));
+  if (sectionLinks.length && 'IntersectionObserver' in window) {
+    var ids = sectionLinks.map(function (link) {
+      return (link.getAttribute('href') || '').replace('#', '');
+    }).filter(Boolean);
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var id = entry.target.getAttribute('id');
+        sectionLinks.forEach(function (link) {
+          link.classList.toggle('is-active', link.getAttribute('href') === '#' + id);
         });
-      }, { rootMargin: '-30% 0px -55% 0px', threshold: 0 });
-      ids.forEach(function (id) {
-        var node = document.getElementById(id);
-        if (node) observer.observe(node);
       });
-    }
-  }
-
-  function escapeHtml(input) {
-    return String(input)
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
+    }, { rootMargin: '-30% 0px -55% 0px', threshold: 0 });
+    ids.forEach(function (id) {
+      var node = document.getElementById(id);
+      if (node) observer.observe(node);
+    });
   }
 })();
 """.strip()
@@ -1605,10 +1571,6 @@ def render_report_page(lang: str, report: Report, reports_by_lang: Dict[str, Lis
         f'<a class="section-link" href="#{section.id}" data-section-link>{html.escape(section.title)}</a>'
         for section in report.sections
     )
-    payload = {
-        "sectionLabel": labels["section_nav"],
-        "sections": [{"id": s.id, "title": s.title, "content": s.content} for s in report.sections],
-    }
     alternate_paths = {code: report_rel_path(code, report.date) for code in LANGS}
     page = f"""
 <!doctype html>
@@ -1675,7 +1637,7 @@ def render_report_page(lang: str, report: Report, reports_by_lang: Dict[str, Lis
           </div>
           {markdown_to_html(clean_intro(report.intro))}
         </section>
-        <div data-report-sections></div>
+        {render_sections_html(labels['section_nav'], report.sections)}
       </div>
     </section>
   </main>
@@ -1685,8 +1647,6 @@ def render_report_page(lang: str, report: Report, reports_by_lang: Dict[str, Lis
       <p>{html.escape(generated_at)}</p>
     </div>
   </footer>
-  <script id=\"report-data\" type=\"application/json\">{json_script_payload(payload)}</script>
-  <script src=\"https://cdn.jsdelivr.net/npm/marked@9.1.6/marked.min.js\"></script>
   <button class=\"back-to-top\" type=\"button\" data-back-top aria-label=\"Back to top\">↑</button>
 </body>
 </html>
@@ -1703,11 +1663,23 @@ URL_ONLY_RE = re.compile(r"(https?://[^\s<]+)")
 
 def apply_inline_markdown(text: str) -> str:
     escaped = html.escape(text)
-    escaped = LINK_RE.sub(lambda m: f'<a href="{html.escape(m.group(2))}">{html.escape(m.group(1))}</a>', escaped)
+    placeholders: Dict[str, str] = {}
+
+    def stash(fragment: str) -> str:
+        token = f"[[HTML_{len(placeholders)}]]"
+        placeholders[token] = fragment
+        return token
+
+    escaped = LINK_RE.sub(
+        lambda m: stash(f'<a href="{html.escape(m.group(2), quote=True)}">{html.escape(m.group(1))}</a>'),
+        escaped,
+    )
+    escaped = INLINE_CODE_RE.sub(lambda m: stash(f'<code>{html.escape(m.group(1))}</code>'), escaped)
     escaped = URL_ONLY_RE.sub(lambda m: f'<a href="{m.group(1)}">{m.group(1)}</a>', escaped)
-    escaped = INLINE_CODE_RE.sub(lambda m: f'<code>{html.escape(m.group(1))}</code>', escaped)
     escaped = INLINE_STRONG_RE.sub(lambda m: f'<strong>{m.group(1)}</strong>', escaped)
     escaped = INLINE_EM_RE.sub(lambda m: f'<em>{m.group(1)}</em>', escaped)
+    for token, fragment in placeholders.items():
+        escaped = escaped.replace(token, fragment)
     return escaped
 
 
@@ -1721,7 +1693,11 @@ def markdown_to_html(markdown: str) -> str:
     chunks: List[str] = []
     paragraph: List[str] = []
     list_buffer: List[str] = []
+    ordered_list_buffer: List[str] = []
     quote_buffer: List[str] = []
+    code_buffer: List[str] = []
+    code_fence: str | None = None
+    table_buffer: List[str] = []
 
     def flush_paragraph() -> None:
         nonlocal paragraph
@@ -1736,6 +1712,13 @@ def markdown_to_html(markdown: str) -> str:
             chunks.append(f"<ul>{items}</ul>")
             list_buffer = []
 
+    def flush_ordered_list() -> None:
+        nonlocal ordered_list_buffer
+        if ordered_list_buffer:
+            items = "".join(f"<li>{apply_inline_markdown(item)}</li>" for item in ordered_list_buffer)
+            chunks.append(f"<ol>{items}</ol>")
+            ordered_list_buffer = []
+
     def flush_quote() -> None:
         nonlocal quote_buffer
         if quote_buffer:
@@ -1743,30 +1726,111 @@ def markdown_to_html(markdown: str) -> str:
             chunks.append(f"<blockquote><p>{apply_inline_markdown(content)}</p></blockquote>")
             quote_buffer = []
 
+    def flush_code() -> None:
+        nonlocal code_buffer, code_fence
+        if code_buffer:
+            class_attr = f' class="language-{html.escape(code_fence)}"' if code_fence else ""
+            chunks.append(f"<pre><code{class_attr}>{html.escape(chr(10).join(code_buffer))}</code></pre>")
+            code_buffer = []
+            code_fence = None
+
+    def flush_table() -> None:
+        nonlocal table_buffer
+        if not table_buffer:
+            return
+        rows = [line.strip() for line in table_buffer if line.strip()]
+        table_buffer = []
+        if len(rows) < 2:
+            chunks.append(f"<p>{apply_inline_markdown(' '.join(rows))}</p>")
+            return
+        separator = rows[1]
+        if not re.match(r"^\|?\s*:?-{3,}:?(\s*\|\s*:?-{3,}:?)*\|?$", separator):
+            chunks.extend(f"<p>{apply_inline_markdown(row)}</p>" for row in rows)
+            return
+        headers = [cell.strip() for cell in rows[0].strip('|').split('|')]
+        body_rows = [[cell.strip() for cell in row.strip('|').split('|')] for row in rows[2:]]
+        thead = "".join(f"<th>{apply_inline_markdown(cell)}</th>" for cell in headers)
+        tbody = "".join(
+            "<tr>" + "".join(f"<td>{apply_inline_markdown(cell)}</td>" for cell in row) + "</tr>"
+            for row in body_rows
+        )
+        chunks.append(f'<div class="table-wrap"><table><thead><tr>{thead}</tr></thead><tbody>{tbody}</tbody></table></div>')
+
     for line in lines:
         stripped = line.strip()
-        if not stripped:
-            flush_paragraph(); flush_list(); flush_quote()
+        if stripped.startswith("```"):
+            flush_paragraph(); flush_list(); flush_ordered_list(); flush_quote(); flush_table()
+            if code_fence is not None:
+                flush_code()
+            else:
+                code_fence = stripped[3:].strip() or None
             continue
+        if code_fence is not None:
+            code_buffer.append(line)
+            continue
+        if not stripped:
+            flush_paragraph(); flush_list(); flush_ordered_list(); flush_quote(); flush_table(); flush_code()
+            continue
+        if TABLE_SPLIT_RE.match(stripped):
+            flush_paragraph(); flush_list(); flush_ordered_list(); flush_quote()
+            table_buffer.append(stripped)
+            continue
+        flush_table()
         if stripped.startswith(">"):
-            flush_paragraph(); flush_list()
+            flush_paragraph(); flush_list(); flush_ordered_list()
             quote_buffer.append(stripped.lstrip("> "))
             continue
         if stripped.startswith("- "):
-            flush_paragraph(); flush_quote()
+            flush_paragraph(); flush_quote(); flush_ordered_list()
             list_buffer.append(stripped[2:].strip())
             continue
+        if re.match(r"^\d+\.\s+", stripped):
+            flush_paragraph(); flush_quote(); flush_list()
+            ordered_list_buffer.append(re.sub(r"^\d+\.\s+", "", stripped))
+            continue
+        if stripped == "---":
+            flush_paragraph(); flush_list(); flush_ordered_list(); flush_quote(); flush_table(); flush_code()
+            chunks.append("<hr>")
+            continue
+        if stripped.startswith("#### "):
+            flush_paragraph(); flush_list(); flush_ordered_list(); flush_quote(); flush_table()
+            chunks.append(f"<h4>{apply_inline_markdown(stripped[5:])}</h4>")
+            continue
         if stripped.startswith("### "):
-            flush_paragraph(); flush_list(); flush_quote()
+            flush_paragraph(); flush_list(); flush_ordered_list(); flush_quote(); flush_table()
             chunks.append(f"<h3>{apply_inline_markdown(stripped[4:])}</h3>")
             continue
         if stripped.startswith("## "):
-            flush_paragraph(); flush_list(); flush_quote()
+            flush_paragraph(); flush_list(); flush_ordered_list(); flush_quote(); flush_table()
             chunks.append(f"<h2>{apply_inline_markdown(stripped[3:])}</h2>")
             continue
+        if stripped.startswith("# "):
+            flush_paragraph(); flush_list(); flush_ordered_list(); flush_quote(); flush_table()
+            chunks.append(f"<h1>{apply_inline_markdown(stripped[2:])}</h1>")
+            continue
         paragraph.append(stripped)
-    flush_paragraph(); flush_list(); flush_quote()
+    flush_paragraph(); flush_list(); flush_ordered_list(); flush_quote(); flush_table(); flush_code()
     return "\n".join(chunks)
+
+
+def render_sections_html(section_label: str, sections: List[Section]) -> str:
+    rendered_sections = []
+    for index, section in enumerate(sections, start=1):
+        rendered_sections.append(
+            f"""
+<section class="report-section" id="{html.escape(section.id)}">
+  <div class="section-head">
+    <div>
+      <div class="section-kicker">{html.escape(section_label)} {str(index).zfill(2)}</div>
+      <h2>{html.escape(section.title)}</h2>
+    </div>
+    <a class="ghost-button" href="#{html.escape(section.id)}">#</a>
+  </div>
+  <div class="rendered-markdown">{markdown_to_html(section.content)}</div>
+</section>
+""".strip()
+        )
+    return "\n".join(rendered_sections)
 
 
 def render_raw_index(lang: str, reports_by_lang: Dict[str, List[Report]], generated_at: str) -> str:
@@ -2085,10 +2149,6 @@ def render_collection_entry_page(lang: str, collection: str, report: Report, rep
         f'<a class="section-link" href="#{section.id}" data-section-link>{html.escape(section.title)}</a>'
         for section in report.sections
     )
-    payload = {
-        "sectionLabel": labels["section_nav"],
-        "sections": [{"id": s.id, "title": s.title, "content": s.content} for s in report.sections],
-    }
     alternate_paths = {code: collection_item_rel_path(code, collection, report.date) for code in LANGS}
 
     page = f"""
@@ -2156,7 +2216,7 @@ def render_collection_entry_page(lang: str, collection: str, report: Report, rep
           </div>
           {markdown_to_html(clean_intro(report.intro))}
         </section>
-        <div data-report-sections></div>
+        {render_sections_html(labels['section_nav'], report.sections)}
       </div>
     </section>
   </main>
@@ -2166,8 +2226,6 @@ def render_collection_entry_page(lang: str, collection: str, report: Report, rep
       <p>{html.escape(generated_at)}</p>
     </div>
   </footer>
-  <script id=\"report-data\" type=\"application/json\">{json_script_payload(payload)}</script>
-  <script src=\"https://cdn.jsdelivr.net/npm/marked@9.1.6/marked.min.js\"></script>
   <button class=\"back-to-top\" type=\"button\" data-back-top aria-label=\"Back to top\">↑</button>
 </body>
 </html>
