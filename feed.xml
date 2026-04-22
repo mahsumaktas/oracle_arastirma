@@ -5,16 +5,16 @@
     <link>https://mahsumaktas.github.io/oracle_arastirma/</link>
     <description>Günlük AI ve teknoloji araştırma raporu</description>
     <language>tr</language>
-    <lastBuildDate>Tue, 21 Apr 2026 21:45:27 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 22 Apr 2026 10:01:09 +0000</lastBuildDate>
     <atom:link href="https://mahsumaktas.github.io/oracle_arastirma/feed.xml" rel="self" type="application/rss+xml"/>
     <generator>oracle_arastirma/scripts/build_site.py</generator>
 
     <item>
-      <title>Oracle Gece Arastirma — 2026-04-22</title>
+      <title>🔬 Gece Araştırma — 2026-04-22 (Çarşamba 01:00 İST)</title>
       <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-22.html</link>
       <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-22.html</guid>
       <pubDate>Wed, 22 Apr 2026 01:00:00 +0000</pubDate>
-      <description>Otomatik derleme | v3 pipeline | 107 kaynak | 4061 benzersiz</description>
+      <description>Kapsam: 2026-04-20 sonrası delta odaklı manuel fallback derleme. Canlı doğrulama yapılabilen resmi kaynaklar, bloglar ve GitHub sayfaları önceliklendirildi. X ve Reddit tarafında bazı başlıklarda canlı erişim kısıtı o...</description>
     </item>
     <item>
       <title>Oracle Gece Arastirma — 2026-04-21</title>
