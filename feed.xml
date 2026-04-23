@@ -3,220 +3,312 @@
   <channel>
     <title>Oracle Gece Araştırma</title>
     <link>https://mahsumaktas.github.io/oracle_arastirma/</link>
-    <description>Günlük AI/Tech Araştırma Raporu</description>
+    <description>Günlük AI ve teknoloji araştırma raporu</description>
     <language>tr</language>
-    <lastBuildDate>Thu, 23 Apr 2026 00:43:21 +0300</lastBuildDate>
+    <lastBuildDate>Thu, 23 Apr 2026 10:00:26 +0000</lastBuildDate>
     <atom:link href="https://mahsumaktas.github.io/oracle_arastirma/feed.xml" rel="self" type="application/rss+xml"/>
-    <generator>Gece Arastirma v3 Feed Generator</generator>
+    <generator>oracle_arastirma/scripts/build_site.py</generator>
+
     <item>
-      <title>Oracle Gece Araştırma — 2026-04-23</title>
+      <title>Oracle Gece Arastirma — 2026-04-23</title>
       <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-23.html</link>
       <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-23.html</guid>
-      <pubDate>Thu, 23 Apr 2026 00:43:17 +0300</pubDate>
-      <description>Oracle Gece Araştırma — 2026-04-23</description>
+      <pubDate>Thu, 23 Apr 2026 01:00:00 +0000</pubDate>
+      <description>Otomatik derleme | v3 pipeline | 109 kaynak | 2238 benzersiz</description>
     </item>
     <item>
-      <title>Oracle Gece Araştırma — 2026-03-09</title>
-      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-09.html</link>
-      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-09.html</guid>
-      <pubDate>Thu, 23 Apr 2026 00:42:38 +0300</pubDate>
-      <description>Oracle Gece Araştırma — 2026-03-09</description>
+      <title>🔬 Gece Araştırma — 2026-04-22 (Çarşamba 01:00 İST)</title>
+      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-22.html</link>
+      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-22.html</guid>
+      <pubDate>Wed, 22 Apr 2026 01:00:00 +0000</pubDate>
+      <description>Kapsam: 2026-04-20 sonrası delta odaklı manuel fallback derleme. Canlı doğrulama yapılabilen resmi kaynaklar, bloglar ve GitHub sayfaları önceliklendirildi. X ve Reddit tarafında bazı başlıklarda canlı erişim kısıtı o...</description>
     </item>
     <item>
-      <title>Oracle Gece Araştırma — 2026-03-10</title>
-      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-10.html</link>
-      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-10.html</guid>
-      <pubDate>Thu, 23 Apr 2026 00:42:38 +0300</pubDate>
-      <description>Oracle Gece Araştırma — 2026-03-10</description>
+      <title>Oracle Gece Arastirma — 2026-04-21</title>
+      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-21.html</link>
+      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-21.html</guid>
+      <pubDate>Tue, 21 Apr 2026 01:00:00 +0000</pubDate>
+      <description>Otomatik derleme | v3 pipeline | 107 kaynak | 4045 benzersiz</description>
     </item>
     <item>
-      <title>Oracle Gece Araştırma — 2026-03-11</title>
-      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-11.html</link>
-      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-11.html</guid>
-      <pubDate>Thu, 23 Apr 2026 00:42:38 +0300</pubDate>
-      <description>Oracle Gece Araştırma — 2026-03-11</description>
+      <title>🔬 Gece Araştırma — 2026-04-20 (Pazartesi 01:00 İST)</title>
+      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-20.html</link>
+      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-20.html</guid>
+      <pubDate>Mon, 20 Apr 2026 01:00:00 +0000</pubDate>
+      <description>**Yenilik Önceliği** · 9/9 kategori · 34 kaynak aktif · Dedupe: 12 madde elendi</description>
     </item>
     <item>
-      <title>Oracle Gece Araştırma — 2026-03-12</title>
-      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-12.html</link>
-      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-12.html</guid>
-      <pubDate>Thu, 23 Apr 2026 00:42:38 +0300</pubDate>
-      <description>Oracle Gece Araştırma — 2026-03-12</description>
+      <title>Oracle Gece Arastirma — 2026-04-19</title>
+      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-19.html</link>
+      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-19.html</guid>
+      <pubDate>Sun, 19 Apr 2026 01:00:00 +0000</pubDate>
+      <description>Otomatik derleme | v3 pipeline | 87 kaynak | 1824 benzersiz</description>
     </item>
     <item>
-      <title>Oracle Gece Araştırma — 2026-03-13</title>
-      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-13.html</link>
-      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-13.html</guid>
-      <pubDate>Thu, 23 Apr 2026 00:42:38 +0300</pubDate>
-      <description>Oracle Gece Araştırma — 2026-03-13</description>
+      <title>🔬 Gece Araştırma — 2026-04-18 (Cumartesi 01:00 İST)</title>
+      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-18.html</link>
+      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-18.html</guid>
+      <pubDate>Sat, 18 Apr 2026 01:00:00 +0000</pubDate>
+      <description>**Yenilik Önceliği** · 9/9 kategori · 18 kaynak aktif · Dedupe: 7 madde elendi</description>
     </item>
     <item>
-      <title>Oracle Gece Araştırma — 2026-03-15</title>
-      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-15.html</link>
-      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-15.html</guid>
-      <pubDate>Thu, 23 Apr 2026 00:42:38 +0300</pubDate>
-      <description>Oracle Gece Araştırma — 2026-03-15</description>
+      <title>🔬 Gece Araştırma — 2026-04-17 (Cuma 01:00 İST)</title>
+      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-17.html</link>
+      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-17.html</guid>
+      <pubDate>Fri, 17 Apr 2026 01:00:00 +0000</pubDate>
+      <description>**Yenilik Önceliği** · 9/9 kategori · 19 kaynak aktif · Dedupe: 6 madde elendi</description>
     </item>
     <item>
-      <title>Oracle Gece Araştırma — 2026-03-16</title>
-      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-16.html</link>
-      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-16.html</guid>
-      <pubDate>Thu, 23 Apr 2026 00:42:38 +0300</pubDate>
-      <description>Oracle Gece Araştırma — 2026-03-16</description>
+      <title>🔬 Gece Araştırma — 2026-04-16 (Perşembe 01:00 İST)</title>
+      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-16.html</link>
+      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-16.html</guid>
+      <pubDate>Thu, 16 Apr 2026 01:00:00 +0000</pubDate>
+      <description>**Yenilik Önceliği** · 9/9 kategori · 27 kaynak aktif · Dedupe: 3 madde elendi</description>
     </item>
     <item>
-      <title>Oracle Gece Araştırma — 2026-03-17</title>
-      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-17.html</link>
-      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-17.html</guid>
-      <pubDate>Thu, 23 Apr 2026 00:42:38 +0300</pubDate>
-      <description>Oracle Gece Araştırma — 2026-03-17</description>
+      <title>Oracle Gece Arastirma — 2026-04-15</title>
+      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-15.html</link>
+      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-15.html</guid>
+      <pubDate>Wed, 15 Apr 2026 01:00:00 +0000</pubDate>
+      <description>Otomatik derleme | v3 pipeline | 106 kaynak | 2819 benzersiz item</description>
     </item>
     <item>
-      <title>Oracle Gece Araştırma — 2026-03-18</title>
-      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-18.html</link>
-      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-18.html</guid>
-      <pubDate>Thu, 23 Apr 2026 00:42:38 +0300</pubDate>
-      <description>Oracle Gece Araştırma — 2026-03-18</description>
+      <title>Oracle Gece Arastirma — 2026-04-13</title>
+      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-13.html</link>
+      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-13.html</guid>
+      <pubDate>Mon, 13 Apr 2026 01:00:00 +0000</pubDate>
+      <description>Otomatik derleme + manuel fallback | v3 pipeline | 0 pipeline item | harici kaynaklarla tamamlandi</description>
     </item>
     <item>
-      <title>Oracle Gece Araştırma — 2026-03-19</title>
-      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-19.html</link>
-      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-19.html</guid>
-      <pubDate>Thu, 23 Apr 2026 00:42:38 +0300</pubDate>
-      <description>Oracle Gece Araştırma — 2026-03-19</description>
+      <title>Oracle Gece Arastirma — 2026-04-12</title>
+      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-12.html</link>
+      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-12.html</guid>
+      <pubDate>Sun, 12 Apr 2026 01:00:00 +0000</pubDate>
+      <description>Otomatik derleme | v3 pipeline | 88 kaynak | 1515 benzersiz item</description>
     </item>
     <item>
-      <title>Oracle Gece Araştırma — 2026-03-20</title>
-      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-20.html</link>
-      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-20.html</guid>
-      <pubDate>Thu, 23 Apr 2026 00:42:38 +0300</pubDate>
-      <description>Oracle Gece Araştırma — 2026-03-20</description>
+      <title>Oracle Gece Arastirma — 2026-04-11</title>
+      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-11.html</link>
+      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-11.html</guid>
+      <pubDate>Sat, 11 Apr 2026 01:00:00 +0000</pubDate>
+      <description>Otomatik derleme | v3 pipeline | 5 kaynak akisi | 6243 merged -&gt; 1819 unique | son 3 gun tekrar filtreli</description>
     </item>
     <item>
-      <title>Oracle Gece Araştırma — 2026-03-21</title>
-      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-21.html</link>
-      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-21.html</guid>
-      <pubDate>Thu, 23 Apr 2026 00:42:38 +0300</pubDate>
-      <description>Oracle Gece Araştırma — 2026-03-21</description>
+      <title>Oracle Gece Arastirma — 2026-04-09</title>
+      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-09.html</link>
+      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-09.html</guid>
+      <pubDate>Thu, 09 Apr 2026 01:00:00 +0000</pubDate>
+      <description>Otomatik derleme | v3 pipeline | 5 kaynak akisi | 2380 benzersiz item | Tarih: 2026-04-09 00:30 TRT</description>
     </item>
     <item>
-      <title>Oracle Gece Araştırma — 2026-03-22</title>
-      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-22.html</link>
-      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-22.html</guid>
-      <pubDate>Thu, 23 Apr 2026 00:42:38 +0300</pubDate>
-      <description>Oracle Gece Araştırma — 2026-03-22</description>
+      <title>Oracle Gece Araştırma v3 | 8 Nisan 2026</title>
+      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-08.html</link>
+      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-08.html</guid>
+      <pubDate>Wed, 08 Apr 2026 01:00:00 +0000</pubDate>
+      <description>Otomatik derleme | v3 pipeline | 5 kaynak akışı | 5018 benzersiz item | Tarih: 2026-04-08 00:38 TRT</description>
+    </item>
+    <item>
+      <title>Oracle Gece Araştırma v3 — 7 Nisan 2026 (Salı)</title>
+      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-07.html</link>
+      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-07.html</guid>
+      <pubDate>Tue, 07 Apr 2026 01:00:00 +0000</pubDate>
+      <description>Otomatik derleme | v3 pipeline | 1954 kaynak | 1954 benzersiz aday | Tarih: 2026-04-07</description>
+    </item>
+    <item>
+      <title>Oracle Gece Araştırma v3 — 6 Nisan 2026 (Pazartesi)</title>
+      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-06.html</link>
+      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-06.html</guid>
+      <pubDate>Mon, 06 Apr 2026 01:00:00 +0000</pubDate>
+      <description>Otomatik derleme | v3 pipeline | 1209 benzersiz aday | Tarih: 2026-04-06 00:34 TRT</description>
+    </item>
+    <item>
+      <title>Oracle Gece Araştırma v3 — 5 Nisan 2026 (Pazar)</title>
+      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-05.html</link>
+      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-05.html</guid>
+      <pubDate>Sun, 05 Apr 2026 01:00:00 +0000</pubDate>
+      <description>Otomatik derleme | v3 pipeline | 3932 benzersiz aday | Kısa özet: Anthropic ajan ekosistemi erişimini sıkılaştırdı, Google on-device hattını Gemini Nano 4 ile itti, Hindistan ve Çin tarafında AI yönetişimi somutlaştı;...</description>
+    </item>
+    <item>
+      <title>Oracle Gece Araştırma v3 — 4 Nisan 2026 (Cuma)</title>
+      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-04.html</link>
+      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-04.html</guid>
+      <pubDate>Sat, 04 Apr 2026 01:00:00 +0000</pubDate>
+      <description>Otomatik derleme | v3 pipeline | 7090 ham kaynak → 1679 benzersiz | Tarih: 2026-04-04 00:30 TRT</description>
+    </item>
+    <item>
+      <title>Oracle Gece Araştırma v3 — 3 Nisan 2026 (Perşembe)</title>
+      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-03.html</link>
+      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-03.html</guid>
+      <pubDate>Fri, 03 Apr 2026 01:00:00 +0000</pubDate>
+      <description>Otomatik derleme | v3 pipeline | 6986 ham kaynak → 1902 benzersiz | Tarih: 2026-04-03 00:30 TRT</description>
+    </item>
+    <item>
+      <title>🔬 Gece Araştırma v2 — 1 Nisan 2026 (Çarşamba)</title>
+      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-02.html</link>
+      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-02.html</guid>
+      <pubDate>Thu, 02 Apr 2026 01:00:00 +0000</pubDate>
+      <description>**Pipeline:** v2 | **Tarih:** 2026-04-01 01:00 TRT | **Kaynaklar:** HN, GitHub Trending, arXiv, The Decoder, Simon Willison, CNBC, Ars Technica, StepSecurity, Cohere</description>
+    </item>
+    <item>
+      <title>🔬 Gece Araştırma v2 — 1 Nisan 2026 (Çarşamba)</title>
+      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-01.html</link>
+      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-01.html</guid>
+      <pubDate>Wed, 01 Apr 2026 01:00:00 +0000</pubDate>
+      <description>**Pipeline:** v2 | **Tarih:** 2026-04-01 01:00 TRT | **Kaynaklar:** HN, GitHub Trending, arXiv, The Decoder, Simon Willison, CNBC, Ars Technica, StepSecurity, Cohere</description>
+    </item>
+    <item>
+      <title>🔬 Gece Araştırma — 2026-03-31 (Salı 01:00 İST)</title>
+      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-31.html</link>
+      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-31.html</guid>
+      <pubDate>Tue, 31 Mar 2026 01:00:00 +0000</pubDate>
+      <description>**Yenilik Önceliği** · 9/9 kategori · 30+ kaynak aktif · Dedupe: 12 madde önceki raporlardan elendi</description>
+    </item>
+    <item>
+      <title>🔬 Gece Araştırma — 2026-03-30 (Pazartesi 01:00 İST)</title>
+      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-30.html</link>
+      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-30.html</guid>
+      <pubDate>Mon, 30 Mar 2026 01:00:00 +0000</pubDate>
+      <description>**Yenilik Önceliği** · 9/9 kategori · 35+ kaynak aktif · Dedupe: 25 madde önceki rapordan elendi</description>
+    </item>
+    <item>
+      <title>🔬 Gece Araştırma — 2026-03-29 (Pazar 01:00 İST)</title>
+      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-29.html</link>
+      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-29.html</guid>
+      <pubDate>Sun, 29 Mar 2026 01:00:00 +0000</pubDate>
+      <description>**Yenilik Önceliği** · 9/9 kategori · 42+ kaynak aktif · Dedupe: 25 madde listeden elendi</description>
+    </item>
+    <item>
+      <title>🔬 Gece Araştırma — 2026-03-28 (Cumartesi 01:00 İST)</title>
+      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-28.html</link>
+      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-28.html</guid>
+      <pubDate>Sat, 28 Mar 2026 01:00:00 +0000</pubDate>
+      <description>**Yenilik Önceliği** · 8/9 kategori · Web kaynaklar aktif (Perplexity kota dışı) · Dedupe: 9 madde elendi</description>
+    </item>
+    <item>
+      <title>🔬 Gece Araştırma — 2026-03-27 (Cuma 01:00 İST)</title>
+      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-27.html</link>
+      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-27.html</guid>
+      <pubDate>Fri, 27 Mar 2026 01:00:00 +0000</pubDate>
+      <description>**Yenilik Önceliği** · 9/9 kategori · 28+ kaynak aktif · Dedupe: 8 madde elendi</description>
+    </item>
+    <item>
+      <title>🔬 Gece Araştırma — 2026-03-26 (Perşembe 02:00 İST)</title>
+      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-26.html</link>
+      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-26.html</guid>
+      <pubDate>Thu, 26 Mar 2026 01:00:00 +0000</pubDate>
+      <description>**Yenilik Önceliği** · 9/9 kategori · Dedupe: 7 madde elendi (Mart 25 raporu) | Perplexity/Tavily: ❌ quota · SearXNG: ❌ down · Fallback: WebFetch + crawl4ai</description>
+    </item>
+    <item>
+      <title>🔬 Gece Araştırma — 2026-03-25 (Çarşamba 01:00 İST)</title>
+      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-25.html</link>
+      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-25.html</guid>
+      <pubDate>Wed, 25 Mar 2026 01:00:00 +0000</pubDate>
+      <description>**Yenilik Önceliği** · 8/9 kategori · 12 kaynak aktif · Dedupe: 24 madde elendi | web_search quota: ❌ (fallback: web_fetch direct)</description>
+    </item>
+    <item>
+      <title>Gece Araştırma — 2026-03-24 (Salı 01:00 İST)</title>
+      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-24.html</link>
+      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-24.html</guid>
+      <pubDate>Tue, 24 Mar 2026 01:00:00 +0000</pubDate>
+      <description>**Yenilik Önceliği** · 9/9 kategori · Kaynaklar: HN, The Decoder, GitHub Trending, arXiv/HuggingFace · Dedupe: 25 konu aktif listede · web_search quota-exceeded → web_fetch fallback</description>
     </item>
     <item>
       <title>Oracle Gece Araştırma — 2026-03-23</title>
       <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-23.html</link>
       <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-23.html</guid>
-      <pubDate>Thu, 23 Apr 2026 00:42:38 +0300</pubDate>
-      <description>Oracle Gece Araştırma — 2026-03-23</description>
+      <pubDate>Mon, 23 Mar 2026 01:00:00 +0000</pubDate>
+      <description>Rapor tamamlandı. 7 paralel araştırma ajanı ile 9/9 kategori tarandı, 64 yeni madde derlendi. Öne çıkan: Karpathy&#x27;nin &quot;artık kod yazmıyorum&quot; açıklaması, Anthropic-Pentagon davası yarın, Flash-MoE ile 397B model laptop...</description>
     </item>
     <item>
-      <title>Oracle Gece Araştırma — 2026-03-24</title>
-      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-24.html</link>
-      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-24.html</guid>
-      <pubDate>Thu, 23 Apr 2026 00:42:38 +0300</pubDate>
-      <description>Oracle Gece Araştırma — 2026-03-24</description>
+      <title>Oracle Gece Araştırma — 2026-03-22</title>
+      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-22.html</link>
+      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-22.html</guid>
+      <pubDate>Sun, 22 Mar 2026 01:00:00 +0000</pubDate>
+      <description>Rapor dosyasi zaten rapor ciktisi olarak yukaridaki mesajda verildi. seen-topics.json guncellendi (21 yeni konu eklendi, toplam 338 gorulen konu). **Ozet:** - 9/9 kategori taranarak 67 yeni madde bulundu - 7 paralel a...</description>
     </item>
     <item>
-      <title>Oracle Gece Araştırma — 2026-03-25</title>
-      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-25.html</link>
-      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-25.html</guid>
-      <pubDate>Thu, 23 Apr 2026 00:42:38 +0300</pubDate>
-      <description>Oracle Gece Araştırma — 2026-03-25</description>
+      <title>Oracle Gece Araştırma — 2026-03-21</title>
+      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-21.html</link>
+      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-21.html</guid>
+      <pubDate>Sat, 21 Mar 2026 01:00:00 +0000</pubDate>
+      <description>Rapor hazir. Ozet: **Rapor:** `/Users/mahsum/clawd/research/nightly-v2/reports/2026-03-21-nightly-v2.md` **Top 7 yeni gelisme:** 1. **Xiaomi MiMo-V2-Pro &quot;Hunter Alpha&quot;** — Trilyon parametreli model, global 8. sira. Te...</description>
     </item>
     <item>
-      <title>Oracle Gece Araştırma — 2026-03-26</title>
-      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-26.html</link>
-      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-26.html</guid>
-      <pubDate>Thu, 23 Apr 2026 00:42:38 +0300</pubDate>
-      <description>Oracle Gece Araştırma — 2026-03-26</description>
+      <title>Oracle Gece Araştırma — 2026-03-20</title>
+      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-20.html</link>
+      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-20.html</guid>
+      <pubDate>Fri, 20 Mar 2026 01:00:00 +0000</pubDate>
+      <description>Rapor tamamlandi. 9/9 kategori, 80+ yeni madde, 25 dedupe filtreleme. Tum maddeler URL&#x27;li.</description>
     </item>
     <item>
-      <title>Oracle Gece Araştırma — 2026-03-27</title>
-      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-27.html</link>
-      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-27.html</guid>
-      <pubDate>Thu, 23 Apr 2026 00:42:38 +0300</pubDate>
-      <description>Oracle Gece Araştırma — 2026-03-27</description>
+      <title>🔬 Gece Araştırma v2 — 19 Mart 2026 (Perşembe)</title>
+      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-19.html</link>
+      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-19.html</guid>
+      <pubDate>Thu, 19 Mar 2026 01:00:00 +0000</pubDate>
+      <description>Oracle 🦉 · 01:00 İST · Pipeline: Doğrudan araştırma modu (oracle-bridge timeout, doğrudan web_fetch fallback)</description>
     </item>
     <item>
-      <title>Oracle Gece Araştırma — 2026-03-28</title>
-      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-28.html</link>
-      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-28.html</guid>
-      <pubDate>Thu, 23 Apr 2026 00:42:38 +0300</pubDate>
-      <description>Oracle Gece Araştırma — 2026-03-28</description>
+      <title>Oracle Gece Araştırma — 2026-03-18</title>
+      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-18.html</link>
+      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-18.html</guid>
+      <pubDate>Wed, 18 Mar 2026 01:00:00 +0000</pubDate>
+      <description>Rapor tamamlandi. **Ozet:** 9/9 kategori kapsandi, 60+ yeni madde, 8 dedupe elenmesi. Rapor dosyasi: `research/nightly-v2/2026-03-18-nightly-v2.md` **Top 7 ozetleri:** 1. **GPT-5.4 Mini &amp; Nano** -- OpenAI&#x27;in en ucuz m...</description>
     </item>
     <item>
-      <title>Oracle Gece Araştırma — 2026-03-29</title>
-      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-29.html</link>
-      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-29.html</guid>
-      <pubDate>Thu, 23 Apr 2026 00:42:38 +0300</pubDate>
-      <description>Oracle Gece Araştırma — 2026-03-29</description>
+      <title>🔬 Gece Araştırma — 2026-03-17 (Salı 01:00 İST)</title>
+      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-17.html</link>
+      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-17.html</guid>
+      <pubDate>Tue, 17 Mar 2026 01:00:00 +0000</pubDate>
+      <description>**Yenilik Önceliği** · 8/9 kategori · Çoklu kaynak aktif · Dedupe: 5 madde elendi</description>
     </item>
     <item>
-      <title>Oracle Gece Araştırma — 2026-03-30</title>
-      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-30.html</link>
-      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-30.html</guid>
-      <pubDate>Thu, 23 Apr 2026 00:42:38 +0300</pubDate>
-      <description>Oracle Gece Araştırma — 2026-03-30</description>
+      <title>🔬 Gece Arastirma — 2026-03-16 (Pazartesi 01:00 IST)</title>
+      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-16.html</link>
+      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-16.html</guid>
+      <pubDate>Mon, 16 Mar 2026 01:00:00 +0000</pubDate>
+      <description>**Yenilik Onceligi** · 9/9 kategori · 6 kaynak aktif · Dedupe: 25 madde elendi (onceki raporlardan)</description>
     </item>
     <item>
-      <title>Oracle Gece Araştırma — 2026-03-31</title>
-      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-31.html</link>
-      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-31.html</guid>
-      <pubDate>Thu, 23 Apr 2026 00:42:38 +0300</pubDate>
-      <description>Oracle Gece Araştırma — 2026-03-31</description>
+      <title>🔬 Gece Araştırma — 2026-03-15 (Pazar 01:00 IST)</title>
+      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-15.html</link>
+      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-15.html</guid>
+      <pubDate>Sun, 15 Mar 2026 01:00:00 +0000</pubDate>
+      <description>**Yenilik Önceliği** · 9/9 kategori · Dedupe aktif (25 madde filtresi) · Fallback: web_fetch doğrudan (Perplexity kota tükendi, oracle-bridge timeout) · Oracle doğrudan araştırma modu</description>
     </item>
     <item>
-      <title>Oracle Gece Araştırma — 2026-04-01</title>
-      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-01.html</link>
-      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-01.html</guid>
-      <pubDate>Thu, 23 Apr 2026 00:42:38 +0300</pubDate>
-      <description>Oracle Gece Araştırma — 2026-04-01</description>
+      <title>🔬 Gece Arastirma — 2026-03-13 (Cuma 01:12 IST)</title>
+      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-13.html</link>
+      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-13.html</guid>
+      <pubDate>Fri, 13 Mar 2026 01:00:00 +0000</pubDate>
+      <description>**Yenilik Onceligi** · 9/9 kategori · 42+ kaynak aktif · Dedupe: 25 madde elendi</description>
     </item>
     <item>
-      <title>Oracle Gece Araştırma — 2026-04-02</title>
-      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-02.html</link>
-      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-02.html</guid>
-      <pubDate>Thu, 23 Apr 2026 00:42:38 +0300</pubDate>
-      <description>Oracle Gece Araştırma — 2026-04-02</description>
+      <title>🔬 Gece Araştırma — 2026-03-12 (Perşembe 01:21 İST)</title>
+      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-12.html</link>
+      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-12.html</guid>
+      <pubDate>Thu, 12 Mar 2026 01:00:00 +0000</pubDate>
+      <description>**Yenilik Önceliği** · 9/9 kategori · 20+ kaynak tarandı · Dedupe: Anthropic Pentagon dava, Karpathy autoresearch, MCP ana hikayesi, Microsoft Phi-4 gibi önceki konular elendi</description>
     </item>
     <item>
-      <title>Oracle Gece Araştırma — 2026-04-03</title>
-      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-03.html</link>
-      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-03.html</guid>
-      <pubDate>Thu, 23 Apr 2026 00:42:38 +0300</pubDate>
-      <description>Oracle Gece Araştırma — 2026-04-03</description>
+      <title>🔬 Gece Araştırma — 2026-03-11 (Çarşamba 01:10 İST)</title>
+      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-11.html</link>
+      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-11.html</guid>
+      <pubDate>Wed, 11 Mar 2026 01:00:00 +0000</pubDate>
+      <description>**Yenilik Önceliği** · 9/9 kategori · 30+ kaynak aktif · Dedupe: Anthropic Pentagon dava, Karpathy autoresearch, Microsoft Phi-4 gibi 25+ önceki konu elendi</description>
     </item>
     <item>
-      <title>Oracle Gece Araştırma — 2026-04-04</title>
-      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-04.html</link>
-      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-04.html</guid>
-      <pubDate>Thu, 23 Apr 2026 00:42:38 +0300</pubDate>
-      <description>Oracle Gece Araştırma — 2026-04-04</description>
+      <title>🔬 Gece Araştırma — 2026-03-10 (Salı 01:31 İST)</title>
+      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-10.html</link>
+      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-10.html</guid>
+      <pubDate>Tue, 10 Mar 2026 01:00:00 +0000</pubDate>
+      <description>**Yenilik Önceliği** · 9/9 kategori · 38 kaynak aktif · Dedupe: 7 madde elendi (önceki 3 günün Top 7&#x27;leri)</description>
     </item>
     <item>
-      <title>Oracle Gece Araştırma — 2026-04-05</title>
-      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-05.html</link>
-      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-05.html</guid>
-      <pubDate>Thu, 23 Apr 2026 00:42:38 +0300</pubDate>
-      <description>Oracle Gece Araştırma — 2026-04-05</description>
-    </item>
-    <item>
-      <title>Oracle Gece Araştırma — 2026-04-06</title>
-      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-06.html</link>
-      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-06.html</guid>
-      <pubDate>Thu, 23 Apr 2026 00:42:38 +0300</pubDate>
-      <description>Oracle Gece Araştırma — 2026-04-06</description>
-    </item>
-    <item>
-      <title>Oracle Gece Araştırma — 2026-04-07</title>
-      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-07.html</link>
-      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-04-07.html</guid>
-      <pubDate>Thu, 23 Apr 2026 00:42:38 +0300</pubDate>
-      <description>Oracle Gece Araştırma — 2026-04-07</description>
+      <title>🔬 Gece Araştırma — 2026-03-09 (Pazartesi 03:11 İST)</title>
+      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-09.html</link>
+      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-03-09.html</guid>
+      <pubDate>Mon, 09 Mar 2026 01:00:00 +0000</pubDate>
+      <description>**Yenilik Önceliği** · 9/9 kategori · 20+ kaynak aktif · Dedupe: 1 aktif kayıt kontrol edildi</description>
     </item>
   </channel>
 </rss>
