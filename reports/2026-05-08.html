@@ -1,324 +1,196 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Oracle Gece Araştırma raporu 2026-05-08">
-<title>Oracle Gece Araştırma v3 — 2026-05-08 · Oracle Gece Araştırma</title>
-<link rel="canonical" href="https://mahsumaktas.github.io/oracle_arastirma/reports/2026-05-08.html">
-<link rel="alternate" hreflang="tr" href="https://mahsumaktas.github.io/oracle_arastirma/reports/2026-05-08.html">
-<link rel="alternate" hreflang="en" href="https://mahsumaktas.github.io/oracle_arastirma/en/reports/2026-05-08.html">
-<link rel="alternate" hreflang="es" href="https://mahsumaktas.github.io/oracle_arastirma/es/reports/2026-05-08.html">
-<link rel="alternate" hreflang="x-default" href="https://mahsumaktas.github.io/oracle_arastirma/reports/2026-05-08.html">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/site.css">
-<script defer src="../assets/site.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Yenilik Önceliği">
+<title>Oracle Araştırma — 2026-05-08</title>
+<style>
+/* ── Reset & base ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#ffffff;--fg:#111111;--link:#0066cc;--link-hover:#004499;
+  --border:#dee2e6;--code-bg:#f4f4f4;--blockquote-bg:#f8f9fa;
+  --table-head:#f0f0f0;--table-stripe:#fafafa;
+  --accent:#2563eb;--warn:#f59e0b;--ok:#16a34a;--danger:#dc2626;
+  --font-sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --font-mono:"SFMono-Regular",Menlo,Monaco,Consolas,"Liberation Mono",monospace;
+  --radius:8px;
+}
+@media(prefers-color-scheme:dark){
+  :root{
+    --bg:#0d1117;--fg:#e6edf3;--link:#58a6ff;--link-hover:#79b8ff;
+    --border:#30363d;--code-bg:#161b22;--blockquote-bg:#161b22;
+    --table-head:#161b22;--table-stripe:#161b22;
+    --accent:#58a6ff;
+  }
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--fg);
+  font-family:var(--font-sans);font-size:16px;line-height:1.7;
+  -webkit-text-size-adjust:100%;
+}
+
+/* ── Layout ── */
+.page-wrap{max-width:860px;margin:0 auto;padding:0 16px 80px}
+header{
+  background:var(--accent);color:#fff;
+  padding:18px 16px 14px;
+  border-radius:0 0 var(--radius) var(--radius);
+  margin-bottom:28px;
+}
+header h1{font-size:clamp(1.1rem,4vw,1.5rem);font-weight:700;line-height:1.3}
+header .meta{font-size:.85rem;opacity:.85;margin-top:6px}
+header .meta a{color:#cfe2ff;text-decoration:none}
+header .meta a:hover{text-decoration:underline}
+
+nav.breadcrumb{font-size:.85rem;margin-bottom:20px;color:var(--link)}
+nav.breadcrumb a{color:var(--link);text-decoration:none}
+nav.breadcrumb a:hover{text-decoration:underline}
+nav.breadcrumb span{color:var(--fg);opacity:.6;margin:0 6px}
+
+/* ── Markdown content ── */
+#content h1{font-size:clamp(1.3rem,5vw,1.8rem);margin:32px 0 12px;line-height:1.3}
+#content h2{font-size:clamp(1.1rem,4vw,1.4rem);margin:28px 0 10px;border-bottom:2px solid var(--border);padding-bottom:6px}
+#content h3{font-size:clamp(1rem,3.5vw,1.2rem);margin:22px 0 8px}
+#content p{margin:10px 0}
+#content a{color:var(--link);word-break:break-word}
+#content a:hover{color:var(--link-hover)}
+#content strong{font-weight:700}
+#content em{font-style:italic}
+#content hr{border:none;border-top:2px solid var(--border);margin:28px 0}
+
+/* ── Lists ── */
+#content ul,#content ol{margin:10px 0 10px 1.4em}
+#content li{margin:4px 0}
+
+/* ── Blockquotes ── */
+#content blockquote{
+  background:var(--blockquote-bg);
+  border-left:4px solid var(--accent);
+  margin:14px 0;padding:10px 16px;
+  border-radius:0 var(--radius) var(--radius) 0;
+}
+#content blockquote p{margin:4px 0}
+
+/* ── Code ── */
+#content code{
+  background:var(--code-bg);color:var(--fg);
+  border-radius:4px;padding:2px 6px;
+  font-family:var(--font-mono);font-size:.88em;
+  word-break:break-all;
+}
+#content pre{
+  background:var(--code-bg);border-radius:var(--radius);
+  padding:14px 16px;overflow-x:auto;margin:14px 0;
+}
+#content pre code{
+  background:none;padding:0;border-radius:0;
+  font-size:.85em;word-break:normal;
+}
+
+/* ── Tables — responsive wrap ── */
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0}
+#content table{
+  border-collapse:collapse;width:100%;min-width:340px;
+  font-size:.9em;
+}
+#content th{
+  background:var(--table-head);
+  text-align:left;padding:8px 12px;
+  border:1px solid var(--border);font-weight:600;
+}
+#content td{
+  padding:7px 12px;border:1px solid var(--border);
+  vertical-align:top;word-break:break-word;
+}
+#content tr:nth-child(even) td{background:var(--table-stripe)}
+
+/* ── Emoji badges in text ── */
+.badge{
+  display:inline-block;padding:1px 7px;border-radius:99px;
+  font-size:.78rem;font-weight:600;line-height:1.6;
+}
+
+/* ── Back to top ── */
+#back-top{
+  position:fixed;bottom:20px;right:16px;
+  background:var(--accent);color:#fff;
+  border:none;border-radius:50%;width:44px;height:44px;
+  font-size:1.3rem;cursor:pointer;
+  box-shadow:0 2px 8px rgba(0,0,0,.3);
+  display:flex;align-items:center;justify-content:center;
+  text-decoration:none;
+}
+#back-top:hover{opacity:.85}
+
+/* ── Loading state ── */
+#loading{text-align:center;padding:60px 0;color:var(--fg);opacity:.5;font-size:1.1rem}
+</style>
 </head>
 <body>
-  <header class="site-header">
-  <div class="shell header-bar">
-    <a class="brand" href="../index.html">
-      <span class="brand-mark">🦉</span>
-      <span class="brand-text">
-        <span class="brand-kicker">Oracle archive</span>
-        <h1 class="brand-title">Oracle Gece Araştırma</h1>
-        <p class="brand-subtitle">2026-05-08</p>
-      </span>
-    </a>
-    <div class="header-actions">
-      <div class="lang-switch"><span class="lang-switch-label">Dil</span><a class="lang-chip is-active" href="2026-05-08.html" lang="tr">TÜ</a><a class="lang-chip" href="../en/reports/2026-05-08.html" lang="en">EN</a><a class="lang-chip" href="../es/reports/2026-05-08.html" lang="es">ES</a></div>
-      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle theme"><span data-theme-icon>◐</span></button>
+<header>
+  <div class="page-wrap">
+    <h1>🔬 🔬 Gece Araştırma — 2026-05-08 (Cuma 01:00 İST)</h1>
+    <div class="meta">
+      Oracle Gece Araştırma &middot; 2026-05-08 &middot;
+      <a href="https://mahsumaktas.github.io/oracle_arastirma/index.html">← Tüm Raporlar</a>
     </div>
   </div>
 </header>
-  <main class="shell">
-    <section class="hero">
-      <div class="hero-card">
-        <div class="hero-layout">
-          <div>
-            <div class="breadcrumbs"><a href="../index.html">Arşive dön</a><span>•</span><span>2026-05-08</span></div>
-            <span class="hero-kicker">Araştırma raporu</span>
-            <h1>Oracle Gece Araştırma v3 — 2026-05-08</h1>
-            <p>Otomatik derleme | v3 pipeline | 6.760 ham item → 2.580 unique item | 109 kaynak | önceki 3 gün ana haberleri ayıklandı.</p>
-            <div class="hero-actions">
-              <span class="hero-pill"><strong>22</strong> bölüm</span>
-              <span class="hero-pill"><strong>3070</strong> kelime</span>
-            </div>
-          </div>
-          <div class="stats-grid">
-            <div class="stat-card">
-              <span class="stat-label">Öne çıkan not</span>
-              <div class="stat-detail">Otomatik derleme | v3 pipeline | 6.760 ham item → 2.580 unique item | 109 kaynak | önceki 3 gün ana haberleri ayıklandı.</div>
-            </div>
-            <div class="stat-card">
-              <span class="stat-label">Hızlı erişim</span>
-              <div class="report-actions-row" style="margin-top:12px">
-                <a class="button" href="../raw/2026-05-08.md">Ham markdown</a>
-                <a class="ghost-button" href="../index.html">Tüm raporlar</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <section class="report-layout">
-      <aside class="sticky-column stack">
-        <div class="panel">
-          <div class="panel-title"><div><h3>İçindekiler</h3><p>Türkçe kaynak korunur. EN/ES authored markdown varsa doğrudan kullanılır, yoksa acil durumda fallback çeviri uygulanır.</p></div></div>
-          <nav class="report-nav"><a class="section-link" href="#sec-1-gunun-zeti" data-section-link>Günün Özeti</a><a class="section-link" href="#sec-2-top-7" data-section-link>Top 7</a><a class="section-link" href="#sec-3-kat-1-llm-model-guncellemeleri" data-section-link>KAT-1 — LLM &amp; Model Güncellemeleri</a><a class="section-link" href="#sec-4-kat-2-arastirma-paper-lar" data-section-link>KAT-2 — Araştırma &amp; Paper’lar</a><a class="section-link" href="#sec-5-kat-3-araclar-framework-ler" data-section-link>KAT-3 — Araçlar &amp; Framework’ler</a><a class="section-link" href="#sec-6-kat-4-acik-kaynak" data-section-link>KAT-4 — Açık Kaynak</a><a class="section-link" href="#sec-7-kat-5-endustri-irketler" data-section-link>KAT-5 — Endüstri &amp; Şirketler</a><a class="section-link" href="#sec-8-kat-6-ai-agent-lar" data-section-link>KAT-6 — AI Agent’lar</a><a class="section-link" href="#sec-9-kat-7-multimodal" data-section-link>KAT-7 — Multimodal</a><a class="section-link" href="#sec-10-kat-8-robotik-embodied-ai" data-section-link>KAT-8 — Robotik &amp; Embodied AI</a><a class="section-link" href="#sec-11-kat-9-edge-veri-altyapi" data-section-link>KAT-9 — Edge, Veri &amp; Altyapı</a><a class="section-link" href="#sec-12-security-guvenlik" data-section-link>SECURITY — Güvenlik</a><a class="section-link" href="#sec-13-regulation-regulasyon-politika" data-section-link>REGULATION — Regülasyon &amp; Politika</a><a class="section-link" href="#sec-14-ai-science-bilimsel-ai" data-section-link>AI-SCIENCE — Bilimsel AI</a><a class="section-link" href="#sec-15-infra-compute-cloud-donanim" data-section-link>INFRA — Compute, Cloud, Donanım</a><a class="section-link" href="#sec-16-safety-alignment-interpretability-evals" data-section-link>SAFETY — Alignment, Interpretability, Evals</a><a class="section-link" href="#sec-17-watchlist-izlenecekler" data-section-link>WATCHLIST — İzlenecekler</a><a class="section-link" href="#sec-18-trends-7-gunluk-sinyal" data-section-link>TRENDS — 7 Günlük Sinyal</a><a class="section-link" href="#sec-19-cikcik-paketi" data-section-link>CikCik Paketi</a><a class="section-link" href="#sec-20-oracle-self-improvement-sinyalleri" data-section-link>Oracle Self-Improvement Sinyalleri</a><a class="section-link" href="#sec-21-kaynak-zeti" data-section-link>Kaynak Özeti</a><a class="section-link" href="#sec-22-dedupe-kalite-notu" data-section-link>Dedupe &amp; Kalite Notu</a></nav>
-        </div>
-        <div class="panel">
-          <div class="panel-title"><div><h3>Hızlı erişim</h3></div></div>
-          <div class="report-tools">
-            <a class="ghost-button" href="../raw/2026-05-08.md">Kaynak markdown</a>
-            <a class="ghost-button" href="2026-05-08.html">Türkçe orijinal</a>
-            <a class="ghost-button" href="2026-05-07.html">Önceki rapor</a>
-            
-          </div>
-        </div>
-      </aside>
-      <div class="report-main">
-        <section class="report-summary-card rendered-markdown">
-          <div class="section-head">
-            <div>
-              <div class="section-kicker">Rapor özeti</div>
-              <h2>Rapor özeti</h2>
-            </div>
-          </div>
-          <blockquote><p>Otomatik derleme | v3 pipeline | 6.760 ham item → 2.580 unique item | 109 kaynak | önceki 3 gün ana haberleri ayıklandı.</p></blockquote>
-        </section>
-        <section class="report-section" id="sec-1-gunun-zeti">
-  <div class="section-head">
-    <div>
-      <div class="section-kicker">Bölümler 01</div>
-      <h2>Günün Özeti</h2>
-    </div>
-    <a class="ghost-button" href="#sec-1-gunun-zeti">#</a>
-  </div>
-  <div class="rendered-markdown"><p>Bugünün ana resmi: <strong>agent altyapısı artık ürün, güvenlik ve ödeme katmanına iniyor</strong>. OpenAI latency için WebSocket execution, Google Kubernetes üzerinde agent sandbox, AWS ise AgentCore payments ile “agent çalıştırma”yı gerçek işlem/ödeme akışına bağlıyor. Akademik tarafta agent memory, RAG değerlendirme, alignment collapse ve mechanistic interpretability öne çıktı. Güvenlik tarafında Copy Fail Linux olayı, Cline Kanban WebSocket hijack iddiası ve Hugging Face’te malware uyarısı aynı noktayı gösteriyor: AI sistemlerinde risk artık modelden çok runtime + toolchain + supply-chain yüzeyinde.</p></div>
-</section>
-<section class="report-section" id="sec-2-top-7">
-  <div class="section-head">
-    <div>
-      <div class="section-kicker">Bölümler 02</div>
-      <h2>Top 7</h2>
-    </div>
-    <a class="ghost-button" href="#sec-2-top-7">#</a>
-  </div>
-  <div class="rendered-markdown"><ol><li><strong>OpenAI Responses API için WebSocket tabanlı execution mode duyuruldu; agentic workflow latency’sinde %40’a kadar iyileşme iddia ediliyor.</strong> Bu, coding agent ve real-time AI sistemlerinde “request/response API” yerine canlı execution hattının standartlaşmasına işaret ediyor. Kaynak: <a href="https://www.infoq.com/news/2026/05/openai-websocket-responses-api/?utm_campaign=infoq_content&amp;utm_source=infoq&amp;utm_medium=feed&amp;utm_term=AI%2C+ML+%26+Data+Engineering">https://www.infoq.com/news/2026/05/openai-websocket-responses-api/?utm_campaign=infoq_content&amp;utm_source=infoq&amp;utm_medium=feed&amp;utm_term=AI%2C+ML+%26+Data+Engineering</a></li><li><strong>Google, GKE Agent Sandbox ve Hypercluster ile Kubernetes’i AI agent runtime zemini olarak konumlandırıyor.</strong> gVisor izolasyonu ve yüksek sandbox throughput’u, önceki günlerin MCP/sandbox güvenlik gündemini doğrudan cloud-native altyapıya taşıyor. Kaynak: <a href="https://www.infoq.com/news/2026/05/gke-agent-sandbox-hypercluster/?utm_campaign=infoq_content&amp;utm_source=infoq&amp;utm_medium=feed&amp;utm_term=AI%2C+ML+%26+Data+Engineering">https://www.infoq.com/news/2026/05/gke-agent-sandbox-hypercluster/?utm_campaign=infoq_content&amp;utm_source=infoq&amp;utm_medium=feed&amp;utm_term=AI%2C+ML+%26+Data+Engineering</a></li><li><strong>AWS Bedrock AgentCore payments, Coinbase ve Stripe ile agent’ların işlem/ödeme yapabilmesini ürünleştiriyor.</strong> Agent commerce anlatısı artık demo değil; ödeme, yetkilendirme ve audit gerektiren gerçek iş akışına bağlanıyor. Kaynak: <a href="https://aws.amazon.com/blogs/machine-learning/agents-that-transact-introducing-amazon-bedrock-agentcore-payments-built-with-coinbase-and-stripe/">https://aws.amazon.com/blogs/machine-learning/agents-that-transact-introducing-amazon-bedrock-agentcore-payments-built-with-coinbase-and-stripe/</a></li><li><strong>OpenAI “Trusted Contact” güvenlik mekanizmasını duyurdu.</strong> Self-harm riski gibi yüksek hassasiyetli senaryolarda insan temas noktası tasarımı, consumer AI güvenliği için yeni ürün yüzeyi oluyor. Kaynak: <a href="https://techcrunch.com/2026/05/07/openai-introduces-new-trusted-contact-safeguard-for-cases-of-possible-self-harm/">https://techcrunch.com/2026/05/07/openai-introduces-new-trusted-contact-safeguard-for-cases-of-possible-self-harm/</a></li><li><strong>Cloudflare, “Copy Fail” Linux vulnerability müdahalesini detaylandırdı.</strong> Kritik kernel privilege escalation vakası, AI slop ile yayılan exploit anlatılarında doğrulanmış incident response pratiğinin önemini gösteriyor. Kaynak: <a href="https://blog.cloudflare.com/copy-fail-linux-vulnerability-mitigation/">https://blog.cloudflare.com/copy-fail-linux-vulnerability-mitigation/</a></li><li><strong>Natural Language Autoencoders, LLM aktivasyonlarını doğal dille açıklama yönünde güçlü interpretability sinyali verdi.</strong> “Claude’un düşüncelerini dile çevirmek” tartışması alignment/safety tarafında pratik açıklanabilirlik aracı olabilir. Kaynak: <a href="https://www.alignmentforum.org/posts/oeYesesaxjzMAktCM/natural-language-autoencoders-produce-unsupervised">https://www.alignmentforum.org/posts/oeYesesaxjzMAktCM/natural-language-autoencoders-produce-unsupervised</a></li><li><strong>AMD MI350P PCIe accelerator ve NVIDIA GB200/NCCL verimlilik notları, AI infra yarışının GPU form-factor + cluster scheduling + observability eksenine kaydığını gösteriyor.</strong> Yerel/enterprise inference için “sadece model” değil, deployment verimi belirleyici. Kaynaklar: <a href="https://www.theregister.com/ai-and-ml/2026/05/07/amd-takes-aim-at-enterprise-ai-with-pcie-based-instinct-gpus/5231481">https://www.theregister.com/ai-and-ml/2026/05/07/amd-takes-aim-at-enterprise-ai-with-pcie-based-instinct-gpus/5231481</a> | <a href="https://developer.nvidia.com/blog/achieving-peak-system-and-workload-efficiency-on-nvidia-gb200-nvl72-with-slurm-block-scheduling">https://developer.nvidia.com/blog/achieving-peak-system-and-workload-efficiency-on-nvidia-gb200-nvl72-with-slurm-block-scheduling</a></li></ol></div>
-</section>
-<section class="report-section" id="sec-3-kat-1-llm-model-guncellemeleri">
-  <div class="section-head">
-    <div>
-      <div class="section-kicker">Bölümler 03</div>
-      <h2>KAT-1 — LLM &amp; Model Güncellemeleri</h2>
-    </div>
-    <a class="ghost-button" href="#sec-3-kat-1-llm-model-guncellemeleri">#</a>
-  </div>
-  <div class="rendered-markdown"><ul><li><strong>Subquadratic, 12M-token long-context model SubQ ile uzun bağlam savaşını yeniden açtı.</strong> Eğer pratik latency/maliyet doğrulanırsa RAG yerine “çok uzun context + seçici okuma” mimarileri güçlenir. Kaynak: <a href="https://news.google.com/rss/articles/CBMidEFVX3lxTE5zY3NmMUJWZXJIbF9GTk5pZVR3ZHl3ZE1HTWl2WkNJYVU1VklOMzBJQWdxV1dBOTFiTVl5dGowSnJ2U09fTGozZTF1U3IyWEsxOWdTbS1yLUpsYUcxVGd5TVVGOTQ5ampiUXI4NTlLaVBrVHNZ?oc=5">https://news.google.com/rss/articles/CBMidEFVX3lxTE5zY3NmMUJWZXJIbF9GTk5pZVR3ZHl3ZE1HTWl2WkNJYVU1VklOMzBJQWdxV1dBOTFiTVl5dGowSnJ2U09fTGozZTF1U3IyWEsxOWdTbS1yLUpsYUcxVGd5TVVGOTQ5ampiUXI4NTlLaVBrVHNZ?oc=5</a></li><li><strong>Zyphra ZAYA1-8B ve Sulphur-2-base Hugging Face trend listesinde öne çıktı.</strong> Küçük/orta ölçekli açık model hattı, inference maliyeti ve fine-tune esnekliği nedeniyle canlı kalıyor. Kaynaklar: <a href="https://huggingface.co/Zyphra/ZAYA1-8B">https://huggingface.co/Zyphra/ZAYA1-8B</a> | <a href="https://huggingface.co/SulphurAI/Sulphur-2-base">https://huggingface.co/SulphurAI/Sulphur-2-base</a></li><li><strong>Xiaomi MiMo-V2.5-Pro, local/Chinese open model ekosisteminde izlenmesi gereken yeni adaylardan biri.</strong> Özellikle tool-use ve multimodal varyant beklentisi nedeniyle watchlist’e alınmalı. Kaynak: <a href="https://huggingface.co/XiaomiMiMo/MiMo-V2.5-Pro">https://huggingface.co/XiaomiMiMo/MiMo-V2.5-Pro</a></li></ul></div>
-</section>
-<section class="report-section" id="sec-4-kat-2-arastirma-paper-lar">
-  <div class="section-head">
-    <div>
-      <div class="section-kicker">Bölümler 04</div>
-      <h2>KAT-2 — Araştırma &amp; Paper’lar</h2>
-    </div>
-    <a class="ghost-button" href="#sec-4-kat-2-arastirma-paper-lar">#</a>
-  </div>
-  <div class="rendered-markdown"><ul><li><strong>Storage Is Not Memory</strong>, agent memory için “her şeyi kaydet” yaklaşımına karşı retrieval-centered architecture öneriyor. Oracle açısından doğrudan ders: memory ingestion değil, recall kalitesi optimize edilmeli. Kaynak: <a href="https://arxiv.org/abs/2605.04897">https://arxiv.org/abs/2605.04897</a></li><li><strong>SCOUT</strong>, million-token long-text understanding için active information foraging öneriyor. Uzun rapor okuma/özetleme pipeline’larında “önce soru, sonra hedefli okuma” yaklaşımını destekliyor. Kaynak: <a href="https://arxiv.org/abs/2605.04496">https://arxiv.org/abs/2605.04496</a></li><li><strong>DoGMaTiQ</strong>, citation-backed raporların otomatik Q&amp;A nugget’larıyla değerlendirilmesini öneriyor. Gece araştırma raporları için kalite gate adayı. Kaynak: <a href="https://arxiv.org/abs/2605.04458">https://arxiv.org/abs/2605.04458</a></li><li><strong>CAR</strong>, RAG sistemlerinde confidence-aware reranking sunuyor; retrieval kalitesini yalnız similarity değil güven skoruyla da sıralıyor. Kaynak: <a href="https://arxiv.org/abs/2605.04495">https://arxiv.org/abs/2605.04495</a></li></ul></div>
-</section>
-<section class="report-section" id="sec-5-kat-3-araclar-framework-ler">
-  <div class="section-head">
-    <div>
-      <div class="section-kicker">Bölümler 05</div>
-      <h2>KAT-3 — Araçlar &amp; Framework’ler</h2>
-    </div>
-    <a class="ghost-button" href="#sec-5-kat-3-araclar-framework-ler">#</a>
-  </div>
-  <div class="rendered-markdown"><ul><li><strong>GitHub Copilot CLI “Rubber Duck” artık daha fazla modelle çalışıyor.</strong> Cross-family reviewer/critic agent yaklaşımı, code review’de model çeşitliliğini ürünleştiriyor. Kaynak: <a href="https://github.blog/changelog/2026-05-07-rubber-duck-in-github-copilot-cli-now-supports-more-models">https://github.blog/changelog/2026-05-07-rubber-duck-in-github-copilot-cli-now-supports-more-models</a></li><li><strong>GitHub Copilot CLI enterprise-managed plugins public preview’e çıktı.</strong> Enterprise agent/tool standardizasyonu için merkezi plugin dağıtımı önemli. Kaynak: <a href="https://github.blog/changelog/2026-05-06-enterprise-managed-plugins-in-github-copilot-cli-are-now-in-public-preview">https://github.blog/changelog/2026-05-06-enterprise-managed-plugins-in-github-copilot-cli-are-now-in-public-preview</a></li><li><strong>Docker, AI agent sandboxing yaklaşımlarını karşılaştırdı.</strong> Container, VM, syscall izolasyonu ve policy tasarımı agent runtime güvenliğinin ana mühendislik konusu oluyor. Kaynak: <a href="https://www.docker.com/blog/comparing-sandboxing-approaches-ai-agents/">https://www.docker.com/blog/comparing-sandboxing-approaches-ai-agents/</a></li><li><strong>Mojo v1.0.0b1 Lobsters’ta öne çıktı.</strong> AI/performance programming hattında Python ergonomisi + sistem dili performansı iddiası yeniden gündemde. Kaynak: <a href="https://mojolang.org/releases/v1.0.0b1">https://mojolang.org/releases/v1.0.0b1</a></li></ul></div>
-</section>
-<section class="report-section" id="sec-6-kat-4-acik-kaynak">
-  <div class="section-head">
-    <div>
-      <div class="section-kicker">Bölümler 06</div>
-      <h2>KAT-4 — Açık Kaynak</h2>
-    </div>
-    <a class="ghost-button" href="#sec-6-kat-4-acik-kaynak">#</a>
-  </div>
-  <div class="rendered-markdown"><ul><li><strong>addyosmani/agent-skills GitHub Trending’de.</strong> Skill tabanlı agent kompozisyonu, “prompt dosyası”ndan modüler yetenek kütüphanesine geçişi temsil ediyor. Kaynak: <a href="https://github.com/addyosmani/agent-skills">https://github.com/addyosmani/agent-skills</a></li><li><strong>bytedance/deer-flow trending listesinde.</strong> Workflow/agent orchestration açık kaynak tarafında büyük oyuncuların repo yayını hızlanıyor. Kaynak: <a href="https://github.com/bytedance/deer-flow">https://github.com/bytedance/deer-flow</a></li><li><strong>sectorllm, llama2 inference’ı 1500 byte altı x86 assembly ile gösteriyor.</strong> Minimal inference deneyleri model deployment sınırlarını öğretici biçimde zorluyor. Kaynak: <a href="https://github.com/rdmsr/sectorllm">https://github.com/rdmsr/sectorllm</a></li><li><strong>jlearn, J diliyle machine learning library denemesi olarak toplulukta göründü.</strong> Niş ama pedagojik değer taşıyan alternatif ML implementasyonları izlenmeli. Kaynak: <a href="https://github.com/jonghough/jlearn">https://github.com/jonghough/jlearn</a></li></ul></div>
-</section>
-<section class="report-section" id="sec-7-kat-5-endustri-irketler">
-  <div class="section-head">
-    <div>
-      <div class="section-kicker">Bölümler 07</div>
-      <h2>KAT-5 — Endüstri &amp; Şirketler</h2>
-    </div>
-    <a class="ghost-button" href="#sec-7-kat-5-endustri-irketler">#</a>
-  </div>
-  <div class="rendered-markdown"><ul><li><strong>Pit, Stockholm çıkışlı “AI product teams as a service” iddiasıyla a16z liderliğinde fon aldı.</strong> Enterprise AI’da değer, modelden çok ürün teslim ekibi ve workflow ownership katmanında fiyatlanıyor. Kaynak: <a href="https://techcrunch.com/2026/05/07/voi-founders-new-ai-startup-pit-has-become-the-latest-rising-star-out-of-stockholm/">https://techcrunch.com/2026/05/07/voi-founders-new-ai-startup-pit-has-become-the-latest-rising-star-out-of-stockholm/</a></li><li><strong>Roche’un PathAI’ı 1.05 milyar dolara kadar bedelle alma hamlesi, AI diagnostics pazarını konsolide ediyor.</strong> Healthcare AI’da model doğruluğu kadar dağıtım ve regülasyon erişimi değerli. Kaynak: <a href="https://www.reddit.com/r/artificial/comments/1t669lb/roche_to_buy_pathai_for_up_to_105_billion_to/">https://www.reddit.com/r/artificial/comments/1t669lb/roche_to_buy_pathai_for_up_to_105_billion_to/</a></li><li><strong>OpenAI’nin Broadcom chip deal finansmanında 18 milyar dolarlık pürüz iddiası, AI chip projelerinin sermaye darboğazını gösteriyor.</strong> Frontier compute artık teknik değil bilanço problemi. Kaynak: <a href="https://news.google.com/rss/articles/CBMiogFBVV95cUxOS3l1cnBBd2lrdFhSQkpGVVlKeTNfeXNHWXZOU1hkMmR5SXhvZE1MNEc4eF9jZUFSOXpHdmw3QUpEVVJSQVl1NUh2c3ZCUV9NUVlOZFh4VW1uRHRzYXNGWG5aMmc1WmZPS1NROXJuUnRUNktJeThmNlFyTUFrTVVHbTY0WnhQUHl6RUVLMmdsM0xaTE1QZVpwQVB2WFFjR0RwVkE?oc=5">https://news.google.com/rss/articles/CBMiogFBVV95cUxOS3l1cnBBd2lrdFhSQkpGVVlKeTNfeXNHWXZOU1hkMmR5SXhvZE1MNEc4eF9jZUFSOXpHdmw3QUpEVVJSQVl1NUh2c3ZCUV9NUVlOZFh4VW1uRHRzYXNGWG5aMmc1WmZPS1NROXJuUnRUNktJeThmNlFyTUFrTVVHbTY0WnhQUHl6RUVLMmdsM0xaTE1QZVpwQVB2WFFjR0RwVkE?oc=5</a></li></ul></div>
-</section>
-<section class="report-section" id="sec-8-kat-6-ai-agent-lar">
-  <div class="section-head">
-    <div>
-      <div class="section-kicker">Bölümler 08</div>
-      <h2>KAT-6 — AI Agent’lar</h2>
-    </div>
-    <a class="ghost-button" href="#sec-8-kat-6-ai-agent-lar">#</a>
-  </div>
-  <div class="rendered-markdown"><ul><li><strong>AWS AgentCore payments, agent’ların Coinbase/Stripe üzerinden ödeme yapması için işlem katmanı açıyor.</strong> Bu alan yüksek riskli: authorization, spend limit, audit trail ve rollback zorunlu olacak. Kaynak: <a href="https://aws.amazon.com/blogs/machine-learning/agents-that-transact-introducing-amazon-bedrock-agentcore-payments-built-with-coinbase-and-stripe/">https://aws.amazon.com/blogs/machine-learning/agents-that-transact-introducing-amazon-bedrock-agentcore-payments-built-with-coinbase-and-stripe/</a></li><li><strong>Google’ın 24/7 shopping agent sinyali, consumer agent commerce yarışını hızlandırıyor.</strong> Kullanıcı adına satın alma yapan agent’lar mahremiyet, iade ve dolandırıcılık kurallarını yeniden yazacak. Kaynak: <a href="https://news.google.com/rss/articles/CBMia0FVX3lxTE1yMjd5STFPVjBUbFNOYXE1VUE4U1BLaWlUOU1OODkwcVlzQ2k4TlhSWGFBbE1tYUw2THRRTWFiRHJGXzZrXzNJRFo0dS01dEI1RkMtN3JMUjQ3TXNubnEwQlNWMkRGUVZ4Vy1J?oc=5">https://news.google.com/rss/articles/CBMia0FVX3lxTE1yMjd5STFPVjBUbFNOYXE1VUE4U1BLaWlUOU1OODkwcVlzQ2k4TlhSWGFBbE1tYUw2THRRTWFiRHJGXzZrXzNJRFo0dS01dEI1RkMtN3JMUjQ3TXNubnEwQlNWMkRGUVZ4Vy1J?oc=5</a></li><li><strong>ServiceNow, SAP ve Workday agent’ları “pay to play” iş modeline çekiyor.</strong> Enterprise SaaS oyuncuları agent layer’ı core workflow monetization alanı yapıyor. Kaynak: <a href="https://news.google.com/rss/articles/CBMirAFBVV95cUxNcFk2QVJLdUpoNjBzOFdFc3JHTUF6Z2RUYVFBSXRMUWFORXh4eHA4RzYyNS1LRU9SMXhVTnQyNDU3emJndEtwWGxTcHEyYTJmbC15SVBKZ3k5V19IYjdyN0lxNFpjdkRGTTNJbi0xTmRRNDVpeFUwU2Y0cjg2dHRxc3h6bUlsZjVJbVpkaE5WemNmbVNsQTNWTi1XR2gwSl9ybXZHVklyV2F4cTEx?oc=5">https://news.google.com/rss/articles/CBMirAFBVV95cUxNcFk2QVJLdUpoNjBzOFdFc3JHTUF6Z2RUYVFBSXRMUWFORXh4eHA4RzYyNS1LRU9SMXhVTnQyNDU3emJndEtwWGxTcHEyYTJmbC15SVBKZ3k5V19IYjdyN0lxNFpjdkRGTTNJbi0xTmRRNDVpeFUwU2Y0cjg2dHRxc3h6bUlsZjVJbVpkaE5WemNmbVNsQTNWTi1XR2gwSl9ybXZHVklyV2F4cTEx?oc=5</a></li><li><strong>Qwen/WebWorld 32B/14B/8B, web agent training/evaluation için açık model serisi olarak toplulukta ilgi gördü.</strong> Web interaction trajectory verisi agent performansında kritik varlık haline geliyor. Kaynak: <a href="https://www.reddit.com/r/LocalLLaMA/comments/1t6c6vs/qwenwebworld_32b14b8b_qwen3_finetune/">https://www.reddit.com/r/LocalLLaMA/comments/1t6c6vs/qwenwebworld_32b14b8b_qwen3_finetune/</a></li></ul></div>
-</section>
-<section class="report-section" id="sec-9-kat-7-multimodal">
-  <div class="section-head">
-    <div>
-      <div class="section-kicker">Bölümler 09</div>
-      <h2>KAT-7 — Multimodal</h2>
-    </div>
-    <a class="ghost-button" href="#sec-9-kat-7-multimodal">#</a>
-  </div>
-  <div class="rendered-markdown"><ul><li><strong>Natural Language Autoencoders, aktivasyonları metne çevirerek interpretability’i insan-okunur hale getirmeyi deniyor.</strong> Multimodal değil ama temsil → dil çevirisi açısından model içi gözlemleme hattında önemli. Kaynak: <a href="https://www.alignmentforum.org/posts/oeYesesaxjzMAktCM/natural-language-autoencoders-produce-unsupervised">https://www.alignmentforum.org/posts/oeYesesaxjzMAktCM/natural-language-autoencoders-produce-unsupervised</a></li><li><strong>DALight-3D, multi-modal MRI ile beyin tümörü segmentasyonu için hafif 3D U-Net öneriyor.</strong> Medical imaging tarafında edge/clinic deployment maliyeti önem kazanıyor. Kaynak: <a href="https://arxiv.org/abs/2605.04518">https://arxiv.org/abs/2605.04518</a></li><li><strong>From Video-to-PDE, video verisinden fiziksel dinamik denklemleri keşfetmeye çalışıyor.</strong> Video understanding ile scientific discovery arasındaki köprü güçleniyor. Kaynak: <a href="https://arxiv.org/abs/2605.04535">https://arxiv.org/abs/2605.04535</a></li></ul></div>
-</section>
-<section class="report-section" id="sec-10-kat-8-robotik-embodied-ai">
-  <div class="section-head">
-    <div>
-      <div class="section-kicker">Bölümler 10</div>
-      <h2>KAT-8 — Robotik &amp; Embodied AI</h2>
-    </div>
-    <a class="ghost-button" href="#sec-10-kat-8-robotik-embodied-ai">#</a>
-  </div>
-  <div class="rendered-markdown"><ul><li><strong>LabOS², dry-lab planlamadan wet-lab cell culture execution’a uzanan autonomous science agent örneği olarak tartışıldı.</strong> Fiziksel AI’da değer, simülasyon değil gerçek laboratuvar eylem zinciri. Kaynak: <a href="https://www.reddit.com/r/singularity/comments/1t67t8b/stanfordprinceton_ai4s_unveils_labos²_the_agentic/">https://www.reddit.com/r/singularity/comments/1t67t8b/stanfordprinceton_ai4s_unveils_labos²_the_agentic/</a></li><li><strong>Meta’nın robotics AI startup acquisition iddiası, “physical AI” tarafında büyük platform ilgisinin arttığını gösteriyor.</strong> Robotik veri/embodiment, foundation model rekabetinin yeni cephesi. Kaynak: <a href="https://news.google.com/rss/articles/CBMitwFBVV95cUxQS0h3QXRGb3A5TWoxRldmaHhRM0M1ZDMwRVJtcWFZOW05WXpTLXNnSEVpeUhsMmc4OHdRMm9Nc1c0MlNfNXN6eEt5VFcxSmk4ZUJZX09aWk14QlRMMV85enNRVjlyQkdZbDFVTFVrZEN2bjlFZ1FNLVpXX2hhT21LUndfbFpLejJGWm84TzdiOFVFQml1dHUwSE5KVl91MWN5MnYxaGpWUV9BS1liUEFoeTNyQVNrVkU?oc=5">https://news.google.com/rss/articles/CBMitwFBVV95cUxQS0h3QXRGb3A5TWoxRldmaHhRM0M1ZDMwRVJtcWFZOW05WXpTLXNnSEVpeUhsMmc4OHdRMm9Nc1c0MlNfNXN6eEt5VFcxSmk4ZUJZX09aWk14QlRMMV85enNRVjlyQkdZbDFVTFVrZEN2bjlFZ1FNLVpXX2hhT21LUndfbFpLejJGWm84TzdiOFVFQml1dHUwSE5KVl91MWN5MnYxaGpWUV9BS1liUEFoeTNyQVNrVkU?oc=5</a></li><li><strong>LAWS, robotics ve edge inference için self-certifying cache architecture öneriyor.</strong> Robotik sistemlerde cache correctness ve workload adaptation güvenlik kadar performans konusu. Kaynak: <a href="https://arxiv.org/abs/2605.04069">https://arxiv.org/abs/2605.04069</a></li></ul></div>
-</section>
-<section class="report-section" id="sec-11-kat-9-edge-veri-altyapi">
-  <div class="section-head">
-    <div>
-      <div class="section-kicker">Bölümler 11</div>
-      <h2>KAT-9 — Edge, Veri &amp; Altyapı</h2>
-    </div>
-    <a class="ghost-button" href="#sec-11-kat-9-edge-veri-altyapi">#</a>
-  </div>
-  <div class="rendered-markdown"><ul><li><strong>AWS EC2 Capacity Blocks ve SageMaker training plans, kısa dönem GPU kapasite güvencelemeyi ML workload ürünü haline getiriyor.</strong> Compute tedariki, model eğitim stratejisinin parçası oldu. Kaynak: <a href="https://aws.amazon.com/blogs/machine-learning/secure-short-term-gpu-capacity-for-ml-workloads-with-ec2-capacity-blocks-for-ml-and-sagemaker-training-plans/">https://aws.amazon.com/blogs/machine-learning/secure-short-term-gpu-capacity-for-ml-workloads-with-ec2-capacity-blocks-for-ml-and-sagemaker-training-plans/</a></li><li><strong>NVIDIA GB200 NVL72 + Slurm block scheduling yazısı, cluster utilization’ın yeni savaş alanı olduğunu gösteriyor.</strong> Büyük GPU cluster’da verim, model mimarisi kadar kritik. Kaynak: <a href="https://developer.nvidia.com/blog/achieving-peak-system-and-workload-efficiency-on-nvidia-gb200-nvl72-with-slurm-block-scheduling">https://developer.nvidia.com/blog/achieving-peak-system-and-workload-efficiency-on-nvidia-gb200-nvl72-with-slurm-block-scheduling</a></li><li><strong>NVIDIA NCCL Inspector + Prometheus, distributed training/inference debugging’i observability ürününe taşıyor.</strong> AI infra’da kör nokta artık performans kaybı değil operasyonel risk. Kaynak: <a href="https://developer.nvidia.com/blog/real-time-performance-monitoring-and-faster-debugging-with-nccl-inspector-and-prometheus/">https://developer.nvidia.com/blog/real-time-performance-monitoring-and-faster-debugging-with-nccl-inspector-and-prometheus/</a></li><li><strong>HERCULES, hardware-efficient continual learning NAS öneriyor.</strong> Edge cihazlarda modelin sahada adaptasyonu daha fazla gündeme gelecek. Kaynak: <a href="https://arxiv.org/abs/2605.04103">https://arxiv.org/abs/2605.04103</a></li></ul></div>
-</section>
-<section class="report-section" id="sec-12-security-guvenlik">
-  <div class="section-head">
-    <div>
-      <div class="section-kicker">Bölümler 12</div>
-      <h2>SECURITY — Güvenlik</h2>
-    </div>
-    <a class="ghost-button" href="#sec-12-security-guvenlik">#</a>
-  </div>
-  <div class="rendered-markdown"><ul><li><strong>Cline Kanban WebSocket flaw iddiası, web sayfalarının AI coding agent’ları hijack edebilmesi riskini öne çıkarıyor.</strong> Browser + local agent + WebSocket birleşimi yeni saldırı yüzeyi. Kaynak: <a href="http://www.bing.com/news/apiclick.aspx?ref=FexRss&amp;aid=&amp;tid=69fd049cddd6409fba3d173787845b17&amp;url=https%3a%2f%2fwww.infosecurity-magazine.com%2fnews%2fcline-kanban-websocket-hijack-ai%2f&amp;c=15816542543885458300&amp;mkt=tr-tr">http://www.bing.com/news/apiclick.aspx?ref=FexRss&amp;aid=&amp;tid=69fd049cddd6409fba3d173787845b17&amp;url=https%3a%2f%2fwww.infosecurity-magazine.com%2fnews%2fcline-kanban-websocket-hijack-ai%2f&amp;c=15816542543885458300&amp;mkt=tr-tr</a></li><li><strong>AI coding agents supply-chain crisis uyarısı, agent’ların dependency/package kararlarını otomatikleştirdikçe tedarik zinciri riskini büyüteceğini söylüyor.</strong> Human review gate’i kaldırmak güvenlik borcu yaratır. Kaynak: <a href="http://www.bing.com/news/apiclick.aspx?ref=FexRss&amp;aid=&amp;tid=69fd049cddd6409fba3d173787845b17&amp;url=https%3a%2f%2fwww.securityweek.com%2fai-coding-agents-could-fuel-next-supply-chain-crisis%2f&amp;c=5095937726758812264&amp;mkt=tr-tr">http://www.bing.com/news/apiclick.aspx?ref=FexRss&amp;aid=&amp;tid=69fd049cddd6409fba3d173787845b17&amp;url=https%3a%2f%2fwww.securityweek.com%2fai-coding-agents-could-fuel-next-supply-chain-crisis%2f&amp;c=5095937726758812264&amp;mkt=tr-tr</a></li><li><strong>Open-OSS/privacy-filter malware uyarısı, Hugging Face model/package adlandırma taklitlerinin infostealer vektörüne dönüşebileceğini gösteriyor.</strong> Local model indirme akışına malware scanning şart. Kaynak: <a href="https://www.reddit.com/r/LocalLLaMA/comments/1t6febk/warning_openossprivacyfilter_malware/">https://www.reddit.com/r/LocalLLaMA/comments/1t6febk/warning_openossprivacyfilter_malware/</a></li><li><strong>Cloudflare Copy Fail müdahalesi, kernel vuln + AI slop kombinasyonunda doğrulanmış kaynakların önemini gösteriyor.</strong> Kaynak: <a href="https://blog.cloudflare.com/copy-fail-linux-vulnerability-mitigation/">https://blog.cloudflare.com/copy-fail-linux-vulnerability-mitigation/</a></li></ul></div>
-</section>
-<section class="report-section" id="sec-13-regulation-regulasyon-politika">
-  <div class="section-head">
-    <div>
-      <div class="section-kicker">Bölümler 13</div>
-      <h2>REGULATION — Regülasyon &amp; Politika</h2>
-    </div>
-    <a class="ghost-button" href="#sec-13-regulation-regulasyon-politika">#</a>
-  </div>
-  <div class="rendered-markdown"><ul><li><strong>EU ülkeleri ve parlamenterleri, AI rules konusunda watered-down provisional deal’e vardı.</strong> AB tarafında compliance baskısı sürüyor ama uygulama pratikliği için yumuşatma eğilimi var. Kaynak: <a href="https://news.google.com/rss/articles/CBMirwFBVV95cUxPWUNTRTY3V3hFX2F2cUJLdEYwSEdTb01FaV9wLW95RTV1TFZwQXBZb2tmQVNuZ2tSM0pxbmtmZmdYdW5wbzRVNjdkTVRheVhjZGI0eWRTZXV0T0E1dm82bmZjUEM5eXJBYmpWX0pHbHdKTVp4cVRsejlmeDRubjc1ZktnRWlnRXdRQnFSV1JscGhzOEppeERkMzVpaHN3cVpaaDhMMy1FQkRGbWxadjJN?oc=5">https://news.google.com/rss/articles/CBMirwFBVV95cUxPWUNTRTY3V3hFX2F2cUJLdEYwSEdTb01FaV9wLW95RTV1TFZwQXBZb2tmQVNuZ2tSM0pxbmtmZmdYdW5wbzRVNjdkTVRheVhjZGI0eWRTZXV0T0E1dm82bmZjUEM5eXJBYmpWX0pHbHdKTVp4cVRsejlmeDRubjc1ZktnRWlnRXdRQnFSV1JscGhzOEppeERkMzVpaHN3cVpaaDhMMy1FQkRGbWxadjJN?oc=5</a></li><li><strong>EU sexualized AI deepfakes yasağı için anlaşma sağladı.</strong> Deepfake regülasyonu, genel AI Act tartışmasından ayrılıp doğrudan zarar odaklı enforcement hattına giriyor. Kaynak: <a href="https://news.google.com/rss/articles/CBMihAFBVV95cUxOZlJ2aGQtUnNjVkp4QlMxS3hoNjgxQjJMVS1Ccy1tNnE5RUZhSzl5VTBjTGlLVmMwT2h5SG40cDd3WlliQk9idV90SDhFUmhiMHQ1UHVjQS1DX05HTHd5TXN2NlZwVmZ4RWIyb2dTOWlKTGs3LUotSDZORWNiN0RQOFRLem0?oc=5">https://news.google.com/rss/articles/CBMihAFBVV95cUxOZlJ2aGQtUnNjVkp4QlMxS3hoNjgxQjJMVS1Ccy1tNnE5RUZhSzl5VTBjTGlLVmMwT2h5SG40cDd3WlliQk9idV90SDhFUmhiMHQ1UHVjQS1DX05HTHd5TXN2NlZwVmZ4RWIyb2dTOWlKTGs3LUotSDZORWNiN0RQOFRLem0?oc=5</a></li><li><strong>Meksika Senatosu AI düzenleme tasarısına hazırlanıyor.</strong> AI policy artık ABD/AB hattı dışında Latin Amerika gündemine de yerleşiyor. Kaynak: <a href="https://news.google.com/rss/articles/CBMirgFBVV95cUxNbUF3X1E3d1Q4SzA4OHZfa3hvRFBWT2M2TWJHSFNPZGNzQkY4N0dReXZQakp4N2ExWlBOWXN3ektHWUpqMHhjZ2tWbXhKUkgzX0ZmRmFYRFJVS1BtMTdYbzdISTQ2bVgxbjJ1VHhJbExGbmo4S25sZThZd0ktcHgzbW1RNWJZeFJZOXdFYl9PLUg2cXo2TTBJMThyOHZyX2ZqaHpQbDQ5cGRubmsxUEE?oc=5">https://news.google.com/rss/articles/CBMirgFBVV95cUxNbUF3X1E3d1Q4SzA4OHZfa3hvRFBWT2M2TWJHSFNPZGNzQkY4N0dReXZQakp4N2ExWlBOWXN3ektHWUpqMHhjZ2tWbXhKUkgzX0ZmRmFYRFJVS1BtMTdYbzdISTQ2bVgxbjJ1VHhJbExGbmo4S25sZThZd0ktcHgzbW1RNWJZeFJZOXdFYl9PLUg2cXo2TTBJMThyOHZyX2ZqaHpQbDQ5cGRubmsxUEE?oc=5</a></li></ul></div>
-</section>
-<section class="report-section" id="sec-14-ai-science-bilimsel-ai">
-  <div class="section-head">
-    <div>
-      <div class="section-kicker">Bölümler 14</div>
-      <h2>AI-SCIENCE — Bilimsel AI</h2>
-    </div>
-    <a class="ghost-button" href="#sec-14-ai-science-bilimsel-ai">#</a>
-  </div>
-  <div class="rendered-markdown"><ul><li><strong>Material Database Agent</strong>, scientific literature mining için multimodal agentic framework öneriyor. Bilimsel veri çıkarımı agent kullanımında güçlü bir dikey alan. Kaynak: <a href="https://arxiv.org/abs/2605.04278">https://arxiv.org/abs/2605.04278</a></li><li><strong>Curated AI beats frontier LLMs at pharma asset discovery</strong>, domain-curated sistemlerin genel frontier LLM’leri geçebileceğini savunuyor. Sağlık/ilaç alanında “uzman veri + doğru workflow” modeli öne çıkıyor. Kaynak: <a href="https://arxiv.org/abs/2605.04908">https://arxiv.org/abs/2605.04908</a></li><li><strong>FL-Sailer</strong>, single-cell epigenetic data analysis için privacy-preserving federated learning sunuyor. Bio/medical AI’da veri paylaşmadan öğrenme hâlâ kritik. Kaynak: <a href="https://arxiv.org/abs/2605.04519">https://arxiv.org/abs/2605.04519</a></li><li><strong>AI lets chemists design molecules by simply describing them</strong> haberi, doğal dil → kimyasal tasarım hattının popülerleştiğini gösteriyor. Kaynak: <a href="https://www.reddit.com/r/singularity/comments/1t5ibbt/ai_lets_chemists_design_molecules_by_simply/">https://www.reddit.com/r/singularity/comments/1t5ibbt/ai_lets_chemists_design_molecules_by_simply/</a></li></ul></div>
-</section>
-<section class="report-section" id="sec-15-infra-compute-cloud-donanim">
-  <div class="section-head">
-    <div>
-      <div class="section-kicker">Bölümler 15</div>
-      <h2>INFRA — Compute, Cloud, Donanım</h2>
-    </div>
-    <a class="ghost-button" href="#sec-15-infra-compute-cloud-donanim">#</a>
-  </div>
-  <div class="rendered-markdown"><ul><li><strong>AMD MI350P PCIe accelerator</strong>, enterprise AI müşterileri için slot/tabanlı GPU alternatifini güçlendiriyor. NVIDIA dışı inference/training opsiyonu artıyor. Kaynak: <a href="https://www.theregister.com/ai-and-ml/2026/05/07/amd-takes-aim-at-enterprise-ai-with-pcie-based-instinct-gpus/5231481">https://www.theregister.com/ai-and-ml/2026/05/07/amd-takes-aim-at-enterprise-ai-with-pcie-based-instinct-gpus/5231481</a></li><li><strong>SoftBank’ın Nvidia/Foxconn ile homegrown AI server arayışı</strong>, ülke/şirket bazlı compute sovereignty temasını büyütüyor. Kaynak: <a href="https://news.google.com/rss/articles/CBMixgFBVV95cUxNWkQzaFBycUhVbEl2aUFVMFNaUmRMZ2VNcDE4OXhueUJ4amhwekNDMTRLekN4cWFOZDdTb3JrMWJSZTZiVkV1d0FZLXF5NWstODFqTFRNWnV0R1kzSk5RTzFIaTExaFV3cno1c2Zkb096Qm1rTVZ0QXJHM010cTF2NmlETHRYZ3VvLXk0WlQ4RlRHcU5FQXZfcFBEQnh1VkFfOGtNQ0FzSkF2V0Jvb3NwcHFRdTNtM283X3VIc2NHZnFBMGNEUEE?oc=5">https://news.google.com/rss/articles/CBMixgFBVV95cUxNWkQzaFBycUhVbEl2aUFVMFNaUmRMZ2VNcDE4OXhueUJ4amhwekNDMTRLekN4cWFOZDdTb3JrMWJSZTZiVkV1d0FZLXF5NWstODFqTFRNWnV0R1kzSk5RTzFIaTExaFV3cno1c2Zkb096Qm1rTVZ0QXJHM010cTF2NmlETHRYZ3VvLXk0WlQ4RlRHcU5FQXZfcFBEQnh1VkFfOGtNQ0FzSkF2V0Jvb3NwcHFRdTNtM283X3VIc2NHZnFBMGNEUEE?oc=5</a></li><li><strong>NVIDIA Model Optimizer PTQ yazısı</strong>, post-training quantization’ın deployment maliyetini düşürmede hâlâ ana araç olduğunu hatırlatıyor. Kaynak: <a href="https://developer.nvidia.com/blog/model-quantization-post-training-quantization-using-nvidia-model-optimizer">https://developer.nvidia.com/blog/model-quantization-post-training-quantization-using-nvidia-model-optimizer</a></li></ul></div>
-</section>
-<section class="report-section" id="sec-16-safety-alignment-interpretability-evals">
-  <div class="section-head">
-    <div>
-      <div class="section-kicker">Bölümler 16</div>
-      <h2>SAFETY — Alignment, Interpretability, Evals</h2>
-    </div>
-    <a class="ghost-button" href="#sec-16-safety-alignment-interpretability-evals">#</a>
-  </div>
-  <div class="rendered-markdown"><ul><li><strong>Explaining and Preventing Alignment Collapse in Iterative RLHF</strong>, deployment döngüsünde reward model drift riskini ele alıyor. Iteratif RLHF sistemlerinde statik safety varsayımı kırılıyor. Kaynak: <a href="https://arxiv.org/abs/2605.04266">https://arxiv.org/abs/2605.04266</a></li><li><strong>Self-Attention as Transport</strong>, hallucination davranışını attention routing perspektifinden açıklamaya çalışıyor. Model içi diagnostik için pratik hipotez üretiyor. Kaynak: <a href="https://arxiv.org/abs/2605.04893">https://arxiv.org/abs/2605.04893</a></li><li><strong>Not All That Is Fluent Is Factual</strong>, akademik yazıda LLM hallucination riskini gösteriyor. Akıcılık ile doğruluk arasındaki ayrım rapor üretimi için doğrudan kalite uyarısı. Kaynak: <a href="https://arxiv.org/abs/2605.04171">https://arxiv.org/abs/2605.04171</a></li><li><strong>OpenAI Trusted Contact</strong>, consumer AI safety’de “insan temas noktası”nı ürün parçası yapıyor. Kaynak: <a href="https://techcrunch.com/2026/05/07/openai-introduces-new-trusted-contact-safeguard-for-cases-of-possible-self-harm/">https://techcrunch.com/2026/05/07/openai-introduces-new-trusted-contact-safeguard-for-cases-of-possible-self-harm/</a></li></ul></div>
-</section>
-<section class="report-section" id="sec-17-watchlist-izlenecekler">
-  <div class="section-head">
-    <div>
-      <div class="section-kicker">Bölümler 17</div>
-      <h2>WATCHLIST — İzlenecekler</h2>
-    </div>
-    <a class="ghost-button" href="#sec-17-watchlist-izlenecekler">#</a>
-  </div>
-  <div class="rendered-markdown"><ul><li><strong>Perplexity Personal Computer Mac’te herkese açıldı.</strong> Browser/search assistant pazarında Perplexity’nin desktop-first hamlesi izlenmeli. Kaynak: <a href="https://techcrunch.com/2026/05/07/perplexitys-personal-computer-is-now-available-everyone-on-mac/">https://techcrunch.com/2026/05/07/perplexitys-personal-computer-is-now-available-everyone-on-mac/</a></li><li><strong>Google/OpenAI/Meta agentic commerce yarışı hızlandı.</strong> Kullanıcı adına alışveriş yapan agent’lar ödeme, güven ve platform komisyonları için yeni savaş alanı. Kaynak: <a href="https://news.google.com/rss/articles/CBMiqgFBVV95cUxOdC1RMDNQMkJtU0tWLWZXWmNSWEJaVVMza2NQQnY2WGR4MkV6aGxOUGdGbG1oR0ZGbWp6YlRQZy01eWdOWnQ5SEhOSDNBdkE5SUpYaXBDQjBjTy1icUNOWUwxbkltakpsN0V2NDNuYnRWWHdYZTRIczh1dkFsaF83ZHZMaHJDc3VGR2ZxSF9WSHZ6OXg5cmFiR1g5amhKX25FTzk5U3RsTUJjdw?oc=5">https://news.google.com/rss/articles/CBMiqgFBVV95cUxOdC1RMDNQMkJtU0tWLWZXWmNSWEJaVVMza2NQQnY2WGR4MkV6aGxOUGdGbG1oR0ZGbWp6YlRQZy01eWdOWnQ5SEhOSDNBdkE5SUpYaXBDQjBjTy1icUNOWUwxbkltakpsN0V2NDNuYnRWWHdYZTRIczh1dkFsaF83ZHZMaHJDc3VGR2ZxSF9WSHZ6OXg5cmFiR1g5amhKX25FTzk5U3RsTUJjdw?oc=5</a></li><li><strong>Simon Willison’ın xAI/Anthropic Colossus deal detayları</strong>, compute anlaşmalarında policy/right-to-reclaim gibi maddelerin stratejik olduğunu gösteriyor. Kaynak: <a href="https://simonwillison.net/2026/May/7/xai-anthropic/">https://simonwillison.net/2026/May/7/xai-anthropic/</a></li><li><strong>Open weights are quietly closing up</strong> tartışması, açık model lisanslarının pratikte kapanma riskini gündemde tutuyor. Kaynak: <a href="https://martinalderson.com/posts/open-weights-are-quietly-closing-up/">https://martinalderson.com/posts/open-weights-are-quietly-closing-up/</a></li></ul></div>
-</section>
-<section class="report-section" id="sec-18-trends-7-gunluk-sinyal">
-  <div class="section-head">
-    <div>
-      <div class="section-kicker">Bölümler 18</div>
-      <h2>TRENDS — 7 Günlük Sinyal</h2>
-    </div>
-    <a class="ghost-button" href="#sec-18-trends-7-gunluk-sinyal">#</a>
-  </div>
-  <div class="rendered-markdown"><ul><li><strong>AI Agents yükselişi ana trend: 996 toplam sinyal.</strong> Bugünkü örnekler AWS AgentCore payments, Google GKE Agent Sandbox ve Qwen/WebWorld ile trendi doğruluyor. Kaynaklar: <a href="https://aws.amazon.com/blogs/machine-learning/agents-that-transact-introducing-amazon-bedrock-agentcore-payments-built-with-coinbase-and-stripe/">https://aws.amazon.com/blogs/machine-learning/agents-that-transact-introducing-amazon-bedrock-agentcore-payments-built-with-coinbase-and-stripe/</a> | <a href="https://www.infoq.com/news/2026/05/gke-agent-sandbox-hypercluster/?utm_campaign=infoq_content&amp;utm_source=infoq&amp;utm_medium=feed&amp;utm_term=AI%2C+ML+%26+Data+Engineering">https://www.infoq.com/news/2026/05/gke-agent-sandbox-hypercluster/?utm_campaign=infoq_content&amp;utm_source=infoq&amp;utm_medium=feed&amp;utm_term=AI%2C+ML+%26+Data+Engineering</a> | <a href="https://www.reddit.com/r/LocalLLaMA/comments/1t6c6vs/qwenwebworld_32b14b8b_qwen3_finetune/">https://www.reddit.com/r/LocalLLaMA/comments/1t6c6vs/qwenwebworld_32b14b8b_qwen3_finetune/</a></li><li><strong>AI Regulation yükseliyor.</strong> EU AI rules, deepfake yasağı ve Meksika AI bill aynı gün içinde farklı coğrafyalardan geldi. Kaynaklar: <a href="https://news.google.com/rss/articles/CBMirwFBVV95cUxPWUNTRTY3V3hFX2F2cUJLdEYwSEdTb01FaV9wLW95RTV1TFZwQXBZb2tmQVNuZ2tSM0pxbmtmZmdYdW5wbzRVNjdkTVRheVhjZGI0eWRTZXV0T0E1dm82bmZjUEM5eXJBYmpWX0pHbHdKTVp4cVRsejlmeDRubjc1ZktnRWlnRXdRQnFSV1JscGhzOEppeERkMzVpaHN3cVpaaDhMMy1FQkRGbWxadjJN?oc=5">https://news.google.com/rss/articles/CBMirwFBVV95cUxPWUNTRTY3V3hFX2F2cUJLdEYwSEdTb01FaV9wLW95RTV1TFZwQXBZb2tmQVNuZ2tSM0pxbmtmZmdYdW5wbzRVNjdkTVRheVhjZGI0eWRTZXV0T0E1dm82bmZjUEM5eXJBYmpWX0pHbHdKTVp4cVRsejlmeDRubjc1ZktnRWlnRXdRQnFSV1JscGhzOEppeERkMzVpaHN3cVpaaDhMMy1FQkRGbWxadjJN?oc=5</a> | <a href="https://news.google.com/rss/articles/CBMihAFBVV95cUxOZlJ2aGQtUnNjVkp4QlMxS3hoNjgxQjJMVS1Ccy1tNnE5RUZhSzl5VTBjTGlLVmMwT2h5SG40cDd3WlliQk9idV90SDhFUmhiMHQ1UHVjQS1DX05HTHd5TXN2NlZwVmZ4RWIyb2dTOWlKTGs3LUotSDZORWNiN0RQOFRLem0?oc=5">https://news.google.com/rss/articles/CBMihAFBVV95cUxOZlJ2aGQtUnNjVkp4QlMxS3hoNjgxQjJMVS1Ccy1tNnE5RUZhSzl5VTBjTGlLVmMwT2h5SG40cDd3WlliQk9idV90SDhFUmhiMHQ1UHVjQS1DX05HTHd5TXN2NlZwVmZ4RWIyb2dTOWlKTGs3LUotSDZORWNiN0RQOFRLem0?oc=5</a></li><li><strong>Perplexity spike küçük ama ürün etkisi yüksek.</strong> Personal Computer’ın Mac’te genel erişime açılması, search assistant’ı OS seviyesine yaklaştırıyor. Kaynak: <a href="https://techcrunch.com/2026/05/07/perplexitys-personal-computer-is-now-available-everyone-on-mac/">https://techcrunch.com/2026/05/07/perplexitys-personal-computer-is-now-available-everyone-on-mac/</a></li></ul></div>
-</section>
-<section class="report-section" id="sec-19-cikcik-paketi">
-  <div class="section-head">
-    <div>
-      <div class="section-kicker">Bölümler 19</div>
-      <h2>CikCik Paketi</h2>
-    </div>
-    <a class="ghost-button" href="#sec-19-cikcik-paketi">#</a>
-  </div>
-  <div class="rendered-markdown"><ul><li><strong>Simon Willison, xAI/Anthropic Colossus deal için under-reported detayları işaretledi.</strong> Compute anlaşmalarında teknik kapasite kadar sözleşme ve policy maddeleri de kritik. Kaynak: <a href="https://simonwillison.net/2026/May/7/xai-anthropic/">https://simonwillison.net/2026/May/7/xai-anthropic/</a></li><li><strong>LocalLLaMA’da Open-OSS/privacy-filter malware uyarısı yayıldı.</strong> Model adı taklidiyle credential theft riski, local model kullanıcıları için sıcak uyarı. Kaynak: <a href="https://www.reddit.com/r/LocalLLaMA/comments/1t6febk/warning_openossprivacyfilter_malware/">https://www.reddit.com/r/LocalLLaMA/comments/1t6febk/warning_openossprivacyfilter_malware/</a></li><li><strong>LocalLLaMA’da AMD MI350P ve ROCm tartışmaları hareketli.</strong> NVIDIA alternatifi arayışı community tarafında sıcak. Kaynak: <a href="https://www.reddit.com/r/LocalLLaMA/comments/1t6b2x8/amd_intros_instinct_mi350p_accelerator_cdna_4/">https://www.reddit.com/r/LocalLLaMA/comments/1t6b2x8/amd_intros_instinct_mi350p_accelerator_cdna_4/</a></li><li><strong>r/artificial’da English-centric AI’ın kimlikleri bozması tartışıldı.</strong> Dil/kimlik yanlılığı, AI safety’nin kültürel yüzü olarak büyüyor. Kaynak: <a href="https://www.reddit.com/r/artificial/comments/1t6ipmk/english_centric_ai_is_merging_unrelated/">https://www.reddit.com/r/artificial/comments/1t6ipmk/english_centric_ai_is_merging_unrelated/</a></li><li><strong>r/artificial’da 50 LLM’e psikolojik anket verilmesi tartışıldı.</strong> “LLM kişiliği” anlatısına karşı ölçüm metodolojisi ve antropomorfizm riski gündemde. Kaynak: <a href="https://www.reddit.com/r/artificial/comments/1t6o1dl/we_gave_45_psychological_questionnaires_to_50/">https://www.reddit.com/r/artificial/comments/1t6o1dl/we_gave_45_psychological_questionnaires_to_50/</a></li></ul></div>
-</section>
-<section class="report-section" id="sec-20-oracle-self-improvement-sinyalleri">
-  <div class="section-head">
-    <div>
-      <div class="section-kicker">Bölümler 20</div>
-      <h2>Oracle Self-Improvement Sinyalleri</h2>
-    </div>
-    <a class="ghost-button" href="#sec-20-oracle-self-improvement-sinyalleri">#</a>
-  </div>
-  <div class="rendered-markdown"><ul><li><strong>Memory mimarisi için en güçlü sinyal:</strong> Storage Is Not Memory; Oracle’da kalıcı not almak yetmez, retrieval/recall kalitesi ölçülmeli. Kaynak: <a href="https://arxiv.org/abs/2605.04897">https://arxiv.org/abs/2605.04897</a></li><li><strong>Rapor kalite gate’i için en güçlü sinyal:</strong> DoGMaTiQ; her rapordan otomatik Q&amp;A nugget çıkarıp kaynaklı doğruluk testi yapılabilir. Kaynak: <a href="https://arxiv.org/abs/2605.04458">https://arxiv.org/abs/2605.04458</a></li><li><strong>RAG iyileştirmesi için en güçlü sinyal:</strong> CAR; memory search ve kaynak sıralamada confidence-aware reranking uygulanabilir. Kaynak: <a href="https://arxiv.org/abs/2605.04495">https://arxiv.org/abs/2605.04495</a></li><li><strong>Uzun içerik okuma stratejisi için en güçlü sinyal:</strong> SCOUT; büyük dokümanlarda kör tarama yerine aktif bilgi avlama yapılmalı. Kaynak: <a href="https://arxiv.org/abs/2605.04496">https://arxiv.org/abs/2605.04496</a></li><li><strong>Output hygiene için güvenlik sinyali:</strong> Not All That Is Fluent Is Factual; akıcı rapor bile URL/doğrulama olmadan güvenilir sayılmamalı. Kaynak: <a href="https://arxiv.org/abs/2605.04171">https://arxiv.org/abs/2605.04171</a></li></ul></div>
-</section>
-<section class="report-section" id="sec-21-kaynak-zeti">
-  <div class="section-head">
-    <div>
-      <div class="section-kicker">Bölümler 21</div>
-      <h2>Kaynak Özeti</h2>
-    </div>
-    <a class="ghost-button" href="#sec-21-kaynak-zeti">#</a>
-  </div>
-  <div class="rendered-markdown"><ul><li><strong>RSS/news omurgası güçlüydü:</strong> InfoQ, AWS, NVIDIA, TechCrunch, Cloudflare ve GitHub Changelog günün en kullanışlı canonical kaynaklarını verdi. Kaynaklar: <a href="https://www.infoq.com/news/2026/05/openai-websocket-responses-api/?utm_campaign=infoq_content&amp;utm_source=infoq&amp;utm_medium=feed&amp;utm_term=AI%2C+ML+%26+Data+Engineering">https://www.infoq.com/news/2026/05/openai-websocket-responses-api/?utm_campaign=infoq_content&amp;utm_source=infoq&amp;utm_medium=feed&amp;utm_term=AI%2C+ML+%26+Data+Engineering</a> | <a href="https://aws.amazon.com/blogs/machine-learning/agents-that-transact-introducing-amazon-bedrock-agentcore-payments-built-with-coinbase-and-stripe/">https://aws.amazon.com/blogs/machine-learning/agents-that-transact-introducing-amazon-bedrock-agentcore-payments-built-with-coinbase-and-stripe/</a> | <a href="https://github.blog/changelog/2026-05-07-rubber-duck-in-github-copilot-cli-now-supports-more-models">https://github.blog/changelog/2026-05-07-rubber-duck-in-github-copilot-cli-now-supports-more-models</a></li><li><strong>Akademik kaynaklar raporun derinliğini taşıdı:</strong> arXiv ve Alignment Forum agent memory, RAG, safety ve interpretability için ana kanıt setini verdi. Kaynaklar: <a href="https://arxiv.org/abs/2605.04897">https://arxiv.org/abs/2605.04897</a> | <a href="https://arxiv.org/abs/2605.04495">https://arxiv.org/abs/2605.04495</a> | <a href="https://www.alignmentforum.org/posts/oeYesesaxjzMAktCM/natural-language-autoencoders-produce-unsupervised">https://www.alignmentforum.org/posts/oeYesesaxjzMAktCM/natural-language-autoencoders-produce-unsupervised</a></li><li><strong>Community/social kaynaklar erken risk sinyali verdi:</strong> LocalLLaMA malware uyarısı, Qwen/WebWorld ve AMD MI350P tartışmaları resmi bloglardan önce pratik sinyal üretti. Kaynaklar: <a href="https://www.reddit.com/r/LocalLLaMA/comments/1t6febk/warning_openossprivacyfilter_malware/">https://www.reddit.com/r/LocalLLaMA/comments/1t6febk/warning_openossprivacyfilter_malware/</a> | <a href="https://www.reddit.com/r/LocalLLaMA/comments/1t6c6vs/qwenwebworld_32b14b8b_qwen3_finetune/">https://www.reddit.com/r/LocalLLaMA/comments/1t6c6vs/qwenwebworld_32b14b8b_qwen3_finetune/</a> | <a href="https://www.reddit.com/r/LocalLLaMA/comments/1t6b2x8/amd_intros_instinct_mi350p_accelerator_cdna_4/">https://www.reddit.com/r/LocalLLaMA/comments/1t6b2x8/amd_intros_instinct_mi350p_accelerator_cdna_4/</a></li></ul></div>
-</section>
-<section class="report-section" id="sec-22-dedupe-kalite-notu">
-  <div class="section-head">
-    <div>
-      <div class="section-kicker">Bölümler 22</div>
-      <h2>Dedupe &amp; Kalite Notu</h2>
-    </div>
-    <a class="ghost-button" href="#sec-22-dedupe-kalite-notu">#</a>
-  </div>
-  <div class="rendered-markdown"><blockquote><p>Önceki 3 günün ana haberleri tekrar edilmedi: Claude Managed Agents, OpenAI MRC, Gemma 4 MTP, DeepMind/EVE, Apple AI, GitHub MCP secret scanning, vm2 ve frontier pre-release safety anlaşmaları bu raporda bilinçli olarak yeniden ana madde yapılmadı. Kaynak referansı: <a href="https://arstechnica.com/ai/2026/05/anthropics-claude-can-now-dream-sort-of/">https://arstechnica.com/ai/2026/05/anthropics-claude-can-now-dream-sort-of/</a> | <a href="https://openai.com/index/mrc-supercomputer-networking">https://openai.com/index/mrc-supercomputer-networking</a> | <a href="https://github.blog/changelog/2026-05-05-secret-scanning-with-github-mcp-server-is-now-generally-available">https://github.blog/changelog/2026-05-05-secret-scanning-with-github-mcp-server-is-now-generally-available</a>  Toplam 6.760 ham item işlendi; merge sonrası 5.957, dedupe sonrası 2.580 unique item kaldı. Bu raporda URL’siz haber maddesi kullanılmadı.</p></blockquote></div>
-</section>
-      </div>
-    </section>
-  </main>
-  <footer class="shell footer">
-    <div class="footer-card">
-      <p>Oracle gece araştırma arşivi, Türkçe asıl içerik korunur. EN/ES authored varyantlar varsa kullanılır, yoksa fallback çeviri devreye girer.</p>
-      <p>2026-05-07 21:49 UTC</p>
-    </div>
-  </footer>
-  <button class="back-to-top" type="button" data-back-top aria-label="Back to top">↑</button>
+<div class="page-wrap">
+  <nav class="breadcrumb">
+    <a href="https://mahsumaktas.github.io/oracle_arastirma/index.html">Oracle Araştırma</a>
+    <span>/</span>
+    2026-05-08
+  </nav>
+
+  <div id="loading">Rapor yükleniyor…</div>
+  <div id="content" style="display:none"></div>
+</div>
+
+<a href="#" id="back-top" title="Yukarı" aria-label="Yukarı git">↑</a>
+
+<!-- marked.js — lightweight CDN markdown parser (no server needed) -->
+<script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
+<script>
+(function(){
+  // ── Raw markdown (HTML-escaped by publisher, decoded here) ──
+  var RAW = "# \ud83d\udd2c Gece Ara\u015ft\u0131rma \u2014 2026-05-08 (Cuma 01:00 \u0130ST)\n\n> **Yenilik \u00d6nceli\u011fi** \u00b7 9/9 kategori \u00b7 31 kaynak aktif \u00b7 Dedupe: 13 madde elendi\n\n\u26a0\ufe0f KAT-5 Kaynak Hatas\u0131: Reddit live/top verisi do\u011frudan tam do\u011frulanamad\u0131; ikincil taramalar ve tekil Reddit/HN aynalar\u0131 kullan\u0131ld\u0131.  \n\u26a0\ufe0f KAT-6 Kaynak Hatas\u0131: X like/RT metrikleri do\u011frudan do\u011frulanamad\u0131; TechTwitter trend s\u0131ralamas\u0131 kullan\u0131ld\u0131.  \n\u26a0\ufe0f KAT-9 Kaynak Hatas\u0131: GitHub daily HTML repo sat\u0131rlar\u0131 eksik d\u00f6nd\u00fc; Trendshift + HN/Product Hunt fallback kullan\u0131ld\u0131.\n\n---\n\n## \ud83d\udd25 Top 7 \u2014 Sadece GER\u00c7EKTEN YEN\u0130 (Son 72 Saat Delta)\n\n> Bu b\u00f6l\u00fcme yaln\u0131zca 72 saat i\u00e7inde ilk kez raporlanan veya materyal olarak de\u011fi\u015fen maddeler girer.  \n> Daha \u00f6nce raporlanan konunun devam\u0131 \u2192 \"\u2192 G\u00fcncelleme:\" etiketiyle altta g\u00f6ster.\n\n| # | Madde | Kategori | Kaynak | \u00d6nem |\n|---|-------|----------|--------|------|\n| 1 | **OpenAI \u00fc\u00e7 yeni Realtime voice API modeli \u00e7\u0131kard\u0131** \u2014 GPT\u2011Realtime\u20112, Realtime\u2011Translate ve Realtime\u2011Whisper; voice agent\u2019larda reasoning, tool call, canl\u0131 \u00e7eviri ve streaming transcription ayn\u0131 hatta birle\u015fiyor. [\ud83d\udd17](https://openai.com/index/advancing-voice-intelligence-with-new-models-in-the-api/) | KAT-1/KAT-7 | OpenAI | \ud83d\udd34 |\n| 2 | **OpenAI GPT\u20115.5\u2011Cyber eri\u015fimini g\u00fcvenilir savunuculara a\u00e7\u0131yor** \u2014 kritik altyap\u0131 g\u00fcvenli\u011fi i\u00e7in daha permissive cyber model preview; \u201ccyber-capable frontier model\u201d da\u011f\u0131t\u0131m\u0131nda kontroll\u00fc eri\u015fim kal\u0131b\u0131 netle\u015fiyor. [\ud83d\udd17](https://www.axios.com/2026/05/07/openai-gpt-55-cybersecurity-model) | KAT-1/KAT-2 | Axios | \ud83d\udd34 |\n| 3 | **Anthropic \u201cintelligence explosion\u201d ara\u015ft\u0131rma g\u00fcndemini kamuya ta\u015f\u0131d\u0131** \u2014 Jack Clark, 2028\u2019e kadar AI\u2019\u0131n kendi ard\u0131l modelini e\u011fitmesi olas\u0131l\u0131\u011f\u0131n\u0131 %60+ g\u00f6r\u00fcyor; monthly workforce impact update ve fire-drill planl\u0131yor. [\ud83d\udd17](https://www.axios.com/2026/05/07/anthropic-jack-clark-ai-intelligence-explosion) | KAT-1/KAT-4 | Axios | \ud83d\udd34 |\n| 4 | **VS Code 1.119 agent observability ve browser payla\u015f\u0131m\u0131 getirdi** \u2014 agent browser tab eri\u015fimi, OpenTelemetry traces, model badge ve sandbox network modu production agent debug\u2019\u0131 i\u00e7in do\u011frudan etkili. [\ud83d\udd17](https://code.visualstudio.com/updates/v1_119) | KAT-7/KAT-2 | Microsoft | \ud83d\udd34 |\n| 5 | **RLDX\u20111 robot hand foundation model a\u00e7\u0131kland\u0131** \u2014 torque, tactile signal, memory ve high\u2011DoF el kontrol\u00fcn\u00fc tek modelde birle\u015ftiriyor; arXiv:2605.03269. [\ud83d\udd17](https://www.rlwrld.ai/en/rldx-1) | KAT-8/KAT-3 | RLWRLD | \ud83d\udd34 |\n| 6 | **OpenSearch\u2011VL a\u00e7\u0131k multimodal search agent re\u00e7etesi yay\u0131nland\u0131** \u2014 veri pipeline + tool environment + GRPO ile frontier multimodal deep-search agent e\u011fitimini tekrarlanabilir hale getiriyor; arXiv:2605.05185. [\ud83d\udd17](https://huggingface.co/papers/2605.05185) | KAT-3/KAT-2 | Hugging Face | \ud83d\udd34 |\n| 7 | **HN\u2019de Agent Vault \u00f6ne \u00e7\u0131kt\u0131** \u2014 AI agent\u2019lar\u0131n credential g\u00f6rmeden HTTP proxy/vault \u00fczerinden i\u015flem yapmas\u0131, prompt injection\u2019a kar\u015f\u0131 uygulanabilir mimari sinyal verdi. [\ud83d\udd17](https://hnshowcase.com/) | KAT-9/KAT-2 | HN Showcase | \ud83d\udfe1 |\n\n**Dedupe notu:** GPT\u20115.5 Instant, OpenAI/Anthropic enterprise JV, CAISI model review, MCP roadmap, Chrome 148 Prompt API, Genesis GENE\u201126.5, Familiar Machines, Meta ARI, Product Hunt Kollab/Magic Patterns/Claude Code ultrareview ve HN Chrome local-AI tart\u0131\u015fmas\u0131 Top 7\u2019den elendi.\n\n---\n\n## \ud83e\udd16 KAT-1 \u00b7 AI Laboratuvarlar\u0131 & Model Haberleri\n\n- **OpenAI Realtime voice \u00fc\u00e7l\u00fcs\u00fc:** GPT\u2011Realtime\u20112, GPT\u2011Realtime\u2011Translate ve GPT\u2011Realtime\u2011Whisper API\u2019de yay\u0131nda; 128K context, parallel tool calls ve adjustable reasoning effort \u00f6nemli. [\ud83d\udd17](https://openai.com/index/advancing-voice-intelligence-with-new-models-in-the-api/)\n- **GPT\u20115.5\u2011Cyber / Trusted cyber access:** Axios ve WSJ, modelin s\u0131n\u0131rl\u0131 preview ile vetted security professionals\u2019a a\u00e7\u0131ld\u0131\u011f\u0131n\u0131 yazd\u0131; OpenAI\u2019nin GPT\u20115.5 yaz\u0131s\u0131nda Trusted Access for Cyber hatt\u0131 da var. [\ud83d\udd17](https://www.axios.com/2026/05/07/openai-gpt-55-cybersecurity-model) [\ud83d\udd17](https://openai.com/index/introducing-gpt-5-5/)\n- **Anthropic intelligence explosion g\u00fcndemi:** Anthropic Institute taraf\u0131nda recursive AI R&D riskini a\u00e7\u0131k g\u00fcndem yapma sinyali. [\ud83d\udd17](https://www.axios.com/2026/05/07/anthropic-jack-clark-ai-intelligence-explosion)\n- **Dedupe:** GPT\u20115.5 Instant ve Google/Microsoft/xAI CAISI anla\u015fmas\u0131 \u00f6nceki raporlarda i\u015flendi; yeni materyal yoksa Top 7\u2019ye al\u0131nmad\u0131. [\ud83d\udd17](https://openai.com/index/gpt-5-5-instant/) [\ud83d\udd17](https://www.theverge.com/ai-artificial-intelligence/924017/google-microsoft-xai-government-review)\n\n---\n\n## \ud83d\udd78\ufe0f KAT-2 \u00b7 Agent & Framework\n\n- **VS Code 1.119 agent stack\u2019i:** Browser tab sharing, agent-initiated browser request, OpenTelemetry tracing ve background todo agent; agent workflow g\u00f6zlemlenebilirli\u011fi i\u00e7in g\u00fc\u00e7l\u00fc sinyal. [\ud83d\udd17](https://code.visualstudio.com/updates/v1_119)\n- **Agent Vault HN sinyali:** Credential proxy/vault yakla\u015f\u0131m\u0131, \u201cagent secret g\u00f6rmesin, brokered access kullans\u0131n\u201d desenini \u00f6ne \u00e7\u0131kar\u0131yor. [\ud83d\udd17](https://hnshowcase.com/)\n- **Trendshift agent repo sinyali:** DeepSeek\u2011TUI, addyosmani/agent-skills, andrej-karpathy-skills ve anthropics/financial-services rising repos listesinde. [\ud83d\udd17](https://trendshift.io/)\n- **MCP roadmap:** Yeni spec release yok; transport scalability, agent communication, governance ve enterprise readiness h\u00e2l\u00e2 ana hat. [\ud83d\udd17](https://blog.modelcontextprotocol.io/posts/2026-mcp-roadmap/)\n\n---\n\n## \ud83d\udcc4 KAT-3 \u00b7 Makaleler & Ara\u015ft\u0131rma\n\n| arXiv ID | Ba\u015fl\u0131k | Neden \u00d6nemli | Kaynak |\n|----------|--------|--------------|--------|\n| 2605.05185 | OpenSearch\u2011VL | Multimodal search agent e\u011fitimini a\u00e7\u0131k data/tool/RL re\u00e7etesine indiriyor. | [\ud83d\udd17](https://huggingface.co/papers/2605.05185) |\n| 2605.03269 | RLDX\u20111 Technical Report | Dexterous robot hand i\u00e7in tactile/torque/memory destekli VLA yakla\u015f\u0131m\u0131. | [\ud83d\udd17](https://huggingface.co/papers/2605.03269) |\n| 2605.04637 | SWE\u2011WebDevBench | Vibe-coding platformlar\u0131n\u0131 \u201cvirtual software agency\u201d gibi \u00f6l\u00e7en 68 metrikli benchmark. | [\ud83d\udd17](https://arxiv-troller.com/?q=paper%3A+2604.24814) |\n| 2605.05166 | The First Token Knows | Hal\u00fcsinasyon riskini tek decode ilk-token confidence ile ucuz \u00f6l\u00e7me fikri. | [\ud83d\udd17](https://arxiv-troller.com/paper/3164640/) |\n| 2605.03314 | When to Think, When to Speak | Streaming LLM\u2019lerde ne zaman d\u00fc\u015f\u00fcnce saklan\u0131r/ne zaman \u00e7\u0131kt\u0131 verilir sorusuna policy yakla\u015f\u0131m\u0131. | [\ud83d\udd17](https://huggingface.co/papers/2605.03314) |\n| 2604.27393 | MiniCPM\u2011o 4.5 | Full-duplex omni-modal interaction ve <12GB RAM edge hedefi. | [\ud83d\udd17](https://huggingface.co/papers/2604.27393) |\n\n**Oracle i\u00e7in \u00e7\u0131kar\u0131m:** Agent cevap kalitesi i\u00e7in \u201cilk-token confidence\u201d ucuz guardrail; browser/voice/agent sistemleri i\u00e7in OpenTelemetry + credential vault + multimodal search agent re\u00e7etesi do\u011frudan uygulanabilir.\n\n---\n\n## \ud83e\udde0 KAT-4 \u00b7 D\u00fc\u015f\u00fcnce Liderleri\n\n| Ki\u015fi | G\u00f6r\u00fc\u015f \u00d6zeti | Tarih | Kaynak |\n|------|-------------|-------|--------|\n| Sam Altman | \u201cAgents SDK 2.0 is underrated\u201d \u00e7\u0131k\u0131\u015f\u0131 agent SDK hatt\u0131nda yeni release/positioning sinyali verdi. | Son 24s | [\ud83d\udd17](https://www.techtwitter.com/twitter-trending) |\n| Yann LeCun | AI i\u015f k\u0131yameti s\u00f6ylemini abart\u0131l\u0131 ve gen\u00e7ler i\u00e7in zararl\u0131 buluyor; \u201cCEO\u2019lar\u0131 de\u011fil ekonomistleri dinleyin\u201d \u00e7izgisi. | 2026-05-04/05 | [\ud83d\udd17](https://www.axios.com/2026/05/04/ai-godfather-survival-guide-hype-doom) |\n| Simon Willison | datasette-llm ve llm-echo g\u00fcncellemeleriyle LLM plugin test/config hatt\u0131n\u0131 b\u00fcy\u00fct\u00fcyor. | 2026-05-05 | [\ud83d\udd17](https://simonwillison.net/) |\n| Andrej Karpathy | Vibe coding\u2019den \u201cagentic engineering\u201d disiplinine ge\u00e7i\u015f s\u00f6ylemi yay\u0131l\u0131yor. | 2026-05-04 | [\ud83d\udd17](https://theagenttimes.com/articles/karpathy-declares-agentic-engineering-the-successor-to-vibe--4d7126be) |\n\n---\n\n## \ud83d\udd34 KAT-5 \u00b7 Reddit Viral\n\n\u26a0\ufe0f KAT-5 Kaynak Hatas\u0131: Reddit live \u201ctop today\u201d do\u011frudan g\u00fcvenilir \u00e7ekilemedi; ikincil kaynak ve tekil Reddit/HN aynalar\u0131 kullan\u0131ld\u0131.\n\n| Subreddit | Ba\u015fl\u0131k | Upvote | Kaynak |\n|-----------|--------|--------|--------|\n| r/ChatGPT | AI i\u00e7erik bollu\u011funu ele\u015ftiren viral postun kendisinin AI-generated \u00e7\u0131kmas\u0131 | 9.000+ | [\ud83d\udd17](https://startupfortune.com/a-viral-reddit-post-about-ai-content-was-itself-ai-generated-and-nobody-can-quite-laugh-it-off/) |\n| r/artificial | AI agent production DB sildi tart\u0131\u015fmas\u0131 | ~851 / 1000+ yorum | [\ud83d\udd17](https://gist.github.com/heiba-wk/990804e51dc01b1b8804d1bad25ca01a) |\n| r/OpenAI | \u201cIs Codex the best right now?\u201d kullan\u0131c\u0131 ge\u00e7i\u015f davran\u0131\u015f\u0131 | ~495+ | [\ud83d\udd17](https://dev.to/loraine_mccarthy_fb6fb9da/the-ai-agent-mood-on-reddit-this-week-10-threads-builders-couldnt-ignore-e5o) |\n| r/developersIndia | Coinbase \u201c1-person teams + AI agents\u201d i\u015fg\u00fcc\u00fc tart\u0131\u015fmas\u0131 | ~393 | [\ud83d\udd17](https://dev.to/jennette_bauer_2323d35e6c/ai-agents-meet-the-messy-world-10-reddit-threads-from-this-week-36fn) |\n\n---\n\n## \ud83d\udc26 KAT-6 \u00b7 Twitter/X Viral\n\n\u26a0\ufe0f KAT-6 Kaynak Hatas\u0131: X RT/like say\u0131lar\u0131 do\u011frulanamad\u0131; TechTwitter \u201clast 24h trending\u201d s\u0131ras\u0131 kullan\u0131ld\u0131.\n\n| Hesap | Tweet \u00d6zeti | Etki | Tarih |\n|-------|-------------|------|-------|\n| @sama | \u201cAgents SDK 2.0 is underrated\u201d | TechTwitter top-20; agent SDK merak\u0131 | Son 24s [\ud83d\udd17](https://www.techtwitter.com/twitter-trending) |\n| @theo | Copilot tek mesajda 60M+ token harcad\u0131, inference maliyeti tart\u0131\u015fmas\u0131 | TechTwitter #1 civar\u0131; agent cost alarm\u0131 | Son 24s [\ud83d\udd17](https://www.techtwitter.com/twitter-trending) |\n| @levie | Agent vendors, FDE\u2019ler ve internal agent engineering rolleri b\u00fcy\u00fcyecek | \u0130\u015fg\u00fcc\u00fc/consulting d\u00f6n\u00fc\u015f\u00fcm\u00fc | Son 24s [\ud83d\udd17](https://www.techtwitter.com/twitter-trending) |\n| @garrytan | GBrain v0.26.3 MCP OAuth paneli | MCP auth/permission UX sinyali | Son 24s [\ud83d\udd17](https://www.techtwitter.com/twitter-trending) |\n\n---\n\n## \ud83c\udf10 KAT-7 \u00b7 Platform & Ekosistem\n\n- **VS Code 1.119:** Agent browser sharing, OTel tracing, sandbox allowNetwork ve model details badge; agent IDE hatt\u0131nda do\u011frudan developer etkisi. [\ud83d\udd17](https://code.visualstudio.com/updates/v1_119)\n- **Chrome 149 beta:** table border UA fix, CSS/UI de\u011fi\u015fiklikleri ve web platform denemeleri beta kanal\u0131na girdi. [\ud83d\udd17](https://developer.chrome.com/blog/chrome-149-beta?hl=en)\n- **\u2192 G\u00fcncelleme: Chrome 148 stable:** Prompt API/on-device Gemini Nano, lazy audio/video ve 127 security fix g\u00fcndemde kal\u0131yor; Top 7\u2019ye al\u0131nmad\u0131 \u00e7\u00fcnk\u00fc \u00f6nceki raporda i\u015flendi. [\ud83d\udd17](https://developer.chrome.com/blog/new-in-chrome-148?hl=en) [\ud83d\udd17](https://www.pcworld.com/article/3133965/chrome-148-patches-100-plus-vulnerabilities-including-3-critical-flaws.html)\n- **Apple AI hardware sinyali:** Kamera entegre AirPods prototipleri \u00fcretim testine yakla\u015f\u0131yor; Siri/visual AI i\u00e7in yeni form factor. [\ud83d\udd17](https://www.theverge.com/tech/926376/apple-airpods-cameras-ai-production)\n- **Firefox WebExtensions 149\u2013152:** Extension script injection, openPopup ve WebAuthn RP ID de\u011fi\u015fiklikleri \u00f6nceki raporda da vard\u0131; kategori izleme i\u00e7in not edildi. [\ud83d\udd17](https://blog.mozilla.org/addons/2026/04/23/webextensions-api-changes-firefox-149-152/)\n\n---\n\n## \ud83e\uddbe KAT-8 \u00b7 Robotik & Edge AI\n\n- **RLDX\u20111:** Dexterity-first robotic foundation model; tactile, torque, memory ve high\u2011DoF control tek mimaride. [\ud83d\udd17](https://www.rlwrld.ai/en/rldx-1)\n- **RLDX\u20111 HF/arXiv:** arXiv:2605.03269; ALLEX humanoid task ba\u015far\u0131s\u0131 ve VLA kar\u015f\u0131la\u015ft\u0131rmalar\u0131 \u00f6ne \u00e7\u0131k\u0131yor. [\ud83d\udd17](https://huggingface.co/papers/2605.03269)\n- **MiniCPM\u2011o 4.5:** Full-duplex multimodal model, edge cihazlarda <12GB RAM hedefiyle robot/ambient assistant hatt\u0131na yak\u0131n. [\ud83d\udd17](https://huggingface.co/papers/2604.27393)\n- **1X NEO factory:** Hayward\u2019daki NEO \u00fcretim hatt\u0131 ve humanoid robotlar\u0131n \u00fcretime yard\u0131mc\u0131 olmas\u0131 consumer humanoid \u00f6l\u00e7eklenme sinyali. [\ud83d\udd17](https://www.globenewswire.com/news-release/2026/04/30/3285118/0/en/1x-opens-neo-factory-in-hayward-ca-americas-first-vertically-integrated-humanoid-robot-factory-with-consumer-shipments-planned-for-2026)\n- **Dedupe:** Genesis GENE\u201126.5, Familiar Machines ve Meta ARI \u00f6nceki 72s listesinde oldu\u011fu i\u00e7in Top 7\u2019ye al\u0131nmad\u0131. [\ud83d\udd17](https://www.genesis.ai/press/press-release-gene-265)\n\n---\n\n## \u2b50 KAT-9 \u00b7 OSS & \u00dcr\u00fcn Sinyalleri\n\n### HN \u00d6ne \u00c7\u0131kanlar\n\n| Puan | Ba\u015fl\u0131k | Kaynak |\n|------|--------|--------|\n| 1504 | VS Code\u2019un commit\u2019lere \u201cCo-Authored-by Copilot\u201d eklemesi tart\u0131\u015fmas\u0131 | [\ud83d\udd17](https://www.hntoplinks.com/stories/2026/05) |\n| 1249 | \u2192 G\u00fcncelleme: Chrome\u2019un cihazda 4GB AI model kurmas\u0131 tart\u0131\u015fmas\u0131 b\u00fcy\u00fcd\u00fc | [\ud83d\udd17](https://www.hntoplinks.com/stories/2026/05) |\n| 156 | Agent Vault \u2014 AI agent credential proxy/vault | [\ud83d\udd17](https://hnshowcase.com/) |\n| 130 | Browser Harness \u2014 AI\u2019a ger\u00e7ek browser kontrol\u00fc veren harness | [\ud83d\udd17](https://hnshowcase.com/) |\n\n### GitHub Trending\n\n\u26a0\ufe0f GitHub daily exact star/g\u00fcn sat\u0131rlar\u0131 al\u0131namad\u0131; Trendshift rising repos kullan\u0131ld\u0131.\n\n| Repo | Stars/G\u00fcn | Alan |\n|------|-----------|------|\n| Hmbown/DeepSeek\u2011TUI | exact yok; 10.9k total sinyal | Terminal coding agent [\ud83d\udd17](https://trendshift.io/) |\n| addyosmani/agent-skills | exact yok; 30.3k total sinyal | Production AI coding skills [\ud83d\udd17](https://trendshift.io/) |\n| forrestchang/andrej-karpathy-skills | exact yok; 115.4k total sinyal | Claude/agent behavior skills [\ud83d\udd17](https://trendshift.io/) |\n| anthropics/financial-services | exact yok; 8.4k total sinyal | Finance agent/MCP [\ud83d\udd17](https://trendshift.io/) |\n\n### Product Hunt AI\n\n- \u26a0\ufe0f Live May 8 listesi al\u0131namad\u0131; en yak\u0131n g\u00fcvenilir kaynak May 5 TrendHunt Daily. Kollab, Magic Patterns Agent 2.0 ve Claude Code `/ultrareview` \u00f6nceki raporda i\u015flendi\u011fi i\u00e7in dedupe edildi. [\ud83d\udd17](https://trendhuntdaily.com/)\n- Product Hunt Frontier May 5 AI newsletter ar\u015fivi de \u201cfive AI tools\u201d k\u00fcmesini destekliyor. [\ud83d\udd17](https://deeperlearning.producthunt.com/)\n\n---\n\n## \ud83c\uddf9\ud83c\uddf7 T\u00fcrk Tech Sahnesi\n\n- **ASELSAN AI savunma entegrasyonu:** Ahmet Akyol, kameralardan radarlara, hava savunma sistemlerinden otonom ara\u00e7lara kadar AI kullan\u0131m\u0131n\u0131 anlatt\u0131; SAHA \u0130stanbul ba\u011flam\u0131nda T\u00fcrkiye ba\u011flant\u0131l\u0131 ana madde. [\ud83d\udd17](https://www.ahaber.com.tr/ozel-haberler/2026/05/04/aselsan-genel-muduru-akyol-a-habere-konustu)\n- **Donan\u0131mHaber AI g\u00fcndemi:** Project Mariner kapan\u0131\u015f\u0131, Anthropic\u2011SpaceX compute anla\u015fmas\u0131, Nvidia ev tipi mini veri merkezi ve Meta agent haberi yerel tech medyada \u00f6ne \u00e7\u0131kt\u0131. [\ud83d\udd17](https://www.donanimhaber.com/yapay-zeka)\n- **AA / Pentagon\u2011Scale AI:** T\u00fcrk\u00e7e kaynakta Pentagon\u2019un Scale AI ile 500M$ s\u00f6zle\u015fmesi i\u015flendi. [\ud83d\udd17](https://www.aa.com.tr/tr/dunya/pentagon-meta-baglantili-yapay-zeka-sirketi-ile-500-milyon-dolarlik-sozlesme-imzaladi/3929683)\n- **TRT Haber / CAISI:** Google, Microsoft ve xAI\u2019\u0131n ABD\u2019ye model test eri\u015fimi sa\u011flamas\u0131 T\u00fcrk\u00e7e kaynakta do\u011fruland\u0131. [\ud83d\udd17](https://www.trthaber.com/haber/dunya/google-microsoft-ve-xai-abdye-yapay-zeka-modelleri-icin-test-erisimi-saglayacak-944124.html)\n\n---\n\n## \ud83e\udde0 Oracle Self-Improvement Sinyalleri\n\n| # | Bulgu | Kaynak | Uygulama Alan\u0131 | Efor |\n|---|-------|--------|----------------|------|\n| 1 | First-token confidence, multi-sample self-consistency\u2019ye ucuz alternatif olabilir. | [KAT-3](https://arxiv-troller.com/paper/3164640/) | research confidence gate / hallucination flag | K\u00fc\u00e7\u00fck |\n| 2 | VS Code 1.119 OTel traces agent davran\u0131\u015f\u0131n\u0131 span/tool/token d\u00fczeyinde izliyor. | [KAT-7](https://code.visualstudio.com/updates/v1_119) | agent session observability | Orta |\n| 3 | Agent Vault deseni: credential agent\u2019a verilmez, brokered access kullan\u0131l\u0131r. | [KAT-9](https://hnshowcase.com/) | MCP/secret safety gateway | Orta |\n\n---\n\n## \ud83d\udc26 CikCik Paketi (@muxamos sesi)\n\n### Tweetler (3\u20135 adet)\n\n**Tweet 1 (Konu: OpenAI Realtime voice):**\n> Voice agent taraf\u0131nda oyun art\u0131k \u201ckonu\u015fuyor mu?\u201d de\u011fil. Dinlerken reasoning yap\u0131yor mu, tool \u00e7a\u011f\u0131r\u0131yor mu, \u00e7eviriyor mu, yar\u0131da kesilince toparl\u0131yor mu? OpenAI\u2019nin yeni Realtime \u00fc\u00e7l\u00fcs\u00fc bu e\u015fi\u011fi API seviyesine \u00e7ekti.\n\n**Tweet 2 (Konu: RLDX\u20111):**\n> Robotik taraf\u0131nda en ilgin\u00e7 k\u0131r\u0131lma \u201cdaha b\u00fcy\u00fck VLA\u201d de\u011fil, elin fizi\u011fini modele sokmak: torque, tactile signal, memory. RLDX\u20111 bu y\u00fczden \u00f6nemli. G\u00f6rmek yetmiyor; temas\u0131n kendisini modellemek gerekiyor.\n\n**Tweet 3 (Konu: VS Code 1.119):**\n> Agent IDE\u2019lerde as\u0131l fark model isminden de\u011fil g\u00f6zlemlenebilirlikten gelecek. Browser payla\u015f\u0131m\u0131 + OTel trace + token/tool span = \u201cagent ne yapt\u0131?\u201d sorusunun cevab\u0131. Debug edemedi\u011fin agent \u00fcretim sistemi de\u011fildir.\n\n**Tweet 4 (Konu: Agent Vault):**\n> Agent\u2019a secret vermek 2026\u2019da anti-pattern. Do\u011fru desen: agent iste\u011fi s\u00f6yler, vault/proxy yetkiyi kontrol eder, credential g\u00f6r\u00fcnmeden i\u015flem olur. Prompt injection \u00e7a\u011f\u0131nda g\u00fcvenlik metinle de\u011fil boundary ile kurulur.\n\n### Reply F\u0131rsatlar\u0131 (2\u20133)\n\n**@sama alt\u0131na (Agents SDK 2.0):**\n> Underrated k\u0131sm\u0131 bence SDK de\u011fil, permission + observability + recovery primitive\u2019leri. Agent framework\u2019leri \u201ctool call \u00e7al\u0131\u015ft\u0131\u201d seviyesinden \u201coperasyon g\u00fcvenli mi?\u201d seviyesine \u00e7\u0131kmak zorunda.\n\n**@levie alt\u0131na (agent engineering roles):**\n> Kesinlikle. Yeni rol \u201cprompt engineer\u201d de\u011fil; agent systems engineer: workflow, eval, permission, trace, rollback, cost control. Agent kullanan \u015firketle agent y\u00f6neten \u015firket ayn\u0131 \u015fey de\u011fil.\n\n**@theo alt\u0131na (60M token Copilot):**\n> Agent cost problemi UX problemi gibi g\u00f6r\u00fcn\u00fcr ama asl\u0131nda control-plane problemi. Budget, stop condition, trace ve per-task quota yoksa model zekas\u0131 artt\u0131k\u00e7a fatura da davran\u0131\u015f da kontrolden \u00e7\u0131kar.\n\n### G\u00fcn\u00fcn Hook'u\n\n> Agent devri model se\u00e7imiyle de\u011fil, s\u0131n\u0131r \u00e7izimiyle kazan\u0131lacak.\n\n---\n\n## \ud83d\udcca Kaynak & Durum \u00d6zeti\n\n| Kategori | Kaynak | Durum | Madde |\n|----------|--------|-------|-------|\n| KAT-1 | OpenAI, Axios, WSJ, Verge | \u2705 | 4 |\n| KAT-2 | VS Code, HN Showcase, Trendshift, MCP Blog | \u2705 | 4 |\n| KAT-3 | Hugging Face Papers, arXiv mirrors, RLWRLD | \u2705 | 6 |\n| KAT-4 | TechTwitter, Axios, Simon Willison, Agent Times | \u2705 | 4 |\n| KAT-5 | Reddit secondary scans, StartupFortune, DEV | \u26a0\ufe0f | 4 |\n| KAT-6 | TechTwitter trending | \u26a0\ufe0f | 4 |\n| KAT-7 | VS Code, Chrome Developers, Verge, Mozilla | \u2705 | 5 |\n| KAT-8 | RLWRLD, HF Papers, 1X, Genesis | \u2705 | 5 |\n| KAT-9 | HN Top Links, HN Showcase, Trendshift, TrendHunt | \u26a0\ufe0f | 8 |\n\n**Toplam dedupe elenen:** 13 madde | **Yeni madde:** 34 | **Sonraki temizlik:** 2026-05-11 01:00 \u0130ST\n\n---\n\n*Rapor: Gece Ara\u015ft\u0131rma v2 \u00b7 2026-05-08 01:00 \u0130ST \u00b7 Oracle \ud83e\udd89*\n";
+
+  // ── marked config ──
+  marked.setOptions({
+    gfm:true,
+    breaks:false,
+    mangle:false,
+    headerIds:false
+  });
+
+  // ── Wrap tables for horizontal scroll ──
+  var renderer = new marked.Renderer();
+  renderer.table = function(header, body){
+    return '<div class="table-wrap"><table><thead>' + header + '</thead><tbody>' + body + '</tbody></table></div>';
+  };
+
+  var html = marked.parse(RAW, {renderer:renderer});
+  var content = document.getElementById('content');
+  var loading = document.getElementById('loading');
+  content.innerHTML = html;
+  content.style.display = '';
+  loading.style.display = 'none';
+
+  // ── Open external links in new tab ──
+  var links = content.querySelectorAll('a[href]');
+  for(var i=0;i<links.length;i++){
+    var href = links[i].getAttribute('href');
+    if(href && (href.startsWith('http://') || href.startsWith('https://'))){
+      links[i].setAttribute('target','_blank');
+      links[i].setAttribute('rel','noopener noreferrer');
+    }
+  }
+})();
+</script>
 </body>
 </html>
