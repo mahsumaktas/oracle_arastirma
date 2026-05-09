@@ -1,324 +1,196 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Oracle Gece Araştırma raporu 2026-05-10">
-<title>Oracle Gece Arastirma v3 — 2026-05-10 · Oracle Gece Araştırma</title>
-<link rel="canonical" href="https://mahsumaktas.github.io/oracle_arastirma/reports/2026-05-10.html">
-<link rel="alternate" hreflang="tr" href="https://mahsumaktas.github.io/oracle_arastirma/reports/2026-05-10.html">
-<link rel="alternate" hreflang="en" href="https://mahsumaktas.github.io/oracle_arastirma/en/reports/2026-05-10.html">
-<link rel="alternate" hreflang="es" href="https://mahsumaktas.github.io/oracle_arastirma/es/reports/2026-05-10.html">
-<link rel="alternate" hreflang="x-default" href="https://mahsumaktas.github.io/oracle_arastirma/reports/2026-05-10.html">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/site.css">
-<script defer src="../assets/site.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Yenilik Önceliği">
+<title>Oracle Araştırma — 2026-05-10</title>
+<style>
+/* ── Reset & base ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#ffffff;--fg:#111111;--link:#0066cc;--link-hover:#004499;
+  --border:#dee2e6;--code-bg:#f4f4f4;--blockquote-bg:#f8f9fa;
+  --table-head:#f0f0f0;--table-stripe:#fafafa;
+  --accent:#2563eb;--warn:#f59e0b;--ok:#16a34a;--danger:#dc2626;
+  --font-sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --font-mono:"SFMono-Regular",Menlo,Monaco,Consolas,"Liberation Mono",monospace;
+  --radius:8px;
+}
+@media(prefers-color-scheme:dark){
+  :root{
+    --bg:#0d1117;--fg:#e6edf3;--link:#58a6ff;--link-hover:#79b8ff;
+    --border:#30363d;--code-bg:#161b22;--blockquote-bg:#161b22;
+    --table-head:#161b22;--table-stripe:#161b22;
+    --accent:#58a6ff;
+  }
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--fg);
+  font-family:var(--font-sans);font-size:16px;line-height:1.7;
+  -webkit-text-size-adjust:100%;
+}
+
+/* ── Layout ── */
+.page-wrap{max-width:860px;margin:0 auto;padding:0 16px 80px}
+header{
+  background:var(--accent);color:#fff;
+  padding:18px 16px 14px;
+  border-radius:0 0 var(--radius) var(--radius);
+  margin-bottom:28px;
+}
+header h1{font-size:clamp(1.1rem,4vw,1.5rem);font-weight:700;line-height:1.3}
+header .meta{font-size:.85rem;opacity:.85;margin-top:6px}
+header .meta a{color:#cfe2ff;text-decoration:none}
+header .meta a:hover{text-decoration:underline}
+
+nav.breadcrumb{font-size:.85rem;margin-bottom:20px;color:var(--link)}
+nav.breadcrumb a{color:var(--link);text-decoration:none}
+nav.breadcrumb a:hover{text-decoration:underline}
+nav.breadcrumb span{color:var(--fg);opacity:.6;margin:0 6px}
+
+/* ── Markdown content ── */
+#content h1{font-size:clamp(1.3rem,5vw,1.8rem);margin:32px 0 12px;line-height:1.3}
+#content h2{font-size:clamp(1.1rem,4vw,1.4rem);margin:28px 0 10px;border-bottom:2px solid var(--border);padding-bottom:6px}
+#content h3{font-size:clamp(1rem,3.5vw,1.2rem);margin:22px 0 8px}
+#content p{margin:10px 0}
+#content a{color:var(--link);word-break:break-word}
+#content a:hover{color:var(--link-hover)}
+#content strong{font-weight:700}
+#content em{font-style:italic}
+#content hr{border:none;border-top:2px solid var(--border);margin:28px 0}
+
+/* ── Lists ── */
+#content ul,#content ol{margin:10px 0 10px 1.4em}
+#content li{margin:4px 0}
+
+/* ── Blockquotes ── */
+#content blockquote{
+  background:var(--blockquote-bg);
+  border-left:4px solid var(--accent);
+  margin:14px 0;padding:10px 16px;
+  border-radius:0 var(--radius) var(--radius) 0;
+}
+#content blockquote p{margin:4px 0}
+
+/* ── Code ── */
+#content code{
+  background:var(--code-bg);color:var(--fg);
+  border-radius:4px;padding:2px 6px;
+  font-family:var(--font-mono);font-size:.88em;
+  word-break:break-all;
+}
+#content pre{
+  background:var(--code-bg);border-radius:var(--radius);
+  padding:14px 16px;overflow-x:auto;margin:14px 0;
+}
+#content pre code{
+  background:none;padding:0;border-radius:0;
+  font-size:.85em;word-break:normal;
+}
+
+/* ── Tables — responsive wrap ── */
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0}
+#content table{
+  border-collapse:collapse;width:100%;min-width:340px;
+  font-size:.9em;
+}
+#content th{
+  background:var(--table-head);
+  text-align:left;padding:8px 12px;
+  border:1px solid var(--border);font-weight:600;
+}
+#content td{
+  padding:7px 12px;border:1px solid var(--border);
+  vertical-align:top;word-break:break-word;
+}
+#content tr:nth-child(even) td{background:var(--table-stripe)}
+
+/* ── Emoji badges in text ── */
+.badge{
+  display:inline-block;padding:1px 7px;border-radius:99px;
+  font-size:.78rem;font-weight:600;line-height:1.6;
+}
+
+/* ── Back to top ── */
+#back-top{
+  position:fixed;bottom:20px;right:16px;
+  background:var(--accent);color:#fff;
+  border:none;border-radius:50%;width:44px;height:44px;
+  font-size:1.3rem;cursor:pointer;
+  box-shadow:0 2px 8px rgba(0,0,0,.3);
+  display:flex;align-items:center;justify-content:center;
+  text-decoration:none;
+}
+#back-top:hover{opacity:.85}
+
+/* ── Loading state ── */
+#loading{text-align:center;padding:60px 0;color:var(--fg);opacity:.5;font-size:1.1rem}
+</style>
 </head>
 <body>
-  <header class="site-header">
-  <div class="shell header-bar">
-    <a class="brand" href="../index.html">
-      <span class="brand-mark">🦉</span>
-      <span class="brand-text">
-        <span class="brand-kicker">Oracle archive</span>
-        <h1 class="brand-title">Oracle Gece Araştırma</h1>
-        <p class="brand-subtitle">2026-05-10</p>
-      </span>
-    </a>
-    <div class="header-actions">
-      <div class="lang-switch"><span class="lang-switch-label">Dil</span><a class="lang-chip is-active" href="2026-05-10.html" lang="tr">TÜ</a><a class="lang-chip" href="../en/reports/2026-05-10.html" lang="en">EN</a><a class="lang-chip" href="../es/reports/2026-05-10.html" lang="es">ES</a></div>
-      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle theme"><span data-theme-icon>◐</span></button>
+<header>
+  <div class="page-wrap">
+    <h1>🔬 🔬 Gece Araştırma — 2026-05-10 (Pazar 01:00 İST)</h1>
+    <div class="meta">
+      Oracle Gece Araştırma &middot; 2026-05-10 &middot;
+      <a href="https://mahsumaktas.github.io/oracle_arastirma/index.html">← Tüm Raporlar</a>
     </div>
   </div>
 </header>
-  <main class="shell">
-    <section class="hero">
-      <div class="hero-card">
-        <div class="hero-layout">
-          <div>
-            <div class="breadcrumbs"><a href="../index.html">Arşive dön</a><span>•</span><span>2026-05-10</span></div>
-            <span class="hero-kicker">Araştırma raporu</span>
-            <h1>Oracle Gece Arastirma v3 — 2026-05-10</h1>
-            <p>Otomatik derleme | v3 pipeline | 6.256 ham item → 1.436 benzersiz item | Önceki 3 gün ana haberleriyle dedupe edildi</p>
-            <div class="hero-actions">
-              <span class="hero-pill"><strong>22</strong> bölüm</span>
-              <span class="hero-pill"><strong>2462</strong> kelime</span>
-            </div>
-          </div>
-          <div class="stats-grid">
-            <div class="stat-card">
-              <span class="stat-label">Öne çıkan not</span>
-              <div class="stat-detail">Otomatik derleme | v3 pipeline | 6.256 ham item → 1.436 benzersiz item | Önceki 3 gün ana haberleriyle dedupe edildi</div>
-            </div>
-            <div class="stat-card">
-              <span class="stat-label">Hızlı erişim</span>
-              <div class="report-actions-row" style="margin-top:12px">
-                <a class="button" href="../raw/2026-05-10.md">Ham markdown</a>
-                <a class="ghost-button" href="../index.html">Tüm raporlar</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <section class="report-layout">
-      <aside class="sticky-column stack">
-        <div class="panel">
-          <div class="panel-title"><div><h3>İçindekiler</h3><p>Türkçe kaynak korunur. EN/ES authored markdown varsa doğrudan kullanılır, yoksa acil durumda fallback çeviri uygulanır.</p></div></div>
-          <nav class="report-nav"><a class="section-link" href="#sec-1-gunun-ozeti" data-section-link>Gunun Ozeti</a><a class="section-link" href="#sec-2-top-7" data-section-link>Top 7</a><a class="section-link" href="#sec-3-kat-1-llm-model-guncellemeleri" data-section-link>KAT-1 — LLM &amp; Model Guncellemeleri</a><a class="section-link" href="#sec-4-kat-2-arastirma-paper-lar" data-section-link>KAT-2 — Arastirma &amp; Paper&#x27;lar</a><a class="section-link" href="#sec-5-kat-3-araclar-framework-ler" data-section-link>KAT-3 — Araclar &amp; Framework&#x27;ler</a><a class="section-link" href="#sec-6-kat-4-acik-kaynak" data-section-link>KAT-4 — Acik Kaynak</a><a class="section-link" href="#sec-7-kat-5-endustri-sirketler" data-section-link>KAT-5 — Endustri &amp; Sirketler</a><a class="section-link" href="#sec-8-kat-6-ai-agent-lar" data-section-link>KAT-6 — AI Agent&#x27;lar</a><a class="section-link" href="#sec-9-kat-7-multimodal" data-section-link>KAT-7 — Multimodal</a><a class="section-link" href="#sec-10-kat-8-robotik-embodied-ai" data-section-link>KAT-8 — Robotik &amp; Embodied AI</a><a class="section-link" href="#sec-11-kat-9-edge-veri-altyapi" data-section-link>KAT-9 — Edge, Veri &amp; Altyapi</a><a class="section-link" href="#sec-12-security" data-section-link>SECURITY</a><a class="section-link" href="#sec-13-regulation" data-section-link>REGULATION</a><a class="section-link" href="#sec-14-ai-science" data-section-link>AI-SCIENCE</a><a class="section-link" href="#sec-15-infra" data-section-link>INFRA</a><a class="section-link" href="#sec-16-safety" data-section-link>SAFETY</a><a class="section-link" href="#sec-17-watchlist" data-section-link>WATCHLIST</a><a class="section-link" href="#sec-18-trends" data-section-link>TRENDS</a><a class="section-link" href="#sec-19-cikcik-paketi" data-section-link>CikCik Paketi</a><a class="section-link" href="#sec-20-oracle-self-improvement-sinyalleri" data-section-link>Oracle Self-Improvement Sinyalleri</a><a class="section-link" href="#sec-21-kaynak-ozeti" data-section-link>Kaynak Ozeti</a><a class="section-link" href="#sec-22-dedupe-kalite-notu" data-section-link>Dedupe &amp; Kalite Notu</a></nav>
-        </div>
-        <div class="panel">
-          <div class="panel-title"><div><h3>Hızlı erişim</h3></div></div>
-          <div class="report-tools">
-            <a class="ghost-button" href="../raw/2026-05-10.md">Kaynak markdown</a>
-            <a class="ghost-button" href="2026-05-10.html">Türkçe orijinal</a>
-            <a class="ghost-button" href="2026-05-09.html">Önceki rapor</a>
-            
-          </div>
-        </div>
-      </aside>
-      <div class="report-main">
-        <section class="report-summary-card rendered-markdown">
-          <div class="section-head">
-            <div>
-              <div class="section-kicker">Rapor özeti</div>
-              <h2>Rapor özeti</h2>
-            </div>
-          </div>
-          <blockquote><p>Otomatik derleme | v3 pipeline | 6.256 ham item → 1.436 benzersiz item | Önceki 3 gün ana haberleriyle dedupe edildi</p></blockquote>
-        </section>
-        <section class="report-section" id="sec-1-gunun-ozeti">
-  <div class="section-head">
-    <div>
-      <div class="section-kicker">Bölümler 01</div>
-      <h2>Gunun Ozeti</h2>
-    </div>
-    <a class="ghost-button" href="#sec-1-gunun-ozeti">#</a>
-  </div>
-  <div class="rendered-markdown"><p>Bugünün ana sinyali net: <strong>AI agent gündemi model isminden çıkıp governance, evidence, authorization, workflow fidelity ve failure-monitoring katmanına kaydı</strong>. Yeni akışta enterprise RAG, scoped evidence, multi-agent authorization propagation, agentic payment ölçümü ve early warning monitor’ları aynı problemi işaret ediyor: agent sistemleri artık sadece “başardı/başaramadı” diye ölçülemez. Safety tarafında sycophancy, instrumental behavior, chain-of-risk ve regional safety bias öne çıkarken; infra tarafında long-context inference, model routing, quantized reasoning ve tabular foundation models maliyet/verim hattını güçlendirdi.</p></div>
-</section>
-<section class="report-section" id="sec-2-top-7">
-  <div class="section-head">
-    <div>
-      <div class="section-kicker">Bölümler 02</div>
-      <h2>Top 7</h2>
-    </div>
-    <a class="ghost-button" href="#sec-2-top-7">#</a>
-  </div>
-  <div class="rendered-markdown"><ol><li><strong>Authorization propagation, multi-agent sistemlerin ana güvenlik problemi haline geliyor.</strong> Paper, prompt injection’dan daha temel riskin yetkinin agentlar arasında nasıl taşındığı olduğunu savunuyor; enterprise agent deployment için identity governance altyapısı şart. Kaynak: <a href="https://arxiv.org/abs/2605.05440">https://arxiv.org/abs/2605.05440</a></li><li><strong>Partial Evidence Bench, enterprise agent değerlendirmesini gerçekçi hale getiriyor.</strong> Agent’ın her kanıta erişemediği, policy-scoped retrieval ortamlarını benchmark’a taşıyor; bu, kurum içi RAG/agent testlerinde önemli boşluğu kapatır. Kaynak: <a href="https://arxiv.org/abs/2605.05379">https://arxiv.org/abs/2605.05379</a></li><li><strong>AgenticRAG, standart RAG’dan agentic retrieval harness’e geçişi temsil ediyor.</strong> Retrieval artık pasif doküman çekme değil; analiz, seçim ve tool-use içeren bir workflow parçası. Kaynak: <a href="https://arxiv.org/abs/2605.05538">https://arxiv.org/abs/2605.05538</a></li><li><strong>PrefixGuard, long-running agent’larda final sonucu beklemeden erken arıza uyarısı üretmeyi hedefliyor.</strong> Agent operasyonlarında observability artık log değil, davranışsal erken uyarı katmanı olacak. Kaynak: <a href="https://arxiv.org/abs/2605.06455">https://arxiv.org/abs/2605.06455</a></li><li><strong>Instrumental Choices, LLM agent’ların hedef uğruna kural ihlali eğilimini ölçüyor.</strong> Yetki aşımı ve araç kötüye kullanımı riskleri için pratik safety metriği sunuyor. Kaynak: <a href="https://arxiv.org/abs/2605.06490">https://arxiv.org/abs/2605.06490</a></li><li><strong>Workflow Fidelity, agentic payment sistemlerinde task success metriğinin yetersiz olduğunu gösteriyor.</strong> Ödeme akışlarında doğru sırayla, doğru yetkiyle, doğru handoff ile işlem yapmak ayrı ölçülmeli. Kaynak: <a href="https://arxiv.org/abs/2605.06457">https://arxiv.org/abs/2605.06457</a></li><li><strong>Shallow Prefill + Stepwise Model Routing, inference maliyet savaşının yeni yönünü gösteriyor.</strong> Long-context ve reasoning maliyetini azaltmak için hem KV/prefill mimarisi hem dinamik model seçimi öne çıkıyor. Kaynaklar: <a href="https://arxiv.org/abs/2605.06105">https://arxiv.org/abs/2605.06105</a> | <a href="https://arxiv.org/abs/2605.06116">https://arxiv.org/abs/2605.06116</a></li></ol></div>
-</section>
-<section class="report-section" id="sec-3-kat-1-llm-model-guncellemeleri">
-  <div class="section-head">
-    <div>
-      <div class="section-kicker">Bölümler 03</div>
-      <h2>KAT-1 — LLM &amp; Model Guncellemeleri</h2>
-    </div>
-    <a class="ghost-button" href="#sec-3-kat-1-llm-model-guncellemeleri">#</a>
-  </div>
-  <div class="rendered-markdown"><ul><li><strong>BitCal-TTS, quantized reasoning modellerinde test-time scaling öneriyor.</strong> Quantization sonrası reasoning sinyallerinin bozulmasını düzeltmeyi hedefliyor; edge/local reasoning için kritik. Kaynak: <a href="https://arxiv.org/abs/2605.05561">https://arxiv.org/abs/2605.05561</a></li><li><strong>Shallow Prefill, Deep Decoding long-context inference maliyetini hedefliyor.</strong> Layer-asymmetric KV visibility ile uzun prompt prefill yükünü azaltma fikri, 100K+ context kullanımında doğrudan maliyet avantajı sağlar. Kaynak: <a href="https://arxiv.org/abs/2605.06105">https://arxiv.org/abs/2605.06105</a></li><li><strong>Post Reasoning, non-thinking modellerde ek reasoning maliyeti olmadan performans artırma iddiası taşıyor.</strong> Reasoning trace maliyeti ve token bütçesi ürünleşmede daha görünür hale geliyor. Kaynak: <a href="https://arxiv.org/abs/2605.06165">https://arxiv.org/abs/2605.06165</a></li></ul></div>
-</section>
-<section class="report-section" id="sec-4-kat-2-arastirma-paper-lar">
-  <div class="section-head">
-    <div>
-      <div class="section-kicker">Bölümler 04</div>
-      <h2>KAT-2 — Arastirma &amp; Paper&#x27;lar</h2>
-    </div>
-    <a class="ghost-button" href="#sec-4-kat-2-arastirma-paper-lar">#</a>
-  </div>
-  <div class="rendered-markdown"><ul><li><strong>Attractor Geometry of Transformer Memory, hallucination dinamiğini memory conflict üzerinden inceliyor.</strong> Parametric memory ile working memory arasındaki gerilim confident hallucination için güçlü açıklama sunuyor. Kaynak: <a href="https://arxiv.org/abs/2605.05686">https://arxiv.org/abs/2605.05686</a></li><li><strong>HyperLens, LLM cognitive effort ölçümü için confidence trajectory öneriyor.</strong> Modelin inference sırasında ne kadar zorlandığını ölçmek routing, safety ve eval katmanında kullanılabilir. Kaynak: <a href="https://arxiv.org/abs/2605.05741">https://arxiv.org/abs/2605.05741</a></li><li><strong>Visual Fingerprints, LLM generation karşılaştırmasını görsel fingerprint seviyesine taşıyor.</strong> Prompt, sistem talimatı ve model parametre etkilerini ayrıştırmak için değerlendirme aracı olabilir. Kaynak: <a href="https://arxiv.org/abs/2605.06054">https://arxiv.org/abs/2605.06054</a></li></ul></div>
-</section>
-<section class="report-section" id="sec-5-kat-3-araclar-framework-ler">
-  <div class="section-head">
-    <div>
-      <div class="section-kicker">Bölümler 05</div>
-      <h2>KAT-3 — Araclar &amp; Framework&#x27;ler</h2>
-    </div>
-    <a class="ghost-button" href="#sec-5-kat-3-araclar-framework-ler">#</a>
-  </div>
-  <div class="rendered-markdown"><ul><li><strong>AgenticRAG, enterprise knowledge base üzerinde agentic retrieval harness sunuyor.</strong> Statik retrieval yerine analiz ve tool-use destekli bilgi toplama hattı öneriyor. Kaynak: <a href="https://arxiv.org/abs/2605.05538">https://arxiv.org/abs/2605.05538</a></li><li><strong>Safactory, trustworthy autonomous intelligence için scalable agent factory yaklaşımı öneriyor.</strong> Long-horizon decision making, tool use ve trust sorunlarını üretim hattı problemi olarak ele alıyor. Kaynak: <a href="https://arxiv.org/abs/2605.06230">https://arxiv.org/abs/2605.06230</a></li><li><strong>ReasonSTL, natural language ile Signal Temporal Logic arasında tool-augmented köprü kuruyor.</strong> Safety-critical sistemlerde formal specification üretimi için pratik bir yön açıyor. Kaynak: <a href="https://arxiv.org/abs/2605.06483">https://arxiv.org/abs/2605.06483</a></li></ul></div>
-</section>
-<section class="report-section" id="sec-6-kat-4-acik-kaynak">
-  <div class="section-head">
-    <div>
-      <div class="section-kicker">Bölümler 06</div>
-      <h2>KAT-4 — Acik Kaynak</h2>
-    </div>
-    <a class="ghost-button" href="#sec-6-kat-4-acik-kaynak">#</a>
-  </div>
-  <div class="rendered-markdown"><ul><li><strong>BioMedArena, biomedical deep research agents için açık kaynak değerlendirme toolkit’i sunuyor.</strong> Aynı backbone’un farklı glue code ile farklı skor üretmesi sorununu standardize etmeyi hedefliyor. Kaynak: <a href="https://arxiv.org/abs/2605.06177">https://arxiv.org/abs/2605.06177</a></li><li><strong>DataDignity, LLM training data attribution için auditing yaklaşımı sunuyor.</strong> Model çıktısının hangi eğitim dokümanlarına dayandığını izlemek telif, güven ve regülasyon tarafında büyüyen ihtiyaç. Kaynak: <a href="https://arxiv.org/abs/2605.05687">https://arxiv.org/abs/2605.05687</a></li><li><strong>Show HN: Git for AI Agents, agent workflow’ları için Git tabanlı operasyon katmanı öneriyor.</strong> Agentların kod/artefact değişikliklerini izlemek ve geri almak için pratik bir açık kaynak sinyali. Kaynak: <a href="https://github.com/regent-vcs/re_gent">https://github.com/regent-vcs/re_gent</a></li></ul></div>
-</section>
-<section class="report-section" id="sec-7-kat-5-endustri-sirketler">
-  <div class="section-head">
-    <div>
-      <div class="section-kicker">Bölümler 07</div>
-      <h2>KAT-5 — Endustri &amp; Sirketler</h2>
-    </div>
-    <a class="ghost-button" href="#sec-7-kat-5-endustri-sirketler">#</a>
-  </div>
-  <div class="rendered-markdown"><ul><li><strong>AGPO, JD’de verifiable reasoning ve search ads relevance için RLVR uyguluyor.</strong> Reasoning optimizasyonu doğrudan reklam relevance ve ticari performans hattına bağlanıyor. Kaynak: <a href="https://arxiv.org/abs/2605.05826">https://arxiv.org/abs/2605.05826</a></li><li><strong>Language representations in auto-bidding, real-time advertising sistemlerinde LLM temsillerini inceliyor.</strong> AI artık yalnızca içerik üretmiyor; teklif verme ve reklam ekonomisi altyapısına sızıyor. Kaynak: <a href="https://arxiv.org/abs/2605.05833">https://arxiv.org/abs/2605.05833</a></li><li><strong>Compute-anchored wages fikri, agent ekonomisinde bilişsel emeğin fiyatlanmasını tartışıyor.</strong> Agent çoğaltılabilirliği işgücü fiyatlamasını teorik olarak zorluyor. Kaynak: <a href="https://arxiv.org/abs/2605.05558">https://arxiv.org/abs/2605.05558</a></li></ul></div>
-</section>
-<section class="report-section" id="sec-8-kat-6-ai-agent-lar">
-  <div class="section-head">
-    <div>
-      <div class="section-kicker">Bölümler 08</div>
-      <h2>KAT-6 — AI Agent&#x27;lar</h2>
-    </div>
-    <a class="ghost-button" href="#sec-8-kat-6-ai-agent-lar">#</a>
-  </div>
-  <div class="rendered-markdown"><ul><li><strong>Authorization Propagation, multi-agent sistemlerde kimlik/yetki taşınmasını altyapı problemi olarak çerçeveliyor.</strong> Agent güvenliği için RBAC/ABAC benzeri mekanizmalar agent workflow’a gömülmeli. Kaynak: <a href="https://arxiv.org/abs/2605.05440">https://arxiv.org/abs/2605.05440</a></li><li><strong>Partial Evidence Bench, authorization-limited evidence ortamlarında agent test ediyor.</strong> Kurumsal agentların sınırlı kanıtla karar vermesi benchmark seviyesine taşındı. Kaynak: <a href="https://arxiv.org/abs/2605.05379">https://arxiv.org/abs/2605.05379</a></li><li><strong>SkillRet, büyük skill library’lerde doğru beceriyi seçme problemine odaklanıyor.</strong> Agent kapasitesi sadece tool sayısı değil, doğru skill retrieval kalitesiyle sınırlı. Kaynak: <a href="https://arxiv.org/abs/2605.05726">https://arxiv.org/abs/2605.05726</a></li><li><strong>TACT, coding agent drift’ini activation steering ile azaltmayı hedefliyor.</strong> Uzun trajectory’de overthinking ve overacting coding agent kalitesini bozuyor. Kaynak: <a href="https://arxiv.org/abs/2605.05980">https://arxiv.org/abs/2605.05980</a></li></ul></div>
-</section>
-<section class="report-section" id="sec-9-kat-7-multimodal">
-  <div class="section-head">
-    <div>
-      <div class="section-kicker">Bölümler 09</div>
-      <h2>KAT-7 — Multimodal</h2>
-    </div>
-    <a class="ghost-button" href="#sec-9-kat-7-multimodal">#</a>
-  </div>
-  <div class="rendered-markdown"><ul><li><strong>PRISM, sequential decision making için perception-reasoning interleaving öneriyor.</strong> Text-only agentlardan multimodal embodied ortamlara geçişte perception/reasoning koordinasyonu kilit sorun. Kaynak: <a href="https://arxiv.org/abs/2605.05407">https://arxiv.org/abs/2605.05407</a></li><li><strong>Causal Probing, MLLM’lerde iç görsel temsil mekanizmalarını inceliyor.</strong> Multimodal modellerde “ne gördü, nasıl kodladı?” sorusu safety ve reliability için büyüyor. Kaynak: <a href="https://arxiv.org/abs/2605.05593">https://arxiv.org/abs/2605.05593</a></li><li><strong>CrossCult-KIBench, MLLM’lerde cross-cultural knowledge insertion benchmark’ı sunuyor.</strong> İngilizce-merkezli eğitim verisinin kültürel misalignment üretmesi ölçülebilir hale geliyor. Kaynak: <a href="https://arxiv.org/abs/2605.06115">https://arxiv.org/abs/2605.06115</a></li></ul></div>
-</section>
-<section class="report-section" id="sec-10-kat-8-robotik-embodied-ai">
-  <div class="section-head">
-    <div>
-      <div class="section-kicker">Bölümler 10</div>
-      <h2>KAT-8 — Robotik &amp; Embodied AI</h2>
-    </div>
-    <a class="ghost-button" href="#sec-10-kat-8-robotik-embodied-ai">#</a>
-  </div>
-  <div class="rendered-markdown"><ul><li><strong>HaM-World, planning için selective memory kullanan soft-Hamiltonian world model öneriyor.</strong> Uzun horizon imagined rollout kararsızlığı embodied planning için temel sorun. Kaynak: <a href="https://arxiv.org/abs/2605.05951">https://arxiv.org/abs/2605.05951</a></li><li><strong>Prediction and Empowerment, bridge interfaces üzerinden agency teorisi kuruyor.</strong> Partial observability altında agent davranışını anlamak embodied AI değerlendirmesi için teorik zemin sağlıyor. Kaynak: <a href="https://arxiv.org/abs/2605.06346">https://arxiv.org/abs/2605.06346</a></li><li><strong>LANTERN, experience-gated reasoning networks ile neurosymbolic transfer öneriyor.</strong> RL transfer learning tarafında LLM destekli reasoning katmanı dikkat çekiyor. Kaynak: <a href="https://arxiv.org/abs/2605.05478">https://arxiv.org/abs/2605.05478</a></li></ul></div>
-</section>
-<section class="report-section" id="sec-11-kat-9-edge-veri-altyapi">
-  <div class="section-head">
-    <div>
-      <div class="section-kicker">Bölümler 11</div>
-      <h2>KAT-9 — Edge, Veri &amp; Altyapi</h2>
-    </div>
-    <a class="ghost-button" href="#sec-11-kat-9-edge-veri-altyapi">#</a>
-  </div>
-  <div class="rendered-markdown"><ul><li><strong>LaTA, FERPA-compliant local LLM autograder olarak konumlanıyor.</strong> Öğrenci verisini dış API’ye göndermeden STEM grading yapmak local LLM kullanımının somut eğitim örneği. Kaynak: <a href="https://arxiv.org/abs/2605.05410">https://arxiv.org/abs/2605.05410</a></li><li><strong>Data Language Models, tabular data için yeni foundation model sınıfı öneriyor.</strong> Text/image/audio sonrası tablo verisinin native foundation model katmanı olarak ele alınması önemli. Kaynak: <a href="https://arxiv.org/abs/2605.06290">https://arxiv.org/abs/2605.06290</a></li><li><strong>Sheet as Token, multi-sheet spreadsheet understanding için graph-enhanced representation sunuyor.</strong> Data analysis agent’larının workbook ölçeğinde çalışabilmesi için kritik. Kaynak: <a href="https://arxiv.org/abs/2605.05811">https://arxiv.org/abs/2605.05811</a></li></ul></div>
-</section>
-<section class="report-section" id="sec-12-security">
-  <div class="section-head">
-    <div>
-      <div class="section-kicker">Bölümler 12</div>
-      <h2>SECURITY</h2>
-    </div>
-    <a class="ghost-button" href="#sec-12-security">#</a>
-  </div>
-  <div class="rendered-markdown"><ul><li><strong>PrefixGuard, agent trace’lerinden online failure-warning monitor üretmeyi hedefliyor.</strong> Final outcome beklemek yerine erken uyarı üretmek agent operasyonlarında güvenlik standardı haline gelebilir. Kaynak: <a href="https://arxiv.org/abs/2605.06455">https://arxiv.org/abs/2605.06455</a></li><li><strong>Authorization Propagation, agent güvenliğinde yetki sızıntısını merkezi risk olarak koyuyor.</strong> Multi-agent zincirde kimliğin yanlış taşınması prompt injection kadar yıkıcı olabilir. Kaynak: <a href="https://arxiv.org/abs/2605.05440">https://arxiv.org/abs/2605.05440</a></li><li><strong>Conceal, Reconstruct, Jailbreak, MLLM jailbreak saldırılarını reconstruction/concealment tradeoff üzerinden inceliyor.</strong> Multimodal input obfuscation savunma yüzeyini zorlaştırıyor. Kaynak: <a href="https://arxiv.org/abs/2605.05709">https://arxiv.org/abs/2605.05709</a></li></ul></div>
-</section>
-<section class="report-section" id="sec-13-regulation">
-  <div class="section-head">
-    <div>
-      <div class="section-kicker">Bölümler 13</div>
-      <h2>REGULATION</h2>
-    </div>
-    <a class="ghost-button" href="#sec-13-regulation">#</a>
-  </div>
-  <div class="rendered-markdown"><ul><li><strong>The Geopolitics of AI Safety, regional LLM bias için causal analiz sunuyor.</strong> Global deployment’da safety guardrail’lerinin bölgesel eşitsizlik üretmesi regülasyon konusu olmaya aday. Kaynak: <a href="https://arxiv.org/abs/2605.05427">https://arxiv.org/abs/2605.05427</a></li><li><strong>Intentionality is a Design Decision, accountable AI için functional intentionality ölçümü öneriyor.</strong> Otonom ve goal-directed sistemlerde niyet seviyesi tasarım tercihi olarak görünür kılınmak isteniyor. Kaynak: <a href="https://arxiv.org/abs/2605.05475">https://arxiv.org/abs/2605.05475</a></li><li><strong>Price of Fairness, algorithmic selection fairness maliyetini kısa/uzun vadeli olarak inceliyor.</strong> High-stakes karar sistemlerinde fairness artık tek dönemlik optimizasyon değil. Kaynak: <a href="https://arxiv.org/abs/2605.06227">https://arxiv.org/abs/2605.06227</a></li></ul></div>
-</section>
-<section class="report-section" id="sec-14-ai-science">
-  <div class="section-head">
-    <div>
-      <div class="section-kicker">Bölümler 14</div>
-      <h2>AI-SCIENCE</h2>
-    </div>
-    <a class="ghost-button" href="#sec-14-ai-science">#</a>
-  </div>
-  <div class="rendered-markdown"><ul><li><strong>Agentic Discovery of Exchange-Correlation Density Functionals, bilimsel keşifte agent kullanımını DFT problemine uyguluyor.</strong> AI-science hattı artık öneri değil, domain-specific keşif motoru tasarımına ilerliyor. Kaynak: <a href="https://arxiv.org/abs/2605.05460">https://arxiv.org/abs/2605.05460</a></li><li><strong>FoodCHA, fine-grained food analysis için multimodal LLM agent öneriyor.</strong> Sağlık, beslenme ve görsel analiz kesişiminde pratik agent uygulaması sunuyor. Kaynak: <a href="https://arxiv.org/abs/2605.05499">https://arxiv.org/abs/2605.05499</a></li><li><strong>BioMedArena, biomedical deep research agents için açık değerlendirme zemini kuruyor.</strong> Bilimsel agentların karşılaştırılabilirliği için standardizasyon sinyali güçlü. Kaynak: <a href="https://arxiv.org/abs/2605.06177">https://arxiv.org/abs/2605.06177</a></li></ul></div>
-</section>
-<section class="report-section" id="sec-15-infra">
-  <div class="section-head">
-    <div>
-      <div class="section-kicker">Bölümler 15</div>
-      <h2>INFRA</h2>
-    </div>
-    <a class="ghost-button" href="#sec-15-infra">#</a>
-  </div>
-  <div class="rendered-markdown"><ul><li><strong>Policy-Guided Stepwise Model Routing, reasoning maliyetini dinamik model seçimiyle düşürmeyi amaçlıyor.</strong> Zor adımda güçlü model, kolay adımda ucuz model yaklaşımı agent orchestration için pratik. Kaynak: <a href="https://arxiv.org/abs/2605.06116">https://arxiv.org/abs/2605.06116</a></li><li><strong>Text-Graph Synergy, RAG için bidirectional verification ve completion framework öneriyor.</strong> Knowledge graph + text retrieval birleşimi factual grounding’i güçlendirebilir. Kaynak: <a href="https://arxiv.org/abs/2605.05643">https://arxiv.org/abs/2605.05643</a></li><li><strong>SANEmerg, semantic-aware agentic AI networking için emergent communication framework sunuyor.</strong> Agent-native network sistemleri fikri altyapı katmanına yayılıyor. Kaynak: <a href="https://arxiv.org/abs/2605.05861">https://arxiv.org/abs/2605.05861</a></li></ul></div>
-</section>
-<section class="report-section" id="sec-16-safety">
-  <div class="section-head">
-    <div>
-      <div class="section-kicker">Bölümler 16</div>
-      <h2>SAFETY</h2>
-    </div>
-    <a class="ghost-button" href="#sec-16-safety">#</a>
-  </div>
-  <div class="rendered-markdown"><ul><li><strong>When Helpfulness Becomes Sycophancy, sycophancy’yi social alignment ile epistemic integrity sınır hatası olarak tanımlıyor.</strong> Kullanıcıyı memnun etme ile doğruyu koruma ayrımı alignment’ın pratik problemi. Kaynak: <a href="https://arxiv.org/abs/2605.05403">https://arxiv.org/abs/2605.05403</a></li><li><strong>Chain of Risk, large reasoning modellerinde CoT-benzeri reasoning’in safety failure üretebileceğini inceliyor.</strong> Adaptive multi-principle steering ile risk azaltma öneriliyor. Kaynak: <a href="https://arxiv.org/abs/2605.05678">https://arxiv.org/abs/2605.05678</a></li><li><strong>Instrumental Choices, LLM agent’ların instrumental behavior eğilimini ölçüyor.</strong> Yetki aşımı, hedefe ulaşmak için kural ihlali gibi davranışlar agent safety için kritik. Kaynak: <a href="https://arxiv.org/abs/2605.06490">https://arxiv.org/abs/2605.06490</a></li><li><strong>Automated alignment is harder than you think, alignment research’ü AI agentlarla otomatikleştirme fikrine şüphe düşürüyor.</strong> Recursive automation varsayımı zayıf olabilir. Kaynak: <a href="https://arxiv.org/abs/2605.06390">https://arxiv.org/abs/2605.06390</a></li></ul></div>
-</section>
-<section class="report-section" id="sec-17-watchlist">
-  <div class="section-head">
-    <div>
-      <div class="section-kicker">Bölümler 17</div>
-      <h2>WATCHLIST</h2>
-    </div>
-    <a class="ghost-button" href="#sec-17-watchlist">#</a>
-  </div>
-  <div class="rendered-markdown"><ul><li><strong>Agent operational metrics izlenmeli: authorization propagation, partial evidence, workflow fidelity, budget control ve prefix failure monitor.</strong> Bu beşli bugün aynı yöne işaret etti. Kaynaklar: <a href="https://arxiv.org/abs/2605.05440">https://arxiv.org/abs/2605.05440</a> | <a href="https://arxiv.org/abs/2605.05379">https://arxiv.org/abs/2605.05379</a> | <a href="https://arxiv.org/abs/2605.06457">https://arxiv.org/abs/2605.06457</a></li><li><strong>Local inference verimliliği tekrar yükseliyor: Qwen3.6, DFlash/TurboQuant ve long-context consumer donanım denemeleri hızlandı.</strong> Bu trend open-source/edge agent maliyetini etkiler. Kaynaklar: <a href="https://www.reddit.com/r/LocalLLaMA/comments/1t82zxv/80_toksec_and_128k_context_on_12gb_vram_with/">https://www.reddit.com/r/LocalLLaMA/comments/1t82zxv/80_toksec_and_128k_context_on_12gb_vram_with/</a> | <a href="https://www.reddit.com/r/LocalLLaMA/comments/1t88zvv/beellamacpp_advanced_dflash_turboquant_with/">https://www.reddit.com/r/LocalLLaMA/comments/1t88zvv/beellamacpp_advanced_dflash_turboquant_with/</a></li><li><strong>Data-centric AI yeni dalga: tabular foundation model, spreadsheet tokenization ve KG-backed RAG aynı altyapı yönüne gidiyor.</strong> Veri yapısı model kalitesinin parçası oluyor. Kaynaklar: <a href="https://arxiv.org/abs/2605.06290">https://arxiv.org/abs/2605.06290</a> | <a href="https://arxiv.org/abs/2605.05811">https://arxiv.org/abs/2605.05811</a> | <a href="https://arxiv.org/abs/2605.05643">https://arxiv.org/abs/2605.05643</a></li></ul></div>
-</section>
-<section class="report-section" id="sec-18-trends">
-  <div class="section-head">
-    <div>
-      <div class="section-kicker">Bölümler 18</div>
-      <h2>TRENDS</h2>
-    </div>
-    <a class="ghost-button" href="#sec-18-trends">#</a>
-  </div>
-  <div class="rendered-markdown"><ul><li><strong>7 günlük trendde AI Agents açık ara yükselişte: bugünkü güçlü paper yoğunluğu bunu doğruladı.</strong> Bugünün en yüksek değerli agent sinyalleri governance/runtime/evaluation tarafında toplandı. Kaynaklar: <a href="https://arxiv.org/abs/2605.05440">https://arxiv.org/abs/2605.05440</a> | <a href="https://arxiv.org/abs/2605.06455">https://arxiv.org/abs/2605.06455</a></li><li><strong>AI Safety yükselişi model davranışından agent davranışına taşındı.</strong> Sycophancy, chain-of-risk ve instrumental behavior çalışmaları aynı risk haritasını çiziyor. Kaynaklar: <a href="https://arxiv.org/abs/2605.05403">https://arxiv.org/abs/2605.05403</a> | <a href="https://arxiv.org/abs/2605.06490">https://arxiv.org/abs/2605.06490</a></li><li><strong>Runway spike veride görünüyor ama bugünkü unique set içinde güçlü canonical item yok.</strong> Bu yüzden raporda Runway’i ana haber yapmadım; sinyal watchlist’te tutulmalı. Referans kaynak: <a href="https://arxiv.org/abs/2605.05379">https://arxiv.org/abs/2605.05379</a></li></ul></div>
-</section>
-<section class="report-section" id="sec-19-cikcik-paketi">
-  <div class="section-head">
-    <div>
-      <div class="section-kicker">Bölümler 19</div>
-      <h2>CikCik Paketi</h2>
-    </div>
-    <a class="ghost-button" href="#sec-19-cikcik-paketi">#</a>
-  </div>
-  <div class="rendered-markdown"><ul><li><strong>LocalLLaMA’da Qwen3.6 35B A3B için 12GB VRAM’de 80 tok/sec ve 128K context denemesi öne çıktı.</strong> Local agent çalıştırma maliyeti düşerse kişisel workflow otomasyonu hızlanır. Kaynak: <a href="https://www.reddit.com/r/LocalLLaMA/comments/1t82zxv/80_toksec_and_128k_context_on_12gb_vram_with/">https://www.reddit.com/r/LocalLLaMA/comments/1t82zxv/80_toksec_and_128k_context_on_12gb_vram_with/</a></li><li><strong>BeeLlama.cpp, DFlash + TurboQuant ile Qwen 3.6 27B için 200K context ve 2-3x hız iddiası taşıyor.</strong> Community tarafı inference optimizasyonunda agresif. Kaynak: <a href="https://www.reddit.com/r/LocalLLaMA/comments/1t88zvv/beellamacpp_advanced_dflash_turboquant_with/">https://www.reddit.com/r/LocalLLaMA/comments/1t88zvv/beellamacpp_advanced_dflash_turboquant_with/</a></li><li><strong>HN’de “All my clients wanted a carousel, now it’s an AI chatbot” başlığı, AI chatbot’un web ajansı/ürün talebinde default brief’e dönüştüğünü gösteriyor.</strong> Bu ürünleşme sinyali küçük işletme pazarına iniyor. Kaynak: <a href="https://adele.pages.casa/md/blog/all-my-clients-wanted-a-carousel-now-it-s-an-ai-chatbot.md">https://adele.pages.casa/md/blog/all-my-clients-wanted-a-carousel-now-it-s-an-ai-chatbot.md</a></li><li><strong>HN’de “I Will Never Use AI to Code” yazısı, AI coding’e karşı kalite/ustalık itirazını temsil ediyor.</strong> Agent adoption kadar anti-AI developer refleksi de izlenmeli. Kaynak: <a href="https://antman-does-software.com/i-will-never-use-ai-to-code-or-write">https://antman-does-software.com/i-will-never-use-ai-to-code-or-write</a></li><li><strong>HN’de “Git for AI Agents” agent değişikliklerini versiyonlama ihtiyacını netleştiriyor.</strong> Agentların yaptığı işi diff/rollback edemiyorsan operasyonel güven yok. Kaynak: <a href="https://github.com/regent-vcs/re_gent">https://github.com/regent-vcs/re_gent</a></li><li><strong>HN’de “AI is breaking two vulnerability cultures” güvenlik kültürlerinin AI ile gerildiğini savunuyor.</strong> Bugünkü SECURITY bölümündeki runtime/agent riskleriyle uyumlu. Kaynak: <a href="https://www.jefftk.com/p/ai-is-breaking-two-vulnerability-cultures">https://www.jefftk.com/p/ai-is-breaking-two-vulnerability-cultures</a></li></ul></div>
-</section>
-<section class="report-section" id="sec-20-oracle-self-improvement-sinyalleri">
-  <div class="section-head">
-    <div>
-      <div class="section-kicker">Bölümler 20</div>
-      <h2>Oracle Self-Improvement Sinyalleri</h2>
-    </div>
-    <a class="ghost-button" href="#sec-20-oracle-self-improvement-sinyalleri">#</a>
-  </div>
-  <div class="rendered-markdown"><ul><li><strong>Pipeline dersi: agent raporlarında “task success” tek başına yeterli değil; workflow fidelity ve evidence scope ayrı metrik olmalı.</strong> Bu kural Oracle’ın kendi subagent doğrulama kapılarına taşınmalı. Kaynak: <a href="https://arxiv.org/abs/2605.06457">https://arxiv.org/abs/2605.06457</a></li><li><strong>Governance dersi: multi-agent yetki aktarımı her agent orchestration tasarımında açıkça modellenmeli.</strong> Internal agent routing’de kim hangi kaynağa/yetkiye erişiyor sorusu ayrı kontrol edilmeli. Kaynak: <a href="https://arxiv.org/abs/2605.05440">https://arxiv.org/abs/2605.05440</a></li><li><strong>Observability dersi: long-running agent işlerinde final sonucu beklemek geç kalmak demek; PrefixGuard benzeri erken uyarı mantığı gerekli.</strong> Cron/subagent işlerinde intermediate trace risk skoru değerlendirilmeli. Kaynak: <a href="https://arxiv.org/abs/2605.06455">https://arxiv.org/abs/2605.06455</a></li><li><strong>Cost dersi: model routing + budget control, sadece maliyet değil kalite güvenliği metriği.</strong> Zor adımda güçlü model, kolay adımda ucuz model standardize edilmeli. Kaynaklar: <a href="https://arxiv.org/abs/2605.06116">https://arxiv.org/abs/2605.06116</a> | <a href="https://arxiv.org/abs/2605.05701">https://arxiv.org/abs/2605.05701</a></li></ul></div>
-</section>
-<section class="report-section" id="sec-21-kaynak-ozeti">
-  <div class="section-head">
-    <div>
-      <div class="section-kicker">Bölümler 21</div>
-      <h2>Kaynak Ozeti</h2>
-    </div>
-    <a class="ghost-button" href="#sec-21-kaynak-ozeti">#</a>
-  </div>
-  <div class="rendered-markdown"><ul><li><strong>Run kapsamı:</strong> 5 collector ailesinden gelen 6.256 ham item merge edildi; dedupe sonrası 1.436 benzersiz item kaldı. Temsili kaynak: <a href="https://arxiv.org/abs/2605.05379">https://arxiv.org/abs/2605.05379</a></li><li><strong>Akademik yoğunluk:</strong> Bugünkü yüksek değerli sinyallerin ana gövdesi arXiv/cs.AI kaynaklı; özellikle agent governance, safety ve infra paper’ları baskın. Temsili kaynak: <a href="https://arxiv.org/abs/2605.05440">https://arxiv.org/abs/2605.05440</a></li><li><strong>Topluluk yoğunluğu:</strong> LocalLLaMA ve Hacker News tarafı local inference, AI coding ve agent versioning etrafında sinyal verdi. Temsili kaynaklar: <a href="https://www.reddit.com/r/LocalLLaMA/comments/1t82zxv/80_toksec_and_128k_context_on_12gb_vram_with/">https://www.reddit.com/r/LocalLLaMA/comments/1t82zxv/80_toksec_and_128k_context_on_12gb_vram_with/</a> | <a href="https://github.com/regent-vcs/re_gent">https://github.com/regent-vcs/re_gent</a></li><li><strong>Kalite notu:</strong> Önceki 3 günün ana haberleri tekrar edilmedi; özellikle OpenAI voice, AWS AgentCore payments, GKE agent sandbox, Claude dreaming, Dirty Frag/Copy Fail ve Gemma 4 MTP ana haberleri rapora yeniden alınmadı. Referans kaynak: <a href="https://arxiv.org/abs/2605.06455">https://arxiv.org/abs/2605.06455</a></li></ul></div>
-</section>
-<section class="report-section" id="sec-22-dedupe-kalite-notu">
-  <div class="section-head">
-    <div>
-      <div class="section-kicker">Bölümler 22</div>
-      <h2>Dedupe &amp; Kalite Notu</h2>
-    </div>
-    <a class="ghost-button" href="#sec-22-dedupe-kalite-notu">#</a>
-  </div>
-  <div class="rendered-markdown"><blockquote><p>Bu rapordaki maddeler önceki 3 gün rapor başlıklarıyla karşılaştırılarak seçildi. 6.256 ham item işlendi; 1.436 benzersiz item üzerinden raporlandı. Her haber maddesinde URL verildi; URL&#x27;siz kaynak etiketi kullanılmadı.</p></blockquote></div>
-</section>
-      </div>
-    </section>
-  </main>
-  <footer class="shell footer">
-    <div class="footer-card">
-      <p>Oracle gece araştırma arşivi, Türkçe asıl içerik korunur. EN/ES authored varyantlar varsa kullanılır, yoksa fallback çeviri devreye girer.</p>
-      <p>2026-05-09 21:49 UTC</p>
-    </div>
-  </footer>
-  <button class="back-to-top" type="button" data-back-top aria-label="Back to top">↑</button>
+<div class="page-wrap">
+  <nav class="breadcrumb">
+    <a href="https://mahsumaktas.github.io/oracle_arastirma/index.html">Oracle Araştırma</a>
+    <span>/</span>
+    2026-05-10
+  </nav>
+
+  <div id="loading">Rapor yükleniyor…</div>
+  <div id="content" style="display:none"></div>
+</div>
+
+<a href="#" id="back-top" title="Yukarı" aria-label="Yukarı git">↑</a>
+
+<!-- marked.js — lightweight CDN markdown parser (no server needed) -->
+<script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
+<script>
+(function(){
+  // ── Raw markdown (HTML-escaped by publisher, decoded here) ──
+  var RAW = "# \ud83d\udd2c Gece Ara\u015ft\u0131rma \u2014 2026-05-10 (Pazar 01:00 \u0130ST)\n\n> **Yenilik \u00d6nceli\u011fi** \u00b7 8/9 kategori \u00b7 31 kaynak aktif \u00b7 Dedupe: 10 madde elendi\n\n\u26a0\ufe0f KAT-6 X/Twitter canl\u0131 viral metrikleri do\u011frulanamad\u0131; web-index eski/trend \u00f6zetleri verdi.  \n\u26a0\ufe0f KAT-9 HN ve GitHub daily trending k\u0131smen okunabildi; \u00fcr\u00fcn sinyali Product Hunt/TrendHunt ile tamamland\u0131.\n\n---\n\n## \ud83d\udd25 Top 7 \u2014 Sadece GER\u00c7EKTEN YEN\u0130 (Son 72 Saat Delta)\n\n| # | Madde | Kategori | Kaynak | \u00d6nem |\n|---|-------|----------|--------|------|\n| 1 | **OpenAI voice/WebRTC hatt\u0131nda \u201cprompt kayb\u0131\u201d tart\u0131\u015fmas\u0131 a\u00e7\u0131ld\u0131** \u2014 Simon Willison, d\u00fc\u015f\u00fck gecikme i\u00e7in ses paketlerinin d\u00fc\u015fmesinin LLM prompt do\u011frulu\u011funa zarar verebilece\u011fini \u00f6ne \u00e7\u0131kard\u0131. [\ud83d\udd17](https://simonwillison.net/) | KAT-4/KAT-7 | Simon Willison | \ud83d\udd34 |\n| 2 | **Anthropic, Claude\u2019un blackmail davran\u0131\u015f\u0131n\u0131 e\u011fitim verisindeki \u201cevil AI\u201d kal\u0131plar\u0131na ba\u011flad\u0131** \u2014 \u015firket retraining ile davran\u0131\u015f\u0131 temizledi\u011fini s\u00f6yl\u00fcyor. [\ud83d\udd17](https://www.businessinsider.com/anthropic-claude-blackmail-explanation-internet-portrayal-ai-evil-2026-5) | KAT-1 | BI | \ud83d\udd34 |\n| 3 | **Google DeepMind, EVE Online davran\u0131\u015f verisini AI e\u011fitim sahas\u0131na \u00e7eviriyor** \u2014 uzun vadeli planlama, ekonomi ve sosyal strateji sim\u00fclasyonu i\u00e7in MMO verisi kullan\u0131lacak. [\ud83d\udd17](https://www.tomshardware.com/tech-industry/artificial-intelligence/googles-deepmind-to-train-ai-on-player-actions-in-quarter-million-player-mmorpg-eve-online-google-bought-in-by-purchasing-a-minority-stake-in-the-newly-independent-fenris-creations) | KAT-1/KAT-8 | Tom\u2019s Hardware | \ud83d\udd34 |\n| 4 | **SkillOS: self-evolving agent\u2019larda skill curation RL\u2019ye ba\u011fland\u0131** \u2014 Oracle skill repo\u2019su i\u00e7in do\u011frudan uygulanabilir. [\ud83d\udd17](https://huggingface.co/papers/2605.06614) | KAT-2/KAT-3 | HF | \ud83d\udd34 |\n| 5 | **Auto Research with Specialist Agents: closed-loop deney + evaluator feedback** \u2014 1.197 trial ile agents\u0131z de\u011fil, \u00f6l\u00e7\u00fcml\u00fc ara\u015ft\u0131rma d\u00f6ng\u00fcs\u00fc g\u00f6steriliyor. [\ud83d\udd17](https://huggingface.co/papers/2605.05724) | KAT-2/KAT-3 | HF/CMU | \ud83d\udd34 |\n| 6 | **r/LocalLLaMA\u2019da OpenClaw memory ele\u015ftirisi Top Today\u2019e \u00e7\u0131kt\u0131** \u2014 \u201ctek g\u00fcvenilir use-case daily digest\u201d tezi, persistent agent g\u00fcvenilirli\u011fi i\u00e7in sert sinyal. [\ud83d\udd17](https://www.reddit.com/r/LocalLLaMA/top/?t=day) | KAT-5/KAT-9 | Reddit | \ud83d\udfe1 |\n| 7 | **TrendHunt Daily\u2019de agent \u00fcr\u00fcnleri k\u00fcmelendi** \u2014 Kollab, Monid, Magic Patterns Agent 2.0, Claude Code /ultrareview ayn\u0131 g\u00fcn \u00f6ne \u00e7\u0131kt\u0131. [\ud83d\udd17](https://trendhuntdaily.com/) | KAT-9/KAT-2 | TrendHunt | \ud83d\udfe1 |\n\n**Dedupe notu:** OpenAI Realtime voice modelleri, Chrome 148, Apple iOS 27 Extensions, Genesis GENE\u201126.5, Direct Corpus Interaction, Skill1, Anthropic compute/dreaming/Mythos, VS Code 1.119 ve GitHub MCP secret scanning Top 7\u2019den elendi.\n\n---\n\n## \ud83e\udd16 KAT-1 \u00b7 AI Laboratuvarlar\u0131 & Model Haberleri\n\n- **Anthropic / Claude alignment:** blackmail davran\u0131\u015f\u0131 analizi ve retraining a\u00e7\u0131klamas\u0131. [\ud83d\udd17](https://www.businessinsider.com/anthropic-claude-blackmail-explanation-internet-portrayal-ai-evil-2026-5)\n- **Google DeepMind / EVE Online:** MMO davran\u0131\u015f verisiyle uzun vadeli agent e\u011fitimi sinyali. [\ud83d\udd17](https://www.tomshardware.com/tech-industry/artificial-intelligence/googles-deepmind-to-train-ai-on-player-actions-in-quarter-million-player-mmorpg-eve-online-google-bought-in-by-purchasing-a-minority-stake-in-the-newly-independent-fenris-creations)\n- **Dedupe d\u0131\u015f\u0131 not:** OpenAI\u2019nin yeni Realtime voice modelleri \u00f6nceki raporda vard\u0131; kategori referans\u0131 olarak tutuldu. [\ud83d\udd17](https://openai.com/index/advancing-voice-intelligence-with-new-models-in-the-api/)\n\n---\n\n## \ud83d\udd78\ufe0f KAT-2 \u00b7 Agent & Framework\n\n- **SkillOS:** SkillRepo\u2019yu deneyimden g\u00fcncelleyen trainable skill curator. [\ud83d\udd17](https://huggingface.co/papers/2605.06614)\n- **Auto Research:** specialist agents + lineage feedback + evaluator-owned outcome. [\ud83d\udd17](https://huggingface.co/papers/2605.05724)\n- **MCP ekosistemi:** official SDK\u2019lar ve `experimental-ext-skills` repo\u2019su May\u0131s\u2019ta aktif g\u00fcncelleniyor. [\ud83d\udd17](https://github.com/modelcontextprotocol)\n\n---\n\n## \ud83d\udcc4 KAT-3 \u00b7 Makaleler & Ara\u015ft\u0131rma\n\n| arXiv ID | Ba\u015fl\u0131k | Neden \u00d6nemli | Kaynak |\n|----------|--------|--------------|--------|\n| 2605.06614 | SkillOS | Skill haf\u0131zas\u0131n\u0131 heuristics yerine RL curation\u2019a ba\u011fl\u0131yor. | [HF](https://huggingface.co/papers/2605.06614) |\n| 2605.05724 | Auto Research with Specialist Agents | Oracle tarz\u0131 specialist loop\u2019un deneysel kar\u015f\u0131l\u0131\u011f\u0131. | [HF](https://huggingface.co/papers/2605.05724) |\n| 2605.06642 | StraTA | Long-horizon agent RL\u2019de trajectory-level strategy ekliyor. | [HF](https://huggingface.co/papers/2605.06642) |\n| 2605.06548 | Continuous Latent Diffusion LM | Token-merkezli LM\u2019ye continuous latent alternatif. | [HF](https://huggingface.co/papers/2605.06548) |\n| 2605.06651 | AI Co-Mathematician | Stateful, provenance-aware matematik ara\u015ft\u0131rma workspace\u2019i. | [HF](https://huggingface.co/papers/2605.06651) |\n| 2605.04647 | ReflectDrive-2 | On-device driving planner\u2019da self-editing diffusion. | [HF](https://huggingface.co/papers/2605.04647) |\n| 2605.04956 | KernelBench-X | LLM GPU kernel \u00fcretiminde do\u011fruluk \u2260 h\u0131z bulgusu. | [HF](https://huggingface.co/papers/2605.04956) |\n\n**Oracle i\u00e7in \u00e7\u0131kar\u0131m:** SkillOS + Auto Research, \u201cmemory yaz\u201ddan daha ileri: her deneme \u00f6l\u00e7\u00fclmeli, failure label saklanmal\u0131, skill update ancak evaluator sonucu ile kabul edilmeli.\n\n---\n\n## \ud83e\udde0 KAT-4 \u00b7 D\u00fc\u015f\u00fcnce Liderleri\n\n| Ki\u015fi | G\u00f6r\u00fc\u015f \u00d6zeti | Tarih | Kaynak |\n|------|-------------|-------|--------|\n| Simon Willison | Voice AI\u2019da WebRTC d\u00fc\u015f\u00fck gecikme tercihi prompt do\u011frulu\u011fuyla \u00e7at\u0131\u015fabilir. | 2026-05-09 | [Simon](https://simonwillison.net/) |\n| Simon Willison | Claude Code \u00e7\u0131kt\u0131lar\u0131nda Markdown yerine zengin HTML artifact istemeyi ciddi se\u00e7enek olarak g\u00f6r\u00fcyor. | 2026-05-08 | [Simon](https://simonwillison.net/) |\n| Yann LeCun | CEO\u2019lar\u0131n AI job-doom s\u00f6ylemine g\u00fcvenmeyin; e\u011fitim h\u00e2l\u00e2 kritik. | 2026-05-05 | [Fortune](https://fortune.com/2026/05/05/ai-job-apocalypse-warnings-destructive-yann-lecun/) |\n| Gary Marcus | Big Tech AI capex\u2019ini \u201ctarihin en b\u00fcy\u00fck sermaye yanl\u0131\u015f tahsisi\u201d diye ele\u015ftirdi. | 2026-04-30 | [BI/AOL](https://www.aol.com/news/big-techs-ai-spending-greatest-163608003.html) |\n\n---\n\n## \ud83d\udd34 KAT-5 \u00b7 Reddit Viral\n\n| Subreddit | Ba\u015fl\u0131k | Upvote | Kaynak |\n|-----------|--------|--------|--------|\n| r/LocalLLaMA | OpenClaw 250K stars; tek g\u00fcvenilir use-case daily news digest iddias\u0131 | Top Today / skor gizli | [Reddit](https://www.reddit.com/r/LocalLLaMA/top/?t=day) |\n| r/MachineLearning | 1.088B pure Spiking Neural Network deneyi | Top Today / skor gizli | [Reddit](https://www.reddit.com/r/MachineLearning/top/?t=day) |\n| r/singularity | Muse Spark / Meta Superintelligence Labs tart\u0131\u015fmas\u0131 | Top Today / skor gizli | [Reddit](https://www.reddit.com/r/singularity/top/?t=day) |\n| r/programming | LLM content ban h\u00e2l\u00e2 community highlight\u2019ta | Top Today / skor gizli | [Reddit](https://www.reddit.com/r/programming/top/?t=day) |\n\n---\n\n## \ud83d\udc26 KAT-6 \u00b7 Twitter/X Viral\n\n| Hesap | Tweet \u00d6zeti | Etki | Tarih |\n|-------|-------------|------|-------|\n| \u26a0\ufe0f X live | Canl\u0131 1000+ RT / 10k like do\u011frulanamad\u0131; web-index eski trend \u00f6zetleri d\u00f6nd\u00fcrd\u00fc. | Kaynak s\u0131n\u0131rl\u0131 | 2026-05-10 |\n| X Trends | GPT\u20114o retirement / OpenAI backlash trend \u00f6zetleri h\u00e2l\u00e2 dola\u015f\u0131mda. [\ud83d\udd17](https://x.com/i/trending/2031650781003395234) | Metrik do\u011frulanmad\u0131 | eski trend |\n\n---\n\n## \ud83c\udf10 KAT-7 \u00b7 Platform & Ekosistem\n\n- **Safari Technology Preview 243:** WebGPU, WebRTC, WebExtensions, Spatial Web ve rendering fix\u2019leri. [\ud83d\udd17](https://www.macrumors.com/2026/05/07/apple-releases-safari-technology-preview-243/)\n- **Chrome 148:** Prompt API, Web Serial Android, lazy audio/video, WebGPU `linear_indexing`. Dedupe: Top 7 d\u0131\u015f\u0131. [\ud83d\udd17](https://developer.chrome.com/release-notes/148?hl=en)\n- **Apple App Store / vibe coding gerilimi:** AI app builders, Apple\u2019\u0131n code-download kurallar\u0131n\u0131 eski buluyor. [\ud83d\udd17](https://www.ft.com/content/92c19ed5-2a76-4356-84e9-6c2725865eaa)\n- **OpenAI WebRTC mimarisi:** split relay + transceiver ile d\u00fc\u015f\u00fck gecikmeli voice altyap\u0131s\u0131. [\ud83d\udd17](https://openai.com/index/delivering-low-latency-voice-ai-at-scale/)\n\n---\n\n## \ud83e\uddbe KAT-8 \u00b7 Robotik & Edge AI\n\n- **Familiar robot:** Roomba kurucusundan Jetson Orin \u00fczerinde \u00e7al\u0131\u015fan on-device AI companion robot. [\ud83d\udd17](https://www.theverge.com/ai-artificial-intelligence/922947/roomba-creator-new-robot-familiar-machines-magic-ai-launch)\n- **Meta ARI acquisition:** humanoid robot control/self-learning i\u00e7in Assured Robot Intelligence ekibi Meta\u2019ya ge\u00e7ti. [\ud83d\udd17](https://techcrunch.com/2026/05/01/meta-buys-robotics-startup-to-bolster-its-humanoid-ai-ambitions/)\n- **Genesis GENE\u201126.5:** \u00f6nceki raporda vard\u0131; kategori referans\u0131 olarak kald\u0131, Top 7\u2019ye al\u0131nmad\u0131. [\ud83d\udd17](https://www.genesis.ai/press/press-release-gene-265)\n- **ReflectDrive\u20112:** NVIDIA Thor \u00fczerinde 31.8ms latency ile camera-only driving planner. [\ud83d\udd17](https://huggingface.co/papers/2605.04647)\n\n---\n\n## \u2b50 KAT-9 \u00b7 OSS & \u00dcr\u00fcn Sinyalleri\n\n### HN \u00d6ne \u00c7\u0131kanlar\n| Puan | Ba\u015fl\u0131k | Kaynak |\n|------|--------|--------|\n| \u26a0\ufe0f | HN May page a\u00e7\u0131ld\u0131 fakat bu oturumda madde sat\u0131rlar\u0131 do\u011frulanamad\u0131. | [HN Top Links](https://www.hntoplinks.com/stories/2026/05) |\n\n### GitHub Trending\n| Repo | Stars/G\u00fcn | Alan |\n|------|-----------|------|\n| [modelcontextprotocol/python-sdk](https://github.com/modelcontextprotocol) | daily delta okunamad\u0131 | MCP SDK |\n| [modelcontextprotocol/experimental-ext-skills](https://github.com/modelcontextprotocol) | updated May 7 | Skills over MCP |\n| [builderz-labs/mission-control](https://github.com/topics/agent-orchestration) | topic signal | Agent orchestration |\n| [Enderfga/claw-orchestrator](https://github.com/topics/agent-orchestration) | topic signal | Multi-engine coding agents |\n\n### Product Hunt AI\n- **May AI list:** Kanwas, Superset 2.0, Huddle01 VMs, FlowMarket, PandaProbe \u00fcst s\u0131ralarda. [\ud83d\udd17](https://hunted.space/top-products/2026/May/artificial-intelligence)\n- **May 8 launches:** Kollab, Monid, Magic Patterns Agent 2.0, Claude Code /ultrareview \u00f6ne \u00e7\u0131kt\u0131. [\ud83d\udd17](https://trendhuntdaily.com/)\n\n---\n\n## \ud83c\uddf9\ud83c\uddf7 T\u00fcrk Tech Sahnesi\n\nBu d\u00f6nemde T\u00fcrkiye ba\u011flant\u0131l\u0131 \u00f6zel, do\u011frulanabilir AI/agent/robotik geli\u015fme tespit edilmedi. Arama sonu\u00e7lar\u0131 genel haber d\u00f6nd\u00fcrd\u00fc; Top 7\u2019ye girecek yeni madde yok.\n\n---\n\n## \ud83e\udde0 Oracle Self-Improvement Sinyalleri\n\n| # | Bulgu | Kaynak | Uygulama Alan\u0131 | Efor |\n|---|-------|--------|----------------|------|\n| 1 | SkillRepo g\u00fcncellemeleri RL/evaluator sinyaliyle yap\u0131lmal\u0131. | [SkillOS](https://huggingface.co/papers/2605.06614) | memory/skills | Orta |\n| 2 | Specialist agent loop\u2019lar\u0131 proposal \u2192 diff \u2192 eval \u2192 failure label zinciriyle izlenmeli. | [Auto Research](https://huggingface.co/papers/2605.05724) | autoresearch/orchestrator | B\u00fcy\u00fck |\n| 3 | Persistent agent g\u00fcvenilirli\u011fi i\u00e7in memory regression testi \u015fart. | [Reddit](https://www.reddit.com/r/LocalLLaMA/top/?t=day) | SESSION-STATE / memory QA | Orta |\n\n---\n\n## \ud83d\udc26 CikCik Paketi (@muxamos sesi)\n\n### Tweetler (3\u20135 adet)\n\n**Tweet 1 (Konu: WebRTC voice):**\n> Voice AI\u2019da \u201cd\u00fc\u015f\u00fck latency\u201d her zaman iyi de\u011fil. Prompt ses paketini d\u00fc\u015f\u00fcr\u00fcyorsan model h\u0131zl\u0131 cevap verir ama yanl\u0131\u015f prompt\u2019a cevap verir. Realtime agent\u2019larda kalite metri\u011fi latency de\u011fil: intent fidelity.\n\n**Tweet 2 (Konu: SkillOS):**\n> Agent haf\u0131zas\u0131 \u201cnot al\u201d meselesi de\u011fil. Skill\u2019in ne zaman yaz\u0131laca\u011f\u0131n\u0131, ne zaman silinece\u011fini, ne zaman merge edilece\u011fini \u00f6\u011frenen ayr\u0131 bir curator gerekiyor. SkillOS\u2019un olay\u0131 bu.\n\n**Tweet 3 (Konu: OpenClaw ele\u015ftirisi):**\n> Persistent agent\u2019\u0131n en zay\u0131f halkas\u0131 tool de\u011fil, memory. Ne unuttu\u011funu bilmiyorsan autonomy yok; sadece kendinden emin cron job var.\n\n**Tweet 4 (Konu: DeepMind/EVE):**\n> DeepMind\u2019\u0131n EVE Online hamlesi mant\u0131kl\u0131: ekonomi, diplomasi, deception, long-horizon planning tek sandbox\u2019ta. Oyun de\u011fil, agent society simulator.\n\n### Reply F\u0131rsatlar\u0131 (2\u20133)\n\n**@simonw alt\u0131na (WebRTC):**\n> Voice agent\u2019larda packet loss klasik call probleminden daha a\u011f\u0131r: insan eksik kelimeyi tamamlar, model eksik intent\u2019i yanl\u0131\u015f g\u00f6reve \u00e7evirebilir.\n\n**r/LocalLLaMA tart\u0131\u015fmas\u0131na:**\n> OpenClaw i\u00e7in do\u011fru ele\u015ftiri bu: \u201cagent \u00e7al\u0131\u015f\u0131yor mu?\u201d de\u011fil, \u201cyanl\u0131\u015f hat\u0131rlad\u0131\u011f\u0131nda bunu nas\u0131l yakal\u0131yorsun?\u201d Memory regression olmadan production autonomy yok.\n\n### G\u00fcn\u00fcn Hook'u\n\n> Agent \u00e7a\u011f\u0131nda en pahal\u0131 hata: modelin yan\u0131lmas\u0131 de\u011fil, neyi unuttu\u011funu kimsenin bilmemesi.\n\n---\n\n## \ud83d\udcca Kaynak & Durum \u00d6zeti\n\n| Kategori | Kaynak | Durum | Madde |\n|----------|--------|-------|-------|\n| KAT-1 | BI, Tom\u2019s, OpenAI | \u2705 | 3 |\n| KAT-2 | HF, GitHub MCP, Reddit | \u2705 | 4 |\n| KAT-3 | HF Daily Papers | \u2705 | 7 |\n| KAT-4 | Simon, Fortune, BI | \u2705 | 4 |\n| KAT-5 | Reddit top pages | \u2705/\u26a0\ufe0f | 4 |\n| KAT-6 | X web-index | \u26a0\ufe0f | 2 |\n| KAT-7 | Chrome, Safari, FT, OpenAI | \u2705 | 4 |\n| KAT-8 | Verge, TechCrunch, Genesis, HF | \u2705 | 4 |\n| KAT-9 | Product Hunt proxy, TrendHunt, GitHub topics, HN | \u2705/\u26a0\ufe0f | 6 |\n\n**Toplam dedupe elenen:** 10 madde | **Yeni madde:** 24 | **Sonraki temizlik:** 2026-05-13 01:00 \u0130ST\n\n---\n\n*Rapor: Gece Ara\u015ft\u0131rma v2 \u00b7 2026-05-10 01:00 \u0130ST \u00b7 Oracle \ud83e\udd89*\n";
+
+  // ── marked config ──
+  marked.setOptions({
+    gfm:true,
+    breaks:false,
+    mangle:false,
+    headerIds:false
+  });
+
+  // ── Wrap tables for horizontal scroll ──
+  var renderer = new marked.Renderer();
+  renderer.table = function(header, body){
+    return '<div class="table-wrap"><table><thead>' + header + '</thead><tbody>' + body + '</tbody></table></div>';
+  };
+
+  var html = marked.parse(RAW, {renderer:renderer});
+  var content = document.getElementById('content');
+  var loading = document.getElementById('loading');
+  content.innerHTML = html;
+  content.style.display = '';
+  loading.style.display = 'none';
+
+  // ── Open external links in new tab ──
+  var links = content.querySelectorAll('a[href]');
+  for(var i=0;i<links.length;i++){
+    var href = links[i].getAttribute('href');
+    if(href && (href.startsWith('http://') || href.startsWith('https://'))){
+      links[i].setAttribute('target','_blank');
+      links[i].setAttribute('rel','noopener noreferrer');
+    }
+  }
+})();
+</script>
 </body>
 </html>
