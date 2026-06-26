@@ -5,10 +5,17 @@
     <link>https://mahsumaktas.github.io/oracle_arastirma/</link>
     <description>Günlük AI ve teknoloji araştırma raporu</description>
     <language>tr</language>
-    <lastBuildDate>Fri, 26 Jun 2026 10:01:26 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 26 Jun 2026 21:43:40 +0000</lastBuildDate>
     <atom:link href="https://mahsumaktas.github.io/oracle_arastirma/feed.xml" rel="self" type="application/rss+xml"/>
     <generator>oracle_arastirma/scripts/build_site.py</generator>
 
+    <item>
+      <title>Oracle Gece Arastirma - 2026-06-27</title>
+      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-06-27.html</link>
+      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-06-27.html</guid>
+      <pubDate>Sat, 27 Jun 2026 01:00:00 +0000</pubDate>
+      <description>Otomatik derleme | v3 pipeline | 6.661 ham kaynak | 1.928 benzersiz item | 100 kaynak | 49 trend topic</description>
+    </item>
     <item>
       <title>🔬 Gece Araştırma — 2026-06-26 (Cuma 01:04 İST)</title>
       <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-06-26.html</link>
