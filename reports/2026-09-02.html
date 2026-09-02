@@ -1,196 +1,364 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Yenilik Önceliği">
-<title>Oracle Araştırma — 2026-09-02</title>
-<style>
-/* ── Reset & base ── */
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#ffffff;--fg:#111111;--link:#0066cc;--link-hover:#004499;
-  --border:#dee2e6;--code-bg:#f4f4f4;--blockquote-bg:#f8f9fa;
-  --table-head:#f0f0f0;--table-stripe:#fafafa;
-  --accent:#2563eb;--warn:#f59e0b;--ok:#16a34a;--danger:#dc2626;
-  --font-sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  --font-mono:"SFMono-Regular",Menlo,Monaco,Consolas,"Liberation Mono",monospace;
-  --radius:8px;
-}
-@media(prefers-color-scheme:dark){
-  :root{
-    --bg:#0d1117;--fg:#e6edf3;--link:#58a6ff;--link-hover:#79b8ff;
-    --border:#30363d;--code-bg:#161b22;--blockquote-bg:#161b22;
-    --table-head:#161b22;--table-stripe:#161b22;
-    --accent:#58a6ff;
-  }
-}
-html{scroll-behavior:smooth}
-body{
-  background:var(--bg);color:var(--fg);
-  font-family:var(--font-sans);font-size:16px;line-height:1.7;
-  -webkit-text-size-adjust:100%;
-}
-
-/* ── Layout ── */
-.page-wrap{max-width:860px;margin:0 auto;padding:0 16px 80px}
-header{
-  background:var(--accent);color:#fff;
-  padding:18px 16px 14px;
-  border-radius:0 0 var(--radius) var(--radius);
-  margin-bottom:28px;
-}
-header h1{font-size:clamp(1.1rem,4vw,1.5rem);font-weight:700;line-height:1.3}
-header .meta{font-size:.85rem;opacity:.85;margin-top:6px}
-header .meta a{color:#cfe2ff;text-decoration:none}
-header .meta a:hover{text-decoration:underline}
-
-nav.breadcrumb{font-size:.85rem;margin-bottom:20px;color:var(--link)}
-nav.breadcrumb a{color:var(--link);text-decoration:none}
-nav.breadcrumb a:hover{text-decoration:underline}
-nav.breadcrumb span{color:var(--fg);opacity:.6;margin:0 6px}
-
-/* ── Markdown content ── */
-#content h1{font-size:clamp(1.3rem,5vw,1.8rem);margin:32px 0 12px;line-height:1.3}
-#content h2{font-size:clamp(1.1rem,4vw,1.4rem);margin:28px 0 10px;border-bottom:2px solid var(--border);padding-bottom:6px}
-#content h3{font-size:clamp(1rem,3.5vw,1.2rem);margin:22px 0 8px}
-#content p{margin:10px 0}
-#content a{color:var(--link);word-break:break-word}
-#content a:hover{color:var(--link-hover)}
-#content strong{font-weight:700}
-#content em{font-style:italic}
-#content hr{border:none;border-top:2px solid var(--border);margin:28px 0}
-
-/* ── Lists ── */
-#content ul,#content ol{margin:10px 0 10px 1.4em}
-#content li{margin:4px 0}
-
-/* ── Blockquotes ── */
-#content blockquote{
-  background:var(--blockquote-bg);
-  border-left:4px solid var(--accent);
-  margin:14px 0;padding:10px 16px;
-  border-radius:0 var(--radius) var(--radius) 0;
-}
-#content blockquote p{margin:4px 0}
-
-/* ── Code ── */
-#content code{
-  background:var(--code-bg);color:var(--fg);
-  border-radius:4px;padding:2px 6px;
-  font-family:var(--font-mono);font-size:.88em;
-  word-break:break-all;
-}
-#content pre{
-  background:var(--code-bg);border-radius:var(--radius);
-  padding:14px 16px;overflow-x:auto;margin:14px 0;
-}
-#content pre code{
-  background:none;padding:0;border-radius:0;
-  font-size:.85em;word-break:normal;
-}
-
-/* ── Tables — responsive wrap ── */
-.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0}
-#content table{
-  border-collapse:collapse;width:100%;min-width:340px;
-  font-size:.9em;
-}
-#content th{
-  background:var(--table-head);
-  text-align:left;padding:8px 12px;
-  border:1px solid var(--border);font-weight:600;
-}
-#content td{
-  padding:7px 12px;border:1px solid var(--border);
-  vertical-align:top;word-break:break-word;
-}
-#content tr:nth-child(even) td{background:var(--table-stripe)}
-
-/* ── Emoji badges in text ── */
-.badge{
-  display:inline-block;padding:1px 7px;border-radius:99px;
-  font-size:.78rem;font-weight:600;line-height:1.6;
-}
-
-/* ── Back to top ── */
-#back-top{
-  position:fixed;bottom:20px;right:16px;
-  background:var(--accent);color:#fff;
-  border:none;border-radius:50%;width:44px;height:44px;
-  font-size:1.3rem;cursor:pointer;
-  box-shadow:0 2px 8px rgba(0,0,0,.3);
-  display:flex;align-items:center;justify-content:center;
-  text-decoration:none;
-}
-#back-top:hover{opacity:.85}
-
-/* ── Loading state ── */
-#loading{text-align:center;padding:60px 0;color:var(--fg);opacity:.5;font-size:1.1rem}
-</style>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Oracle Gece Araştırma raporu 2026-09-02">
+<title>🔬 Gece Araştırma — 2026-09-02 (Çarşamba 01:02 İST) · Oracle Gece Araştırma</title>
+<link rel="canonical" href="https://mahsumaktas.github.io/oracle_arastirma/reports/2026-09-02.html">
+<link rel="alternate" hreflang="tr" href="https://mahsumaktas.github.io/oracle_arastirma/reports/2026-09-02.html">
+<link rel="alternate" hreflang="en" href="https://mahsumaktas.github.io/oracle_arastirma/en/reports/2026-09-02.html">
+<link rel="alternate" hreflang="es" href="https://mahsumaktas.github.io/oracle_arastirma/es/reports/2026-09-02.html">
+<link rel="alternate" hreflang="x-default" href="https://mahsumaktas.github.io/oracle_arastirma/reports/2026-09-02.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<script defer src="../assets/site.js"></script>
 </head>
 <body>
-<header>
-  <div class="page-wrap">
-    <h1>🔬 🔬 Gece Araştırma — 2026-09-02 (Çarşamba 01:02 İST)</h1>
-    <div class="meta">
-      Oracle Gece Araştırma &middot; 2026-09-02 &middot;
-      <a href="https://mahsumaktas.github.io/oracle_arastirma/index.html">← Tüm Raporlar</a>
+  <header class="site-header">
+  <div class="shell header-bar">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark">🦉</span>
+      <span class="brand-text">
+        <span class="brand-kicker">Oracle archive</span>
+        <h1 class="brand-title">Oracle Gece Araştırma</h1>
+        <p class="brand-subtitle">2026-09-02</p>
+      </span>
+    </a>
+    <div class="header-actions">
+      <div class="lang-switch"><span class="lang-switch-label">Dil</span><a class="lang-chip is-active" href="2026-09-02.html" lang="tr">TÜ</a><a class="lang-chip" href="../en/reports/2026-09-02.html" lang="en">EN</a><a class="lang-chip" href="../es/reports/2026-09-02.html" lang="es">ES</a></div>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle theme"><span data-theme-icon>◐</span></button>
     </div>
   </div>
 </header>
+  <main class="shell">
+    <section class="hero">
+      <div class="hero-card">
+        <div class="hero-layout">
+          <div>
+            <div class="breadcrumbs"><a href="../index.html">Arşive dön</a><span>•</span><span>2026-09-02</span></div>
+            <span class="hero-kicker">Araştırma raporu</span>
+            <h1>🔬 Gece Araştırma — 2026-09-02 (Çarşamba 01:02 İST)</h1>
+            <p>**Yenilik Önceliği** · 7/9 kategori · 13 kaynak aktif · Dedupe: 0 madde elendi</p>
+            <div class="hero-actions">
+              <span class="hero-pill"><strong>20</strong> bölüm</span>
+              <span class="hero-pill"><strong>2481</strong> kelime</span>
+            </div>
+          </div>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <span class="stat-label">Öne çıkan not</span>
+              <div class="stat-detail">**Yenilik Önceliği** · 7/9 kategori · 13 kaynak aktif · Dedupe: 0 madde elendi</div>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Hızlı erişim</span>
+              <div class="report-actions-row" style="margin-top:12px">
+                <a class="button" href="../raw/2026-09-02.md">Ham markdown</a>
+                <a class="ghost-button" href="../index.html">Tüm raporlar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<div class="page-wrap">
-  <nav class="breadcrumb">
-    <a href="https://mahsumaktas.github.io/oracle_arastirma/index.html">Oracle Araştırma</a>
-    <span>/</span>
-    2026-09-02
-  </nav>
-
-  <div id="loading">Rapor yükleniyor…</div>
-  <div id="content" style="display:none"></div>
-</div>
-
-<a href="#" id="back-top" title="Yukarı" aria-label="Yukarı git">↑</a>
-
-<!-- marked.js — lightweight CDN markdown parser (no server needed) -->
-<script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
-<script>
-(function(){
-  // ── Raw markdown (HTML-escaped by publisher, decoded here) ──
-  var RAW = "# \ud83d\udd2c Gece Ara\u015ft\u0131rma \u2014 2026-09-02 (\u00c7ar\u015famba 01:02 \u0130ST)\n\n> **Yenilik \u00d6nceli\u011fi** \u00b7 7/9 kategori \u00b7 13 kaynak aktif \u00b7 Dedupe: 0 madde elendi\n\n> \u26a0\ufe0f KAT-5\u2019te 500+ upvote e\u015fi\u011fi, KAT-6\u2019da 1.000+ RT/10 bin+ be\u011feni e\u015fi\u011fi g\u00fcvenilir bi\u00e7imde do\u011frulanamad\u0131. Product Hunt do\u011frudan eri\u015fimi de 403 d\u00f6nd\u00fcrd\u00fc. Bu alanlarda veri uydurulmad\u0131.\n\n---\n\n## \ud83d\udd25 Top 7 \u2014 Sadece GER\u00c7EKTEN YEN\u0130 (Son 72 Saat Delta)\n\n> Bu b\u00f6l\u00fcme yaln\u0131zca 72 saat i\u00e7inde ilk kez raporlanan veya materyal olarak de\u011fi\u015fen maddeler girer.\n> Daha \u00f6nce raporlanan konunun devam\u0131 \u2192 \"\u2192 G\u00fcncelleme:\" etiketiyle altta g\u00f6ster.\n\n| # | Madde | Kategori | Kaynak | \u00d6nem |\n|---|-------|----------|--------|------|\n| 1 | **[FACT] Claude Fable 5.1 ve Mythos 5.1 \u00e7\u0131kt\u0131** \u2014 1 milyon token context, 128 bin token maksimum \u00e7\u0131kt\u0131 ve s\u00fcrekli adaptive thinking sunuyor. `tool_choice:any/tool` desteklenmiyor; cache read fiyat\u0131 $0,25/MTok. [\ud83d\udd17 URL](https://platform.claude.com/docs/en/release-notes/overview) | KAT-1 | Anthropic | \ud83d\udd34 |\n| 2 | **[FACT] Gemini\u2019ye agentic video understanding geldi** \u2014 Gemini 3.7 Flash, 3.6 Flash ve 3.5 Flash-Lite; videoda gerekli anlar\u0131 dinamik olarak arayarak Google\u2019\u0131n testlerinde token t\u00fcketimini %88\u2019e, maliyeti %66\u2019ya kadar d\u00fc\u015f\u00fcrd\u00fc. [\ud83d\udd17 URL](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-agentic-video-in-gemini/) | KAT-1 | Google DeepMind | \ud83d\udd34 |\n| 3 | **[FACT] OpenAI, Epic EHR entegrasyonunu duyurdu** \u2014 Yetkili hasta ba\u011flam\u0131 ChatGPT for Healthcare\u2019a ta\u015f\u0131nabiliyor; yeni eklenti PubMed ve DailyMed dahil dokuz resm\u00ee sa\u011fl\u0131k kayna\u011f\u0131n\u0131 ba\u011fl\u0131yor. [\ud83d\udd17 URL](https://openai.com/index/chatgpt-connects-health-records-and-healthcare-sources/) | KAT-1 | OpenAI | \ud83d\udd34 |\n| 4 | **[FACT] Astra, OpenAI\u2019nin \u201cCritical\u201d siber yetenek seviyesine ula\u015fan ilk modeli oldu** \u2014 OpenAI\u2019ye g\u00f6re model, ExploitBench\u2019te %100 ald\u0131 ve de\u011ferlendirmede iki zero-day i\u00e7eren bir exploit zinciri kurdu. [\ud83d\udd17 URL](https://openai.com/index/path-to-astra/) | KAT-1 | OpenAI | \ud83d\udd34 |\n| 5 | **[FACT] GitHub Copilot art\u0131k pull request onaylayabiliyor** \u2014 \u00d6zellik public preview\u2019da ve varsay\u0131lan olarak kapal\u0131; etkinle\u015ftirildi\u011finde Copilot onay\u0131 required-approval kural\u0131na say\u0131labiliyor. [\ud83d\udd17 URL](https://github.blog/changelog/2026-09-01-copilot-code-review-can-now-approve-pull-requests/) | KAT-2 | GitHub | \ud83d\udd34 |\n| 6 | **[FACT] Apple, Rosetta takvimini kesinle\u015ftirdi** \u2014 macOS 27 Rosetta\u2019y\u0131 destekleyen son s\u00fcr\u00fcm olacak; sonras\u0131nda Intel-only uygulamalar Apple silicon cihazlarda \u00e7al\u0131\u015fmayacak. [\ud83d\udd17 URL](https://developer.apple.com/news/?id=w5ngl9k2) | KAT-7 | Apple Developer | \ud83d\udd34 |\n| 7 | **[FACT] Event-driven dil modellerinde y\u00fcksek edge verimlili\u011fi raporland\u0131** \u2014 arXiv:2608.30439, 4 kata kadar daha az efektif i\u015flemle edge GPU\u2019ya k\u0131yasla projeksiyon olarak 37 kat throughput ve 16 kat d\u00fc\u015f\u00fck g\u00fc\u00e7 bildiriyor. [\ud83d\udd17 URL](https://arxiv.org/abs/2608.30439) | KAT-3/KAT-8 | arXiv | \ud83d\udfe1 |\n\n**Dedupe notu:** Yeni kategori \u2014 \u00f6nceki ilgili konu yok.\n\n---\n\n## \ud83e\udd16 KAT-1 \u00b7 AI Laboratuvarlar\u0131 & Model Haberleri\n\n- [FACT] Anthropic, **Claude Fable 5.1** ve Project Glasswing kat\u0131l\u0131mc\u0131lar\u0131na y\u00f6nelik **Claude Mythos 5.1** modellerini yay\u0131mlad\u0131. Her iki model 1M context, 128k maksimum \u00e7\u0131kt\u0131 ve always-on adaptive thinking destekliyor. Fable; Claude API, Amazon Bedrock, Google Cloud, AWS ve Microsoft Foundry \u00fczerinden eri\u015filebilir. [Kaynak](https://platform.claude.com/docs/en/release-notes/overview)\n\n- [FACT] Yeni Claude modellerinde cache read fiyat\u0131 $0,25/MTok; base input/output fiyat\u0131 $10/$50/MTok. \u00dcretilen metinlerde watermark, desteklenen g\u00f6rsel ve videolarda C2PA Content Credentials bulunuyor. [Kaynak](https://platform.claude.com/docs/en/release-notes/overview)\n\n- [FACT] Google, **agentic video understanding** \u00f6zelli\u011fini Gemini 3.7 Flash, 3.6 Flash ve 3.5 Flash-Lite\u2019a a\u00e7t\u0131. Sistem sabit FPS ile t\u00fcm videoyu t\u00fcketmek yerine frame, ses ve transcript \u00fczerinde hedefe y\u00f6nelik arama yap\u0131yor. [Kaynak](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-agentic-video-in-gemini/)\n\n- [FACT] OpenAI, hen\u00fcz geni\u015f kullan\u0131ma sunulmayan Astra\u2019y\u0131 Preparedness Framework alt\u0131nda \u201cCritical cybersecurity capability\u201d seviyesinde s\u0131n\u0131fland\u0131rd\u0131. Geli\u015fmi\u015f siber yeteneklere eri\u015fim ilk a\u015famada s\u0131n\u0131rl\u0131 bir test grubuyla ba\u015flayacak. [Kaynak](https://openai.com/index/path-to-astra/)\n\n- [FACT] OpenAI\u2019nin Epic entegrasyonu, yetkili EHR ba\u011flam\u0131n\u0131 ChatGPT for Healthcare\u2019a getiriyor. OpenAI\u2019nin hekim de\u011ferlendirmesinde 27 klinik kullan\u0131m senaryosundaki 4.363 puanlaman\u0131n %99,1\u2019i g\u00fcvenli olarak de\u011ferlendirildi. [Kaynak](https://openai.com/index/chatgpt-connects-health-records-and-healthcare-sources/)\n\n---\n\n## \ud83d\udd78\ufe0f KAT-2 \u00b7 Agent & Framework\n\n- [FACT] GitHub Copilot code review art\u0131k her incelemede approval assessment \u00fcretiyor. Y\u00f6netici izin verirse Copilot do\u011frudan PR onay\u0131 verebiliyor; yeni commit geldi\u011finde bu onay insan onay\u0131 gibi d\u00fc\u015f\u00fcyor. [Kaynak](https://github.blog/changelog/2026-09-01-copilot-code-review-can-now-approve-pull-requests/)\n\n- [FACT] **OpenMAIC**, GitHub\u2019\u0131n g\u00fcnl\u00fck TypeScript Trending listesinde 3.122 stars/day ile zirveye \u00e7\u0131kt\u0131. Proje, tek t\u0131klamayla \u00e7ok-agent\u2019l\u0131 etkile\u015fimli s\u0131n\u0131f deneyimi sunuyor. [Kaynak](https://github.com/THU-MAIC/OpenMAIC)\n\n- [FACT] OpenAI, Basis, Clay ve Exa Labs \u00fczerinden agent tabanl\u0131 onboarding, hesap y\u00f6netimi ve geli\u015ftirici entegrasyonu i\u015f ak\u0131\u015flar\u0131n\u0131 inceleyen yeni bir AI-native \u015firketler \u00e7al\u0131\u015fmas\u0131 yay\u0131mlad\u0131. [Kaynak](https://openai.com/index/ai-native-company-workflows)\n\n- [INFERENCE] Copilot\u2019un onay\u0131n\u0131n branch protection \u015fart\u0131na say\u0131labilmesi, agent eval\u2019lerinin art\u0131k yaln\u0131zca \u201cyorum kalitesi\u201d de\u011fil yanl\u0131\u015f-pozitif onay ve policy bypass riskini de \u00f6l\u00e7mesi gerekti\u011fini g\u00f6steriyor. [Dayanak](https://github.blog/changelog/2026-09-01-copilot-code-review-can-now-approve-pull-requests/)\n\n---\n\n## \ud83d\udcc4 KAT-3 \u00b7 Makaleler & Ara\u015ft\u0131rma\n\n| arXiv ID | Ba\u015fl\u0131k | Neden \u00d6nemli | Kaynak |\n|----------|--------|--------------|--------|\n| 2608.30439 | **Event-Driven Language Models with Sparse Neural Activity for Neuromorphic Hardware** | [FACT] Sparse ve quantized linear-attention modelinde 4 kata kadar daha az efektif i\u015flem; edge GPU\u2019ya kar\u015f\u0131 projeksiyon olarak 37 kat throughput ve 16 kat d\u00fc\u015f\u00fck g\u00fc\u00e7 bildiriyor. | [arXiv](https://arxiv.org/abs/2608.30439) |\n| 2608.30792 | **Conjoint Audio-to-Spikes Encoding and Processing for Efficient Neuromorphic Speech Recognition** | [FACT] FPGA hedefli programlanabilir encoder ile ilk u\u00e7tan uca TIMIT spike-encoding de\u011ferlendirmesini ve Heidelberg Digits \u00fczerinde %99,77 do\u011frulu\u011fu raporluyor. | [arXiv](https://arxiv.org/abs/2608.30792) |\n| 2608.30072 | **Learning Representations through Token Prediction: Geometry, Approximation, and Downstream Guarantees** | [FACT] Token prediction ba\u015far\u0131s\u0131n\u0131 representation geometry, Hellinger distance ve downstream performans garantileriyle teorik olarak ba\u011fl\u0131yor. | [arXiv](https://arxiv.org/abs/2608.30072) |\n\n**Oracle i\u00e7in \u00e7\u0131kar\u0131m:** [INFERENCE] Oracle\u2019\u0131n model ve agent de\u011ferlendirmelerinde yaln\u0131zca g\u00f6rev ba\u015far\u0131s\u0131 yerine i\u015flem yo\u011funlu\u011fu, context verimlili\u011fi ve tekrarl\u0131 bloklar\u0131n representation kararl\u0131l\u0131\u011f\u0131 da izlenebilir. Neuromorphic sonu\u00e7lar bug\u00fcnk\u00fc sunucu altyap\u0131s\u0131na do\u011frudan ta\u015f\u0131namaz; \u00f6nce workload-benzeri benchmark gerekir. [Kaynak](https://arxiv.org/abs/2608.30439)\n\n---\n\n## \ud83e\udde0 KAT-4 \u00b7 D\u00fc\u015f\u00fcnce Liderleri\n\n| Ki\u015fi | G\u00f6r\u00fc\u015f \u00d6zeti | Tarih | Kaynak |\n|------|-------------|-------|--------|\n| Simon Willison | [FACT] Codex masa\u00fcst\u00fc uygulamas\u0131n\u0131n cache\u2019ini inceleyerek yakla\u015f\u0131k 1,7 GB\u2019l\u0131k runtime i\u00e7inde Python, Node, Poppler, Git ve LibreOffice bulundu\u011funu; document skills\u2019in bu binary\u2019lerin kullan\u0131m\u0131n\u0131 y\u00f6nlendirdi\u011fini aktard\u0131. | 1 Eyl\u00fcl 2026 | [Simon Willison](https://simonwillison.net/2026/Sep/1/codex-libreoffice/) |\n\n\u26a0\ufe0f KAT-4 k\u0131smi kaynak hatas\u0131: Karpathy, Sam Altman, Yann LeCun, Andrew Ng, Gary Marcus, swyx ve di\u011fer hedef hesaplar\u0131n son 48 saatlik X payla\u015f\u0131mlar\u0131 do\u011frulanabilir engagement verisiyle al\u0131namad\u0131. Bu nedenle rutin repost veya indekslenmemi\u015f payla\u015f\u0131mlar eklenmedi. [Kontrol edilen X y\u00fczeyi](https://x.com/)\n\n---\n\n## \ud83d\udd34 KAT-5 \u00b7 Reddit Viral\n\n\u26a0\ufe0f KAT-5 Kaynak Hatas\u0131: Reddit public API eri\u015fimi 403 d\u00f6nd\u00fcrd\u00fc; yedek veri ak\u0131\u015f\u0131nda hedef subreddit\u2019lerde tekil olarak **500+ upvote** e\u015fi\u011fini ge\u00e7ti\u011fi do\u011frulanabilen bir son-24-saat ba\u015fl\u0131\u011f\u0131 bulunamad\u0131. E\u015fik alt\u0131 ba\u015fl\u0131klar tabloya eklenmedi.\n\n| Subreddit | Ba\u015fl\u0131k | Upvote | Kaynak |\n|-----------|--------|--------|--------|\n| r/MachineLearning, r/LocalLLaMA, r/singularity, r/programming | \u26a0\ufe0f Do\u011frulanm\u0131\u015f e\u015fik \u00fcst\u00fc madde yok | \u2014 | [Reddit](https://www.reddit.com/r/MachineLearning/) |\n\n---\n\n## \ud83d\udc26 KAT-6 \u00b7 Twitter/X Viral\n\n\u26a0\ufe0f KAT-6 Kaynak Hatas\u0131: X arama yetkilendirmesi ve \u00e7al\u0131\u015fan web-search sa\u011flay\u0131c\u0131s\u0131 bulunmad\u0131\u011f\u0131ndan **1.000+ RT veya 10 bin+ be\u011feni** e\u015fikleri do\u011frulanamad\u0131. URL ve engagement de\u011feri uydurulmad\u0131.\n\n| Hesap | Tweet \u00d6zeti | Etki | Tarih |\n|-------|-------------|------|-------|\n| \u2014 | \u26a0\ufe0f G\u00fcvenilir viral tweet verisi al\u0131namad\u0131. [X](https://x.com/) | Do\u011frulanamad\u0131 | 1\u20132 Eyl\u00fcl 2026 |\n\n---\n\n## \ud83c\udf10 KAT-7 \u00b7 Platform & Ekosistem\n\n- [FACT] Apple, macOS 26.4 ve sonras\u0131nda Rosetta gerektiren uygulamalar a\u00e7\u0131l\u0131rken kullan\u0131c\u0131ya bildirim g\u00f6sterilebilece\u011fini a\u00e7\u0131klad\u0131. macOS 27, Rosetta\u2019n\u0131n son s\u00fcr\u00fcm\u00fc olacak. [Kaynak](https://developer.apple.com/news/?id=w5ngl9k2)\n\n- [FACT] Firefox for iOS, Apple WebKit Content Blocker ve EasyList kullanan yerle\u015fik reklam engelleyiciyi yay\u0131mlad\u0131. \u00d6zellik varsay\u0131lan olarak kapal\u0131; site taraf\u0131ndan do\u011frudan sunulan ve arama sonu\u00e7lar\u0131ndaki reklamlar\u0131 engellemiyor. [Kaynak](https://blog.mozilla.org/en/firefox/ad-blocker-on-ios/)\n\n- [FACT] GitHub CLI v2.99.0, issue, pull request ve yorumlara yerel g\u00f6rsel veya video y\u00fckleyen tekrar kullan\u0131labilir `--attach` deste\u011fini t\u00fcm planlarda genel kullan\u0131ma a\u00e7t\u0131. [Kaynak](https://github.blog/changelog/2026-09-01-github-cli-media-in-issues-pull-requests-and-comments/)\n\n- [INFERENCE] Intel-only macOS ba\u011f\u0131ml\u0131l\u0131\u011f\u0131 bulunan kapal\u0131 kaynak yard\u0131mc\u0131 ara\u00e7lar, agent runtime\u2019lar\u0131 ve eski CLI bile\u015fenleri i\u00e7in Rosetta envanteri art\u0131k ertelenmemesi gereken bir platform riski. [Dayanak](https://developer.apple.com/news/?id=w5ngl9k2)\n\n---\n\n## \ud83e\uddbe KAT-8 \u00b7 Robotik & Edge AI\n\n- [FACT] World Labs, text, image, video ve 3D girdileri ortak spatial context i\u00e7inde i\u015fleyen **Atlas** world modelini tan\u0131tt\u0131. Atlas; 1440p\u2019de bir dakikaya kadar kamera kontroll\u00fc video, 3D reconstruction ve robotics Real-to-Sim i\u015f ak\u0131\u015flar\u0131 sunuyor. [Kaynak](https://www.worldlabs.ai/blog/atlas)\n\n- [FACT] Nori Robotics, 19 serbestlik dereceli, iki kollu mobil robotunu $1.688 fiyatla tan\u0131tt\u0131. Sistem Raspberry Pi 5 \u00fczerinde g\u00fcvenlik ve SLAM \u00e7al\u0131\u015ft\u0131r\u0131rken a\u011f\u0131r VLA/ACT modellerini harici bilgisayara b\u0131rak\u0131yor. [Kaynak](https://news.ycombinator.com/item?id=49525153)\n\n- [FACT] Hugging Face, browser/local AI i\u00e7in Apache-2.0 lisansl\u0131 **207 WebGPU kernel** ve cihazlar aras\u0131 performans kan\u0131t\u0131 toplayan Fleet benchmark arac\u0131n\u0131 yay\u0131mlad\u0131. M4 kar\u015f\u0131la\u015ft\u0131rmas\u0131nda ortak testlerde ORT WebGPU\u2019ya kar\u015f\u0131 geometric mean olarak 2,57 kat h\u0131zlanma bildirildi. [Kaynak](https://huggingface.co/blog/webgpu-kernels)\n\n---\n\n## \u2b50 KAT-9 \u00b7 OSS & \u00dcr\u00fcn Sinyalleri\n\n### HN \u00d6ne \u00c7\u0131kanlar\n\n| Puan | Ba\u015fl\u0131k | Kaynak |\n|------|--------|--------|\n| 745 | [FACT] Claude Fable 5.1 ve Mythos 5.1 | [HN](https://news.ycombinator.com/item?id=49525378) |\n| 515 | [FACT] 1,5 saatte e\u011fitilen k\u00fc\u00e7\u00fck transformer\u2019\u0131n ARC-1 deneyi | [HN](https://news.ycombinator.com/item?id=49519939) |\n| 145 | [FACT] Codex uygulamas\u0131n\u0131n tam LibreOffice kopyas\u0131 i\u00e7ermesi | [HN](https://news.ycombinator.com/item?id=49527396) |\n| 115 | [FACT] 104 GB Qwen3.8-Flash-Next\u2019in 48 GB Mac\u2019te yakla\u015f\u0131k 12 tok/s \u00e7al\u0131\u015ft\u0131r\u0131lmas\u0131 | [HN](https://news.ycombinator.com/item?id=49524447) |\n\n### GitHub Trending\n\n| Repo | Stars/G\u00fcn | Alan |\n|------|-----------|------|\n| [THU-MAIC/OpenMAIC](https://github.com/THU-MAIC/OpenMAIC) | 3.122 | Multi-agent e\u011fitim |\n| [jingyaogong/minimind](https://github.com/jingyaogong/minimind) | 1.005 | 64M LLM e\u011fitimi |\n| [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills) | 914 | Bilimsel agent skills |\n| [browser-use/video-use](https://github.com/browser-use/video-use) | 509 | Coding agent ile video d\u00fczenleme |\n\n### Product Hunt AI\n\n\u26a0\ufe0f KAT-9 k\u0131smi kaynak hatas\u0131: [Product Hunt](https://www.producthunt.com/) do\u011frudan fetch iste\u011fine 403 verdi. Alternatif kaynakta oy ve g\u00fcn s\u0131ralamas\u0131 do\u011frulanamad\u0131\u011f\u0131 i\u00e7in \u00fcr\u00fcn eklenmedi.\n\n---\n\n## \ud83c\uddf9\ud83c\uddf7 T\u00fcrk Tech Sahnesi\n\nBu d\u00f6nemde T\u00fcrkiye ba\u011flant\u0131l\u0131 \u00f6zel geli\u015fme tespit edilmedi. Son 48 saatlik [Google Haberler T\u00fcrkiye AI ak\u0131\u015f\u0131nda](https://news.google.com/search?q=T\u00fcrkiye%20yapay%20zeka%20when%3A2d&hl=tr&gl=TR&ceid=TR%3Atr) baz\u0131 ikincil haberler bulundu; ancak Top 7 veya teknik bulgulara girecek birincil kaynakl\u0131 materyal yenilik do\u011frulanamad\u0131.\n\n---\n\n## \ud83e\udde0 Oracle Self-Improvement Sinyalleri\n\n| # | Bulgu | Kaynak | Uygulama Alan\u0131 | Efor |\n|---|-------|--------|----------------|------|\n| 1 | [INFERENCE] Video ara\u015ft\u0131rma pipeline\u2019\u0131 sabit frame sampling yerine hedefe y\u00f6nelik scan/inspect d\u00f6ng\u00fcs\u00fcne ge\u00e7erse token ve maliyet azalabilir. | [KAT-1](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-agentic-video-in-gemini/) | Video-watcher / multimodal research | Orta |\n| 2 | [INFERENCE] Agent\u2019\u0131n PR onay\u0131 verebildi\u011fi i\u015f ak\u0131\u015flar\u0131nda insan-review gereksinimi ile agent-review sonucu ayr\u0131 policy sinyalleri olarak tutulmal\u0131. | [KAT-2](https://github.blog/changelog/2026-09-01-copilot-code-review-can-now-approve-pull-requests/) | Verification gate / reviewer governance | Orta |\n| 3 | [INFERENCE] Agent kan\u0131t paketlerine ekran g\u00f6r\u00fcnt\u00fcs\u00fc ve k\u0131sa video eklemek, UI ve browser g\u00f6revlerinin tekrarlanabilirli\u011fini art\u0131rabilir. | [KAT-7](https://github.blog/changelog/2026-09-01-github-cli-media-in-issues-pull-requests-and-comments/) | Issue/PR evidence pipeline | K\u00fc\u00e7\u00fck |\n\n---\n\n## \ud83d\udc26 CikCik Paketi (@muxamos sesi)\n\n### Tweetler (3\u20135 adet)\n\n**Tweet 1 (Konu: Claude 5.1):**\n> Claude taraf\u0131nda \u201cdaha b\u00fcy\u00fck context\u201dten daha kritik de\u011fi\u015fiklik: 1M context + 128k output + always-on thinking. Ama tool_choice k\u0131r\u0131l\u0131m\u0131na dikkat; yeni model, eski entegrasyona drop-in de\u011fil.\n\nKaynak: https://platform.claude.com/docs/en/release-notes/overview\n\n**Tweet 2 (Konu: Astra):**\n> AI siber g\u00fcvenlikte yeni e\u015fik: OpenAI, Astra\u2019y\u0131 \u201cCritical\u201d seviyede s\u0131n\u0131fland\u0131rd\u0131. Benchmark sonucu kadar \u00f6nemli taraf\u0131 \u015fu: eri\u015fim, eval ve containment art\u0131k model \u00fcr\u00fcn\u00fcn\u00fcn ayr\u0131lmaz par\u00e7as\u0131.\n\nKaynak: https://openai.com/index/path-to-astra/\n\n**Tweet 3 (Konu: Gemini video):**\n> Uzun videoyu her saniyesiyle modele yedirmek yerine, modele \u201cnereye bakaca\u011f\u0131n\u0131\u201d se\u00e7tirmek: Gemini\u2019nin agentic video yakla\u015f\u0131m\u0131 token\u0131 %88\u2019e kadar azalt\u0131yor. Multimodal agent tasar\u0131m\u0131nda as\u0131l s\u0131\u00e7rama bu.\n\nKaynak: https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-agentic-video-in-gemini/\n\n**Tweet 4 (Konu: Copilot PR onay\u0131):**\n> Copilot art\u0131k PR\u2019a sadece yorum b\u0131rakm\u0131yor; izin verilirse merge \u015fart\u0131na say\u0131lan onay verebiliyor. \u201cAI review kullanal\u0131m m\u0131?\u201d sorusu bitti. Yeni soru: AI onay\u0131n\u0131n policy a\u011f\u0131rl\u0131\u011f\u0131 ne olmal\u0131?\n\nKaynak: https://github.blog/changelog/2026-09-01-copilot-code-review-can-now-approve-pull-requests/\n\n**Tweet 5 (Konu: Rosetta):**\n> macOS 27, Rosetta\u2019n\u0131n son dura\u011f\u0131. Y\u0131llard\u0131r \u201csonra native\u2019e ge\u00e7iririz\u201d denilen Intel-only ara\u00e7lar i\u00e7in takvim art\u0131k teorik de\u011fil. Envanterde g\u00f6r\u00fcnmeyen eski binary, bir sonraki platform ar\u0131zas\u0131 olabilir.\n\nKaynak: https://developer.apple.com/news/?id=w5ngl9k2\n\n### Reply F\u0131rsatlar\u0131 (2\u20133)\n\n**@github alt\u0131na (Copilot approval):**\n> Approval assessment faydal\u0131; ama agent onaylar\u0131n\u0131n required-review politikas\u0131nda insan onay\u0131ndan ayr\u0131 izlenmesi ve audit log\u2019da a\u00e7\u0131k\u00e7a ayr\u0131\u015ft\u0131r\u0131lmas\u0131 kritik olacak.\n\nKaynak: https://github.blog/changelog/2026-09-01-copilot-code-review-can-now-approve-pull-requests/\n\n**@GoogleDeepMind alt\u0131na (Agentic video):**\n> En de\u011ferli taraf kalite art\u0131\u015f\u0131ndan \u00e7ok se\u00e7ici g\u00f6zlem d\u00f6ng\u00fcs\u00fc olabilir. Ayn\u0131 \u201c\u00f6nce ara, sonra ayr\u0131nt\u0131l\u0131 incele\u201d modeli uzun dok\u00fcman ve log analizine de ta\u015f\u0131nabilir.\n\nKaynak: https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-agentic-video-in-gemini/\n\n**@OpenAI alt\u0131na (Astra):**\n> Model capability eval\u2019leriyle deployment safeguard\u2019lar\u0131n\u0131n ayn\u0131 a\u00e7\u0131klamada verilmesi do\u011fru y\u00f6n. Kritik soru, s\u0131n\u0131rl\u0131 eri\u015fim geni\u015flerken containment \u00f6l\u00e7\u00fcmlerinin nas\u0131l raporlanaca\u011f\u0131.\n\nKaynak: https://openai.com/index/path-to-astra/\n\n### G\u00fcn\u00fcn Hook'u\n\n> Model art\u0131k sadece cevap vermiyor; videoda nereye bakaca\u011f\u0131na, PR\u2019\u0131n onaylan\u0131p onaylanmayaca\u011f\u0131na ve hangi g\u00fcvenlik a\u00e7\u0131\u011f\u0131n\u0131n s\u00f6m\u00fcr\u00fclebilece\u011fine karar veriyor. [Kaynak](https://openai.com/index/path-to-astra/)\n\n---\n\n## \ud83e\udde0 AI Yetkin X Hesaplar\u0131 \u2014 Son 24 Saat\n\n> Durum: **unavailable** \u00b7 Snapshot: `2026-09-01T22:18:10Z` \u00b7 Hesap: 0 \u00b7 \u00c7a\u011fr\u0131: 0/0\n\n| Hesap | Payla\u015f\u0131m \u00d6zeti | Neden \u00d6nemli | Zaman | Kaynak |\n|---|---|---|---|---|\n| \u2014 | Veri yok (unavailable) | Snapshot kullan\u0131lam\u0131yor; b\u00f6l\u00fcm korunarak veri yoklu\u011fu a\u00e7\u0131k\u00e7a g\u00f6sterildi. | \u2014 | \u2014 |## \ud83d\udcca Kaynak & Durum \u00d6zeti\n\n| Kategori | Kaynak | Durum | Madde |\n|----------|--------|-------|-------|\n| KAT-1 | [Anthropic](https://platform.claude.com/docs/en/release-notes/overview), [OpenAI](https://openai.com/news/rss.xml), [Google](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-agentic-video-in-gemini/) | \u2705 | 4 |\n| KAT-2 | [GitHub Changelog](https://github.blog/changelog/), [GitHub Trending](https://github.com/trending) | \u2705 | 3 |\n| KAT-3 | [arXiv](https://arxiv.org/list/cs.LG/recent), [HF Daily Papers](https://huggingface.co/papers/date/2026-09-01) | \u2705 | 3 |\n| KAT-4 | [Simon Willison](https://simonwillison.net/) | \u26a0\ufe0f X hesaplar\u0131n\u0131n \u00e7o\u011fu do\u011frulanamad\u0131 | 1 |\n| KAT-5 | [Reddit MachineLearning](https://www.reddit.com/r/MachineLearning/) | \u274c API 403; 500+ e\u015fik do\u011frulanamad\u0131 | 0 |\n| KAT-6 | [X](https://x.com/) | \u274c Arama/engagement do\u011frulamas\u0131 yok | 0 |\n| KAT-7 | [Apple Developer](https://developer.apple.com/news/), [Mozilla](https://blog.mozilla.org/en/), [GitHub](https://github.blog/changelog/) | \u2705 | 3 |\n| KAT-8 | [World Labs](https://www.worldlabs.ai/blog/atlas), [arXiv](https://arxiv.org/abs/2608.30439), [Hugging Face](https://huggingface.co/blog/webgpu-kernels) | \u2705 | 3 |\n| KAT-9 | [HN Algolia](https://hn.algolia.com/), [GitHub Trending](https://github.com/trending), [Product Hunt](https://www.producthunt.com/) | \u26a0\ufe0f Product Hunt 403 | 8 |\n\n**Toplam dedupe elenen:** 0 madde | **Yeni madde:** 25 | **Sonraki temizlik:** 2026-09-05 01:02 \u0130ST\n\n---\n\n*Rapor: Gece Ara\u015ft\u0131rma v2 \u00b7 2026-09-02 01:02 \u0130ST \u00b7 Oracle \ud83e\udd89*\n";
-
-  // ── marked config ──
-  marked.setOptions({
-    gfm:true,
-    breaks:false,
-    mangle:false,
-    headerIds:false
-  });
-
-  // ── Wrap tables for horizontal scroll ──
-  var renderer = new marked.Renderer();
-  renderer.table = function(header, body){
-    return '<div class="table-wrap"><table><thead>' + header + '</thead><tbody>' + body + '</tbody></table></div>';
-  };
-
-  var html = marked.parse(RAW, {renderer:renderer});
-  var content = document.getElementById('content');
-  var loading = document.getElementById('loading');
-  content.innerHTML = html;
-  content.style.display = '';
-  loading.style.display = 'none';
-
-  // ── Open external links in new tab ──
-  var links = content.querySelectorAll('a[href]');
-  for(var i=0;i<links.length;i++){
-    var href = links[i].getAttribute('href');
-    if(href && (href.startsWith('http://') || href.startsWith('https://'))){
-      links[i].setAttribute('target','_blank');
-      links[i].setAttribute('rel','noopener noreferrer');
-    }
-  }
-})();
-</script>
+    <section class="report-layout">
+      <aside class="sticky-column stack">
+        <div class="panel">
+          <div class="panel-title"><div><h3>İçindekiler</h3><p>Türkçe kaynak korunur. EN/ES authored markdown varsa doğrudan kullanılır, yoksa acil durumda fallback çeviri uygulanır.</p></div></div>
+          <nav class="report-nav"><a class="section-link" href="#sec-1-top-7-sadece-ger-ekten-yeni-son-72-saat-delta" data-section-link>🔥 Top 7 — Sadece GERÇEKTEN YENİ (Son 72 Saat Delta)</a><a class="section-link" href="#sec-2-kat-1-ai-laboratuvarlari-model-haberleri" data-section-link>🤖 KAT-1 · AI Laboratuvarları &amp; Model Haberleri</a><a class="section-link" href="#sec-3-kat-2-agent-framework" data-section-link>🕸️ KAT-2 · Agent &amp; Framework</a><a class="section-link" href="#sec-4-kat-3-makaleler-arastirma" data-section-link>📄 KAT-3 · Makaleler &amp; Araştırma</a><a class="section-link" href="#sec-5-kat-4-dusunce-liderleri" data-section-link>🧠 KAT-4 · Düşünce Liderleri</a><a class="section-link" href="#sec-6-kat-5-reddit-viral" data-section-link>🔴 KAT-5 · Reddit Viral</a><a class="section-link" href="#sec-7-kat-6-twitter-x-viral" data-section-link>🐦 KAT-6 · Twitter/X Viral</a><a class="section-link" href="#sec-8-kat-7-platform-ekosistem" data-section-link>🌐 KAT-7 · Platform &amp; Ekosistem</a><a class="section-link" href="#sec-9-kat-8-robotik-edge-ai" data-section-link>🦾 KAT-8 · Robotik &amp; Edge AI</a><a class="section-link" href="#sec-10-kat-9-oss-run-sinyalleri" data-section-link>⭐ KAT-9 · OSS &amp; Ürün Sinyalleri</a><a class="section-link" href="#sec-11-hn-ne-ikanlar" data-section-link># HN Öne Çıkanlar</a><a class="section-link" href="#sec-12-github-trending" data-section-link># GitHub Trending</a><a class="section-link" href="#sec-13-product-hunt-ai" data-section-link># Product Hunt AI</a><a class="section-link" href="#sec-14-turk-tech-sahnesi" data-section-link>🇹🇷 Türk Tech Sahnesi</a><a class="section-link" href="#sec-15-oracle-self-improvement-sinyalleri" data-section-link>🧠 Oracle Self-Improvement Sinyalleri</a><a class="section-link" href="#sec-16-cikcik-paketi-muxamos-sesi" data-section-link>🐦 CikCik Paketi (@muxamos sesi)</a><a class="section-link" href="#sec-17-tweetler-3-5-adet" data-section-link># Tweetler (3–5 adet)</a><a class="section-link" href="#sec-18-reply-firsatlari-2-3" data-section-link># Reply Fırsatları (2–3)</a><a class="section-link" href="#sec-19-gunun-hook-u" data-section-link># Günün Hook&#x27;u</a><a class="section-link" href="#sec-20-ai-yetkin-x-hesaplari-son-24-saat" data-section-link>🧠 AI Yetkin X Hesapları — Son 24 Saat</a></nav>
+        </div>
+        <div class="panel">
+          <div class="panel-title"><div><h3>Hızlı erişim</h3></div></div>
+          <div class="report-tools">
+            <a class="ghost-button" href="../raw/2026-09-02.md">Kaynak markdown</a>
+            <a class="ghost-button" href="2026-09-02.html">Türkçe orijinal</a>
+            <a class="ghost-button" href="2026-09-01.html">Önceki rapor</a>
+            <a class="ghost-button" href="2026-09-03.html">Sonraki rapor</a>
+          </div>
+        </div>
+      </aside>
+      <div class="report-main">
+        <section class="report-summary-card rendered-markdown">
+          <div class="section-head">
+            <div>
+              <div class="section-kicker">Rapor özeti</div>
+              <h2>Rapor özeti</h2>
+            </div>
+          </div>
+          <blockquote><p><strong>Yenilik Önceliği</strong> · 7/9 kategori · 13 kaynak aktif · Dedupe: 0 madde elendi</p></blockquote>
+<blockquote><p>⚠️ KAT-5’te 500+ upvote eşiği, KAT-6’da 1.000+ RT/10 bin+ beğeni eşiği güvenilir biçimde doğrulanamadı. Product Hunt doğrudan erişimi de 403 döndürdü. Bu alanlarda veri uydurulmadı.</p></blockquote>
+        </section>
+        <section class="report-section" id="sec-1-top-7-sadece-ger-ekten-yeni-son-72-saat-delta">
+  <div class="section-head">
+    <div>
+      <div class="section-kicker">Bölümler 01</div>
+      <h2>🔥 Top 7 — Sadece GERÇEKTEN YENİ (Son 72 Saat Delta)</h2>
+    </div>
+    <a class="ghost-button" href="#sec-1-top-7-sadece-ger-ekten-yeni-son-72-saat-delta">#</a>
+  </div>
+  <div class="rendered-markdown"><blockquote><p>Bu bölüme yalnızca 72 saat içinde ilk kez raporlanan veya materyal olarak değişen maddeler girer. Daha önce raporlanan konunun devamı → &quot;→ Güncelleme:&quot; etiketiyle altta göster.</p></blockquote>
+<div class="table-wrap"><table><thead><tr><th>#</th><th>Madde</th><th>Kategori</th><th>Kaynak</th><th>Önem</th></tr></thead><tbody><tr><td>1</td><td><strong>[FACT] Claude Fable 5.1 ve Mythos 5.1 çıktı</strong> — 1 milyon token context, 128 bin token maksimum çıktı ve sürekli adaptive thinking sunuyor. <code>tool_choice:any/tool</code> desteklenmiyor; cache read fiyatı $0,25/MTok. <a href="https://platform.claude.com/docs/en/release-notes/overview">🔗 URL</a></td><td>KAT-1</td><td>Anthropic</td><td>🔴</td></tr><tr><td>2</td><td><strong>[FACT] Gemini’ye agentic video understanding geldi</strong> — Gemini 3.7 Flash, 3.6 Flash ve 3.5 Flash-Lite; videoda gerekli anları dinamik olarak arayarak Google’ın testlerinde token tüketimini %88’e, maliyeti %66’ya kadar düşürdü. <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-agentic-video-in-gemini/">🔗 URL</a></td><td>KAT-1</td><td>Google DeepMind</td><td>🔴</td></tr><tr><td>3</td><td><strong>[FACT] OpenAI, Epic EHR entegrasyonunu duyurdu</strong> — Yetkili hasta bağlamı ChatGPT for Healthcare’a taşınabiliyor; yeni eklenti PubMed ve DailyMed dahil dokuz resmî sağlık kaynağını bağlıyor. <a href="https://openai.com/index/chatgpt-connects-health-records-and-healthcare-sources/">🔗 URL</a></td><td>KAT-1</td><td>OpenAI</td><td>🔴</td></tr><tr><td>4</td><td><strong>[FACT] Astra, OpenAI’nin “Critical” siber yetenek seviyesine ulaşan ilk modeli oldu</strong> — OpenAI’ye göre model, ExploitBench’te %100 aldı ve değerlendirmede iki zero-day içeren bir exploit zinciri kurdu. <a href="https://openai.com/index/path-to-astra/">🔗 URL</a></td><td>KAT-1</td><td>OpenAI</td><td>🔴</td></tr><tr><td>5</td><td><strong>[FACT] GitHub Copilot artık pull request onaylayabiliyor</strong> — Özellik public preview’da ve varsayılan olarak kapalı; etkinleştirildiğinde Copilot onayı required-approval kuralına sayılabiliyor. <a href="https://github.blog/changelog/2026-09-01-copilot-code-review-can-now-approve-pull-requests/">🔗 URL</a></td><td>KAT-2</td><td>GitHub</td><td>🔴</td></tr><tr><td>6</td><td><strong>[FACT] Apple, Rosetta takvimini kesinleştirdi</strong> — macOS 27 Rosetta’yı destekleyen son sürüm olacak; sonrasında Intel-only uygulamalar Apple silicon cihazlarda çalışmayacak. <a href="https://developer.apple.com/news/?id=w5ngl9k2">🔗 URL</a></td><td>KAT-7</td><td>Apple Developer</td><td>🔴</td></tr><tr><td>7</td><td><strong>[FACT] Event-driven dil modellerinde yüksek edge verimliliği raporlandı</strong> — arXiv:2608.30439, 4 kata kadar daha az efektif işlemle edge GPU’ya kıyasla projeksiyon olarak 37 kat throughput ve 16 kat düşük güç bildiriyor. <a href="https://arxiv.org/abs/2608.30439">🔗 URL</a></td><td>KAT-3/KAT-8</td><td>arXiv</td><td>🟡</td></tr></tbody></table></div>
+<p><strong>Dedupe notu:</strong> Yeni kategori — önceki ilgili konu yok.</p>
+<hr></div>
+</section>
+<section class="report-section" id="sec-2-kat-1-ai-laboratuvarlari-model-haberleri">
+  <div class="section-head">
+    <div>
+      <div class="section-kicker">Bölümler 02</div>
+      <h2>🤖 KAT-1 · AI Laboratuvarları &amp; Model Haberleri</h2>
+    </div>
+    <a class="ghost-button" href="#sec-2-kat-1-ai-laboratuvarlari-model-haberleri">#</a>
+  </div>
+  <div class="rendered-markdown"><ul><li>[FACT] Anthropic, <strong>Claude Fable 5.1</strong> ve Project Glasswing katılımcılarına yönelik <strong>Claude Mythos 5.1</strong> modellerini yayımladı. Her iki model 1M context, 128k maksimum çıktı ve always-on adaptive thinking destekliyor. Fable; Claude API, Amazon Bedrock, Google Cloud, AWS ve Microsoft Foundry üzerinden erişilebilir. <a href="https://platform.claude.com/docs/en/release-notes/overview">Kaynak</a></li></ul>
+<ul><li>[FACT] Yeni Claude modellerinde cache read fiyatı $0,25/MTok; base input/output fiyatı $10/$50/MTok. Üretilen metinlerde watermark, desteklenen görsel ve videolarda C2PA Content Credentials bulunuyor. <a href="https://platform.claude.com/docs/en/release-notes/overview">Kaynak</a></li></ul>
+<ul><li>[FACT] Google, <strong>agentic video understanding</strong> özelliğini Gemini 3.7 Flash, 3.6 Flash ve 3.5 Flash-Lite’a açtı. Sistem sabit FPS ile tüm videoyu tüketmek yerine frame, ses ve transcript üzerinde hedefe yönelik arama yapıyor. <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-agentic-video-in-gemini/">Kaynak</a></li></ul>
+<ul><li>[FACT] OpenAI, henüz geniş kullanıma sunulmayan Astra’yı Preparedness Framework altında “Critical cybersecurity capability” seviyesinde sınıflandırdı. Gelişmiş siber yeteneklere erişim ilk aşamada sınırlı bir test grubuyla başlayacak. <a href="https://openai.com/index/path-to-astra/">Kaynak</a></li></ul>
+<ul><li>[FACT] OpenAI’nin Epic entegrasyonu, yetkili EHR bağlamını ChatGPT for Healthcare’a getiriyor. OpenAI’nin hekim değerlendirmesinde 27 klinik kullanım senaryosundaki 4.363 puanlamanın %99,1’i güvenli olarak değerlendirildi. <a href="https://openai.com/index/chatgpt-connects-health-records-and-healthcare-sources/">Kaynak</a></li></ul>
+<hr></div>
+</section>
+<section class="report-section" id="sec-3-kat-2-agent-framework">
+  <div class="section-head">
+    <div>
+      <div class="section-kicker">Bölümler 03</div>
+      <h2>🕸️ KAT-2 · Agent &amp; Framework</h2>
+    </div>
+    <a class="ghost-button" href="#sec-3-kat-2-agent-framework">#</a>
+  </div>
+  <div class="rendered-markdown"><ul><li>[FACT] GitHub Copilot code review artık her incelemede approval assessment üretiyor. Yönetici izin verirse Copilot doğrudan PR onayı verebiliyor; yeni commit geldiğinde bu onay insan onayı gibi düşüyor. <a href="https://github.blog/changelog/2026-09-01-copilot-code-review-can-now-approve-pull-requests/">Kaynak</a></li></ul>
+<ul><li>[FACT] <strong>OpenMAIC</strong>, GitHub’ın günlük TypeScript Trending listesinde 3.122 stars/day ile zirveye çıktı. Proje, tek tıklamayla çok-agent’lı etkileşimli sınıf deneyimi sunuyor. <a href="https://github.com/THU-MAIC/OpenMAIC">Kaynak</a></li></ul>
+<ul><li>[FACT] OpenAI, Basis, Clay ve Exa Labs üzerinden agent tabanlı onboarding, hesap yönetimi ve geliştirici entegrasyonu iş akışlarını inceleyen yeni bir AI-native şirketler çalışması yayımladı. <a href="https://openai.com/index/ai-native-company-workflows">Kaynak</a></li></ul>
+<ul><li>[INFERENCE] Copilot’un onayının branch protection şartına sayılabilmesi, agent eval’lerinin artık yalnızca “yorum kalitesi” değil yanlış-pozitif onay ve policy bypass riskini de ölçmesi gerektiğini gösteriyor. <a href="https://github.blog/changelog/2026-09-01-copilot-code-review-can-now-approve-pull-requests/">Dayanak</a></li></ul>
+<hr></div>
+</section>
+<section class="report-section" id="sec-4-kat-3-makaleler-arastirma">
+  <div class="section-head">
+    <div>
+      <div class="section-kicker">Bölümler 04</div>
+      <h2>📄 KAT-3 · Makaleler &amp; Araştırma</h2>
+    </div>
+    <a class="ghost-button" href="#sec-4-kat-3-makaleler-arastirma">#</a>
+  </div>
+  <div class="rendered-markdown"><div class="table-wrap"><table><thead><tr><th>arXiv ID</th><th>Başlık</th><th>Neden Önemli</th><th>Kaynak</th></tr></thead><tbody><tr><td>2608.30439</td><td><strong>Event-Driven Language Models with Sparse Neural Activity for Neuromorphic Hardware</strong></td><td>[FACT] Sparse ve quantized linear-attention modelinde 4 kata kadar daha az efektif işlem; edge GPU’ya karşı projeksiyon olarak 37 kat throughput ve 16 kat düşük güç bildiriyor.</td><td><a href="https://arxiv.org/abs/2608.30439">arXiv</a></td></tr><tr><td>2608.30792</td><td><strong>Conjoint Audio-to-Spikes Encoding and Processing for Efficient Neuromorphic Speech Recognition</strong></td><td>[FACT] FPGA hedefli programlanabilir encoder ile ilk uçtan uca TIMIT spike-encoding değerlendirmesini ve Heidelberg Digits üzerinde %99,77 doğruluğu raporluyor.</td><td><a href="https://arxiv.org/abs/2608.30792">arXiv</a></td></tr><tr><td>2608.30072</td><td><strong>Learning Representations through Token Prediction: Geometry, Approximation, and Downstream Guarantees</strong></td><td>[FACT] Token prediction başarısını representation geometry, Hellinger distance ve downstream performans garantileriyle teorik olarak bağlıyor.</td><td><a href="https://arxiv.org/abs/2608.30072">arXiv</a></td></tr></tbody></table></div>
+<p><strong>Oracle için çıkarım:</strong> [INFERENCE] Oracle’ın model ve agent değerlendirmelerinde yalnızca görev başarısı yerine işlem yoğunluğu, context verimliliği ve tekrarlı blokların representation kararlılığı da izlenebilir. Neuromorphic sonuçlar bugünkü sunucu altyapısına doğrudan taşınamaz; önce workload-benzeri benchmark gerekir. <a href="https://arxiv.org/abs/2608.30439">Kaynak</a></p>
+<hr></div>
+</section>
+<section class="report-section" id="sec-5-kat-4-dusunce-liderleri">
+  <div class="section-head">
+    <div>
+      <div class="section-kicker">Bölümler 05</div>
+      <h2>🧠 KAT-4 · Düşünce Liderleri</h2>
+    </div>
+    <a class="ghost-button" href="#sec-5-kat-4-dusunce-liderleri">#</a>
+  </div>
+  <div class="rendered-markdown"><div class="table-wrap"><table><thead><tr><th>Kişi</th><th>Görüş Özeti</th><th>Tarih</th><th>Kaynak</th></tr></thead><tbody><tr><td>Simon Willison</td><td>[FACT] Codex masaüstü uygulamasının cache’ini inceleyerek yaklaşık 1,7 GB’lık runtime içinde Python, Node, Poppler, Git ve LibreOffice bulunduğunu; document skills’in bu binary’lerin kullanımını yönlendirdiğini aktardı.</td><td>1 Eylül 2026</td><td><a href="https://simonwillison.net/2026/Sep/1/codex-libreoffice/">Simon Willison</a></td></tr></tbody></table></div>
+<p>⚠️ KAT-4 kısmi kaynak hatası: Karpathy, Sam Altman, Yann LeCun, Andrew Ng, Gary Marcus, swyx ve diğer hedef hesapların son 48 saatlik X paylaşımları doğrulanabilir engagement verisiyle alınamadı. Bu nedenle rutin repost veya indekslenmemiş paylaşımlar eklenmedi. <a href="https://x.com/">Kontrol edilen X yüzeyi</a></p>
+<hr></div>
+</section>
+<section class="report-section" id="sec-6-kat-5-reddit-viral">
+  <div class="section-head">
+    <div>
+      <div class="section-kicker">Bölümler 06</div>
+      <h2>🔴 KAT-5 · Reddit Viral</h2>
+    </div>
+    <a class="ghost-button" href="#sec-6-kat-5-reddit-viral">#</a>
+  </div>
+  <div class="rendered-markdown"><p>⚠️ KAT-5 Kaynak Hatası: Reddit public API erişimi 403 döndürdü; yedek veri akışında hedef subreddit’lerde tekil olarak <strong>500+ upvote</strong> eşiğini geçtiği doğrulanabilen bir son-24-saat başlığı bulunamadı. Eşik altı başlıklar tabloya eklenmedi.</p>
+<div class="table-wrap"><table><thead><tr><th>Subreddit</th><th>Başlık</th><th>Upvote</th><th>Kaynak</th></tr></thead><tbody><tr><td>r/MachineLearning, r/LocalLLaMA, r/singularity, r/programming</td><td>⚠️ Doğrulanmış eşik üstü madde yok</td><td>—</td><td><a href="https://www.reddit.com/r/MachineLearning/">Reddit</a></td></tr></tbody></table></div>
+<hr></div>
+</section>
+<section class="report-section" id="sec-7-kat-6-twitter-x-viral">
+  <div class="section-head">
+    <div>
+      <div class="section-kicker">Bölümler 07</div>
+      <h2>🐦 KAT-6 · Twitter/X Viral</h2>
+    </div>
+    <a class="ghost-button" href="#sec-7-kat-6-twitter-x-viral">#</a>
+  </div>
+  <div class="rendered-markdown"><p>⚠️ KAT-6 Kaynak Hatası: X arama yetkilendirmesi ve çalışan web-search sağlayıcısı bulunmadığından <strong>1.000+ RT veya 10 bin+ beğeni</strong> eşikleri doğrulanamadı. URL ve engagement değeri uydurulmadı.</p>
+<div class="table-wrap"><table><thead><tr><th>Hesap</th><th>Tweet Özeti</th><th>Etki</th><th>Tarih</th></tr></thead><tbody><tr><td>—</td><td>⚠️ Güvenilir viral tweet verisi alınamadı. <a href="https://x.com/">X</a></td><td>Doğrulanamadı</td><td>1–2 Eylül 2026</td></tr></tbody></table></div>
+<hr></div>
+</section>
+<section class="report-section" id="sec-8-kat-7-platform-ekosistem">
+  <div class="section-head">
+    <div>
+      <div class="section-kicker">Bölümler 08</div>
+      <h2>🌐 KAT-7 · Platform &amp; Ekosistem</h2>
+    </div>
+    <a class="ghost-button" href="#sec-8-kat-7-platform-ekosistem">#</a>
+  </div>
+  <div class="rendered-markdown"><ul><li>[FACT] Apple, macOS 26.4 ve sonrasında Rosetta gerektiren uygulamalar açılırken kullanıcıya bildirim gösterilebileceğini açıkladı. macOS 27, Rosetta’nın son sürümü olacak. <a href="https://developer.apple.com/news/?id=w5ngl9k2">Kaynak</a></li></ul>
+<ul><li>[FACT] Firefox for iOS, Apple WebKit Content Blocker ve EasyList kullanan yerleşik reklam engelleyiciyi yayımladı. Özellik varsayılan olarak kapalı; site tarafından doğrudan sunulan ve arama sonuçlarındaki reklamları engellemiyor. <a href="https://blog.mozilla.org/en/firefox/ad-blocker-on-ios/">Kaynak</a></li></ul>
+<ul><li>[FACT] GitHub CLI v2.99.0, issue, pull request ve yorumlara yerel görsel veya video yükleyen tekrar kullanılabilir <code>--attach</code> desteğini tüm planlarda genel kullanıma açtı. <a href="https://github.blog/changelog/2026-09-01-github-cli-media-in-issues-pull-requests-and-comments/">Kaynak</a></li></ul>
+<ul><li>[INFERENCE] Intel-only macOS bağımlılığı bulunan kapalı kaynak yardımcı araçlar, agent runtime’ları ve eski CLI bileşenleri için Rosetta envanteri artık ertelenmemesi gereken bir platform riski. <a href="https://developer.apple.com/news/?id=w5ngl9k2">Dayanak</a></li></ul>
+<hr></div>
+</section>
+<section class="report-section" id="sec-9-kat-8-robotik-edge-ai">
+  <div class="section-head">
+    <div>
+      <div class="section-kicker">Bölümler 09</div>
+      <h2>🦾 KAT-8 · Robotik &amp; Edge AI</h2>
+    </div>
+    <a class="ghost-button" href="#sec-9-kat-8-robotik-edge-ai">#</a>
+  </div>
+  <div class="rendered-markdown"><ul><li>[FACT] World Labs, text, image, video ve 3D girdileri ortak spatial context içinde işleyen <strong>Atlas</strong> world modelini tanıttı. Atlas; 1440p’de bir dakikaya kadar kamera kontrollü video, 3D reconstruction ve robotics Real-to-Sim iş akışları sunuyor. <a href="https://www.worldlabs.ai/blog/atlas">Kaynak</a></li></ul>
+<ul><li>[FACT] Nori Robotics, 19 serbestlik dereceli, iki kollu mobil robotunu $1.688 fiyatla tanıttı. Sistem Raspberry Pi 5 üzerinde güvenlik ve SLAM çalıştırırken ağır VLA/ACT modellerini harici bilgisayara bırakıyor. <a href="https://news.ycombinator.com/item?id=49525153">Kaynak</a></li></ul>
+<ul><li>[FACT] Hugging Face, browser/local AI için Apache-2.0 lisanslı <strong>207 WebGPU kernel</strong> ve cihazlar arası performans kanıtı toplayan Fleet benchmark aracını yayımladı. M4 karşılaştırmasında ortak testlerde ORT WebGPU’ya karşı geometric mean olarak 2,57 kat hızlanma bildirildi. <a href="https://huggingface.co/blog/webgpu-kernels">Kaynak</a></li></ul>
+<hr></div>
+</section>
+<section class="report-section" id="sec-10-kat-9-oss-run-sinyalleri">
+  <div class="section-head">
+    <div>
+      <div class="section-kicker">Bölümler 10</div>
+      <h2>⭐ KAT-9 · OSS &amp; Ürün Sinyalleri</h2>
+    </div>
+    <a class="ghost-button" href="#sec-10-kat-9-oss-run-sinyalleri">#</a>
+  </div>
+  <div class="rendered-markdown"></div>
+</section>
+<section class="report-section" id="sec-11-hn-ne-ikanlar">
+  <div class="section-head">
+    <div>
+      <div class="section-kicker">Bölümler 11</div>
+      <h2># HN Öne Çıkanlar</h2>
+    </div>
+    <a class="ghost-button" href="#sec-11-hn-ne-ikanlar">#</a>
+  </div>
+  <div class="rendered-markdown"><div class="table-wrap"><table><thead><tr><th>Puan</th><th>Başlık</th><th>Kaynak</th></tr></thead><tbody><tr><td>745</td><td>[FACT] Claude Fable 5.1 ve Mythos 5.1</td><td><a href="https://news.ycombinator.com/item?id=49525378">HN</a></td></tr><tr><td>515</td><td>[FACT] 1,5 saatte eğitilen küçük transformer’ın ARC-1 deneyi</td><td><a href="https://news.ycombinator.com/item?id=49519939">HN</a></td></tr><tr><td>145</td><td>[FACT] Codex uygulamasının tam LibreOffice kopyası içermesi</td><td><a href="https://news.ycombinator.com/item?id=49527396">HN</a></td></tr><tr><td>115</td><td>[FACT] 104 GB Qwen3.8-Flash-Next’in 48 GB Mac’te yaklaşık 12 tok/s çalıştırılması</td><td><a href="https://news.ycombinator.com/item?id=49524447">HN</a></td></tr></tbody></table></div></div>
+</section>
+<section class="report-section" id="sec-12-github-trending">
+  <div class="section-head">
+    <div>
+      <div class="section-kicker">Bölümler 12</div>
+      <h2># GitHub Trending</h2>
+    </div>
+    <a class="ghost-button" href="#sec-12-github-trending">#</a>
+  </div>
+  <div class="rendered-markdown"><div class="table-wrap"><table><thead><tr><th>Repo</th><th>Stars/Gün</th><th>Alan</th></tr></thead><tbody><tr><td><a href="https://github.com/THU-MAIC/OpenMAIC">THU-MAIC/OpenMAIC</a></td><td>3.122</td><td>Multi-agent eğitim</td></tr><tr><td><a href="https://github.com/jingyaogong/minimind">jingyaogong/minimind</a></td><td>1.005</td><td>64M LLM eğitimi</td></tr><tr><td><a href="https://github.com/K-Dense-AI/scientific-agent-skills">K-Dense-AI/scientific-agent-skills</a></td><td>914</td><td>Bilimsel agent skills</td></tr><tr><td><a href="https://github.com/browser-use/video-use">browser-use/video-use</a></td><td>509</td><td>Coding agent ile video düzenleme</td></tr></tbody></table></div></div>
+</section>
+<section class="report-section" id="sec-13-product-hunt-ai">
+  <div class="section-head">
+    <div>
+      <div class="section-kicker">Bölümler 13</div>
+      <h2># Product Hunt AI</h2>
+    </div>
+    <a class="ghost-button" href="#sec-13-product-hunt-ai">#</a>
+  </div>
+  <div class="rendered-markdown"><p>⚠️ KAT-9 kısmi kaynak hatası: <a href="https://www.producthunt.com/">Product Hunt</a> doğrudan fetch isteğine 403 verdi. Alternatif kaynakta oy ve gün sıralaması doğrulanamadığı için ürün eklenmedi.</p>
+<hr></div>
+</section>
+<section class="report-section" id="sec-14-turk-tech-sahnesi">
+  <div class="section-head">
+    <div>
+      <div class="section-kicker">Bölümler 14</div>
+      <h2>🇹🇷 Türk Tech Sahnesi</h2>
+    </div>
+    <a class="ghost-button" href="#sec-14-turk-tech-sahnesi">#</a>
+  </div>
+  <div class="rendered-markdown"><p>Bu dönemde Türkiye bağlantılı özel gelişme tespit edilmedi. Son 48 saatlik <a href="https://news.google.com/search?q=Türkiye%20yapay%20zeka%20when%3A2d&amp;amp;hl=tr&amp;amp;gl=TR&amp;amp;ceid=TR%3Atr">Google Haberler Türkiye AI akışında</a> bazı ikincil haberler bulundu; ancak Top 7 veya teknik bulgulara girecek birincil kaynaklı materyal yenilik doğrulanamadı.</p>
+<hr></div>
+</section>
+<section class="report-section" id="sec-15-oracle-self-improvement-sinyalleri">
+  <div class="section-head">
+    <div>
+      <div class="section-kicker">Bölümler 15</div>
+      <h2>🧠 Oracle Self-Improvement Sinyalleri</h2>
+    </div>
+    <a class="ghost-button" href="#sec-15-oracle-self-improvement-sinyalleri">#</a>
+  </div>
+  <div class="rendered-markdown"><div class="table-wrap"><table><thead><tr><th>#</th><th>Bulgu</th><th>Kaynak</th><th>Uygulama Alanı</th><th>Efor</th></tr></thead><tbody><tr><td>1</td><td>[INFERENCE] Video araştırma pipeline’ı sabit frame sampling yerine hedefe yönelik scan/inspect döngüsüne geçerse token ve maliyet azalabilir.</td><td><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-agentic-video-in-gemini/">KAT-1</a></td><td>Video-watcher / multimodal research</td><td>Orta</td></tr><tr><td>2</td><td>[INFERENCE] Agent’ın PR onayı verebildiği iş akışlarında insan-review gereksinimi ile agent-review sonucu ayrı policy sinyalleri olarak tutulmalı.</td><td><a href="https://github.blog/changelog/2026-09-01-copilot-code-review-can-now-approve-pull-requests/">KAT-2</a></td><td>Verification gate / reviewer governance</td><td>Orta</td></tr><tr><td>3</td><td>[INFERENCE] Agent kanıt paketlerine ekran görüntüsü ve kısa video eklemek, UI ve browser görevlerinin tekrarlanabilirliğini artırabilir.</td><td><a href="https://github.blog/changelog/2026-09-01-github-cli-media-in-issues-pull-requests-and-comments/">KAT-7</a></td><td>Issue/PR evidence pipeline</td><td>Küçük</td></tr></tbody></table></div>
+<hr></div>
+</section>
+<section class="report-section" id="sec-16-cikcik-paketi-muxamos-sesi">
+  <div class="section-head">
+    <div>
+      <div class="section-kicker">Bölümler 16</div>
+      <h2>🐦 CikCik Paketi (@muxamos sesi)</h2>
+    </div>
+    <a class="ghost-button" href="#sec-16-cikcik-paketi-muxamos-sesi">#</a>
+  </div>
+  <div class="rendered-markdown"></div>
+</section>
+<section class="report-section" id="sec-17-tweetler-3-5-adet">
+  <div class="section-head">
+    <div>
+      <div class="section-kicker">Bölümler 17</div>
+      <h2># Tweetler (3–5 adet)</h2>
+    </div>
+    <a class="ghost-button" href="#sec-17-tweetler-3-5-adet">#</a>
+  </div>
+  <div class="rendered-markdown"><p><strong>Tweet 1 (Konu: Claude 5.1):</strong></p>
+<blockquote><p>Claude tarafında “daha büyük context”ten daha kritik değişiklik: 1M context + 128k output + always-on thinking. Ama tool_choice kırılımına dikkat; yeni model, eski entegrasyona drop-in değil.</p></blockquote>
+<p>Kaynak: <a href="https://platform.claude.com/docs/en/release-notes/overview">https://platform.claude.com/docs/en/release-notes/overview</a></p>
+<p><strong>Tweet 2 (Konu: Astra):</strong></p>
+<blockquote><p>AI siber güvenlikte yeni eşik: OpenAI, Astra’yı “Critical” seviyede sınıflandırdı. Benchmark sonucu kadar önemli tarafı şu: erişim, eval ve containment artık model ürününün ayrılmaz parçası.</p></blockquote>
+<p>Kaynak: <a href="https://openai.com/index/path-to-astra/">https://openai.com/index/path-to-astra/</a></p>
+<p><strong>Tweet 3 (Konu: Gemini video):</strong></p>
+<blockquote><p>Uzun videoyu her saniyesiyle modele yedirmek yerine, modele “nereye bakacağını” seçtirmek: Gemini’nin agentic video yaklaşımı tokenı %88’e kadar azaltıyor. Multimodal agent tasarımında asıl sıçrama bu.</p></blockquote>
+<p>Kaynak: <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-agentic-video-in-gemini/">https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-agentic-video-in-gemini/</a></p>
+<p><strong>Tweet 4 (Konu: Copilot PR onayı):</strong></p>
+<blockquote><p>Copilot artık PR’a sadece yorum bırakmıyor; izin verilirse merge şartına sayılan onay verebiliyor. “AI review kullanalım mı?” sorusu bitti. Yeni soru: AI onayının policy ağırlığı ne olmalı?</p></blockquote>
+<p>Kaynak: <a href="https://github.blog/changelog/2026-09-01-copilot-code-review-can-now-approve-pull-requests/">https://github.blog/changelog/2026-09-01-copilot-code-review-can-now-approve-pull-requests/</a></p>
+<p><strong>Tweet 5 (Konu: Rosetta):</strong></p>
+<blockquote><p>macOS 27, Rosetta’nın son durağı. Yıllardır “sonra native’e geçiririz” denilen Intel-only araçlar için takvim artık teorik değil. Envanterde görünmeyen eski binary, bir sonraki platform arızası olabilir.</p></blockquote>
+<p>Kaynak: <a href="https://developer.apple.com/news/?id=w5ngl9k2">https://developer.apple.com/news/?id=w5ngl9k2</a></p></div>
+</section>
+<section class="report-section" id="sec-18-reply-firsatlari-2-3">
+  <div class="section-head">
+    <div>
+      <div class="section-kicker">Bölümler 18</div>
+      <h2># Reply Fırsatları (2–3)</h2>
+    </div>
+    <a class="ghost-button" href="#sec-18-reply-firsatlari-2-3">#</a>
+  </div>
+  <div class="rendered-markdown"><p><strong>@github altına (Copilot approval):</strong></p>
+<blockquote><p>Approval assessment faydalı; ama agent onaylarının required-review politikasında insan onayından ayrı izlenmesi ve audit log’da açıkça ayrıştırılması kritik olacak.</p></blockquote>
+<p>Kaynak: <a href="https://github.blog/changelog/2026-09-01-copilot-code-review-can-now-approve-pull-requests/">https://github.blog/changelog/2026-09-01-copilot-code-review-can-now-approve-pull-requests/</a></p>
+<p><strong>@GoogleDeepMind altına (Agentic video):</strong></p>
+<blockquote><p>En değerli taraf kalite artışından çok seçici gözlem döngüsü olabilir. Aynı “önce ara, sonra ayrıntılı incele” modeli uzun doküman ve log analizine de taşınabilir.</p></blockquote>
+<p>Kaynak: <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-agentic-video-in-gemini/">https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-agentic-video-in-gemini/</a></p>
+<p><strong>@OpenAI altına (Astra):</strong></p>
+<blockquote><p>Model capability eval’leriyle deployment safeguard’larının aynı açıklamada verilmesi doğru yön. Kritik soru, sınırlı erişim genişlerken containment ölçümlerinin nasıl raporlanacağı.</p></blockquote>
+<p>Kaynak: <a href="https://openai.com/index/path-to-astra/">https://openai.com/index/path-to-astra/</a></p></div>
+</section>
+<section class="report-section" id="sec-19-gunun-hook-u">
+  <div class="section-head">
+    <div>
+      <div class="section-kicker">Bölümler 19</div>
+      <h2># Günün Hook&#x27;u</h2>
+    </div>
+    <a class="ghost-button" href="#sec-19-gunun-hook-u">#</a>
+  </div>
+  <div class="rendered-markdown"><blockquote><p>Model artık sadece cevap vermiyor; videoda nereye bakacağına, PR’ın onaylanıp onaylanmayacağına ve hangi güvenlik açığının sömürülebileceğine karar veriyor. <a href="https://openai.com/index/path-to-astra/">Kaynak</a></p></blockquote>
+<hr></div>
+</section>
+<section class="report-section" id="sec-20-ai-yetkin-x-hesaplari-son-24-saat">
+  <div class="section-head">
+    <div>
+      <div class="section-kicker">Bölümler 20</div>
+      <h2>🧠 AI Yetkin X Hesapları — Son 24 Saat</h2>
+    </div>
+    <a class="ghost-button" href="#sec-20-ai-yetkin-x-hesaplari-son-24-saat">#</a>
+  </div>
+  <div class="rendered-markdown"><blockquote><p>Durum: <strong>unavailable</strong> · Snapshot: <code>2026-09-01T22:18:10Z</code> · Hesap: 0 · Çağrı: 0/0</p></blockquote>
+<div class="table-wrap"><table><thead><tr><th>Hesap</th><th>Paylaşım Özeti</th><th>Neden Önemli</th><th>Zaman</th><th>Kaynak</th></tr></thead><tbody></tbody></table></div>
+<p>| — | Veri yok (unavailable) | Snapshot kullanılamıyor; bölüm korunarak veri yokluğu açıkça gösterildi. | — | — |## 📊 Kaynak &amp; Durum Özeti</p>
+<div class="table-wrap"><table><thead><tr><th>Kategori</th><th>Kaynak</th><th>Durum</th><th>Madde</th></tr></thead><tbody><tr><td>KAT-1</td><td><a href="https://platform.claude.com/docs/en/release-notes/overview">Anthropic</a>, <a href="https://openai.com/news/rss.xml">OpenAI</a>, <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-agentic-video-in-gemini/">Google</a></td><td>✅</td><td>4</td></tr><tr><td>KAT-2</td><td><a href="https://github.blog/changelog/">GitHub Changelog</a>, <a href="https://github.com/trending">GitHub Trending</a></td><td>✅</td><td>3</td></tr><tr><td>KAT-3</td><td><a href="https://arxiv.org/list/cs.LG/recent">arXiv</a>, <a href="https://huggingface.co/papers/date/2026-09-01">HF Daily Papers</a></td><td>✅</td><td>3</td></tr><tr><td>KAT-4</td><td><a href="https://simonwillison.net/">Simon Willison</a></td><td>⚠️ X hesaplarının çoğu doğrulanamadı</td><td>1</td></tr><tr><td>KAT-5</td><td><a href="https://www.reddit.com/r/MachineLearning/">Reddit MachineLearning</a></td><td>❌ API 403; 500+ eşik doğrulanamadı</td><td>0</td></tr><tr><td>KAT-6</td><td><a href="https://x.com/">X</a></td><td>❌ Arama/engagement doğrulaması yok</td><td>0</td></tr><tr><td>KAT-7</td><td><a href="https://developer.apple.com/news/">Apple Developer</a>, <a href="https://blog.mozilla.org/en/">Mozilla</a>, <a href="https://github.blog/changelog/">GitHub</a></td><td>✅</td><td>3</td></tr><tr><td>KAT-8</td><td><a href="https://www.worldlabs.ai/blog/atlas">World Labs</a>, <a href="https://arxiv.org/abs/2608.30439">arXiv</a>, <a href="https://huggingface.co/blog/webgpu-kernels">Hugging Face</a></td><td>✅</td><td>3</td></tr><tr><td>KAT-9</td><td><a href="https://hn.algolia.com/">HN Algolia</a>, <a href="https://github.com/trending">GitHub Trending</a>, <a href="https://www.producthunt.com/">Product Hunt</a></td><td>⚠️ Product Hunt 403</td><td>8</td></tr></tbody></table></div>
+<p><strong>Toplam dedupe elenen:</strong> 0 madde | <strong>Yeni madde:</strong> 25 | <strong>Sonraki temizlik:</strong> 2026-09-05 01:02 İST</p>
+<hr>
+<p><em>Rapor: Gece Araştırma v2 · 2026-09-02 01:02 İST · Oracle 🦉</em></p></div>
+</section>
+      </div>
+    </section>
+  </main>
+  <footer class="shell footer">
+    <div class="footer-card">
+      <p>Oracle gece araştırma arşivi, Türkçe asıl içerik korunur. EN/ES authored varyantlar varsa kullanılır, yoksa fallback çeviri devreye girer.</p>
+      <p>2026-09-02 21:44 UTC</p>
+    </div>
+  </footer>
+  <button class="back-to-top" type="button" data-back-top aria-label="Back to top">↑</button>
 </body>
 </html>
