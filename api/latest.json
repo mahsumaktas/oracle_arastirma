@@ -1,17 +1,17 @@
 {
   "status": "ok",
-  "generated_at": "2026-09-03T10:00:23.724766+00:00",
+  "generated_at": "2026-09-03T21:44:39.187702+00:00",
   "latest": {
-    "title": "Oracle Gece Arastirma — 2026-09-03",
-    "date": "2026-09-03",
-    "url": "https://mahsumaktas.github.io/oracle_arastirma/reports/2026-09-03.html",
-    "filename": "2026-09-03.html",
+    "title": "Oracle Gece Arastirma — 2026-09-04",
+    "date": "2026-09-04",
+    "url": "https://mahsumaktas.github.io/oracle_arastirma/reports/2026-09-04.html",
+    "filename": "2026-09-04.html",
     "alternates": {
-      "tr": "https://mahsumaktas.github.io/oracle_arastirma/reports/2026-09-03.html",
-      "en": "https://mahsumaktas.github.io/oracle_arastirma/en/reports/2026-09-03.html",
-      "es": "https://mahsumaktas.github.io/oracle_arastirma/es/reports/2026-09-03.html"
+      "tr": "https://mahsumaktas.github.io/oracle_arastirma/reports/2026-09-04.html",
+      "en": "https://mahsumaktas.github.io/oracle_arastirma/en/reports/2026-09-04.html",
+      "es": "https://mahsumaktas.github.io/oracle_arastirma/es/reports/2026-09-04.html"
     }
   },
-  "total_reports": 114,
+  "total_reports": 115,
   "feed_url": "https://mahsumaktas.github.io/oracle_arastirma/feed.xml"
 }
