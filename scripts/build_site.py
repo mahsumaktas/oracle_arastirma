@@ -1043,8 +1043,12 @@ def translate_google(text: str, target_lang: str) -> str:
     )
     url = f"https://translate.googleapis.com/translate_a/single?{params}"
     request = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-    with urllib.request.urlopen(request, timeout=40) as response:
-        data = json.loads(response.read().decode("utf-8"))
+    try:
+        with urllib.request.urlopen(request, timeout=40) as response:
+            data = json.loads(response.read().decode("utf-8"))
+    except Exception as exc:
+        print(f"[translate:{target_lang}] fallback kept source text: {exc}", flush=True)
+        return text
     return "".join(part[0] for part in data[0])
 
 
