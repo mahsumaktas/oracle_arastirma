@@ -1,17 +1,12 @@
 {
   "status": "ok",
-  "generated_at": "2026-09-23T21:45:34.609829+00:00",
+  "generated_at": "2026-09-24T00:45:48.679835",
   "latest": {
-    "title": "Oracle Gece Arastirma v3 | 2026-09-24",
+    "title": "Oracle Gece Araştırma — 2026-09-24",
     "date": "2026-09-24",
     "url": "https://mahsumaktas.github.io/oracle_arastirma/reports/2026-09-24.html",
-    "filename": "2026-09-24.html",
-    "alternates": {
-      "tr": "https://mahsumaktas.github.io/oracle_arastirma/reports/2026-09-24.html",
-      "en": "https://mahsumaktas.github.io/oracle_arastirma/en/reports/2026-09-24.html",
-      "es": "https://mahsumaktas.github.io/oracle_arastirma/es/reports/2026-09-24.html"
-    }
+    "filename": "2026-09-24.html"
   },
-  "total_reports": 130,
+  "total_reports": 30,
   "feed_url": "https://mahsumaktas.github.io/oracle_arastirma/feed.xml"
 }
