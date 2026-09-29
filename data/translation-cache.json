@@ -8581,5 +8581,13 @@
   "c14f2b6b2c076f49234bb08e9c6af205a78544b48194ef975cc0cd7ab85671bc": "## KAT-6 Endustri & Sirketler",
   "017b26447fbfb72d82b9fb086bf5737daf19db8ad7080ed2ee8907952dd81891": "## KAT-7 AI Agent'lar",
   "423d7b722b71d78b482456e49c05f92c6756bbe92fdbe53ff7dd2c4c02a59180": "## KAT-8 Multimodal",
-  "deb5e343309fcc303ff7f8f49da348eb92cb3e2e3d4b85b249695a6e0d7386c0": "## KAT-9 Robotik & Embodied AI"
+  "deb5e343309fcc303ff7f8f49da348eb92cb3e2e3d4b85b249695a6e0d7386c0": "## KAT-9 Robotik & Embodied AI",
+  "ee1d4aacab41ac00a300074220623d0eca688ecc44b86f0ed970448cadcb7714": "# Oracle Ogle Check-in\n## 2026-09-29 13:00\n\n---\n### Cozulmemis Maddeler\n\n  Sabah briefing'den 2 acik uyari:\n  **UYARI:** Son 24h gateway error sayisi: 11\n  **UYARI:** 298 session >1MB — arsivlenmeli\n\n---\n### Yeni Uyarilar\n\n  Gateway: RUNNING (PID: 13567)\n\n---\n### Cognitive Scheduler Events\nNo cognitive scheduler events in last 6 hours.\n\n---\n### Quick Stats\n\n  Gateway: RUNNING (PID: 13567) | Uptime: 12-01:03:01\n  Disk: 33% dolu (24Gi bos)\n### 6. METRIKLER (24h)\n\n  Tasks: 0 | Basari: 0% | Maliyet: $0\n\n---\n\n*Oracle check-in tamamlandi — 13:00:00*\n",
+  "d1c1a22b60cd492d467a16c897e0089c085ca4fd69d60563710d84a228e72136": "## 2026-09-29 13:00",
+  "6a4877e57493b97ec372e1def0bacadc613b202217b589f4cea5286ff58bdbff": "Sabah briefing'den 2 acik uyari:\n  **UYARI:** Son 24h gateway error sayisi: 11\n  **UYARI:** 298 session >1MB — arsivlenmeli\n\n---",
+  "2078b0ee32bc9b3cc7f5a373cf498c7ed9f6cf4df182d9d8831a59eb41792963": "Gateway: RUNNING (PID: 13567) | Uptime: 12-01:03:01\n  Disk: 33% dolu (24Gi bos)",
+  "bccf93b3e274379c4471f90654dde078b7ed0e5046485042b79134a2435dd960": "# Oracle Ogle Check-in\n## 2026-09-29 13:00\n\n---\n### Cozulmemis Maddeler\n\n  Sabah briefing'den 2 acik uyari:\n  **UYARI:** Son 24h gateway error sayisi: 11\n  **UYARI:** 298 session >1MB — arsivlenmeli\n\n---\n### Yeni Uyarilar\n\n  Gateway: RUNNING (PID: 13567)\n\n---\n### Cognitive Scheduler Events\nNo cognitive scheduler events in last 6 hours.\n\n---\n### Quick Stats\n\n  Gateway: RUNNING (PID: 13567) | Uptime: 12-01:03:01\n  Disk: 33% dolu (24Gi bos)\n### 6. METRIKLER (24h)\n\n  Tasks: 0 | Basari: 0% | Maliyet: $0\n\n---\n\n*Oracle check-in tamamlandi — 13:00:00*\n",
+  "38c03e0942f51c1714a2ca4c9c412787312bb68116f9720e43be8ef608951572": "## 2026-09-29 13:00",
+  "f799d499450a15daf85b93326b439948ea9cb1b7181d30a4688d1e77a5164c3a": "Sabah briefing'den 2 acik uyari:\n  **UYARI:** Son 24h gateway error sayisi: 11\n  **UYARI:** 298 session >1MB — arsivlenmeli\n\n---",
+  "1e17c8c9041df3b73d1db8e381ee3ce26b4dfb9ffc5085b8fe835c5cd5839e68": "Gateway: RUNNING (PID: 13567) | Uptime: 12-01:03:01\n  Disk: 33% dolu (24Gi bos)"
 }
