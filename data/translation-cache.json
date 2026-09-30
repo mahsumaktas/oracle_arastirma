@@ -8611,5 +8611,13 @@
   "9a0c3b140b03cd1f5481057c938aa9c618963be1099126568bc6bf1d12425d60": "## KAT-5 — Reguelasyon ve Etik / Regulation",
   "ae15613ab936db33a37c9fe01850e0456b60fefb7b21fb03f9f26e1f870dc1b0": "## KAT-6 — Teknik Gelismeler / Core AI",
   "f7182d93a4744adb6926d9b0949f4f48836f41f29f8bd854a2d73bf15ac81524": "## KAT-7 — Araclar, Framework'ler ve Engineering",
-  "4dfff83725209174ce35c99e8faf7139f3c771ea9cca40eaa617e283cddcd4ce": "## KAT-9 — Genel Trendler / Meta"
+  "4dfff83725209174ce35c99e8faf7139f3c771ea9cca40eaa617e283cddcd4ce": "## KAT-9 — Genel Trendler / Meta",
+  "4fdb57abba45eccf99454de9dbcac2c246955ecd7f57b6553069036e0b7a8674": "# Oracle Ogle Check-in\n## 2026-09-30 13:00\n\n---\n### Cozulmemis Maddeler\n\n  Sabah briefing'den 2 acik uyari:\n  **UYARI:** Son 24h gateway error sayisi: 11\n  **UYARI:** 300 session >1MB — arsivlenmeli\n\n---\n### Yeni Uyarilar\n\n  Gateway: RUNNING (PID: 13567)\n\n---\n### Cognitive Scheduler Events\nNo cognitive scheduler events in last 6 hours.\n\n---\n### Quick Stats\n\n  Gateway: RUNNING (PID: 13567) | Uptime: 13-01:03:02\n  Disk: 35% dolu (22Gi bos)\n### 6. METRIKLER (24h)\n\n  Tasks: 0 | Basari: 0% | Maliyet: $0\n\n---\n\n*Oracle check-in tamamlandi — 13:00:01*\n",
+  "12b53fdf0befc5a746f05a5f66d269310bb3419f7540c0feb3e67b829ae19bd1": "## 2026-09-30 13:00",
+  "1a9ab1c97106d55ba989c86da4ea11caca0f5871e86d82e50fc1ae910c6e39a0": "Sabah briefing'den 2 acik uyari:\n  **UYARI:** Son 24h gateway error sayisi: 11\n  **UYARI:** 300 session >1MB — arsivlenmeli\n\n---",
+  "d6a39a39a770db54a4fa110ac42becbc79c095097d22a258be469c2e22f34a8b": "Gateway: RUNNING (PID: 13567) | Uptime: 13-01:03:02\n  Disk: 35% dolu (22Gi bos)",
+  "5a3bede2b146bba61c64ca23f5c03d7c695085de627e9ff11f6de87826970284": "# Oracle Ogle Check-in\n## 2026-09-30 13:00\n\n---\n### Cozulmemis Maddeler\n\n  Sabah briefing'den 2 acik uyari:\n  **UYARI:** Son 24h gateway error sayisi: 11\n  **UYARI:** 300 session >1MB — arsivlenmeli\n\n---\n### Yeni Uyarilar\n\n  Gateway: RUNNING (PID: 13567)\n\n---\n### Cognitive Scheduler Events\nNo cognitive scheduler events in last 6 hours.\n\n---\n### Quick Stats\n\n  Gateway: RUNNING (PID: 13567) | Uptime: 13-01:03:02\n  Disk: 35% dolu (22Gi bos)\n### 6. METRIKLER (24h)\n\n  Tasks: 0 | Basari: 0% | Maliyet: $0\n\n---\n\n*Oracle check-in tamamlandi — 13:00:01*\n",
+  "1e5743febc97b66c41530ce6b66d2f3888068ab3fc8c90da498c206ee8f5838b": "## 2026-09-30 13:00",
+  "140e9fc75e1c37fe7f78c1179a79b25bdbac47fa11cc0b5f84474c0fcb1234f1": "Sabah briefing'den 2 acik uyari:\n  **UYARI:** Son 24h gateway error sayisi: 11\n  **UYARI:** 300 session >1MB — arsivlenmeli\n\n---",
+  "5920d509764b90ccd17808fc97aaa176100f85165d37d57c3951d8f69cdfe2c2": "Gateway: RUNNING (PID: 13567) | Uptime: 13-01:03:02\n  Disk: 35% dolu (22Gi bos)"
 }
