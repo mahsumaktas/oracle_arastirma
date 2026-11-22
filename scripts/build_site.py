@@ -2446,12 +2446,14 @@ def main() -> None:
     write_text(ROOT / "raw" / "index.html", render_raw_index("tr", reports_by_lang, generated_at_label))
     write_text(EN_DIR / "raw" / "index.html", render_raw_index("en", reports_by_lang, generated_at_label))
     write_text(ES_DIR / "raw" / "index.html", render_raw_index("es", reports_by_lang, generated_at_label))
-    write_text(ROOT / "briefings" / "index.html", render_collection_index_page("tr", "briefings", briefings_by_lang, generated_at_label))
-    write_text(EN_DIR / "briefings" / "index.html", render_collection_index_page("en", "briefings", briefings_by_lang, generated_at_label))
-    write_text(ES_DIR / "briefings" / "index.html", render_collection_index_page("es", "briefings", briefings_by_lang, generated_at_label))
-    write_text(ROOT / "briefings" / "raw" / "index.html", render_collection_raw_index("tr", "briefings", briefings_by_lang, generated_at_label))
-    write_text(EN_DIR / "briefings" / "raw" / "index.html", render_collection_raw_index("en", "briefings", briefings_by_lang, generated_at_label))
-    write_text(ES_DIR / "briefings" / "raw" / "index.html", render_collection_raw_index("es", "briefings", briefings_by_lang, generated_at_label))
+    # 22 Kas 2026: ogle notlari (briefings) siteye alinmiyor; kaynak klasor bos ise sayfa uretilmez.
+    if source_briefings:
+        write_text(ROOT / "briefings" / "index.html", render_collection_index_page("tr", "briefings", briefings_by_lang, generated_at_label))
+        write_text(EN_DIR / "briefings" / "index.html", render_collection_index_page("en", "briefings", briefings_by_lang, generated_at_label))
+        write_text(ES_DIR / "briefings" / "index.html", render_collection_index_page("es", "briefings", briefings_by_lang, generated_at_label))
+        write_text(ROOT / "briefings" / "raw" / "index.html", render_collection_raw_index("tr", "briefings", briefings_by_lang, generated_at_label))
+        write_text(EN_DIR / "briefings" / "raw" / "index.html", render_collection_raw_index("en", "briefings", briefings_by_lang, generated_at_label))
+        write_text(ES_DIR / "briefings" / "raw" / "index.html", render_collection_raw_index("es", "briefings", briefings_by_lang, generated_at_label))
 
     for lang, reports in reports_by_lang.items():
         base_dir = ROOT if lang == "tr" else ROOT / lang
