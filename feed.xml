@@ -5,10 +5,17 @@
     <link>https://mahsumaktas.github.io/oracle_arastirma/</link>
     <description>Günlük AI ve teknoloji araştırma raporu</description>
     <language>tr</language>
-    <lastBuildDate>Thu, 26 Nov 2026 03:13:59 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2026 22:16:42 +0000</lastBuildDate>
     <atom:link href="https://mahsumaktas.github.io/oracle_arastirma/feed.xml" rel="self" type="application/rss+xml"/>
     <generator>oracle_arastirma/scripts/build_site.py</generator>
 
+    <item>
+      <title>Yapay Zekada Bugun — 2026-11-27</title>
+      <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-11-27.html</link>
+      <guid isPermaLink="true">https://mahsumaktas.github.io/oracle_arastirma/reports/2026-11-27.html</guid>
+      <pubDate>Fri, 27 Nov 2026 01:00:00 +0000</pubDate>
+      <description>Yapay zekâ araçlarında yalnız modelin başarısı değil, faturanın kime yazıldığı ve hizmet kesilince işin nasıl sürdürüleceği de önemli. Bugünün seçkisinde yaklaşan bir Copilot ayarı, güvenlik olayları ve yerel model hı...</description>
+    </item>
     <item>
       <title>Gece Araştırma v3 — 26 Kasım 2026</title>
       <link>https://mahsumaktas.github.io/oracle_arastirma/reports/2026-11-26.html</link>
